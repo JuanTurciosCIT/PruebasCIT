@@ -1,0 +1,70 @@
+@use './variables.scss' as *;
+
+// Colors
+.mainBackground {
+  background-color: $primaryBackgroundColor;
+}
+
+.secondaryBackground {
+  background-color: $secondBackgroundColor;
+}
+
+.mainColor {
+  color: #FFFFFF;
+}
+
+// Typography
+.textStyles {
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.textSmall {
+  @extend .textStyles;
+  font-size: 14px;
+  line-height: 100%;
+  /* or 14px */
+
+  letter-spacing: -0.011em;
+}
+
+.textMedium {
+  @extend .textStyles;
+
+  font-size: 18px;
+  line-height: 160%;
+}
+
+.headingStyles {
+  font-family: $headingFont;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.headingLarge {
+  @extend .headingStyles;
+
+  font-size: 50px;
+  line-height: 120%;
+}
+
+.headingMedium {
+  @extend .headingStyles;
+  
+  font-size: 36px;
+  line-height: 100%;
+  /* or 36px */
+  
+  text-transform: capitalize;
+}
+
+.headingSmall {
+  @extend .headingStyles;
+
+  font-size: 20px;
+  line-height: 100%;
+  /* or 20px */
+
+  text-transform: capitalize;
+}
