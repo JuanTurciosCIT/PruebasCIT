@@ -22,6 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         {children}
       </motion.main>
+      {/* <Footer /> */}
     </div>
   );
 }
