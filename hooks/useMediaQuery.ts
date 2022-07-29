@@ -1,33 +1,22 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useEffect, useState } from 'react'
 
 /**
- * It returns a boolean value that indicates whether the current viewport width is greater than or
- * equal to the width passed in as an argument.
- * @param {number} width - number - The max width to check for.
- * @returns A boolean value that is true if the media query is met.
+ * It returns a boolean value that indicates whether the media query matches the current viewport
+ * @param {string} query - string
+ * @returns A function that returns a boolean.
  */
-export const useMediaQuery = (width: number) => {
-  const [targetReached, setTargetReached] = useState(false);
-
-  const updateTarget = useCallback((e: MediaQueryListEvent) => {
-    if (!e.matches) {
-      setTargetReached(false);
-    }
-    
-    setTargetReached(true);
-  }, []);
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addEventListener('change', (e: MediaQueryListEvent) => updateTarget(e));
+    const mediaQueryList = window.matchMedia(query);
+    const listener = () => setMatches(mediaQueryList.matches);
 
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) {
-      setTargetReached(true);
-    }
+    listener();
+    mediaQueryList.addListener(listener);
+    
+    return () => mediaQueryList.removeListener(listener);
+  }, [query])
 
-    return () => media.removeEventListener('change', (e: MediaQueryListEvent) => updateTarget(e))
-  }, []);
-
-  return targetReached;
-};
+  return matches;
+}
