@@ -14,9 +14,11 @@ import MobileMenu from "./MobileMenu";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export default function Header() {
-  const [dropdownMenu, setDropdownMenu] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false);
-  const isMobile: boolean = useMediaQuery(425);
+  const [dropdownMenu, setDropdownMenu] = useState<boolean>(false);
+  const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+
+  // before 428px viewport width is mobile
+  const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 
   const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
   const toggleMobileMenu = () => setMobileMenu(!mobileMenu);
