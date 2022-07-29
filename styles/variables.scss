@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Nexa';
+  src: url('../public/fonts/Nexa/Commercial/Nexa_V1_2012/Nexa\ Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+
 // CIT colors
 $primaryBackgroundColor: #1F1F1F;
-$secondBackgroundColor: rgba(rgba(31, 31, 31, 1), 0.8);
+$secondBackgroundColor: rgba(31, 31, 31, 0.8);
 
 $primaryColor: '#F58523';
 $secondaryColor: '#BD4E80';
@@ -8,4 +15,4 @@ $thirdColor: '#2ABCDA';
 
 // CIT typography
 $mainFont: 'Lato', sans-serif;
-$headingFont: 'Poppins', sans-serif; // This one is similar to Nexa Bold, but I don't have it
+$headingFont: 'Nexa', sans-serif;
