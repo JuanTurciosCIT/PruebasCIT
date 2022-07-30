@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   background: $secondBackgroundColor;
-  color: white;
+  color: $primaryTextColor;
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +57,7 @@
   border: transparent solid 2px;
   border-radius: 0.4rem;
   background-color: transparent;
-  color: white;
+  color: $primaryTextColor;
 
   &:hover {
     cursor: pointer;
@@ -80,7 +80,7 @@
   button {
     background-color: transparent;
     border: none;
-    color: white;
+    color: $primaryTextColor;
     font-size: 1.6rem;
     font-weight: bold;
     padding: 0;

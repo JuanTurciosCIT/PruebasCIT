@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as *;
+
 .btnWrapper {
   border-radius: 0.5rem;
 }
@@ -10,7 +12,7 @@
   line-height: 100%;
   text-align: center;
   text-transform: capitalize;
-  color: white;
+  color: $primaryTextColor;
   // width: 141px;
   // height: 51px;
   border: solid 2px;

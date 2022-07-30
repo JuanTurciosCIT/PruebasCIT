@@ -9,10 +9,6 @@
   background-color: $secondBackgroundColor;
 }
 
-.mainFontColor {
-  color: #FFFFFF;
-}
-
 // Typography
 .textStyles {
   font-family: $mainFont;
@@ -52,7 +48,7 @@
 .headingMedium {
   @extend .headingStyles;
   
-  font-size: 3.6rem;
+  font-size: 2.2rem;
   line-height: 100%;
   /* or 36px */
   
@@ -73,6 +69,9 @@
   .headingLarge {
     font-size: 4rem;
     line-height: 5rem;
+  }
+  .headingMedium {
+    font-size: 3rem;
   }
   .textSmall {
     font-size: 1.6rem;

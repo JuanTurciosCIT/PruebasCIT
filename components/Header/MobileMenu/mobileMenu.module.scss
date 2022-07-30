@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
   gap: 6rem;
-  color: #fff;
+  color: $primaryTextColor;
 
   .navMenu {
     display: flex;
@@ -56,7 +56,7 @@
   border: transparent solid 2px;
   border-radius: 0.4rem;
   background-color: transparent;
-  color: white;
+  color: $primaryTextColor;
 }
 
 .dropDownMenu {
@@ -75,7 +75,7 @@
   button {
     background-color: transparent;
     border: none;
-    color: white;
+    color: $primaryTextColor;
     font-size: 1.6rem;
     font-weight: bold;
     padding: 0;
