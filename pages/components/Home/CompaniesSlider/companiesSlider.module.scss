@@ -1,0 +1,49 @@
+@use '../../../../styles/variables.scss' as *;
+
+.container {
+  background-color: $primaryBackgroundColor;
+  color: $primaryTextColor;
+  padding: 6rem 0 6rem 0;
+}
+
+.sliderContainer {
+  :global(.swiper-pagination-bullets) {
+    transform: translate(-50%, 1rem) !important;
+  }
+  :global(.swiper-pagination-bullet) {
+    width: 12px;
+    height: 12px;
+    background-color: $thirdBackgroundColor;
+    opacity: 1;
+  }
+  :global(.swiper-pagination-bullet-active) {
+    width: 8.54px;
+    height: 8.54px;
+    background-color: $primaryTextColor;
+  }
+
+  .logoContainer {
+    height: 6rem;
+    display: grid;
+    place-items: center;
+    margin-block: 3.6rem;
+    padding-right: 2.2rem;
+    border-right: 1px solid $thirdBackgroundColor;
+  }
+}
+
+.subtitle {
+  padding-inline: 6rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 428px) {
+  .sliderContainer {
+    margin: 0 auto;
+    max-width: 70%;
+  }
+  .logoContainer {
+    margin-block: 4.4rem;
+    padding: 4rem 3.2rem 4rem 0;
+  }
+}
