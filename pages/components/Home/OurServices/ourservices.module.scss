@@ -1,0 +1,89 @@
+@use '../../../../styles/variables.scss' as *;
+
+.servicesSection {
+  padding-inline: calc(3.7rem - 2.1rem); // 21px (2.1rem) is the padding-inline of the entire about section
+  max-width: 111rem;
+  margin: 0 auto;
+
+  .subtitle {
+    color: $primaryTextColor;
+    margin-bottom: 3.5rem;
+  }
+
+  .servicesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .logo {
+    aspect-ratio: 1 / 1;
+    width: 7.2rem;
+    height: 7.2rem;
+    max-width: 10rem;
+    max-height: 10rem;
+  }
+
+  .serviceCard {
+    padding: 2rem;
+    padding-right: 5rem;
+    display: flex;
+    gap: 2.6rem;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 11.1rem;
+    max-width: 52rem;
+    background: linear-gradient(332.04deg, #2B2B2B -9.13%, rgba(43, 43, 43, 0.38) 93.1%);
+    box-shadow: 0px 15px 30px rgba(43, 47, 66, 0.1);
+    border-radius: 10px;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      box-shadow: 0px 15px 30px rgba(43, 47, 66, 0.2);
+      transform: translateX(1rem);
+      background: linear-gradient(332.04deg, rgba(43, 43, 43, 0.38) -9.13%, #2B2B2B   93.1%);
+      transition: all 0.3s ease-in;
+
+      .link {
+        text-decoration: underline;
+        transition: all 0.3s ease-in;
+      }
+    }
+  }
+
+  .info {
+    color: $primaryTextColor;
+  }
+
+  .desc {
+    color: $secondaryTextColor;
+  }
+
+  .link {
+    line-height: 1.2rem;
+    letter-spacing: normal;
+    display: inline-flex;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 428px) {
+  .servicesSection {
+    .serviceCard {
+      height: 20rem;
+      padding-left: 7.5rem;
+      padding-block: 5rem;
+      padding-right: 10rem;
+    }
+  
+    .servicesWrapper {
+      gap: 3.1rem;
+    }
+    .logo {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+}
