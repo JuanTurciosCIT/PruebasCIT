@@ -16,6 +16,14 @@
   font-weight: 400;
 }
 
+.textTiny {
+  @extend .textStyles;
+
+  font-size: 1.2rem;
+  line-height: 16.8px;
+  letter-spacing: -1.9%;
+}
+
 .textSmall {
   @extend .textStyles;
   font-size: 1.4rem;
@@ -58,11 +66,11 @@
 .headingSmall {
   @extend .headingStyles;
 
-  font-size: 2rem;
-  line-height: 100%;
+  font-family: $headingSmallFont;
+  font-size: 1.5rem;
+  line-height: 22px;
   /* or 20px */
 
-  text-transform: capitalize;
 }
 
 @media screen and (min-width: 428px) {
@@ -73,8 +81,16 @@
   .headingMedium {
     font-size: 3rem;
   }
+  .headingSmall {
+    font-size: 1.8rem;
+    line-height: 25.2px;
+  }
   .textSmall {
     font-size: 1.6rem;
     line-height: 2.8rem;
+  }
+  .textTiny {
+    font-size: 1.4rem;
+    line-height: 1.96rem;
   }
 }
