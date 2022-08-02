@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       <div className={styles.aboutAndServices}>
         <About />
         <OurServices />
-        <div className={styles.rombo}></div>
+        <div className={styles.diamond}></div>
       </div>
     </Layout>
   )

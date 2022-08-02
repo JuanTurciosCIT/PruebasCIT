@@ -16,7 +16,7 @@
 // Decorations
 
 /* Creating a diamond shape. */
-.rombo {
+.diamond {
   position: absolute;
   width: 4.879rem;
   height: 4.879rem;
@@ -24,4 +24,11 @@
   left: 50%;
   background: $primaryBackgroundColor;
   transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+@media screen and (min-width: 428px) {
+  .diamond {
+    width: 6.223rem;
+    height: 6.223rem;
+  }
 }
