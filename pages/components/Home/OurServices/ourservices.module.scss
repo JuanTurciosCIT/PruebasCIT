@@ -1,6 +1,7 @@
 @use '../../../../styles/variables.scss' as *;
 
 .servicesSection {
+  position: relative;
   padding-inline: calc(3.7rem - 2.1rem); // 21px (2.1rem) is the padding-inline of the entire about section
   max-width: 111rem;
   margin: 0 auto;

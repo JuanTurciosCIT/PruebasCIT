@@ -10,7 +10,7 @@ import itOutsourcing from '@/images/it_outsourcing.png';
 import arrowRight from '@/svg/arrow-right.svg';
 
 export default function OurServices() {
-  return <div className={styles.servicesSection}>
+  return <section className={styles.servicesSection}>
     <h2 className={`${utils.headingMedium} ${styles.subtitle}`}>Our Services</h2>
     <div className={styles.servicesWrapper}>
 
@@ -56,5 +56,5 @@ export default function OurServices() {
         </div>
       </div>
     </div>
-  </div>
+  </section>
 }
