@@ -1,8 +1,11 @@
+@use './variables.scss' as *;
+
 .aboutAndServices {
   background: rgb(47,47,47);
-  background: -moz-linear-gradient(185deg, rgba(47,47,47,1) 36%, rgba(31,31,31,1) 100%);
-  background: -webkit-linear-gradient(185deg, rgba(47,47,47,1) 36%, rgba(31,31,31,1) 100%);
-  background: linear-gradient(185deg, rgba(47,47,47,1) 36%, rgba(31,31,31,1) 100%);
+  background: -moz-linear-gradient(185deg, rgba(47,47,47,1) 20%, rgba(31,31,31,1) 100%);
+  background: -webkit-linear-gradient(185deg, rgba(47,47,47,1) 20%, rgba(31,31,31,1) 100%);
+  background: linear-gradient(to bottom, $thirdBackgroundColor 10%, $primaryBackgroundColor 90%);
+  // background: linear-gradient(to bottom, $thirdBackgroundColor 50%, $primaryBackgroundColor 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2f2f2f",endColorstr="#1f1f1f",GradientType=1);
   padding-top: 6.2rem;
   padding-inline: 2.1rem;
