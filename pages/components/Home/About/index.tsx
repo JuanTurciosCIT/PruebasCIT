@@ -14,7 +14,7 @@ export default function About() {
 
   const playVideo = () => setShowPlaceholder(false);
 
-  return <section className={styles.aboutSection}>
+  return <div className={styles.aboutSection}>
     <h2 className={`${utils.headingMedium} ${styles.subtitle}`}>About our company</h2>
     <div className={styles.videoContainer}>
     
@@ -34,5 +34,5 @@ export default function About() {
         </button>
       )}
     </div>
-  </section>
+  </div>
 }

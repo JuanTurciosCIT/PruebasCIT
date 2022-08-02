@@ -1,5 +1,9 @@
 @use '../../../../styles/variables.scss' as *;
 
+.aboutSection {
+  margin-bottom: 8rem;
+}
+
 .subtitle {
   color: $primaryTextColor;
   text-align: center;
