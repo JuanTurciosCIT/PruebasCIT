@@ -15,10 +15,11 @@ const Home: NextPage = () => {
         <HeroHome />
       </main>
       <CompaniesSlider />
-      <section className={styles.aboutAndServices}>
+      <div className={styles.aboutAndServices}>
         <About />
         <OurServices />
-      </section>
+        <div className={styles.rombo}></div>
+      </div>
     </Layout>
   )
 }
