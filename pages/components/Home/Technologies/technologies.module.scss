@@ -1,0 +1,308 @@
+@use '../../../../styles/variables.scss' as *;
+
+.techSection {
+  background-color: $thirdBackgroundColor;
+  padding-inline: 3.7rem;
+  padding-block: 8.8rem;
+  color: $primaryTextColor;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rem;
+
+  .info {
+    max-width: 428px;
+  }
+}
+
+.title {
+  color: $primaryTextColor;
+  margin-bottom: 3.5rem;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+.description {
+  color: $secondaryTextColor;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.logo {
+  width: 5.5rem;
+  height: 5.6rem;
+}
+
+.atomContainer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 8rem auto;
+}
+
+.rings {
+  position: absolute;
+  border-radius: 50%;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+}
+
+.techSmall {
+  width: 5rem;
+  height: 5rem;
+  clip-path: circle(50% at center);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.techMedium {
+  width: 6rem;
+  height: 6rem;
+  clip-path: circle(50% at center);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.techLarge {
+  width: 8rem;
+  height: 8rem;
+  clip-path: circle(50% at center);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.innerRing {
+  @extend .rings;
+  width: 14.8rem;
+  height: 14.8rem;
+  border: 2px solid $secondaryColor;
+  z-index: 3;
+  &:hover {
+    box-shadow: 0 0 1rem 0 rgba($secondaryColor, 0.4);
+  }
+}
+
+.midRing {
+  @extend .rings;
+  width: 21.6rem;
+  height: 21.6rem;
+  background-color: transparent;
+  border: 2px solid $thirdColor;
+  &:hover {
+    box-shadow: 0 0 1rem 0 rgba($thirdColor, 0.4);
+    // animation: techsAtomReverse 42s linear infinite;
+  }
+  z-index: 2;
+
+  transform: rotate(-5deg);
+
+  .dots {
+    position: absolute;
+    width: 7.11px;
+    height: 7.11px;
+    border-radius: 50%;
+    background: #53BBE2;
+    box-shadow: 0 0 1px 4px rgba(#53BBE2, 0.4);
+  }
+
+  .dot1 {
+    @extend .dots;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    transform: translate(-50%, 0);
+  }
+  .dot2 {
+    @extend .dots;
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    transform: translate(50%, 0);
+  }
+  .dot3 {
+    @extend .dots;
+    position: absolute;
+    bottom: 25%;
+    left: 5%;
+    transform: translate(-50%, 0);
+  }
+  .dot4 {
+    @extend .dots;
+    position: absolute;
+    bottom: 25%;
+    right: 5%;
+    transform: translate(50%, 0);
+    width: 7.11px;
+  }
+  .dot5 {
+    @extend .dots;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
+
+.largerRing {
+  @extend .rings;
+  width: 29.9rem;
+  height: 29.9rem;
+  border: 2px solid $primaryColor;
+  &:hover {
+    box-shadow: 0 0 1rem 0 rgba($primaryColor, 0.4);
+  }
+  z-index: 1;
+  // animation: techsAtom 62s linear infinite;
+}
+
+
+/* Main techs only, there's a min of 10 for performance */
+.tech1 {
+  @extend .techSmall;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -40%);
+}
+
+.tech2 {
+  @extend .techSmall;
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  transform: translate(0, 50%);
+}
+
+.tech3 {
+  @extend .techSmall;
+  position: absolute;
+  left: 0;
+  bottom: 30%;
+  transform: translate(-50%, 0);
+}
+
+.tech4 {
+  @extend .techMedium;
+  position: absolute;
+  left: 20%;
+  top: 0;
+  transform: translate(0, -30%);
+}
+
+.tech5 {
+  @extend .techMedium;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-40%, 0);
+}
+
+.tech6 {
+  @extend .techLarge;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  transform: translate(-50%, 0);
+}
+
+.tech7 {
+  @extend .techLarge;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  transform: translate(50%, 0);
+}
+
+.tech8 {
+  @extend .techLarge;
+  position: absolute;
+  bottom: 0;
+  right: 20%;
+  transform: translate(40%, 40%);
+}
+
+.tech9 {
+  @extend .techLarge;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+.tech10 {
+  @extend .techLarge;
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  transform: translate(-40%, 40%);
+}
+
+/* Atom animation, rotating the element 360deg */
+
+@-webkit-keyframes techsAtom {
+  from { -webkit-transform: rotate(0deg) translateX(50%) rotate(0deg); }
+  to   { -webkit-transform: rotate(360deg) translateX(50%) rotate(-360deg); }
+}
+
+@-moz-keyframes techsAtom {
+  from { -moz-transform: rotate(0deg) translateX(50%) rotate(0deg); }
+  to   { -moz-transform: rotate(360deg) translateX(50%) rotate(-360deg); }
+}
+
+@-o-keyframes techsAtom {
+  from { -o-transform: rotate(0deg) translateX(50%) rotate(0deg); }
+  to   { -o-transform: rotate(360deg) translateX(50%) rotate(-360deg); }
+}
+
+@keyframes techsAtom {
+  from { transform: rotate(0deg) }
+  to   { transform: rotate(360deg) }
+}
+@keyframes techsAtomReverse {
+  from { transform: rotate(360deg) }
+  to   { transform: rotate(0deg) }
+}
+
+@media screen and (min-width: 428px) {
+  .techSection {
+    padding-inline: 18.5rem;
+  }
+  .logo {
+    width: 9.965rem;
+    height: 10.2rem;
+  }
+
+  .innerRing {
+    width: 25.2rem;
+    height: 25.2rem;
+  }
+  .midRing {
+    width: 38.6rem;
+    height: 38.6rem;
+  }
+  .largerRing {
+    width: 53.5rem;
+    height: 53.5rem;
+  }
+  .techSmall {
+    width: 6.2rem;
+    height: 6.2rem;
+  }
+  .techMedium {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+  .techLarge {
+    width: 9rem;
+    height: 9rem;
+  }
+}
