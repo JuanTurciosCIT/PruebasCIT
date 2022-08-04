@@ -1,0 +1,46 @@
+@use '../../../../styles/variables.scss' as *;
+
+.container{
+    background-color: $primaryBackgroundColor;
+    padding-inline: 3.7rem ;
+    padding-top: 7.4rem;
+    padding-bottom: 7.5rem;
+}
+
+.itemsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.5rem;
+}
+
+
+.subtitle {
+    color: $primaryTextColor;
+    margin: 0 auto 5rem auto;
+    text-align: center;
+}
+
+.portfolioItem1 {
+    background-color: $primaryTextColor;
+    height: 33.9rem;
+    width: 100%;
+    max-width: 44.7rem;
+    border-radius:0.8rem;
+}
+.portfolioItem2 {
+    background-color: #53BBE2
+    ;
+    height: 33.9rem;
+    width: 100%;
+    max-width: 44.7rem;
+    border-radius: 0.8rem;
+}
+
+@media screen and (min-width: 428px){
+    .container{
+        gap:2.7rem;
+    }
+    .itemsContainer{
+        justify-content: center;
+    }
+}
