@@ -1,0 +1,59 @@
+@use '../../../../styles/variables.scss' as *;
+
+
+.container {
+    background-color: $primaryBackgroundColor;
+    padding-inline: 3.7rem;
+    padding-top: 8rem;
+    padding-bottom:7.9rem;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+.itemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.title {
+    color: $primaryTextColor;
+    text-align: left;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.descriptionParagraph {
+    color: $secondaryTextColor;
+}
+
+.button {
+    background-color: transparent;
+    border: 1px solid $thirdColor;
+    border-radius: 5px;
+    width: 12.5rem;
+    height: 3.7rem;
+    box-sizing: border-box;
+    color: $primaryTextColor;
+    margin-bottom: 4rem;
+}
+
+.picture {
+    border-radius: 0.5rem;
+}
+
+@media  screen and (min-width: 428px) {
+    .container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .description {
+        width: 40%;
+    }
+    .gallery{
+        width: 40%;
+    }
+}
