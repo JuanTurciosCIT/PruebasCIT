@@ -5,6 +5,11 @@
     padding-inline: 3.7rem ;
     padding-top: 7.4rem;
     padding-bottom: 7.5rem;
+    position:relative;
+}
+
+.sliderContainer {
+    margin-bottom: 3.26rem;
 }
 
 .itemsContainer{
@@ -33,6 +38,11 @@
     width: 100%;
     max-width: 44.7rem;
     border-radius: 0.8rem;
+}
+.slideButtons {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 @media screen and (min-width: 428px){
