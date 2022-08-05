@@ -8,6 +8,9 @@ import styles from '../styles/home.module.scss';
 import About from './components/Home/About';
 import OurServices from './components/Home/OurServices';
 import Technologies from './components/Home/Technologies';
+import Portfolio from './components/Home/Portfolio';
+import CustomerFeedback from './components/Home/CustomerFeedback';
+import Gallery from './components/Home/Gallery';
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +25,9 @@ const Home: NextPage = () => {
         <div className={styles.diamond}></div>
       </div>
       <Technologies />
+      <Portfolio />
+      <CustomerFeedback />
+      <Gallery />
     </Layout>
   )
 }
