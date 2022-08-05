@@ -60,7 +60,7 @@
   }
 }
 
-@media screen and (min-width: 428px) {
+@media screen and (min-width: $breakpoint) {
   .btnWrapper {
     width: 14rem;
     height: 5rem;
