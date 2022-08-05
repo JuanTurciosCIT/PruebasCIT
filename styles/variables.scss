@@ -14,7 +14,7 @@
 
 // CIT colors
 $primaryBackgroundColor: #1F1F1F;
-$secondBackgroundColor: rgba(31, 31, 31, 0.8);
+$secondBackgroundColor: #232323;
 $thirdBackgroundColor: #2F2F2F;
 
 $primaryTextColor: #fff;
@@ -28,3 +28,6 @@ $thirdColor: #2ABCDA;
 $mainFont: 'Lato', sans-serif;
 $headingFont: 'Nexa', sans-serif;
 $headingSmallFont: 'Nasalization', sans-serif;
+
+// Breakpoints
+$breakpoint: '768px';
