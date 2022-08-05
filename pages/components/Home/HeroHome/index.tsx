@@ -1,4 +1,4 @@
-import CustomButton from "../../../../components/CustomButton"
+import CustomButton from "@/shared/CustomButton";
 import styles from "./herohome.module.scss"
 import utils from 'styles/utils.module.scss';
 

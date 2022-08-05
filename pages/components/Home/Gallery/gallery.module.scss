@@ -6,10 +6,13 @@
     padding-inline: 3.7rem;
     padding-top: 8rem;
     padding-bottom:7.9rem;
-    display:flex;
+    display: flex;
+    justify-content: center;
+    place-items: center;
     flex-wrap: wrap;
     gap: 4rem;
 }
+
 .itemsContainer {
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +23,7 @@
     color: $primaryTextColor;
     text-align: left;
 }
+
 .description {
     display: flex;
     flex-direction: column;
@@ -28,6 +32,7 @@
 
 .descriptionParagraph {
     color: $secondaryTextColor;
+    max-width: 40.4rem;
 }
 
 .button {
@@ -38,22 +43,92 @@
     height: 3.7rem;
     box-sizing: border-box;
     color: $primaryTextColor;
-    margin-bottom: 4rem;
+    cursor: pointer;
+}
+
+.galleryWrapper {
+    width: 100%;
+    max-width: 61.6rem;
+    max-height: 48rem;
+    overflow: hidden;
+    border-radius: 0.6rem;
 }
 
 .picture {
-    border-radius: 0.5rem;
+    border-radius: 0.6rem;
+}
+
+.picture1 {
+    @extend .picture;
+    width: 18.88rem;
+    height: 12.57rem;
+    overflow: hidden;
+}
+
+.picture2 {
+    @extend .picture;
+    width: 15.31rem;
+    height: 10.07rem;
+    transform: translateX(-2.8rem);
+    overflow: hidden;
+}
+
+.picture3 {
+    @extend .picture;
+    width: 20.713rem;
+    height: 13.878rem;
+    transform: translateY(-0.8rem);
+    overflow: hidden;
+}
+
+.picture4 {
+    @extend .picture;
+    width: 13.148rem;
+    height: 16.33rem;
+    transform: translate(-0.9rem, -1rem);
+    overflow: hidden;
 }
 
 @media  screen and (min-width: 428px) {
     .container {
         flex-direction: row;
         justify-content: center;
+        gap: 9rem;
     }
     .description {
         width: 40%;
+        gap: 3rem;
     }
-    .gallery{
+    .descriptionParagraph {
+        margin-bottom: 1rem;
+    }
+    .galleryWrapper {
         width: 40%;
+    }
+    .picture1 {
+        width: 32.89rem;
+        height: 21.896rem;
+    }
+    
+    .picture2 {
+        width: 26.348rem;
+        height: 17.535rem;
+        transform: translateX(-3.5rem);
+    }
+    
+    .picture3 {
+        width: 36.07rem;
+        height: 24.168rem;
+        transform: translateY(-0.5rem);
+    }
+    
+    .picture4 {
+        width: 22.896rem;
+        height: 28.438rem;
+        transform: translate(-0.6rem, -0.8rem);
+    }
+    .button {
+        width: 14.1rem;
+        height: 5.1rem;
     }
 }
