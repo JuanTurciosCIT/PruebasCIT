@@ -11,7 +11,7 @@ import customer1 from '@/images/customer1.png';
 import customer2 from '@/images/customer2.png';
 import customer3 from '@/images/customer3.png';
 import starIcon from '@/svg/star_feedback.svg';
-import SliderButtons from 'shared/components/SliderButtons';
+import SliderButtons from '@/shared/SliderButtons';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function CustomerFeedback() {

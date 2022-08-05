@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Masonry from 'react-smart-masonry';
+import dynamic from 'next/dynamic';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import utils from '@/styles/utils.module.scss';
@@ -8,6 +8,9 @@ import picture1 from '@/images/imgGallery1.jpg';
 import picture2 from '@/images/imgGallery2.jpg';
 import picture3 from '@/images/imgGallery3.jpg';
 import picture4 from '@/images/imgGallery4.jpg';
+
+/* A way to import a component that is not SSR compatible. */
+const Masonry = dynamic(() => import('react-smart-masonry'), { ssr: false, loading: () => <h2>Loading...</h2> });
 
 export default function Gallery() {
     const isMobile: boolean = useMediaQuery('max-width: 428px');
