@@ -8,7 +8,7 @@ import styles from '../styles/home.module.scss';
 import About from './components/Home/About';
 import OurServices from './components/Home/OurServices';
 import Technologies from './components/Home/Technologies';
-import HeroFooter from './components/Home/HeroFooter';
+import Portfolio from './components/Home/Portfolio';
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <div className={styles.diamond}></div>
       </div>
       <Technologies />
-      <HeroFooter />
+      <Portfolio />
     </Layout>
   )
 }
