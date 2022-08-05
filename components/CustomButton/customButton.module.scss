@@ -1,11 +1,45 @@
 @use '../../styles/variables.scss' as *;
 
+// .btnWrapper {
+//   border-radius: 0.5rem;
+// }
+
+// .customBtn {
+//   padding: 1rem 1.8rem;
+//   font-family: 'Lato', sans-serif;
+//   font-style: normal;
+//   font-size: 1.4rem;
+//   line-height: 100%;
+//   text-align: center;
+//   text-transform: capitalize;
+//   color: $primaryTextColor;
+//   // width: 141px;
+//   // height: 51px;
+//   border: solid 2px;
+//   background: none;
+//   border-image-slice: 1;
+//   border-width: 2px;
+//   border-image-source: linear-gradient(101deg, #F58523, #BD4E80, #2ABCDA);
+
+//   &:hover {
+//     background-image: linear-gradient(101deg, #F58523, #BD4E80, #2ABCDA);
+//     cursor: pointer;
+//   }
+// }
+
 .btnWrapper {
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
+  background-image: linear-gradient(101deg, #F58523, #BD4E80, #2ABCDA);
+  width: 12.5rem;
+  height: 4.3rem;
+  display: grid;
+  border: none;
+  place-items: center;
+  margin: 0 auto;
 }
 
 .customBtn {
-  padding: 1rem 1.8rem;
+  // padding: 1rem 1.8rem;
   font-family: 'Lato', sans-serif;
   font-style: normal;
   font-size: 1.4rem;
@@ -13,16 +47,26 @@
   text-align: center;
   text-transform: capitalize;
   color: $primaryTextColor;
-  // width: 141px;
-  // height: 51px;
-  border: solid 2px;
-  background: none;
-  border-image-slice: 1;
-  border-width: 2px;
-  border-image-source: linear-gradient(101deg, #F58523, #BD4E80, #2ABCDA);
+  width: 12.2rem;
+  height: 4rem;
+  border-radius: 0.6rem;
+  border: none;
+
+  background-color: $primaryBackgroundColor;
 
   &:hover {
     background-image: linear-gradient(101deg, #F58523, #BD4E80, #2ABCDA);
     cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 428px) {
+  .btnWrapper {
+    width: 14rem;
+    height: 5rem;
+  }
+  .customBtn {
+    width: 13.7rem;
+    height: 4.7rem;
   }
 }
