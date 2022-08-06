@@ -97,7 +97,10 @@
     }
     .description {
         width: 40%;
+        max-width: 40.4rem;
         gap: 3rem;
+        display: grid;
+        place-content: center;
     }
     .descriptionParagraph {
         margin-bottom: 1rem;
