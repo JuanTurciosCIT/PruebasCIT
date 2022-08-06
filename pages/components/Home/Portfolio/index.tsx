@@ -5,7 +5,7 @@ import "swiper/css";
 
 import utils from "@/styles/utils.module.scss";
 import styles from "./portfolio.module.scss";
-import SlidersButtons from "shared/components/SliderButtons";
+import SliderButtons from "@/shared/SliderButtons";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Portfolio() {
@@ -13,8 +13,8 @@ export default function Portfolio() {
   const swiper = useSwiper();
   const swiperRef = useRef(swiper);
 
-  const nextSlyde = useCallback(() => swiperRef.current.slideNext(), []);
-  const prevSlyde = useCallback(() => swiperRef.current.slidePrev(), []);
+  const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
+  const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
 
   const swiperOptions: SwiperOptions = {
     spaceBetween: 20,
@@ -39,16 +39,18 @@ export default function Portfolio() {
         }}
       >
         <SwiperSlide className={styles.itemsContainer}>
-          <div className={styles.portfolioItem1}></div>
-          <div className={styles.portfolioItem2}></div>
+          <div className={styles.card1}></div>
+          <div className={styles.card2}></div>
         </SwiperSlide>
         <SwiperSlide className={styles.itemsContainer}>
-          <div className={styles.portfolioItem2}></div>
-          <div className={styles.portfolioItem1}></div>
+          <div className={styles.card2}></div>
+          <div className={styles.card1}></div>
         </SwiperSlide>
       </Swiper>
 
-      <SlidersButtons next={nextSlyde} prev={prevSlyde} />
+      <div className={styles.BtnWrapper}>
+        <SliderButtons next={nextSlide} prev={prevSlide} />
+      </div>
     </section>
   );
 }

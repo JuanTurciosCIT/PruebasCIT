@@ -1,18 +1,18 @@
 @use '../../../../styles/variables.scss' as *;
 
-.container{
+.container {
     background-color: $primaryBackgroundColor;
-    padding-inline: 3.7rem ;
+    padding-inline: 3.7rem;
     padding-top: 7.4rem;
     padding-bottom: 7.5rem;
-    position:relative;
+    position: relative;
 }
 
 .sliderContainer {
     margin-bottom: 3.26rem;
 }
 
-.itemsContainer{
+.itemsContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 3.5rem;
@@ -25,31 +25,35 @@
     text-align: center;
 }
 
-.portfolioItem1 {
-    background-color: $primaryTextColor;
+.cards {
     height: 33.9rem;
     width: 100%;
-    max-width: 44.7rem;
-    border-radius:0.8rem;
-}
-.portfolioItem2 {
-    background-color: #53BBE2;
-    height: 33.9rem;
-    width: 100%;
-    max-width: 44.7rem;
     border-radius: 0.8rem;
 }
-.slideButtons {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+
+.card1 {
+    @extend .cards;
+    background-color: $primaryTextColor;
+    max-width: 44.7rem;
+}
+.card2 {
+    @extend .cards;
+    background-color: #53BBE2;
+    max-width: 35.3rem;
 }
 
-@media screen and (min-width: 428px){
+.BtnWrapper {
+    padding-inline: 3.7rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (min-width: 428px) {
     .container{
-        gap:2.7rem;
+        padding-inline: 30.5rem;
+        gap: 2.7rem;
     }
-    .itemsContainer{
+    .itemsContainer {
         justify-content: center;
     }
 }
