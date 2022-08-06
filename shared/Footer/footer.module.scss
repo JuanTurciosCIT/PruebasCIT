@@ -1,0 +1,17 @@
+@use '/styles/variables.scss' as *;
+
+.infoWrapper {
+  background-color: $secondBackgroundColor;
+  display: grid;
+  place-items: center;
+}
+
+.subtitle {
+  color: $primaryTextColor;
+  text-align: center;
+}
+
+.text {
+  color: $secondaryTextColor;
+  text-align: center;
+}
