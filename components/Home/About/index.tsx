@@ -5,6 +5,7 @@ import { useState } from 'react';
 import utils from 'styles/utils.module.scss';
 import styles from './about.module.scss';
 import playIcon from '@/svg/play.svg';
+import { HomeSections } from 'utils/constants/pageSections';
 
 /* A way to import a component that is not SSR compatible. */
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
@@ -14,7 +15,7 @@ export default function About() {
 
   const playVideo = () => setShowPlaceholder(false);
 
-  return <section className={styles.aboutSection}>
+  return <section className={styles.aboutSection} id={HomeSections.ABOUT}>
     <h2 className={`${utils.headingMedium} ${styles.subtitle}`}>About our company</h2>
     <div className={styles.videoContainer}>
     
