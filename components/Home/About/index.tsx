@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import utils from '@/styles/utils.module.scss';
+import utils from 'styles/utils.module.scss';
 import styles from './about.module.scss';
 import playIcon from '@/svg/play.svg';
 

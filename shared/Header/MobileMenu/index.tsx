@@ -6,8 +6,9 @@ import CustomButton from "../../CustomButton"
 import styles from "./mobileMenu.module.scss";
 import utils from '../../../styles/utils.module.scss';
 import arrowDownIcon from "../../../public/svg/arrow-down.svg";
+import { NavLink } from "utils/navLinks";
 
-export default function MobileMenu() {
+export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
   const [dropdownMenu, setDropdownMenu] = useState(false);
 
   const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
@@ -16,10 +17,11 @@ export default function MobileMenu() {
     <div>
       <nav className={styles.navContainer}>
         <ul className={styles.navMenu}>
-          <li className={utils.textSmall}><Link href='/' scroll={false}>Home</Link></li>
-          <li className={utils.textSmall}><Link href='/' scroll={false}>Our services</Link></li>
-          <li className={utils.textSmall}><Link href='/' scroll={false}>Career</Link></li>
-          <li className={utils.textSmall}><Link href='/' scroll={false}>About Us</Link></li>
+          {
+            navLinks.map((link, index) => (
+              <li className={utils.textSmall} key={link.path+index} ><Link href={link.path} scroll={false}>{link.name}</Link></li>
+            ))
+          }
           <li className={utils.textSmall}><CustomButton>Contact Us</CustomButton></li>
         </ul>
         <div>
