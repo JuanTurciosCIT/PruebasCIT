@@ -1,17 +1,121 @@
 @use '/styles/variables.scss' as *;
 
+.footer {
+  position: relative;
+  background-color: $primaryBackgroundColor;
+}
+
 .infoWrapper {
   background-color: $secondBackgroundColor;
   display: grid;
   place-items: center;
+  padding-inline: 3.8rem;
+  padding-top: 4.2rem;
+  padding-bottom: 5.7rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 4rem;
 }
 
 .subtitle {
   color: $primaryTextColor;
+  font-size: 1.6rem;
+  margin-bottom: 2.4rem;
   text-align: center;
 }
 
 .text {
   color: $secondaryTextColor;
-  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.socialMedia {
+  height: 33rem;
+  background-color: $primaryBackgroundColor;
+  display: grid;
+  place-content: center;
+  background-image: url('/images/bg-cit-dots.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  box-shadow: inset -4px 22px 34px 16px rgba($primaryBackgroundColor, 1);
+}
+
+.mediaIcons {
+  display: flex;
+  gap: 1.32rem;
+  margin-bottom: 3rem;
+}
+
+.iconContainer {
+  background-color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  height: 3.25rem;
+  width: 3.25rem;
+}
+
+.contact {
+  color: $secondaryTextColor;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.33rem;
+}
+
+.rightsConditions {
+  width: 100%;
+  max-height: 6rem;
+  padding-inline: 3.7rem;
+  padding-block: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: $secondBackgroundColor;
+
+  p {
+    color: $secondaryTextColor;
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .container {
+    flex-direction: row;
+    max-height: 50rem;
+    height: 100%;
+  }
+  .infoWrapper {
+    width: 50%;
+    background-color: $primaryBackgroundColor;
+    text-align: left;
+    place-items: start;
+    padding-block: 7rem;
+    padding-left: 17rem;
+  }
+  .subtitle {
+    text-align: left;
+  }
+  .socialMedia {
+    width: 50%;
+    height: 50rem;
+    max-height: 50rem;
+    background-position: 24px -50px;
+    box-shadow: inset 35px 32px 32px 32px rgba(31, 31, 31, 1);
+    padding-top: 8rem;
+  }
+  .mediaIcons{
+    margin-top: -1.2rem;
+  }
+  .rightsConditions {
+    padding-inline: 17rem
+  }
 }
