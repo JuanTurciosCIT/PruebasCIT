@@ -10,20 +10,21 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Portfolio() {
   const isMobile: boolean = useMediaQuery("(max-width: 428px)");
+
   const swiper = useSwiper();
   const swiperRef = useRef(swiper);
 
-  const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
-  const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
-
   const swiperOptions: SwiperOptions = {
-    spaceBetween: 20,
+    spaceBetween: 0,
     slidesPerView: 1,
     loop: true,
     touchMoveStopPropagation: isMobile ? true : false,
     rewind: true,
     centeredSlides: true,
   };
+
+  const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
+  const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
 
   return (
     <section className={styles.container}>
@@ -34,9 +35,7 @@ export default function Portfolio() {
       <Swiper
         className={styles.sliderContainer}
         {...swiperOptions}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-        }}
+        onSwiper={(swiper) => { swiperRef.current = swiper; }}
       >
         <SwiperSlide className={styles.itemsContainer}>
           <div className={styles.card1}></div>
