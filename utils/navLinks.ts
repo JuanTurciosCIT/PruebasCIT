@@ -1,53 +1,63 @@
+export enum Pages {
+  HOME = '/',
+  CAREER = 'career',
+  JOBS = 'jobs',
+  JOB_DESCRIPTION = 'job-description',
+  APPLICATIONS = 'applications',
+  CASE_STUDIES = 'case-studies',
+  CASE_STUDY = 'case-study',
+}
+
 export interface NavLink {
   name: string;
   path: string;
-  visibleIn: string | string[];
+  visibleIn: Pages | Pages[];
 }
 
 export const navLinks: NavLink[] = [
   {
     name: 'Home',
     path: '/',
-    visibleIn: '/',
+    visibleIn: Pages.HOME,
   },
   {
     name: 'Our Services',
     path: '#services',
-    visibleIn: '/',
+    visibleIn: Pages.HOME,
   },
   {
     name: 'Carrer',
     path: '#career',
-    visibleIn: '/',
+    visibleIn: Pages.HOME,
   },
   {
     name: 'About Us',
     path: '#about',
-    visibleIn: '/',
+    visibleIn: Pages.HOME,
   },
   {
     name: 'Careers Home',
     path: '/career',
-    visibleIn: ['career', 'jobs', 'job-description', 'applications'],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
     name: 'Job Openings',
     path: '/jobs',
-    visibleIn: ['career', 'jobs', 'job-description', 'applications'],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
     name: 'Benefits',
     path: '#benefits',
-    visibleIn: ['career', 'jobs', 'job-description', 'applications'],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
     name: 'Support',
     path: '#support',
-    visibleIn: ['career', 'jobs', 'job-description', 'applications'],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
     name: 'Sign In',
     path: '/signin',
-    visibleIn: ['career', 'jobs', 'job-description'],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION],
   }
 ];
