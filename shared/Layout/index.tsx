@@ -3,6 +3,7 @@ import Footer from '../Footer';
 import { NextRouter, useRouter } from 'next/router';
 
 import { navLinks } from 'utils/navLinks';
+import { Pages } from 'utils/constants/pages';
 import Header from '../Header';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -14,7 +15,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 		exit: { opacity: 0, x: 0, y: -100 },
 	};
 
-	const headerLinks = navLinks.filter((link) => link.visibleIn === router.pathname);
+	const headerLinks = navLinks.filter((link) => {
+		const pathname: Pages = router.pathname as Pages;
+		return link.visibleIn.includes(pathname);
+	});
 
 	return (
 		<>

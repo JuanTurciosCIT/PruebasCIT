@@ -45,12 +45,15 @@
 .BtnWrapper {
     padding-inline: 3.7rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 @media screen and (min-width: 428px) {
     .container{
         padding-inline: 30.5rem;
+    }
+    .BtnWrapper {
+    justify-content: flex-end;
     }
     .itemsContainer {
         justify-content: center;

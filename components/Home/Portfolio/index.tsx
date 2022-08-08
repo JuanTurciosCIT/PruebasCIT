@@ -15,7 +15,7 @@ export default function Portfolio() {
   const swiperRef = useRef(swiper);
 
   const swiperOptions: SwiperOptions = {
-    spaceBetween: 0,
+    spaceBetween: 30,
     slidesPerView: 1,
     loop: true,
     touchMoveStopPropagation: isMobile ? true : false,
