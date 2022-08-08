@@ -1,12 +1,4 @@
-export enum Pages {
-  HOME = '/',
-  CAREER = 'career',
-  JOBS = 'jobs',
-  JOB_DESCRIPTION = 'job-description',
-  APPLICATIONS = 'applications',
-  CASE_STUDIES = 'case-studies',
-  CASE_STUDY = 'case-study',
-}
+import { Pages } from "./constants/pages";
 
 export interface NavLink {
   name: string;
@@ -26,7 +18,7 @@ export const navLinks: NavLink[] = [
     visibleIn: Pages.HOME,
   },
   {
-    name: 'Carrer',
+    name: 'Career',
     path: '#career',
     visibleIn: Pages.HOME,
   },
