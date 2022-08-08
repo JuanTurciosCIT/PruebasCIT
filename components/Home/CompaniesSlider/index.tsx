@@ -12,7 +12,7 @@ import kfcLogo from '@/images/kfc-logo.png';
 import pizzahutLogo from '@/images/pizzahut-logo.png';
 import pepsiLogo from '@/images/pepsi-logo.png';
 import styles from './companiesSlider.module.scss';
-import utils from '@/styles/utils.module.scss';
+import utils from 'styles/utils.module.scss';
 
 export default function CompaniesSlider(): JSX.Element {
   const isMobile = useMediaQuery('(max-width: 428px)');
