@@ -1,4 +1,5 @@
 import useTranslation from 'next-translate/useTranslation';
+import { useRouter } from 'next/router';
 
 import CustomButton from "@/shared/CustomButton";
 import styles from "./herohome.module.scss"
@@ -9,7 +10,10 @@ import { useContentData } from '@/hooks/useContentData';
 export default function HeroHome() {
  const { t } = useTranslation(localeNamespaces.HOME);
  const data = useContentData();
+
+ const router = useRouter();
  console.log(data);
+ console.log('router => ', router);
 
   const title = t('hero.title', { title: data.title });
   const subtitle = t('hero.subtitle', { subtitle: data.subtitle });
@@ -25,7 +29,7 @@ export default function HeroHome() {
         <p>{caption}</p>
       </div>
       <div>
-        <CustomButton>{t('btn_text')}</CustomButton>
+        <CustomButton>{t('shared.btn_text')}</CustomButton>
       </div>
     </div>
   </section>

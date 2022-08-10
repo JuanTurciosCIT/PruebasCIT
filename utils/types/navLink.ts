@@ -1,54 +1,54 @@
 import { Pages } from "./pages";
 
 export interface NavLink {
-  name: string;
+  localeName: string;
   path: string;
   visibleIn: Pages | Pages[];
 }
 
 export const navLinks: NavLink[] = [
   {
-    name: 'Home',
+    localeName: 'home',
     path: '/',
     visibleIn: Pages.HOME,
   },
   {
-    name: 'Our Services',
+    localeName: 'our_services',
     path: '#services',
     visibleIn: Pages.HOME,
   },
   {
-    name: 'Career',
+    localeName: 'career',
     path: '#career',
     visibleIn: Pages.HOME,
   },
   {
-    name: 'About Us',
+    localeName: 'about_us',
     path: '#about',
     visibleIn: Pages.HOME,
   },
   {
-    name: 'Careers Home',
+    localeName: 'Careers Home',
     path: '/career',
     visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
-    name: 'Job Openings',
+    localeName: 'Job Openings',
     path: '/jobs',
     visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
-    name: 'Benefits',
+    localeName: 'Benefits',
     path: '#benefits',
     visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
-    name: 'Support',
+    localeName: 'Support',
     path: '#support',
     visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
   },
   {
-    name: 'Sign In',
+    localeName: 'Sign In',
     path: '/signin',
     visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION],
   }

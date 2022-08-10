@@ -10,7 +10,7 @@
     "firebase-deploy-dev": "npm run build && firebase deploy --only hosting:landingcit"
   },
   "dependencies": {
-    "firebase": "^9.9.2",
+    "axios": "^0.27.2",
     "framer-motion": "^6.5.1",
     "next": "12.2.3",
     "next-translate": "^1.5.0",

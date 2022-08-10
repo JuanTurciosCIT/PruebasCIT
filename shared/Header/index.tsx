@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { NextRouter, useRouter } from "next/router";
+import useTranslation from 'next-translate/useTranslation';
 
 import CreativeLogo from "../../public/svg/creative-logo.svg";
 import burgerIcon from '../../public/svg/burger-menu.svg';
@@ -18,6 +19,7 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
   const [dropdownMenu, setDropdownMenu] = useState<boolean>(false);
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>('English');
+  const { t } = useTranslation('home');
 
   const router: NextRouter = useRouter();
 
@@ -69,10 +71,10 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
         <ul className={styles.navMenu}>
           {
             navLinks.map((link, index) => (
-              <li className={utils.textSmall} key={link.path+index} ><Link href={link.path} scroll={false}>{link.name}</Link></li>
+              <li className={utils.textSmall} key={link.path+index} ><Link href={link.path} scroll={false}>{t('header.'+link.localeName)}</Link></li>
             ))
           }
-          <li className={utils.textSmall}><CustomButton>Contact Us</CustomButton></li>
+          <li className={utils.textSmall}><CustomButton>{t('shared.btn_text')}</CustomButton></li>
         </ul>
         <div className={utils.textSmall}>
           <button className={styles.dropDown} onClick={toggleDropdownMenu}><span>{currentLocale}</span><Image src={arrowDownIcon} alt='Arrow down' /></button>
