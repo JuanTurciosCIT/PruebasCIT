@@ -1,24 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-import axios from 'axios'
+import { HeroSection } from 'utils/types/homeContent.interface';
+import axios, { AxiosPromise } from 'axios'
 
-export function useContentData() {
-  const [data, setData] = useState({
-    title: '',
-    subtitle: '',
-    caption: ''
-  });
+export function useContentData({ apiUrl }: { apiUrl: string }) {
+  const [data, setData] = useState<HeroSection>({} as HeroSection);
   const router = useRouter();
 
   useEffect(() => {
-    const res = axios({
+    const res: AxiosPromise = axios({
       method: 'get',
-      url: 'https://suthiuipgrzglbzvsbjv.supabase.co/rest/v1/HomePageHero?select=*',
+      url: apiUrl,
       responseType: 'json',
       headers: {
         'Content-Type': 'application/json',
-        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1dGhpdWlwZ3J6Z2xienZzYmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTkxMzM5NzgsImV4cCI6MTk3NDcwOTk3OH0.GHJWvPeiZszF-ky5rOqA5ewWeIK9J08WWwB4Wh2qGnA',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1dGhpdWlwZ3J6Z2xienZzYmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTkxMzM5NzgsImV4cCI6MTk3NDcwOTk3OH0.GHJWvPeiZszF-ky5rOqA5ewWeIK9J08WWwB4Wh2qGnA'
+        'apikey': process.env.NEXT_PUBLIC_API_KEY || '',
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN || ''}`
       }
     });
     
@@ -31,7 +28,7 @@ export function useContentData() {
       subtitle: data.subtitleEN,
       caption: data.captionEN,
     }));
-  }, [router.locale]);
+  }, [router.locale, apiUrl]);
 
 
   return data;
