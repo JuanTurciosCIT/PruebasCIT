@@ -1,10 +1,5 @@
-import { Pages } from "./pages";
-
-export interface NavLink {
-  localeName: string;
-  path: string;
-  visibleIn: Pages | Pages[];
-}
+import { NavLink } from "utils/types/navLink.interface";
+import { Pages } from "../types/pages.enum";
 
 export const navLinks: NavLink[] = [
   {
