@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import Footer from '../Footer';
 import { NextRouter, useRouter } from 'next/router';
 
-import { navLinks } from 'utils/types/navLink';
-import { Pages } from 'utils/types/pages';
+import { navLinks } from 'utils/constants/navLink.constant';
+import { Pages } from 'utils/types/pages.enum';
 import Header from '../Header';
 
 export default function Layout({ children }: { children: React.ReactNode }) {

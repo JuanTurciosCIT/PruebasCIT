@@ -13,13 +13,14 @@ import utils from '../../styles/utils.module.scss';
 import CustomButton from "../CustomButton";
 import MobileMenu from "./MobileMenu";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { NavLink } from "utils/types/navLink";
+import { NavLink } from "utils/types/navLink.interface";
+import { localeNamespaces } from "utils/types/localeNamespaces.enum";
 
 export default function Header({ navLinks }: { navLinks: NavLink[] }) {
   const [dropdownMenu, setDropdownMenu] = useState<boolean>(false);
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>('English');
-  const { t } = useTranslation('home');
+  const { t } = useTranslation(localeNamespaces.HOME);
 
   const router: NextRouter = useRouter();
 

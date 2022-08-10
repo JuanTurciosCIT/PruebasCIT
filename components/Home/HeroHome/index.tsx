@@ -4,16 +4,17 @@ import { useRouter } from 'next/router';
 import CustomButton from "@/shared/CustomButton";
 import styles from "./herohome.module.scss"
 import utils from 'styles/utils.module.scss';
-import { localeNamespaces } from 'utils/types/localeNamespaces';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { useContentData } from '@/hooks/useContentData';
 
 export default function HeroHome() {
  const { t } = useTranslation(localeNamespaces.HOME);
- const data = useContentData();
+ const data = useContentData({
+  apiUrl: 'https://suthiuipgrzglbzvsbjv.supabase.co/rest/v1/HomePageHero?select=*'
+ });
 
  const router = useRouter();
  console.log(data);
- console.log('router => ', router);
 
   const title = t('hero.title', { title: data.title });
   const subtitle = t('hero.subtitle', { subtitle: data.subtitle });

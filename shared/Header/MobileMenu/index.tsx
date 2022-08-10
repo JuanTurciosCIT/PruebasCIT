@@ -7,7 +7,7 @@ import CustomButton from "../../CustomButton"
 import styles from "./mobileMenu.module.scss";
 import utils from '../../../styles/utils.module.scss';
 import arrowDownIcon from "../../../public/svg/arrow-down.svg";
-import { NavLink } from "utils/types/navLink";
+import { NavLink } from "utils/types/navLink.interface";
 
 export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
   const [dropdownMenu, setDropdownMenu] = useState(false);
