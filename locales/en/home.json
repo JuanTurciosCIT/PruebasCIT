@@ -1,0 +1,11 @@
+{
+  "hero": {
+    "title": "{{title}}",
+    "subtitle": "{{subtitle}}",
+    "caption": "{{caption}}",
+    "btn_text": "Contact us"
+  },
+  "customers": {
+    "title": "Empresas que confían en nosotros"
+  }
+}

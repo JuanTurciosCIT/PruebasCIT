@@ -1,4 +1,4 @@
-import { Pages } from "./constants/pages";
+import { Pages } from "./pages";
 
 export interface NavLink {
   name: string;

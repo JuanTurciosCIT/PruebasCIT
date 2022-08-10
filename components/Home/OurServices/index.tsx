@@ -8,7 +8,7 @@ import desingLab from '@/images/design_lab.png';
 import microservices from '@/images/microservices_logo.png';
 import itOutsourcing from '@/images/it_outsourcing.png';
 import arrowRight from '@/svg/arrow-right.svg';
-import { HomeSections } from 'utils/constants/pageSections';
+import { HomeSections } from 'utils/types/pageSections';
 
 export default function OurServices() {
   return <section className={styles.servicesSection} id={HomeSections.SERVICES}>
