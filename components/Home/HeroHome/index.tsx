@@ -1,19 +1,36 @@
+import useTranslation from 'next-translate/useTranslation';
+import { useRouter } from 'next/router';
+
 import CustomButton from "@/shared/CustomButton";
 import styles from "./herohome.module.scss"
 import utils from 'styles/utils.module.scss';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+import { useContentData } from '@/hooks/useContentData';
 
 export default function HeroHome() {
+ const { t } = useTranslation(localeNamespaces.HOME);
+ const data = useContentData({
+  apiUrl: 'https://suthiuipgrzglbzvsbjv.supabase.co/rest/v1/HomePageHero?select=*'
+ });
+
+ const router = useRouter();
+ console.log(data);
+
+  const title = t('hero.title', { title: data.title });
+  const subtitle = t('hero.subtitle', { subtitle: data.subtitle });
+  const caption = t('hero.caption', { caption: data.caption });
+
   return <section className={styles.hero}>
     <div className={styles.wrapper}>
       <div className={`${utils.headingLarge} ${styles.heroTitle}`}>
-        <h1 className={styles.mainTitle}>This is <span className={styles.creativeText}>CREATIVE</span></h1>
-        <h2>We build cutting edge digital solutions</h2>
+        <h1 className={styles.mainTitle}>{title} <span className={styles.creativeText}>CREATIVE</span></h1>
+        <h2>{subtitle}</h2>
       </div>
       <div className={`${utils.textSmall} ${styles.heroDescription}`}>
-        <p>We are nearshore software development lab with a team of top-notch software developers and designers on the latin America region.</p>
+        <p>{caption}</p>
       </div>
       <div>
-        <CustomButton>Contact Us</CustomButton>
+        <CustomButton>{t('shared.btn_text')}</CustomButton>
       </div>
     </div>
   </section>

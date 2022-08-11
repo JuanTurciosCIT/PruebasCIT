@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState, forwardRef } from "react";
+import { useState } from "react";
+import { NextRouter, useRouter } from "next/router";
+import useTranslation from 'next-translate/useTranslation';
 
 import CreativeLogo from "../../public/svg/creative-logo.svg";
 import burgerIcon from '../../public/svg/burger-menu.svg';
@@ -11,11 +13,16 @@ import utils from '../../styles/utils.module.scss';
 import CustomButton from "../CustomButton";
 import MobileMenu from "./MobileMenu";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { NavLink } from "utils/navLinks";
+import { NavLink } from "utils/types/navLink.interface";
+import { localeNamespaces } from "utils/types/localeNamespaces.enum";
 
 export default function Header({ navLinks }: { navLinks: NavLink[] }) {
   const [dropdownMenu, setDropdownMenu] = useState<boolean>(false);
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+  const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>('English');
+  const { t } = useTranslation(localeNamespaces.HOME);
+
+  const router: NextRouter = useRouter();
 
   // before 428px viewport width is mobile
   const isMobile: boolean = useMediaQuery('(max-width: 428px)');
@@ -65,21 +72,21 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
         <ul className={styles.navMenu}>
           {
             navLinks.map((link, index) => (
-              <li className={utils.textSmall} key={link.path+index} ><Link href={link.path} scroll={false}>{link.name}</Link></li>
+              <li className={utils.textSmall} key={link.path+index} ><Link href={link.path} scroll={false}>{t('header.'+link.localeName)}</Link></li>
             ))
           }
-          <li className={utils.textSmall}><CustomButton>Contact Us</CustomButton></li>
+          <li className={utils.textSmall}><CustomButton>{t('shared.btn_text')}</CustomButton></li>
         </ul>
         <div className={utils.textSmall}>
-          <button className={styles.dropDown} onClick={toggleDropdownMenu}><span>English </span><Image src={arrowDownIcon} alt='Arrow down' /></button>
+          <button className={styles.dropDown} onClick={toggleDropdownMenu}><span>{currentLocale}</span><Image src={arrowDownIcon} alt='Arrow down' /></button>
         </div>
       </nav>
 
       {/* Dropdown Menu */}
       {dropdownMenu && (
         <div className={styles.dropDownMenu}>
-          <button>English</button>
-          <button>Español</button>
+          <button onClick={() => setCurrentLocale('English')}><Link href={router.pathname} locale='en'>English</Link></button>
+          <button onClick={() => setCurrentLocale('Español')}><Link href={router.pathname} locale='es'>Español</Link></button>
       </div>
       )}
     </header>
