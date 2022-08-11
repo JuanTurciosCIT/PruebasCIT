@@ -5,7 +5,7 @@ import { useState } from 'react';
 import utils from 'styles/utils.module.scss';
 import styles from './about.module.scss';
 import playIcon from '@/svg/play.svg';
-import { HomeSections } from 'utils/constants/pageSections';
+import { HomeSections } from 'utils/types/sections.enum';
 
 /* A way to import a component that is not SSR compatible. */
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });

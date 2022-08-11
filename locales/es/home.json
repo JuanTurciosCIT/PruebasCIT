@@ -1,0 +1,19 @@
+{
+  "shared": {
+    "btn_text": "Contáctenos"
+  },
+  "header": {
+    "home": "Inicio",
+    "our_services": "Nuestros servicios",
+    "career": "Carrera",
+    "about_us": "Acerca de nosotros"
+  },
+  "hero": {
+    "title": "{{title}}",
+    "subtitle": "{{subtitle}}",
+    "caption": "{{caption}}"
+  },
+  "customers": {
+    "title": "Empresas que confían en nosotros"
+  }
+}
