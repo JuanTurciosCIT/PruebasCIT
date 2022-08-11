@@ -1,18 +1,19 @@
 export interface HeroSection {
-  title: string;
-  subtitle: string;
-  caption: string;
+  titleEN: string;
+  titleES: string;
+  subtitleEN: string;
+  subtitleES: string;
+  captionEN: string;
+  captionES: string;
   backgroundImage?: string;
-}
-
-interface Customer {
-  clientName: string;
-  imagePath: string;
+  placeholderVideo?: string;
+  video?: string;
 }
 
 export interface CustomersSection {
   title?: string;
-  customers: Customer[];
+  clientName: string;
+  imagePath: string;
 }
 
 export interface AboutSection {
