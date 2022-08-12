@@ -15,4 +15,7 @@ const nextTranslate = require('next-translate');
 module.exports = nextTranslate({
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: [`${process.env.NEXT_PUBLIC_PROJECT_ID}.supabase.co`]
+  }
 });
