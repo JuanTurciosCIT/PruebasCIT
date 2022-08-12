@@ -5,6 +5,7 @@ import { useState } from 'react';
 import utils from 'styles/utils.module.scss';
 import styles from './about.module.scss';
 import playIcon from '@/svg/play.svg';
+import GradiantButton from '@/shared/GradiantButton';
 import { HomeSections } from 'utils/types/sections.enum';
 
 /* A way to import a component that is not SSR compatible. */
@@ -28,12 +29,10 @@ export default function About() {
         height='auto'
       />
       <div className={`${showPlaceholder && styles.mirror}`}></div>
-      {showPlaceholder && (
-        <button className={styles.playBtn} onClick={playVideo}>
-          <Image src={playIcon} alt='Play video' />
-          Play Video
-        </button>
-      )}
+      {showPlaceholder && <GradiantButton>
+        <Image src={playIcon} alt='Play video'/>
+        Play video
+        </GradiantButton>}
     </div>
   </section>
 }
