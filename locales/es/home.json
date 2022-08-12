@@ -15,5 +15,8 @@
   },
   "customers": {
     "title": "Empresas que confían en nosotros"
+  },
+  "about": {
+    "title": "Acerca de nuestra empresa"
   }
 }

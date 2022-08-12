@@ -14,6 +14,9 @@
     "caption": "{{caption}}"
   },
   "customers": {
-    "title": "Empresas que confían en nosotros"
+    "title": "Companies that trust on us"
+  },
+  "about": {
+    "title": "About Our Company"
   }
 }
