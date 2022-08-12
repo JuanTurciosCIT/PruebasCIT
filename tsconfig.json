@@ -5,7 +5,7 @@
     "paths": {
       "@/shared/*": ["shared/*"],
       "@/pages/*": ["pages/*"],
-      "@/hooks/*": ["hooks/*"],
+      "@/hooks/*": ["utils/hooks/*"],
       "@/images/*": ["public/images/*"],
       "@/svg/*": ["public/svg/*"],
       "@/styles/*": ["styles/*"],

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useMediaQuery } from 'utils/hooks/useMediaQuery';
 import utils from '@/styles/utils.module.scss';
 import styles  from './gallery.module.scss';
 import picture1 from '@/images/imgGallery1.jpg';

@@ -12,7 +12,7 @@ import styles from './header.module.scss';
 import utils from '../../styles/utils.module.scss';
 import CustomButton from "../CustomButton";
 import MobileMenu from "./MobileMenu";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { useMediaQuery } from "../../utils/hooks/useMediaQuery";
 import { NavLink } from "utils/types/navLink.interface";
 import { localeNamespaces } from "utils/types/localeNamespaces.enum";
 
