@@ -1,37 +1,36 @@
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 
-import CustomButton from "@/shared/CustomButton";
-import styles from "./herohome.module.scss"
+import CustomButton from '@/shared/CustomButton';
+import styles from './herohome.module.scss';
 import utils from 'styles/utils.module.scss';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
-import { useContentData } from '@/hooks/useContentData';
+import { HeroSection } from 'utils/types/homeContent.interface';
 
-export default function HeroHome() {
- const { t } = useTranslation(localeNamespaces.HOME);
- const data = useContentData({
-  apiUrl: 'https://suthiuipgrzglbzvsbjv.supabase.co/rest/v1/HomePageHero?select=*'
- });
+export default function HeroHome({
+	heroContent,
+}: {
+	heroContent: HeroSection;
+}) {
+	const { t } = useTranslation(localeNamespaces.HOME);
 
- const router = useRouter();
- console.log(data);
-
-  const title = t('hero.title', { title: data.title });
-  const subtitle = t('hero.subtitle', { subtitle: data.subtitle });
-  const caption = t('hero.caption', { caption: data.caption });
-
-  return <section className={styles.hero}>
-    <div className={styles.wrapper}>
-      <div className={`${utils.headingLarge} ${styles.heroTitle}`}>
-        <h1 className={styles.mainTitle}>{title} <span className={styles.creativeText}>CREATIVE</span></h1>
-        <h2>{subtitle}</h2>
-      </div>
-      <div className={`${utils.textSmall} ${styles.heroDescription}`}>
-        <p>{caption}</p>
-      </div>
-      <div>
-        <CustomButton>{t('shared.btn_text')}</CustomButton>
-      </div>
-    </div>
-  </section>
+	return (
+		<section className={styles.hero}>
+			<div className={styles.wrapper}>
+				<div className={`${utils.headingLarge} ${styles.heroTitle}`}>
+					<h1 className={styles.mainTitle}>
+						{heroContent.titleEN || heroContent.titleES}
+						<span className={styles.creativeText}>CREATIVE</span>
+					</h1>
+					<h2>{heroContent.subtitleEN || heroContent.subtitleES}</h2>
+				</div>
+				<div className={`${utils.textSmall} ${styles.heroDescription}`}>
+					<p>{heroContent.captionES || heroContent.captionEN}</p>
+				</div>
+				<div>
+					<CustomButton>{t('shared.btn_text')}</CustomButton>
+				</div>
+			</div>
+		</section>
+	);
 }

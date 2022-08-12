@@ -16,4 +16,7 @@ module.exports = nextTranslate({
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
+  images: {
+    domains: [`${process.env.NEXT_PUBLIC_PROJECT_ID}.supabase.co`]
+  }
 });

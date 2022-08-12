@@ -6,7 +6,7 @@ import "swiper/css";
 import utils from "@/styles/utils.module.scss";
 import styles from "./portfolio.module.scss";
 import SliderButtons from "@/shared/SliderButtons";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "utils/hooks/useMediaQuery";
 
 export default function Portfolio() {
   const isMobile: boolean = useMediaQuery("(max-width: 428px)");

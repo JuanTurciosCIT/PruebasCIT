@@ -11,7 +11,7 @@ import customer2 from '@/images/customer2.png';
 import customer3 from '@/images/customer3.png';
 import starIcon from '@/svg/star_feedback.svg';
 import SliderButtons from '@/shared/SliderButtons';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useMediaQuery } from 'utils/hooks/useMediaQuery';
 
 export default function CustomerFeedback() {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
