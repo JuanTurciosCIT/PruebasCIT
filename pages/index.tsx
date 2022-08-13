@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
+import type { GetStaticProps, NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 
 import HeroHome from 'components/Home/HeroHome';
 import CompaniesSlider from 'components/Home/CompaniesSlider';
@@ -45,7 +45,7 @@ const Home: NextPage = ({
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
 	const homeContent: HomeContent = await getHomeContent(context.locale);
 
 	return {
