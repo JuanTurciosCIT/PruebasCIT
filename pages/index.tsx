@@ -15,7 +15,7 @@ import HeroFooter from 'shared/HeroFooter';
 import { HomeContent } from 'utils/types/homeContent.interface';
 import { getHomeContent } from 'utils/services/getHomeContent';
 
-const Home: NextPage = ({
+const Home: NextPage<HomeContent> = ({
 	hero,
 	customers,
 	about,
@@ -32,8 +32,8 @@ const Home: NextPage = ({
 			</main>
 			<CompaniesSlider customers={customers} />
 			<div className={styles.aboutAndServices}>
-				<About />
-				<OurServices />
+				<About aboutContent={about} />
+				<OurServices services={services} />
 				<div className={styles.diamond}></div>
 			</div>
 			<Technologies />
@@ -45,7 +45,7 @@ const Home: NextPage = ({
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetStaticPropsContext) => {
 	const homeContent: HomeContent = await getHomeContent(context.locale);
 
 	return {
