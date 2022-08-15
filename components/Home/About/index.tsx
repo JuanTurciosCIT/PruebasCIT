@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 
 import utils from 'styles/utils.module.scss';
@@ -18,7 +18,7 @@ export default function About({ aboutContent }: {  aboutContent: AboutSection })
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
   const { t } = useTranslation(localeNamespaces.HOME);
 
-  const playVideo = () => setShowPlaceholder(false);
+  const playVideo = useCallback(() => setShowPlaceholder(false), []);
 
   return <section className={styles.aboutSection} id={HomeSections.ABOUT}>
     <h2 className={`${utils.headingMedium} ${styles.subtitle}`}>{t('about.title')}</h2>
