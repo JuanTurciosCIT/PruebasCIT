@@ -36,7 +36,7 @@ const Home: NextPage<HomeContent> = ({
 				<OurServices services={services} />
 				<div className={styles.diamond}></div>
 			</div>
-			<Technologies />
+			<Technologies technologies={technologies} />
 			<Portfolio />
 			<CustomerFeedback />
 			<Gallery />
