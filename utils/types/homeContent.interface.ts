@@ -27,8 +27,8 @@ export interface CustomersSection {
 
 export interface AboutSection {
   title?: string;
-  placeholderImage?: string;
-  videoPath?: string;
+  placeholderImage: string;
+  videoPath: string;
 }
 
 export interface ServicesSection {

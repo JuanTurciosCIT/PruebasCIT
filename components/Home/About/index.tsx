@@ -6,15 +6,17 @@ import useTranslation from 'next-translate/useTranslation';
 import utils from 'styles/utils.module.scss';
 import styles from './about.module.scss';
 import playIcon from '@/svg/play.svg';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { GradientButton } from '@/shared/GradientButton';
 import { HomeSections } from 'utils/types/sections.enum';
+import { AboutSection } from 'utils/types/homeContent.interface';
 
 /* A way to import a component that is not SSR compatible. */
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
-export default function About() {
+export default function About({ aboutContent }: {  aboutContent: AboutSection }) {
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
-  const { t } = useTranslation('home');
+  const { t } = useTranslation(localeNamespaces.HOME);
 
   const playVideo = () => setShowPlaceholder(false);
 
@@ -26,7 +28,7 @@ export default function About() {
       <ReactPlayer 
         className={styles.reactPlayer}
         url='https://youtu.be/OjWQS7xQVzI'
-        light={showPlaceholder && '/images/about_video.jpg'}
+        light={showPlaceholder && aboutContent.placeholderImage}
         width='100%'
         height='auto'
       />
