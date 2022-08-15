@@ -47,7 +47,7 @@ export interface TechnologiesSection {
   name: string;
   descriptionES?: string;
   descriptionEN?: string;
-  ringLevel?: number;
+  ringLevel: number;
   logo: string;
 }
 
