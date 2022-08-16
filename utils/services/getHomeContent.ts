@@ -24,8 +24,8 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 		.select(
 			`${
 				isEnglish
-					? 'titleEN, subtitleEN, captionEN'
-					: 'titleES, subtitleES, captionES'
+					? 'titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN'
+					: 'titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES'
 			}`
 		)
 		.single();
