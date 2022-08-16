@@ -17,12 +17,13 @@ import { NavLink } from "utils/types/navLink.interface";
 import { localeNamespaces } from "utils/types/localeNamespaces.enum";
 
 export default function Header({ navLinks }: { navLinks: NavLink[] }) {
+  const router: NextRouter = useRouter();
+
   const [dropdownMenu, setDropdownMenu] = useState<boolean>(false);
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
-  const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>('English');
+  const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>(router.locale === 'en' ? 'English' : 'Español');
   const { t } = useTranslation(localeNamespaces.HOME);
 
-  const router: NextRouter = useRouter();
 
   // before 428px viewport width is mobile
   const isMobile: boolean = useMediaQuery('(max-width: 428px)');
@@ -36,9 +37,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
         <div>
           <Image 
             src={CreativeLogo}
-            width={161}
-            height={33}
-            layout="fixed"
+            width={148}
+            height={30}
             alt="Creative Logo"
           />
         </div>
@@ -62,7 +62,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
       <header className={styles.header}>
       <div className={styles.logo}>
         <Image 
-          priority={true}
+          width={161}
+          height={33}
           src={CreativeLogo}
           alt="Creative Logo"
         />
@@ -85,8 +86,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
       {/* Dropdown Menu */}
       {dropdownMenu && (
         <div className={styles.dropDownMenu}>
-          <button onClick={() => setCurrentLocale('English')}><Link href={router.pathname} locale='en'>English</Link></button>
-          <button onClick={() => setCurrentLocale('Español')}><Link href={router.pathname} locale='es'>Español</Link></button>
+          <button onClick={() => setCurrentLocale('English')}><Link href={router.pathname} locale='en' scroll={false}>English</Link></button>
+          <button onClick={() => setCurrentLocale('Español')}><Link href={router.pathname} locale='es' scroll={false}>Español</Link></button>
       </div>
       )}
     </header>
