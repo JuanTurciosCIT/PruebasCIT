@@ -1,15 +1,19 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useInView } from 'react-intersection-observer';
 
 import utils from '@/styles/utils.module.scss';
 import styles from './technologies.module.scss';
 import citLogo from '@/images/cit_logo.png';
 import { TechnologiesSection } from 'utils/types/homeContent.interface';
+import { ScrollReveal } from 'Animations/ScrollReveal';
+import { motion } from 'framer-motion';
 
 export default function Technologies({ technologies }: { technologies: TechnologiesSection[] } ): JSX.Element {
   const [currentTech, setCurrentTech] = useState<TechnologiesSection>(technologies[0]);
   const router = useRouter();
+  const { inView, entry, ref } = useInView();
   const isEnglish = router.locale === 'en';
   
   const innerRingTechnologies = technologies.filter(tech => tech.ringLevel === 1);
@@ -23,19 +27,20 @@ export default function Technologies({ technologies }: { technologies: Technolog
     handleTechClick(current[0] ?? technologies[0]);
   }, [router.locale]);
 
-  return <section className={styles.techSection}>
+  return <ScrollReveal isVisible={inView}>
+    <section className={styles.techSection} ref={ref}>
     <div className={styles.info}>
       <h2 className={`${utils.headingMedium} ${styles.title}`}>Technologies</h2>
-      <div>
+      <motion.div initial={{x: '-100%', opacity: 0}} animate={{x: 0, opacity: 1}} key={currentTech.name}>
         <h3 className={`${utils.headingMedium} ${styles.subtitle}`}>{currentTech.name}</h3>
         <div className={styles.description}>
           <p className={`${utils.textSmall}`}>{isEnglish ? currentTech.descriptionEN : currentTech.descriptionES}</p>
         </div>
-      </div>
+      </motion.div>
     </div>
 
     {/* Atom of technologies */}
-    <div className={styles.atomContainer}>
+    <motion.div className={styles.atomContainer} drag dragConstraints={{top: -10, left: -10, bottom: 10, right: 10}}>
       <div className={styles.logo}>
         <Image src={citLogo} alt='CIT Logo' />
       </div>
@@ -78,6 +83,7 @@ export default function Technologies({ technologies }: { technologies: Technolog
         }
       </div>
 
-    </div>
+    </motion.div>
   </section>
+  </ScrollReveal>
 }
