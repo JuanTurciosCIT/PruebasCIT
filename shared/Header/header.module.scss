@@ -25,7 +25,12 @@
   font-size: 0;
   color: transparent;
   outline: none;
-  transition: all 0.3s ease-in-out;
+  transition: scale(0.8) transform 0.3s ease-out;
+
+  &:active {
+    transform: scale(0.8) rotate(360deg);
+    transition: transform 0.3s ease-in;
+  }
 }
 
 .navMenu {
@@ -64,6 +69,12 @@
   }
 }
 
+.localeDropDown {
+  position: absolute;
+  right: 4rem;
+  top: 8rem;
+}
+
 .dropDownMenu {
   display: flex;
   gap: 0.8rem;
@@ -72,9 +83,6 @@
   justify-content: center;
   background-color: #232323;
   padding: 1.6rem;
-  position: absolute;
-  right: 4rem;
-  top: 8rem;
   border-radius: 0.5rem;
 
   button {
@@ -91,4 +99,14 @@
       cursor: pointer;
     }
   }
+}
+
+.arrowIcon {
+  transform: rotate(0);
+  transition: all 0.2s ease-out;
+}
+
+.arrowIconActive {
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in;
 }
