@@ -42,7 +42,7 @@ export default function HeroHome({
 					</h2>
 				</div>
 				<div className={`${utils.textSmall} ${styles.heroDescription}`}>
-					<p>{(heroContent.captionES || heroContent.captionEN) || <Skeleton />}</p>
+					<p>{heroContent.captionES || heroContent.captionEN}</p>
 				</div>
 				<div>
 					<CustomButton>{t('shared.btn_text')}</CustomButton>
