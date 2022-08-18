@@ -19,6 +19,7 @@
   }
 
   .logo {
+    position: relative;
     aspect-ratio: 1 / 1;
     width: 7.2rem;
     height: 7.2rem;
@@ -48,7 +49,6 @@
       transition: all 0.3s ease-in;
 
       .link {
-        text-decoration: underline;
         transition: all 0.3s ease-in;
       }
     }

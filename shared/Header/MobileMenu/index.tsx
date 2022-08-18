@@ -8,6 +8,7 @@ import styles from "./mobileMenu.module.scss";
 import utils from '../../../styles/utils.module.scss';
 import arrowDownIcon from "../../../public/svg/arrow-down.svg";
 import { NavLink } from "utils/types/navLink.interface";
+import { AnimatedContainer } from "Animations/AnimatedContainer";
 
 export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
   const [dropdownMenu, setDropdownMenu] = useState(false);
@@ -16,7 +17,7 @@ export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
   const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
 
   return <div className={styles.modal}>
-    <div>
+    <AnimatedContainer hidden={{ y: '100vh', opacity: 0 }} visible={{ y: 0, opacity: 1 }} exit={{y: '100vh', opacity: 0}}>
       <nav className={styles.navContainer}>
         <ul className={styles.navMenu}>
           {
@@ -38,6 +39,6 @@ export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
           </div>
         )}
       </nav>
-    </div>
+    </AnimatedContainer>
   </div>
 }

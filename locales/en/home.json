@@ -17,6 +17,11 @@
     "title": "Companies that trust on us"
   },
   "about": {
-    "title": "About Our Company"
+    "title": "About Our Company",
+    "btn_text": "Play video"
+  },
+  "services": {
+    "title": "Our Services",
+    "btn_text": "Check it out"
   }
 }

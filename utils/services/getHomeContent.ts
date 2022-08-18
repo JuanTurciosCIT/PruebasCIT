@@ -13,10 +13,10 @@ import {
 
 /**
  * It fetches data from the database and returns it as a HomeContent object
- * @param {string} locale - string - The locale of the content you want to fetch.
+ * @param {string} locale - string - The locale of the content you want to fetch | default: 'en'
  * @returns The return type is HomeContent.
  */
-export const getHomeContent = async (locale: string): Promise<HomeContent> => {
+export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent> => {
 	const isEnglish = locale === 'en';
 
 	const { data: heroContent } = await supabase
@@ -24,8 +24,8 @@ export const getHomeContent = async (locale: string): Promise<HomeContent> => {
 		.select(
 			`${
 				isEnglish
-					? 'titleEN, subtitleEN, captionEN'
-					: 'titleES, subtitleES, captionES'
+					? 'titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN'
+					: 'titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES'
 			}`
 		)
 		.single();

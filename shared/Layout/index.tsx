@@ -1,19 +1,13 @@
-import { motion } from 'framer-motion';
 import Footer from '../Footer';
 import { NextRouter, useRouter } from 'next/router';
 
 import { navLinks } from 'utils/constants/navLink.constant';
 import { Pages } from 'utils/types/pages.enum';
 import Header from '../Header';
+import { ReactNode } from 'react';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
 	const router: NextRouter = useRouter();
-
-	const variants = {
-		hidden: { opacity: 0, x: -200, y: 0 },
-		enter: { opacity: 1, x: 0, y: 0 },
-		exit: { opacity: 0, x: 0, y: -100 },
-	};
 
 	const headerLinks = navLinks.filter((link) => {
 		const pathname: Pages = router.pathname as Pages;
@@ -23,15 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Header navLinks={headerLinks} />
-			<motion.main
-				variants={variants}
-				initial='hidden'
-				animate='enter'
-				exit='exit'
-				transition={{ type: 'linear' }}
-			>
 				{children}
-			</motion.main>
 			<Footer />
 		</>
 	);

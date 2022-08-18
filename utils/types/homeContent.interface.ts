@@ -12,8 +12,12 @@ export interface HomeContent {
 export interface HeroSection {
   titleEN?: string;
   titleES?: string;
-  subtitleEN?: string;
-  subtitleES?: string;
+  subtitleStartEN?: string;
+  subtitleStartES?: string;
+  subtitleEndEN?: string;
+  subtitleEndES?: string;
+  subtitlePhrasesEN?: string[];
+  subtitlePhrasesES?: string[];
   captionEN?: string;
   captionES?: string;
   backgroundImage?: string;
@@ -27,8 +31,8 @@ export interface CustomersSection {
 
 export interface AboutSection {
   title?: string;
-  placeholderImage?: string;
-  videoPath?: string;
+  placeholderImage: string;
+  videoPath: string;
 }
 
 export interface ServicesSection {
@@ -47,7 +51,7 @@ export interface TechnologiesSection {
   name: string;
   descriptionES?: string;
   descriptionEN?: string;
-  ringLevel?: number;
+  ringLevel: number;
   logo: string;
 }
 

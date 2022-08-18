@@ -17,6 +17,11 @@
     "title": "Empresas que confían en nosotros"
   },
   "about": {
-    "title": "Acerca de nuestra empresa"
+    "title": "Acerca de nuestra empresa",
+    "btn_text": "Reproducir video"
+  },
+  "services": {
+    "title": "Nuestros servicios",
+    "btn_text": "Ver más"
   }
 }

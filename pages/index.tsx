@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
+import type { GetStaticProps, NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 
 import HeroHome from 'components/Home/HeroHome';
 import CompaniesSlider from 'components/Home/CompaniesSlider';
@@ -15,7 +15,7 @@ import HeroFooter from 'shared/HeroFooter';
 import { HomeContent } from 'utils/types/homeContent.interface';
 import { getHomeContent } from 'utils/services/getHomeContent';
 
-const Home: NextPage = ({
+const Home: NextPage<HomeContent> = ({
 	hero,
 	customers,
 	about,
@@ -32,11 +32,11 @@ const Home: NextPage = ({
 			</main>
 			<CompaniesSlider customers={customers} />
 			<div className={styles.aboutAndServices}>
-				<About />
-				<OurServices />
+				<About aboutContent={about} />
+				<OurServices services={services} />
 				<div className={styles.diamond}></div>
 			</div>
-			<Technologies />
+			<Technologies technologies={technologies} />
 			<Portfolio />
 			<CustomerFeedback />
 			<Gallery />
@@ -45,7 +45,7 @@ const Home: NextPage = ({
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetStaticPropsContext) => {
 	const homeContent: HomeContent = await getHomeContent(context.locale);
 
 	return {
