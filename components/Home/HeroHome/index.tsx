@@ -1,5 +1,4 @@
 import useTranslation from 'next-translate/useTranslation';
-import Skeleton from 'react-loading-skeleton';
 import Typewriter from 'typewriter-effect';
 
 import CustomButton from '@/shared/CustomButton';
@@ -19,7 +18,7 @@ export default function HeroHome({
 	const isMobile = useMediaQuery('(max-width: 428px)');
 
 	return (
-		<section className={styles.hero}>
+		<div className={styles.hero}>
 			<div className={styles.wrapper}>
 				<div className={`${utils.headingLarge} ${styles.heroTitle}`}>
 					<h1 className={styles.mainTitle}>
@@ -34,8 +33,8 @@ export default function HeroHome({
 								options={{
 									strings: typeWriterText,
 									autoStart: true,
-									loop: true
-								}} 
+									loop: true,
+								}}
 							/>
 						</span>{isMobile && <br />}
 						<span>{heroContent.subtitleEndEN}</span>
@@ -48,6 +47,6 @@ export default function HeroHome({
 					<CustomButton>{t('shared.btn_text')}</CustomButton>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }
