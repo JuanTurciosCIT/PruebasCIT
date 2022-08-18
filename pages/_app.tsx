@@ -1,59 +1,32 @@
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
-import { AnimatePresence } from 'framer-motion'
-import Router from 'next/router';
-import { useState, useEffect } from 'react';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import GlobalLoader from '@/shared/GlobalLoader';
-
-import '@/styles/globals.scss'
+import '@/styles/globals.scss';
+import { useGlobalLoading } from '@/hooks/useGlobalLoading';
+import { useRouter } from 'next/router';
+import { AnimatedContainer } from 'Animations/AnimatedContainer';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [loading, setLoading] = useState<boolean>(false);
+	const isLoading = useGlobalLoading();
+  const router = useRouter();
 
-  useEffect(() => {
-    const start = () => {
-      setLoading(true);
-    }
-
-    const end = () => {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-
-    Router.events.on('routeChangeStart', start);
-    Router.events.on('routeChangeComplete', end);
-    Router.events.on('routeChangeError', end);
-
-    return () => {
-      Router.events.off('routeChangeStart', start);
-      Router.events.off('routeChangeComplete', end);
-      Router.events.off('routeChangeError', end);
-    }
-  }, []);
-
-  return (
-    <>
-      <Head>
-        <title>Creative Information Technologies</title>
-        <meta name="description" content="CIT Landing" />
-      </Head>
-      {
-        loading && <GlobalLoader />
-      }
-      {/* <Header /> */}
-      <AnimatePresence
-        exitBeforeEnter
-        initial={false}
-        onExitComplete={() => window.scrollTo(0, 0)}
-      >
-        {/* canonical={url} key={url} */}
-        <Component {...pageProps} />
-      </AnimatePresence>
-    {/* <Footer /> */}
-    </>
-  )
+	return (
+		<>
+			<Head>
+				<title>Creative Information Technologies</title>
+				<meta
+					name='description'
+					content='We are nearshore software development lab with a team of top-notch software developers and designers on the latin America region.'
+				/>
+			</Head>
+			{isLoading && <GlobalLoader />}
+			<AnimatedContainer hidden={{ y: '80px', opacity: 0 }} visible={{ y: 0, opacity: 1 }}>
+				<Component {...pageProps} />
+			</AnimatedContainer>
+		</>
+	);
 }
 
-export default MyApp
+export default MyApp;
