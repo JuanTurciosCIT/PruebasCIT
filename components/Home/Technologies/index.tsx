@@ -2,6 +2,9 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useInView } from 'react-intersection-observer';
+import useTranslation from 'next-translate/useTranslation';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+
 
 import utils from '@/styles/utils.module.scss';
 import styles from './technologies.module.scss';
@@ -11,9 +14,10 @@ import { ScrollReveal } from 'Animations/ScrollReveal';
 import { motion } from 'framer-motion';
 
 export default function Technologies({ technologies }: { technologies: TechnologiesSection[] } ): JSX.Element {
-  const [currentTech, setCurrentTech] = useState<TechnologiesSection>(technologies[0]);
   const router = useRouter();
-  const { inView, entry, ref } = useInView();
+  const [currentTech, setCurrentTech] = useState<TechnologiesSection>(technologies[0]);
+  const { t } = useTranslation(localeNamespaces.HOME);
+  const { inView, ref } = useInView();
   const isEnglish = router.locale === 'en';
   
   const innerRingTechnologies = technologies.filter(tech => tech.ringLevel === 1);
@@ -30,7 +34,7 @@ export default function Technologies({ technologies }: { technologies: Technolog
   return <ScrollReveal isVisible={inView}>
     <section className={styles.techSection} ref={ref}>
     <div className={styles.info}>
-      <h2 className={`${utils.headingMedium} ${styles.title}`}>Technologies</h2>
+      <h2 className={`${utils.headingMedium} ${styles.title}`}>{t('technologies.title')}</h2>
       <motion.div initial={{x: '-100%', opacity: 0}} animate={{x: 0, opacity: 1}} key={currentTech.name}>
         <h3 className={`${utils.headingMedium} ${styles.subtitle}`}>{currentTech.name}</h3>
         <div className={styles.description}>

@@ -23,5 +23,8 @@
   "services": {
     "title": "Nuestros servicios",
     "btn_text": "Ver más"
+  },
+  "technologies": {
+    "title": "Tecnologías"
   }
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import useTranslation from 'next-translate/useTranslation';
 
 import CustomButton from "../../CustomButton"
@@ -9,12 +11,33 @@ import utils from '../../../styles/utils.module.scss';
 import arrowDownIcon from "../../../public/svg/arrow-down.svg";
 import { NavLink } from "utils/types/navLink.interface";
 import { AnimatedContainer } from "Animations/AnimatedContainer";
+import { localeNamespaces } from "utils/types/localeNamespaces.enum";
+import useOnClickOutside from "@/hooks/useOnClickOutside";
 
-export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
+interface MobileMenuProps {
+  navLinks: NavLink[];
+}
+
+export default function MobileMenu({ navLinks }: MobileMenuProps) {
+  const router = useRouter();
+  const ref = useRef(null);
   const [dropdownMenu, setDropdownMenu] = useState(false);
-  const { t } = useTranslation('home');
+  const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>(
+		router.locale === 'en' ? 'English' : 'Español'
+	);
+  const { t } = useTranslation(localeNamespaces.HOME);
 
   const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
+
+  const handleClickOutside = () => {
+		if (!dropdownMenu) return;
+		
+		setTimeout(() => {
+			toggleDropdownMenu();
+		}, 500);
+	};
+
+	useOnClickOutside(ref, handleClickOutside);
 
   return <div className={styles.modal}>
     <AnimatedContainer hidden={{ y: '100vh', opacity: 0 }} visible={{ y: 0, opacity: 1 }} exit={{y: '100vh', opacity: 0}}>
@@ -27,16 +50,24 @@ export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
           }
           <li className={utils.textSmall}><CustomButton>{t('shared.btn_text')}</CustomButton></li>
         </ul>
-        <div>
-          <button className={`${utils.textSmall} ${styles.dropDown}`} onClick={toggleDropdownMenu}><span>English </span><Image src={arrowDownIcon} alt='Arrow down' /></button>
+        <div ref={ref}>
+          <button className={`${utils.textSmall} ${styles.dropDown}`} onClick={toggleDropdownMenu}><span>{currentLocale}{' '} </span><Image src={arrowDownIcon} alt='Arrow down' /></button>
         </div>
 
          {/* Dropdown Menu */}
         {dropdownMenu && (
-          <div className={styles.dropDownMenu}>
-            <button>English</button>
-            <button>Español</button>
-          </div>
+          <motion.div className={styles.dropDownMenu} initial={{ y: '100%', opacity: 0, scale: 0 }} animate={{ y: 0, opacity: 1, scale: 1 }}>
+            <button onClick={() => setCurrentLocale('English')}>
+              <Link href={router.pathname} locale='en' scroll={false}>
+                English
+              </Link>
+            </button>
+            <button onClick={() => setCurrentLocale('Español')}>
+              <Link href={router.pathname} locale='es' scroll={false}>
+                Español
+              </Link>
+            </button>
+          </motion.div>
         )}
       </nav>
     </AnimatedContainer>
