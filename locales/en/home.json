@@ -23,5 +23,8 @@
   "services": {
     "title": "Our Services",
     "btn_text": "Check it out"
+  },
+  "technologies": {
+    "title": "Technologies"
   }
 }
