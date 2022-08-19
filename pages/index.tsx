@@ -52,6 +52,7 @@ export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetSt
 		props: {
 			...homeContent,
 		},
+		revalidate: 10
 	};
 };
 
