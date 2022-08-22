@@ -55,7 +55,7 @@ export default function Footer() {
 				</div>
 			</div>
 			<div className={styles.rightsConditions}>
-				<p className={utils.textSmall}>All Rights reservd 2022 yalo</p>
+				<p className={utils.textSmall}>All Rights reservd 2022 CIT</p>
 				<p className={utils.textSmall}>Privacy Policy</p>
 			</div>
 		</footer>
