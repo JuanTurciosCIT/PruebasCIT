@@ -38,7 +38,7 @@ const Home: NextPage<HomeContent> = ({
 			</div>
 			<Technologies technologies={technologies} />
 			<Portfolio />
-			<CustomerFeedback />
+			<CustomerFeedback feedback={customerFeedback} />
 			<Gallery />
 			<HeroFooter />
 		</Layout>
