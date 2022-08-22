@@ -16,10 +16,11 @@ import {
  * @param {string} locale - string - The locale of the content you want to fetch | default: 'en'
  * @returns The return type is HomeContent.
  */
-export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent> => {
+export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent | undefined> => {
 	const isEnglish = locale === 'en';
 
-	const { data: heroContent } = await supabase
+	try {
+		const { data: heroContent } = await supabase
 		.from<HeroSection>('HomeHero')
 		.select(
 			`${
@@ -75,14 +76,17 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 		)
 		.single();
 
-	return {
-		hero: heroContent as HeroSection,
-		about: aboutContent as AboutSection,
-		customers: customersContent as CustomersSection[],
-		services: servicesContent as ServicesSection[],
-		technologies: technologiesContent as TechnologiesSection[],
-		customerFeedback: customerFeedbackContent as CustomerFeedbackSection[],
-		gallery: galleryContent as GallerySection,
-		footerHero: heroFooterContent as FooterHeroSection,
-	};
+		return {
+			hero: heroContent as HeroSection,
+			about: aboutContent as AboutSection,
+			customers: customersContent as CustomersSection[],
+			services: servicesContent as ServicesSection[],
+			technologies: technologiesContent as TechnologiesSection[],
+			customerFeedback: customerFeedbackContent as CustomerFeedbackSection[],
+			gallery: galleryContent as GallerySection,
+			footerHero: heroFooterContent as FooterHeroSection,
+		};
+	} catch (error) {
+		console.error(error);
+	}
 };
