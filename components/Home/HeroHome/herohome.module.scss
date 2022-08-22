@@ -51,6 +51,7 @@
   background: linear-gradient(to right, #F58523 0%, #BD4444 50%, #2ABCDA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: brightness(1.2) contrast(1.2);
 }
 
 /* min-width = since that width */
