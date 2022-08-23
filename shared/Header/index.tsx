@@ -52,9 +52,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
 					<div>
 						<Image
 							src={CreativeLogo}
-							width={148}
-							height={30}
 							alt='Creative Logo'
+							loading='eager'
 						/>
 					</div>
 
