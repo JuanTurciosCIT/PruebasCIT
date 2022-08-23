@@ -3,7 +3,7 @@
 
 .heroFooter {
     position: relative;
-    background-image: url(/images/heroFooter.jpg);
+    // background-image: url(/images/heroFooter.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -34,6 +34,7 @@
     color: $secondaryTextColor;
     padding-bottom: 2.5rem;
     padding-inline: 4.3rem;
+    text-shadow: 0 0 4px $primaryBackgroundColor;
 }
 
 .button {
