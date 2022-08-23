@@ -1,20 +1,23 @@
+import useTranslation from 'next-translate/useTranslation';
+
 import utils from 'styles/utils.module.scss';
+import { FooterHeroSection } from 'utils/types/homeContent.interface';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import styles from './herofooter.module.scss';
 
-export default function HeroFooter() {
+export default function HeroFooter({ content }: { content: FooterHeroSection }) {
+	const { t } = useTranslation(localeNamespaces.HOME);
+
 	return (
-		<section className={styles.heroFooter}>
+		<section className={styles.heroFooter} style={{backgroundImage: `url(${content.backgroundImg})`}}>
 			<div className={styles.wrapper}>
 				<h1 className={`${styles.title} ${utils.headingLarge}`}>
-					Ready to get started?
+					{content.titleEN || content.titleES}
 				</h1>
 				<p className={styles.description}>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus eu sit
-					suspendisse aliquet arcu bibendum. Turpis commodo libero vulputate
-					sed. Sagittis et, euismod sagittis, leo commodo, a amet. Metus felis
-					ipsum feugiat.
+					{content.captionEN || content.captionES}
 				</p>
-				<button className={styles.button}>Contact Us</button>
+				<button className={styles.button}>{t('heroFooter.btn_text')}</button>
 			</div>
 		</section>
 	);

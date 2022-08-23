@@ -7,6 +7,7 @@ export interface HomeContent {
   customerFeedback: CustomerFeedbackSection[];
   gallery: GallerySection;
   footerHero: FooterHeroSection;
+  footer: FooterSection;
 }
 
 export interface HeroSection {
@@ -57,10 +58,10 @@ export interface TechnologiesSection {
 
 export interface CustomerFeedbackSection {
   title?: string;
-  customerName: string;
+  name: string;
   commentES?: string;
   commentEN?: string;
-  customerImg: string;
+  picture: string;
   rate: number;
 }
 
@@ -78,4 +79,21 @@ export interface FooterHeroSection {
   captionES?: string;
   captionEN?: string;
   backgroundImg?: string;
+}
+
+export interface Location {
+  address: string;
+}
+
+export interface Contact {
+  facebook: string;
+  instagram: string;
+  linkedin: string;
+  email: string;
+  phone: string;
+}
+
+export interface FooterSection {
+  locations: Location[];
+  contact: Contact;
 }

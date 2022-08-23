@@ -24,9 +24,10 @@ const Home: NextPage<HomeContent> = ({
 	customerFeedback,
 	gallery,
 	footerHero,
+	footer
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<Layout>
+		<Layout footerContent={footer}>
 			<main>
 				<HeroHome heroContent={hero} />
 			</main>
@@ -38,21 +39,21 @@ const Home: NextPage<HomeContent> = ({
 			</div>
 			<Technologies technologies={technologies} />
 			<Portfolio />
-			<CustomerFeedback />
-			<Gallery />
-			<HeroFooter />
+			<CustomerFeedback feedback={customerFeedback} />
+			<Gallery gallery={gallery}/>
+			<HeroFooter content={footerHero} />
 		</Layout>
 	);
 };
 
 export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetStaticPropsContext) => {
-	const homeContent: HomeContent = await getHomeContent(context.locale);
+	const homeContent: HomeContent = await getHomeContent(context.locale) as HomeContent;
 
 	return {
 		props: {
 			...homeContent,
 		},
-		revalidate: 10
+		revalidate: 60
 	};
 };
 

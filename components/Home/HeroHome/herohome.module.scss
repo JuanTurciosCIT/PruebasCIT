@@ -1,3 +1,5 @@
+@use '/styles/variables.scss' as *;
+
 .typewriterWrapper {
   display: inline-block !important;
 }
@@ -6,7 +8,7 @@
   position: relative;
   width: 100%;
   height: calc(53.9rem + 4rem);
-  background-image: url('/images/heroHomeMobile.jpg');
+  // background-image: url('/images/heroHomeMobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -35,6 +37,7 @@
     max-width: 62.9rem;
     padding: 0 2.4rem 0 2.4rem;
     color: #888888;
+    text-shadow: 0 0 4px $primaryBackgroundColor;
   }
 }
 
@@ -51,14 +54,15 @@
   background: linear-gradient(to right, #F58523 0%, #BD4444 50%, #2ABCDA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: brightness(1.2) contrast(1.2);
 }
 
 /* min-width = since that width */
 @media screen and (min-width: 428px) {
   .hero {
-    height: 80vh;
+    height: 84vh;
     max-height: 75.1rem;
-    background-image: url('/images/heroHome.jpg');
+    // background-image: url('/images/heroHome.jpg');
     background-position: top;
   }
   .wrapper {

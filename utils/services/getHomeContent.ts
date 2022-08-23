@@ -9,6 +9,9 @@ import {
 	GallerySection,
 	FooterHeroSection,
 	HomeContent,
+	Location,
+	Contact,
+	FooterSection,
 } from '../types/homeContent.interface';
 
 /**
@@ -16,16 +19,17 @@ import {
  * @param {string} locale - string - The locale of the content you want to fetch | default: 'en'
  * @returns The return type is HomeContent.
  */
-export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent> => {
+export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent | undefined> => {
 	const isEnglish = locale === 'en';
 
-	const { data: heroContent } = await supabase
+	try {
+		const { data: heroContent } = await supabase
 		.from<HeroSection>('HomeHero')
 		.select(
 			`${
 				isEnglish
-					? 'titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN'
-					: 'titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES'
+					? 'backgroundImage, titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN'
+					: 'backgroundImage, titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES'
 			}`
 		)
 		.single();
@@ -54,9 +58,9 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 	const { data: customerFeedbackContent } = await supabase
 		.from<CustomerFeedbackSection>('CustomerFeedback')
 		.select(
-			`customerName, rate, ${
+			`name, rate, ${
 				isEnglish ? 'commentEN' : 'commentES'
-			}, customerImg`
+			}, picture`
 		);
 
 	const { data: galleryContent } = await supabase
@@ -75,14 +79,29 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 		)
 		.single();
 
-	return {
-		hero: heroContent as HeroSection,
-		about: aboutContent as AboutSection,
-		customers: customersContent as CustomersSection[],
-		services: servicesContent as ServicesSection[],
-		technologies: technologiesContent as TechnologiesSection[],
-		customerFeedback: customerFeedbackContent as CustomerFeedbackSection[],
-		gallery: galleryContent as GallerySection,
-		footerHero: heroFooterContent as FooterHeroSection,
-	};
+		const { data: locations } = await supabase
+			.from<Location>('Location')
+			.select('address');
+
+		const { data: contact } = await supabase
+			.from<Contact>('Contact')
+			.select('facebook, instagram, linkedin, phone, email')
+			.single();
+
+		const FooterContent: FooterSection = { locations: locations as Location[], contact: contact as Contact };
+
+		return {
+			hero: heroContent as HeroSection,
+			about: aboutContent as AboutSection,
+			customers: customersContent as CustomersSection[],
+			services: servicesContent as ServicesSection[],
+			technologies: technologiesContent as TechnologiesSection[],
+			customerFeedback: customerFeedbackContent as CustomerFeedbackSection[],
+			gallery: galleryContent as GallerySection,
+			footerHero: heroFooterContent as FooterHeroSection,
+			footer: FooterContent,
+		};
+	} catch (error) {
+		console.error(error);
+	}
 };

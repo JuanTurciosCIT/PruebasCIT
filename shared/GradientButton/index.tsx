@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './gradientButton.module.scss';
 
 interface GradientButtonProps {
@@ -5,10 +6,10 @@ interface GradientButtonProps {
   onClick?: () => void;
 }
 
-export const GradientButton = ({ children, onClick }: GradientButtonProps) => {
+export const GradientButton = memo(function GradientButton({ children, onClick }: GradientButtonProps) {
   return (
     <button className={styles.gradientBtn} onClick={onClick}>
       {children}
     </button>
   );
-}
+});

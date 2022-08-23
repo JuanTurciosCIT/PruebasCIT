@@ -47,15 +47,21 @@
 }
 
 .galleryWrapper {
+    position: relative;
     width: 100%;
+    height: auto;
     max-width: 61.6rem;
     max-height: 48rem;
     overflow: hidden;
+    overflow-x: scroll;
     border-radius: 0.6rem;
 }
 
 .picture {
     border-radius: 0.6rem;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
 }
 
 .picture1 {
@@ -107,6 +113,7 @@
     }
     .galleryWrapper {
         width: 40%;
+        overflow-x: hidden;
     }
     .picture1 {
         width: 32.89rem;

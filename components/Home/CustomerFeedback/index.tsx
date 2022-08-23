@@ -1,20 +1,24 @@
 import Image from 'next/image';
 import { useRef, useCallback } from 'react';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import useTranslation from 'next-translate/useTranslation';
 import { SwiperOptions } from 'swiper';
+import { useInView } from 'react-intersection-observer';
 import 'swiper/css';
 
 import utils from '@/styles/utils.module.scss';
 import styles from './customerFeedback.module.scss';
-import customer1 from '@/images/customer1.png';
-import customer2 from '@/images/customer2.png';
-import customer3 from '@/images/customer3.png';
 import starIcon from '@/svg/star_feedback.svg';
 import SliderButtons from '@/shared/SliderButtons';
 import { useMediaQuery } from 'utils/hooks/useMediaQuery';
+import { CustomerFeedbackSection } from 'utils/types/homeContent.interface';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+import { ScrollReveal } from 'Animations/ScrollReveal';
 
-export default function CustomerFeedback() {
+export default function CustomerFeedback({ feedback }: { feedback: CustomerFeedbackSection[] }) {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const { ref, inView } = useInView();
+	const { t } = useTranslation(localeNamespaces.HOME);
 
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
@@ -33,162 +37,68 @@ export default function CustomerFeedback() {
 	const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
 
 	return (
-		<section className={styles.section}>
+		<section className={styles.section} ref={ref}>
 			<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
-				What they say about us
+				{t('customerFeedback.title')}
 			</h2>
+			<ScrollReveal isVisible={inView}>
 			<Swiper
 				{...swiperOptions}
 				onSwiper={(swiper) => { swiperRef.current = swiper; }}
 			>
-				<SwiperSlide>
-					<div className={styles.feedbackCard}>
-						<div className={styles.customerPic}>
-							<Image src={customer1} alt='Customer 1' width={80} height={80} />
-						</div>
-						<div className={styles.info}>
-							<div className={styles.stars}>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
+				{
+					feedback.map(item => (
+						<SwiperSlide key={item.picture}>
+						<div className={styles.feedbackCard}>
+							<div className={styles.customerPic}>
+								<Image src={item.picture} alt='Customer' width={80} height={80} objectFit='cover' />
 							</div>
-							<h3 className={`${utils.headingMedium} ${styles.name}`}>
-								Jane Cooper
-							</h3>
-							<p className={styles.comment}>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi,
-								pretium, condimentum id quis elit dolor nec vulputate. Neque
-								pulvinar tristique amet, sodales sit id. At urna eu vel non.
-							</p>
-						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<div className={styles.feedbackCard}>
-						<div className={styles.customerPic}>
-							<Image src={customer2} alt='Customer 1' width={80} height={80} />
-						</div>
-						<div className={styles.info}>
-							<div className={styles.stars}>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
+							<div className={styles.info}>
+								<div className={styles.stars}>
+									<Image
+										src={starIcon}
+										alt='Feedback star'
+										width={14}
+										height={14}
+									/>
+									<Image
+										src={starIcon}
+										alt='Feedback star'
+										width={14}
+										height={14}
+									/>
+									<Image
+										src={starIcon}
+										alt='Feedback star'
+										width={14}
+										height={14}
+									/>
+									<Image
+										src={starIcon}
+										alt='Feedback star'
+										width={14}
+										height={14}
+									/>
+									<Image
+										src={starIcon}
+										alt='Feedback star'
+										width={14}
+										height={14}
+									/>
+								</div>
+								<h3 className={`${utils.headingMedium} ${styles.name}`}>
+									{item.name}
+								</h3>
+								<p className={styles.comment}>
+									{item.commentEN || item.commentES}
+								</p>
 							</div>
-							<h3 className={`${utils.headingMedium} ${styles.name}`}>
-								Courtney Henry
-							</h3>
-							<p className={styles.comment}>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi,
-								pretium, condimentum id quis elit dolor nec vulputate. Neque
-								pulvinar tristique amet, sodales sit id. At urna eu vel non.
-							</p>
 						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<div className={styles.feedbackCard}>
-						<div className={styles.customerPic}>
-							<Image src={customer3} alt='Customer 1' width={80} height={80} />
-						</div>
-						<div className={styles.info}>
-							<div className={styles.stars}>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-								<Image
-									src={starIcon}
-									alt='Feedback star'
-									width={14}
-									height={14}
-								/>
-							</div>
-							<h3 className={`${utils.headingMedium} ${styles.name}`}>
-								Cameron Williamson
-							</h3>
-							<p className={styles.comment}>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi,
-								pretium, condimentum id quis elit dolor nec vulputate. Neque
-								pulvinar tristique amet, sodales sit id. At urna eu vel non.
-							</p>
-						</div>
-					</div>
-				</SwiperSlide>
+					</SwiperSlide>
+					))
+				}
 			</Swiper>
+			</ScrollReveal>
 
 			<SliderButtons next={nextSlide} prev={prevSlide} />
 		</section>

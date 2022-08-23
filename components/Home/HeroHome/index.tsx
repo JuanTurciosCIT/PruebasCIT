@@ -18,7 +18,7 @@ export default function HeroHome({
 	const isMobile = useMediaQuery('(max-width: 428px)');
 
 	return (
-		<div className={styles.hero}>
+		<div className={styles.hero} style={{backgroundImage: `url(${heroContent.backgroundImage})`}}>
 			<div className={styles.wrapper}>
 				<div className={`${utils.headingLarge} ${styles.heroTitle}`}>
 					<h1 className={styles.mainTitle}>

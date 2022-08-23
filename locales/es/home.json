@@ -26,5 +26,23 @@
   },
   "technologies": {
     "title": "Tecnologías"
+  },
+  "customerFeedback": {
+    "title": "Que opinan nuestros clientes"
+  },
+  "gallery": {
+    "title": "Trabaja con nosotros",
+    "btn_text": "Ver más"
+  },
+  "heroFooter": {
+    "title": "Listo para empezar?",
+    "caption": "{external_data}",
+    "btn_text": "Contáctenos"
+  },
+  "footer": {
+    "title": "Ubicaciones",
+    "title2": "Síguenos",
+    "copyright": "Todos los derechos reservados 2022 CIT",
+    "policy": "Políticas de privacidad"
   }
 }

@@ -33,7 +33,7 @@ export default function About({
 				{/* The styles for the preview image and play icon can be overridden by targeting the CSS classes react-player__preview, react-player__shadow and react-player__play-icon. */}
 				<ReactPlayer
 					className={styles.reactPlayer}
-					url='https://youtu.be/OjWQS7xQVzI'
+					url={aboutContent.videoPath}
 					light={showPlaceholder && aboutContent.placeholderImage}
 					width='100%'
 					height='auto'
