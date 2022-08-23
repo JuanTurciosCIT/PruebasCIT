@@ -3,6 +3,7 @@ import { useRef, useCallback } from 'react';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import useTranslation from 'next-translate/useTranslation';
 import { SwiperOptions } from 'swiper';
+import { useInView } from 'react-intersection-observer';
 import 'swiper/css';
 
 import utils from '@/styles/utils.module.scss';
@@ -12,9 +13,11 @@ import SliderButtons from '@/shared/SliderButtons';
 import { useMediaQuery } from 'utils/hooks/useMediaQuery';
 import { CustomerFeedbackSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+import { ScrollReveal } from 'Animations/ScrollReveal';
 
 export default function CustomerFeedback({ feedback }: { feedback: CustomerFeedbackSection[] }) {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.HOME);
 
 	const swiper = useSwiper();
@@ -34,20 +37,21 @@ export default function CustomerFeedback({ feedback }: { feedback: CustomerFeedb
 	const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
 
 	return (
-		<section className={styles.section}>
+		<section className={styles.section} ref={ref}>
 			<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
 				{t('customerFeedback.title')}
 			</h2>
+			<ScrollReveal isVisible={inView}>
 			<Swiper
 				{...swiperOptions}
 				onSwiper={(swiper) => { swiperRef.current = swiper; }}
 			>
 				{
 					feedback.map(item => (
-						<SwiperSlide key={item.customerImg}>
+						<SwiperSlide key={item.picture}>
 						<div className={styles.feedbackCard}>
 							<div className={styles.customerPic}>
-								<Image src={item.customerImg} alt='Customer' layout='fill' width={80} height={80} />
+								<Image src={item.picture} alt='Customer' width={80} height={80} objectFit='cover' />
 							</div>
 							<div className={styles.info}>
 								<div className={styles.stars}>
@@ -83,7 +87,7 @@ export default function CustomerFeedback({ feedback }: { feedback: CustomerFeedb
 									/>
 								</div>
 								<h3 className={`${utils.headingMedium} ${styles.name}`}>
-									{item.customerName}
+									{item.name}
 								</h3>
 								<p className={styles.comment}>
 									{item.commentEN || item.commentES}
@@ -94,6 +98,7 @@ export default function CustomerFeedback({ feedback }: { feedback: CustomerFeedb
 					))
 				}
 			</Swiper>
+			</ScrollReveal>
 
 			<SliderButtons next={nextSlide} prev={prevSlide} />
 		</section>
