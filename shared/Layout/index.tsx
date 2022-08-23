@@ -1,12 +1,18 @@
 import Footer from '../Footer';
 import { NextRouter, useRouter } from 'next/router';
+import { ReactNode } from 'react';
 
 import { navLinks } from 'utils/constants/navLink.constant';
 import { Pages } from 'utils/types/pages.enum';
 import Header from '../Header';
-import { ReactNode } from 'react';
+import { FooterSection } from 'utils/types/homeContent.interface';
 
-export default function Layout({ children }: { children: ReactNode }) {
+interface LayoutProps {
+	children: ReactNode;
+	footerContent: FooterSection;
+}
+
+export default function Layout({ children, footerContent }: LayoutProps) {
 	const router: NextRouter = useRouter();
 
 	const headerLinks = navLinks.filter((link) => {
@@ -18,7 +24,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 		<>
 			<Header navLinks={headerLinks} />
 				{children}
-			<Footer />
+			<Footer content={footerContent} />
 		</>
 	);
 }

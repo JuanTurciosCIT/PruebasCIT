@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
+import { useInView } from 'react-intersection-observer';
 
 import creativeLogo from '@/images/creative_logo.png';
 import styles from './footer.module.scss';
@@ -8,6 +10,9 @@ import linkedinIcon from '../../public/svg/linkedin_icon.svg';
 import facebookIcon from '../../public/svg/facebook_icon.svg';
 import mailIcon from '../../public/svg/mail_icon.svg';
 import locationIcon from '../../public/svg/location_icon.svg';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+import { ScrollReveal } from 'Animations/ScrollReveal';
+import { FooterSection } from 'utils/types/homeContent.interface';
 
 // Change all the default export (components) to a named export
 // This is to avoid the error:
@@ -15,49 +20,91 @@ import locationIcon from '../../public/svg/location_icon.svg';
 
 // only pages will have the default export
 
-export default function Footer() {
+export default function Footer({ content }: { content: FooterSection }) {
+	const { inView, ref } = useInView();
+	const { t } = useTranslation(localeNamespaces.HOME);
+
+	const { locations, contact } = content;
+
+	const getFirstWord = (text: string) => {
+		return text.split(' ')[0];
+	}
+
+	const restOfText = (text: string) => {
+		return text.split(' ').slice(1).join(' ');
+	}
+
 	return (
-		<footer className={styles.footer}>
-			<div className={styles.container}>
-				<div className={styles.infoWrapper}>
-					<div className={styles.logo}>
-						<Image src={creativeLogo} alt='CIT Logo' />
+		<ScrollReveal isVisible={inView}>
+			<footer className={styles.footer} ref={ref}>
+				<div className={styles.container}>
+					<div className={styles.infoWrapper}>
+						<div className={styles.logo}>
+							<Image src={creativeLogo} alt='CIT Logo' />
+						</div>
+						<h3 className={`${utils.headingSmall} ${styles.subtitle}`}>
+							{t('footer.title')}
+						</h3>
+						<div>
+							{
+								locations.map(({ address }) => (
+									<p className={`${utils.textSmall} ${styles.text}`} key={address}>
+									{getFirstWord(address)} <br />
+									{restOfText(address)}
+								</p>
+								))
+							}
+						</div>
 					</div>
-					<h3 className={`${utils.headingSmall} ${styles.subtitle}`}>
-						Locations
-					</h3>
-					<div>
-						<p className={`${utils.textSmall} ${styles.text}`}>
-							Honduras <br />Seguros del Pais 7th floor, aside City Mall, San Pedro
-							Sula, Cortés, Honduras
-						</p>
-						<p className={`${utils.textSmall} ${styles.text}`}>Delaware: <br />City Mall, San Pedro Sula, Cortés, Honduras</p>
-						<p className={`${utils.textSmall} ${styles.text}`}>Estonia: <br />Sepapaja 6 Tallinn 15551</p>
+					<div className={styles.socialMedia}>
+						<h3 className={`${utils.headingSmall} ${styles.subtitle}`}>
+							{t('footer.title2')}
+						</h3>
+						<div className={styles.mediaIcons}>
+								<a href={contact.instagram} target='_blank' rel="noopener noreferrer">
+							<div className={styles.iconContainer}>
+									<Image
+										src={instagramIcon}
+										alt='Instagram'
+										width={12}
+										height={12}
+									/>
+							</div>
+								</a>
+							<a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+							<div className={styles.iconContainer}>
+								<Image
+									src={linkedinIcon}
+									alt='LinkedIn'
+									width={12}
+									height={12}
+								/>
+							</div>
+							</a>
+							<a href={contact.facebook} target="_blank" rel="noopener noreferrer">
+							<div className={styles.iconContainer}>
+								<Image
+									src={facebookIcon}
+									alt='Facebook'
+									width={12}
+									height={12}
+								/>
+							</div>
+							</a>
+						</div>
+						<a href={`mailto:${contact.email}`} className={`${utils.textSmall} ${styles.contact}`} rel="noopener noreferrer">
+							<Image src={mailIcon} alt='Mail icon'></Image> {contact.email}
+						</a>
+						<a href={`tel:${contact.phone}`} className={`${utils.textSmall} ${styles.contact}`} rel="noopener noreferrer">
+							<Image src={locationIcon} alt='Mail icon'></Image> {contact.phone}
+						</a>
 					</div>
 				</div>
-				<div className={styles.socialMedia}>
-					<h3 className={`${utils.headingSmall} ${styles.subtitle}`}>
-						Follow us
-					</h3>
-					<div className={styles.mediaIcons}>
-						<div className={styles.iconContainer}>
-							<Image src={instagramIcon} alt='Instagram' width={12} height={12} />
-						</div>
-						<div className={styles.iconContainer}>
-							<Image src={linkedinIcon} alt='LinkedIn' width={12} height={12} />
-						</div>
-						<div className={styles.iconContainer}>
-							<Image src={facebookIcon} alt='Facebook' width={12} height={12} />
-						</div>
-					</div>
-					<p className={`${utils.textSmall} ${styles.contact}`}><Image src={mailIcon}  alt='Mail icon' ></Image> info@cit.hn</p>
-					<p className={`${utils.textSmall} ${styles.contact}`}><Image src={locationIcon}  alt='Mail icon' ></Image> +504 2566-3649</p>
+				<div className={styles.rightsConditions}>
+					<p className={utils.textSmall}>{t('footer.copyright')}</p>
+					<p className={utils.textSmall}>{t('footer.policy')}</p>
 				</div>
-			</div>
-			<div className={styles.rightsConditions}>
-				<p className={utils.textSmall}>All Rights reservd 2022 CIT</p>
-				<p className={utils.textSmall}>Privacy Policy</p>
-			</div>
-		</footer>
+			</footer>
+		</ScrollReveal>
 	);
 }
