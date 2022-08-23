@@ -9,6 +9,9 @@ import {
 	GallerySection,
 	FooterHeroSection,
 	HomeContent,
+	Location,
+	Contact,
+	FooterSection,
 } from '../types/homeContent.interface';
 
 /**
@@ -25,8 +28,8 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 		.select(
 			`${
 				isEnglish
-					? 'titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN'
-					: 'titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES'
+					? 'backgroundImage, titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN'
+					: 'backgroundImage, titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES'
 			}`
 		)
 		.single();
@@ -55,9 +58,9 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 	const { data: customerFeedbackContent } = await supabase
 		.from<CustomerFeedbackSection>('CustomerFeedback')
 		.select(
-			`customerName, rate, ${
+			`name, rate, ${
 				isEnglish ? 'commentEN' : 'commentES'
-			}, customerImg`
+			}, picture`
 		);
 
 	const { data: galleryContent } = await supabase
@@ -76,6 +79,17 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 		)
 		.single();
 
+		const { data: locations } = await supabase
+			.from<Location>('Location')
+			.select('address');
+
+		const { data: contact } = await supabase
+			.from<Contact>('Contact')
+			.select('facebook, instagram, linkedin, phone, email')
+			.single();
+
+		const FooterContent: FooterSection = { locations: locations as Location[], contact: contact as Contact };
+
 		return {
 			hero: heroContent as HeroSection,
 			about: aboutContent as AboutSection,
@@ -85,6 +99,7 @@ export const getHomeContent = async (locale: string = 'en'): Promise<HomeContent
 			customerFeedback: customerFeedbackContent as CustomerFeedbackSection[],
 			gallery: galleryContent as GallerySection,
 			footerHero: heroFooterContent as FooterHeroSection,
+			footer: FooterContent,
 		};
 	} catch (error) {
 		console.error(error);
