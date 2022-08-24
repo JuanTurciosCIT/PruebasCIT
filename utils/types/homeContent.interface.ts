@@ -81,7 +81,7 @@ export interface FooterHeroSection {
   backgroundImg?: string;
 }
 
-export interface Location {
+export interface LocationInterface {
   address: string;
 }
 
@@ -94,6 +94,6 @@ export interface Contact {
 }
 
 export interface FooterSection {
-  locations: Location[];
+  locations: LocationInterface[];
   contact: Contact;
 }
