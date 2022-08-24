@@ -13,7 +13,7 @@ import CustomerFeedback from 'components/Home/CustomerFeedback';
 import Gallery from 'components/Home/Gallery';
 import HeroFooter from 'shared/HeroFooter';
 import { HomeContent } from 'utils/types/homeContent.interface';
-import { getHomeContent } from 'utils/services/getHomeContent';
+import { getHomePageContent } from 'utils/services';
 
 const Home: NextPage<HomeContent> = ({
 	hero,
@@ -47,7 +47,7 @@ const Home: NextPage<HomeContent> = ({
 };
 
 export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetStaticPropsContext) => {
-	const homeContent: HomeContent = await getHomeContent(context.locale) as HomeContent;
+	const homeContent: HomeContent = await getHomePageContent(context.locale) as HomeContent;
 
 	return {
 		props: {
