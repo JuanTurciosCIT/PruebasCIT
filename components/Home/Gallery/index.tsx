@@ -17,7 +17,7 @@ const Masonry = dynamic(() => import('react-smart-masonry'), {
 });
 
 export default function Gallery({ gallery }: { gallery: GallerySection }) {
-	const isMobile: boolean = useMediaQuery('max-width: 428px');
+	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const { inView, ref } = useInView();
 
@@ -37,7 +37,7 @@ export default function Gallery({ gallery }: { gallery: GallerySection }) {
 				<Masonry
 					className={styles.galleryWrapper}
 					columns={2}
-					gap={isMobile ? 12 : 25}
+					gap={isMobile ? 16 : 22.5}
 				>
 					{gallery.images.map((image, index) => (
 						<div className={styles[`${'picture'}${index + 1}`]} key={image}>
