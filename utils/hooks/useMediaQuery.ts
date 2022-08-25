@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+
+type MediaQuery = '(max-width: 428px)';
 
 /**
  * It returns a boolean value that indicates whether the media query matches the current viewport
  * @param {string} query - string
  * @returns A function that returns a boolean.
  */
-export function useMediaQuery(query: string): boolean {
+export function useMediaQuery(query: MediaQuery): boolean {
   const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {
