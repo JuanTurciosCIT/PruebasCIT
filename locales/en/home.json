@@ -30,6 +30,11 @@
   "customerFeedback": {
     "title": "What they say about us"
   },
+  "portfolio": {
+    "moreProjects_title": "Explore more projects",
+    "moreProjects_desc": "See our portfolio to check out how our services solves what you need",
+    "moreProjects_link": "View portfolio"
+  },
   "gallery": {
     "title": "Come work with us",
     "btn_text": "Learn more"
