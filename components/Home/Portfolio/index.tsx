@@ -1,55 +1,117 @@
-import { useRef, useCallback } from "react";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { SwiperOptions } from "swiper";
-import "swiper/css";
+import Image from 'next/image';
+import { useRef, useCallback } from 'react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { SwiperOptions, Pagination } from 'swiper';
+import useTranslation from 'next-translate/useTranslation';
+import 'swiper/css';
 
-import utils from "@/styles/utils.module.scss";
-import styles from "./portfolio.module.scss";
-import SliderButtons from "@/shared/SliderButtons";
-import { useMediaQuery } from "utils/hooks/useMediaQuery";
+import utils from '@/styles/utils.module.scss';
+import styles from './portfolio.module.scss';
+import SliderButtons from '@/shared/SliderButtons';
+import arrowRightUpIcon from '@/svg/arrowRightUp.svg';
+import arrowRightIcon from '@/svg/arrow-right.svg';
+import { useMediaQuery } from 'utils/hooks/useMediaQuery';
+import Link from 'next/link';
+import { PortfolioSection } from 'utils/types/homeContent.interface';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 
-export default function Portfolio() {
-  const isMobile: boolean = useMediaQuery("(max-width: 428px)");
+export default function Portfolio({ content }: { content: PortfolioSection[] }) {
+	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const { t } = useTranslation(localeNamespaces.HOME);
 
-  const swiper = useSwiper();
-  const swiperRef = useRef(swiper);
+	const swiper = useSwiper();
+	const swiperRef = useRef(swiper);
 
-  const swiperOptions: SwiperOptions = {
-    spaceBetween: 30,
-    slidesPerView: 1,
-    loop: true,
-    touchMoveStopPropagation: isMobile ? true : false,
-    rewind: true,
-    centeredSlides: true,
-  };
+	const swiperOptions: SwiperOptions = {
+		modules: [Pagination],
+		spaceBetween: 20,
+		slidesPerView: isMobile ? 1.4 : 3,
+		loop: true,
+		touchMoveStopPropagation: isMobile ? true : false,
+		rewind: true,
+		threshold: 20,
+		pagination: {
+			dynamicBullets: true,
+			type: 'bullets',
+			clickable: true,
+		},
+	};
 
-  const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
-  const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
+	const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
+	const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
 
-  return (
-    <section className={styles.container}>
-      <h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
-        Portfolio and Case Studies
-      </h2>
+	return (
+		<section className={styles.container}>
+			<div className={styles.sectionSubtitleContainer}>
+				<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>Portfolio</h2>
+				{
+					!isMobile && <SliderButtons next={nextSlide} prev={prevSlide} theme='theme2' />
+				}
+			</div>
 
-      <Swiper
-        className={styles.sliderContainer}
-        {...swiperOptions}
-        onSwiper={(swiper) => { swiperRef.current = swiper; }}
-      >
-        <SwiperSlide className={styles.itemsContainer}>
-          <div className={styles.card1}></div>
-          <div className={styles.card2}></div>
-        </SwiperSlide>
-        <SwiperSlide className={styles.itemsContainer}>
-          <div className={styles.card2}></div>
-          <div className={styles.card1}></div>
-        </SwiperSlide>
-      </Swiper>
-
-      <div className={styles.BtnWrapper}>
-        <SliderButtons next={nextSlide} prev={prevSlide} />
-      </div>
-    </section>
-  );
+			<Swiper
+				className={styles.sliderContainer}
+				{...swiperOptions}
+				onSwiper={(swiper) => {
+					swiperRef.current = swiper;
+				}}
+			>
+				{
+					content.map((project, index) => (
+						<SwiperSlide className={styles.itemsContainer} key={project.picture+index}>
+						<div className={styles.cardContainer}>
+							<div className={styles.cardHeader}>
+								<Image src={project.background_image} layout='fill' objectFit='cover' alt={project.card_title} />
+							</div>
+							<div className={styles.description}>
+								<div className={styles.pictureWrapper}>
+									<Image
+										className={styles.picture}
+										src={project.picture}
+										width={45}
+										height={45}
+										alt={project.card_title}
+									/>
+								</div>
+								<span className={`${utils.headingSmall} ${styles.title}`}>
+									<h3>{project.card_title}</h3>
+									<Image
+										src={arrowRightUpIcon}
+										width={14}
+										height={14}
+										alt='arrow right up'
+									/>
+								</span>
+								<p className={`${utils.textSmall} ${styles.caption}`}>
+									{project.descriptionEN || project.descriptionES}{' '}
+								</p>
+							</div>
+						</div>
+					</SwiperSlide>
+					))
+				}
+			</Swiper>
+			<div className={styles.moreProjectsWrapper}>
+				<div className={styles.moreProjects}>
+					<div>
+						<h4 className={`${utils.headingMedium} ${styles.footerTitle}`}>
+							{t('portfolio.moreProjects_title')}
+						</h4>
+						<p className={`${utils.textSmall} ${styles.footerDesc}`}>
+						{t('portfolio.moreProjects_desc')}
+						</p>
+					</div>
+					<span className={`${utils.textSmall} ${styles.footerLink}`}>
+						<Link href={'/'}>{t('portfolio.moreProjects_link')}</Link>
+						<Image
+							src={arrowRightIcon}
+							width={14}
+							height={14}
+							alt='Arrow right'
+						/>
+					</span>
+				</div>
+			</div>
+		</section>
+	);
 }
