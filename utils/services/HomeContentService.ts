@@ -11,6 +11,7 @@ import {
 	TechnologiesSection,
 	LocationInterface,
 	FooterSection,
+	PortfolioSection,
 } from 'utils/types/homeContent.interface';
 
 const HomeContentService = {
@@ -117,6 +118,24 @@ const HomeContentService = {
 		}
 
 		return data as CustomerFeedbackSection[];
+	},
+
+	getPortfolioContent: async (locale: string) => {
+		const isEnglish = locale === 'en';
+		const { data, error } = await supabase
+			.from<PortfolioSection>('Portfolio')
+			.select(
+				`card_title, ${isEnglish ? 'descriptionEN' : 'descriptionES'}, background_image, picture`
+			);
+
+		if (error) {
+			console.log(
+				'An error occurred while fetching the portfolio content: ',
+				error
+			);
+		}
+
+		return data as PortfolioSection[];
 	},
 
 	getGalleryContent: async (locale: string) => {
