@@ -13,12 +13,15 @@ import { NavLink } from "utils/types/navLink.interface";
 import { AnimatedContainer } from "Animations/AnimatedContainer";
 import { localeNamespaces } from "utils/types/localeNamespaces.enum";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 
 interface MobileMenuProps {
   navLinks: NavLink[];
 }
 
 export default function MobileMenu({ navLinks }: MobileMenuProps) {
+  useLockBodyScroll();
+  
   const router = useRouter();
   const ref = useRef(null);
   const [dropdownMenu, setDropdownMenu] = useState(false);

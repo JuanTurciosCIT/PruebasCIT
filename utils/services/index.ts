@@ -8,6 +8,7 @@ export async function getHomePageContent(locale: string = 'en'): Promise<HomeCon
 	const customers = await HomeContentService.getCustomerContent();
 	const about = await HomeContentService.getAboutContent();
 	const customerFeedback = await HomeContentService.getCustomerFeedbackContent(locale);
+	const portfolio = await HomeContentService.getPortfolioContent(locale);
 	const gallery = await HomeContentService.getGalleryContent(locale);
 	const footerHero = await HomeContentService.getHeroFooterContent(locale);
 	const footer = await HomeContentService.getFooterContent();
@@ -19,6 +20,7 @@ export async function getHomePageContent(locale: string = 'en'): Promise<HomeCon
 		customers,
 		about,
 		customerFeedback,
+		portfolio,
 		gallery,
 		footerHero,
 		footer

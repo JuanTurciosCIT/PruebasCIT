@@ -1,7 +1,7 @@
 @use '../../styles/variables.scss' as *;
 
 .header {
-  padding: 1.2rem 4rem;
+  padding: 1.4rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,12 +25,11 @@
   font-size: 0;
   color: transparent;
   outline: none;
-  transform: scale(1) rotate(-180deg);
-  transition: all transform 0.4s ease-out;
+  transition: all transform 0.3s ease-out;
 
   &:hover, &:active, &:focus {
-    transform: scale(0.8) rotate(180deg);
-    transition: transform 0.4s ease-in;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in;
   }
 }
 

@@ -27,7 +27,7 @@
 .subtitle {
   color: $primaryTextColor;
   font-size: 1.6rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.2rem;
   text-align: center;
 }
 
@@ -37,7 +37,9 @@
 }
 
 .socialMedia {
-  height: 33rem;
+  height: 80vw;
+  // height: 33rem;
+  padding-top: 2rem;
   background-color: $primaryBackgroundColor;
   display: grid;
   place-content: center;
@@ -51,7 +53,7 @@
 .mediaIcons {
   display: flex;
   gap: 1.32rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .iconContainer {
@@ -73,7 +75,7 @@
 .rightsConditions {
   width: 100%;
   max-height: 6rem;
-  padding-inline: 3.7rem;
+  padding-inline: 4.6vw;
   padding-block: 2rem;
   display: flex;
   justify-content: space-between;
@@ -103,17 +105,20 @@
   }
   .subtitle {
     text-align: left;
+    margin-bottom: 2.4rem;
   }
   .socialMedia {
     width: 50%;
     height: 50rem;
     max-height: 50rem;
-    background-position: 24px -50px;
+    background-position: 24px -68px;
     box-shadow: inset 35px 32px 32px 32px rgba(31, 31, 31, 1);
     padding-top: 8rem;
   }
   .mediaIcons{
     margin-top: -1.2rem;
+    margin-bottom: 3rem;
+
   }
   .rightsConditions {
     padding-inline: 17rem
