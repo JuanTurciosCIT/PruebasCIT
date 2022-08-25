@@ -5,6 +5,7 @@ export interface HomeContent {
   services: ServicesSection[];
   technologies: TechnologiesSection[];
   customerFeedback: CustomerFeedbackSection[];
+  portfolio: PortfolioSection[];
   gallery: GallerySection;
   footerHero: FooterHeroSection;
   footer: FooterSection;
@@ -63,6 +64,14 @@ export interface CustomerFeedbackSection {
   commentEN?: string;
   picture: string;
   rate: number;
+}
+
+export interface PortfolioSection {
+  card_title: string;
+  descriptionEN: string;
+  descriptionES: string;
+  background_image: string;
+  picture: string;
 }
 
 export interface GallerySection {
