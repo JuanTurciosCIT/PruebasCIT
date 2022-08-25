@@ -30,7 +30,7 @@
     margin-block: 3.6rem;
     padding-right: 2.2rem;
     transition: transform 0.3s ease-out;
-    transform: perspective(500px);
+    transform: scale(1.1);
     filter: grayscale(100%) contrast(0.5);
 
     span {
@@ -40,8 +40,8 @@
 
   .logoActive {
     transition: transform 0.3s ease-in;
-    transform: perspective(500px) scale(1.2);
-    filter: grayscale(0) saturate(1.5);
+    transform: scale(1.25);
+    filter: grayscale(0) saturate(1.5) drop-shadow(0 0 0.5rem rgb(31, 30, 30));
     border-inline: 1px solid $thirdBackgroundColor;
   }
 }
