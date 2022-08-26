@@ -53,8 +53,9 @@
 
 @media screen and (min-width: 428px) {
   .sliderContainer {
+    width: 70%;
+    max-width: 1440px;
     margin: 0 auto;
-    max-width: 70%;
 
     .logoContainer {
       margin-block: 4.4rem;

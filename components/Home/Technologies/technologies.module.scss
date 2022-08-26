@@ -1,16 +1,21 @@
 @use 'styles/variables.scss' as *;
 
-.techSection {
+.techSectionWrapper {
   background-color: $secondBackgroundColor;
   padding-inline: 3.7rem;
   padding-block: 8.8rem;
   color: $primaryTextColor;
+}
+
+.techSection {
+  max-width: 1056px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
 
   .info {
-    max-width: 42.8rem;
+    max-width: 38rem;
   }
 }
 
@@ -32,9 +37,6 @@
 }
 
 @media screen and (min-width: 428px) {
-  .techSection {
-    padding-inline: 18.5rem;
-  }
   .title {
     margin-bottom: 5rem;
   }

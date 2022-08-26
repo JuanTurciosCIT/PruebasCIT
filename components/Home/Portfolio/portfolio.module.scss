@@ -1,6 +1,11 @@
 @use 'styles/variables.scss' as *;
 
-.container {
+.wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.section {
     background-color: $primaryBackgroundColor;
     // padding-inline: 3.6rem;
     padding-block: 4.8rem;
