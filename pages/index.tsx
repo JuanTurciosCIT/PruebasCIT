@@ -8,6 +8,7 @@ import styles from 'styles/home.module.scss';
 import About from 'components/Home/About';
 import OurServices from 'components/Home/OurServices';
 import Technologies from 'components/Home/Technologies';
+import CaseStudies from 'components/Home/CaseStudies';
 import Portfolio from 'components/Home/Portfolio';
 import CustomerFeedback from 'components/Home/CustomerFeedback';
 import Gallery from 'components/Home/Gallery';
@@ -39,6 +40,7 @@ const Home: NextPage<HomeContent> = ({
 				<div className={styles.diamond}></div>
 			</div>
 			<Technologies technologies={technologies} />
+			<CaseStudies />
 			<CustomerFeedback feedback={customerFeedback} />
 			<Portfolio content={portfolio} />
 			<Gallery gallery={gallery}/>
