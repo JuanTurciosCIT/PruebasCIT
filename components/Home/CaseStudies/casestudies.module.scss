@@ -1,0 +1,191 @@
+@use '/styles/variables.scss' as *;
+
+.section {
+  padding: 4.8rem 0;
+
+  .wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .sliderContainer {
+    padding-bottom: 3.4rem;
+    position: relative;
+  }
+
+  /* A global selector that is targeting the swiper-pagination-bullets class. */
+  :global(.swiper-pagination-bullets) {
+    transform: translate(-50%, 1rem) !important;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 12px;
+    height: 12px;
+    background-color: $thirdBackgroundColor;
+    opacity: 1;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    width: 8.54px;
+    height: 8.54px;
+    background-color: $primaryTextColor;
+  }
+
+  :global(.swiper-slide-next) {
+    z-index: -1;
+    transform: perspective(500px) translate3d(-10%, 0, 0);
+  }
+  :global(.swiper-slide-prev) {
+    z-index: -1;
+    transform: perspective(500px) translate3d(10%, 0, 0);
+  }
+
+
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1.2px solid rgba(255, 255, 255, 0.1);
+    margin-inline: 3.4rem;
+    margin-bottom: 5.1rem;
+  }
+
+  .headerContent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    color: $primaryTextColor;
+    text-transform: capitalize;
+    font-family: 'Nexa';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+  }
+
+  .link {
+    color: $primaryTextColor;
+    display: flex;
+    gap: 1.4rem;
+
+    a {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.cardWrapper {
+  transform-style: preserve-3d;
+  transform: perspective(500px) translateZ(-120px);
+  transition: all 0.5s ease-in-out;
+  background-image: linear-gradient(180deg,
+      rgba(39, 39, 39, 0.95) 0%,
+      rgba(39, 39, 39, 0.95) 39.56%,
+      rgba(39, 39, 39, 0.99) 69.49%,
+      #272727 100%),
+    url('../../../public/images/heroHomeMobile.jpg');
+  background-size: cover;
+  background-position: top;
+  max-width: 35rem;
+  border-radius: 2rem;
+  border: none;
+  padding: 2.4rem;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    background: linear-gradient(270deg, #1F1F1F 1.36%, rgba(31, 31, 31, 0.85) 46.44%, rgba(31, 31, 31, 0) 103.23%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    // border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: $primaryTextColor;
+    text-transform: uppercase;
+    padding: 0.8rem 1.6rem;
+    background-color: $primaryBackgroundColor;
+    border-radius: 5px;
+    margin-bottom: 2.4rem;
+  }
+
+  .logo {
+    margin-bottom: 6.8rem;
+  }
+
+  .desc {
+    color: $primaryTextColor;
+    opacity: 0.6;
+    font-size: 1.6rem;
+    line-height: 100%;
+    margin-bottom: 4.9rem;
+  }
+
+  .triangle {
+    position: absolute;
+    width: 9.5rem;
+    height: 11.2rem;
+    background: linear-gradient(135deg, #8df8ff 11.52%, #468ef9 91.55%);
+    bottom: 0;
+    right: 0;
+    border-radius: 6px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+}
+
+.active {
+  transform: perspective(500px) translateZ(0);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s ease-in-out;
+  filter: drop-shadow(0px 0px 40px rgba(31, 31, 31, 0.85));
+
+  &::after {
+    content: none;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .section {
+    padding: 8rem 0;
+    
+  :global(.swiper-slide-next) {
+    transform: perspective(500px) translate3d(-20%, 0, 0);
+  }
+  :global(.swiper-slide-prev) {
+    transform: perspective(500px) translate3d(20%, 0, 0);
+  }
+
+    .cardWrapper {
+      width: 40rem;
+      transform: perspective(500px) translateZ(-120px);
+    }
+    .active {
+      transform: perspective(500px) translateZ(0);
+    }
+    .headerContainer {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.5rem;
+      margin-bottom: 7.1rem;
+    }
+
+    .headerContent {
+      justify-content: flex-start;
+      gap: 2.4rem;
+    }
+  }
+}

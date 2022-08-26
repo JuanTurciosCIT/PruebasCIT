@@ -45,37 +45,39 @@ export default function Technologies({
 
 	return (
 		<ScrollReveal isVisible={inView}>
-			<section className={styles.techSection} ref={ref}>
-				<div className={styles.info}>
-					<h2 className={`${utils.headingMedium} ${styles.title}`}>
-						{t('technologies.title')}
-					</h2>
-					<motion.div
-						initial={{ x: '-100%', opacity: 0 }}
-						animate={{ x: 0, opacity: 1 }}
-						key={currentTech.name}
-					>
-						<h3 className={`${utils.headingMedium} ${styles.subtitle}`}>
-							{currentTech.name}
-						</h3>
-						<div className={styles.description}>
-							<p className={`${utils.textSmall}`}>
-								{isEnglish
-									? currentTech.descriptionEN
-									: currentTech.descriptionES}
-							</p>
-						</div>
-					</motion.div>
-				</div>
+			<section className={styles.techSectionWrapper} ref={ref}>
+				<div className={styles.techSection}>
+					<div className={styles.info}>
+						<h2 className={`${utils.headingMedium} ${styles.title}`}>
+							{t('technologies.title')}
+						</h2>
+						<motion.div
+							initial={{ x: '-100%', opacity: 0 }}
+							animate={{ x: 0, opacity: 1 }}
+							key={currentTech.name}
+						>
+							<h3 className={`${utils.headingMedium} ${styles.subtitle}`}>
+								{currentTech.name}
+							</h3>
+							<div className={styles.description}>
+								<p className={`${utils.textSmall}`}>
+									{isEnglish
+										? currentTech.descriptionEN
+										: currentTech.descriptionES}
+								</p>
+							</div>
+						</motion.div>
+					</div>
 
-				{/* Atom of technologies */}
-				<TechnologiesAtom
-					innerRingTechnologies={innerRingTechnologies}
-					middleRingTechnologies={middleRingTechnologies}
-					outerRingTechnologies={outerRingTechnologies}
-					currentTech={currentTech}
-					handleTechClick={handleTechClick}
-				/>
+					{/* Atom of technologies */}
+					<TechnologiesAtom
+						innerRingTechnologies={innerRingTechnologies}
+						middleRingTechnologies={middleRingTechnologies}
+						outerRingTechnologies={outerRingTechnologies}
+						currentTech={currentTech}
+						handleTechClick={handleTechClick}
+					/>
+				</div>
 			</section>
 		</ScrollReveal>
 	);
