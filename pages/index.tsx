@@ -22,6 +22,7 @@ const Home: NextPage<HomeContent> = ({
 	about,
 	services,
 	technologies,
+	caseStudies,
 	customerFeedback,
 	portfolio,
 	gallery,
@@ -40,7 +41,7 @@ const Home: NextPage<HomeContent> = ({
 				<div className={styles.diamond}></div>
 			</div>
 			<Technologies technologies={technologies} />
-			<CaseStudies />
+			<CaseStudies content={caseStudies} />
 			<CustomerFeedback feedback={customerFeedback} />
 			<Portfolio content={portfolio} />
 			<Gallery gallery={gallery}/>

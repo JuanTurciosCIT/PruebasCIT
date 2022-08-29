@@ -27,6 +27,11 @@
   "technologies": {
     "title": "Technologies"
   },
+  "case_studies": {
+    "title": "Case Studies",
+    "link": "View all",
+    "card_link": "Read more"
+  },
   "customerFeedback": {
     "title": "What they say about us"
   },

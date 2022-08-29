@@ -12,6 +12,7 @@ import {
 	LocationInterface,
 	FooterSection,
 	PortfolioSection,
+	CaseStudy,
 } from 'utils/types/homeContent.interface';
 
 const HomeContentService = {
@@ -104,6 +105,28 @@ const HomeContentService = {
 		return data as TechnologiesSection[];
 	},
 
+	getCaseStudiesContent: async (locale: string) => {
+		const isEnglish = locale === 'en';
+		const { data, error } = await supabase
+			.from<CaseStudy>('CaseStudy')
+			.select(
+				`name, ${
+					isEnglish
+						? 'shortDescriptionEN, fullDescriptionEN'
+						: 'shortDescriptionES, fullDescriptionES'
+				}, logo, background_image, category:idCategory (name)`
+			);
+
+		if (error) {
+			console.log(
+				'An error occurred while fetching the case studies content: ',
+				error
+			);
+		}
+
+		return data as CaseStudy[];
+	},
+
 	getCustomerFeedbackContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
@@ -125,7 +148,9 @@ const HomeContentService = {
 		const { data, error } = await supabase
 			.from<PortfolioSection>('Portfolio')
 			.select(
-				`card_title, ${isEnglish ? 'descriptionEN' : 'descriptionES'}, background_image, picture`
+				`card_title, ${
+					isEnglish ? 'descriptionEN' : 'descriptionES'
+				}, background_image, picture`
 			);
 
 		if (error) {
@@ -188,17 +213,20 @@ const HomeContentService = {
 			.select('facebook, instagram, linkedin, phone, email')
 			.single();
 
-      if (locationsError || contactError) {
-         console.log('An error occurred while fetching the footer content: ', locationsError || contactError);
-      }
-      
+		if (locationsError || contactError) {
+			console.log(
+				'An error occurred while fetching the footer content: ',
+				locationsError || contactError
+			);
+		}
+
 		const FooterContent: FooterSection = {
 			locations: locations as LocationInterface[],
 			contact: contact as Contact,
 		};
 
-    return FooterContent;
-	}
+		return FooterContent;
+	},
 };
 
 export default HomeContentService;
