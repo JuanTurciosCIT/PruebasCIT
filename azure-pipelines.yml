@@ -1,0 +1,58 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- develop
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+  envFilePath: '$(Agent.TempDirectory)'
+  
+
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+
+    - task: DownloadSecureFile@1
+      name: envfile
+      inputs:
+        secureFile: '.env.local'
+
+
+
+    # - task: CopyFiles@2
+    #   inputs:
+    #     SourceFolder: '$(envFilePath)'
+    #     Contents: .env.local'
+    #     TargetFolder: '$(Build.SourcesDirectory)'
+
+
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          FILENAME= 'basename $(envfile,secureFilePath)'
+          cp $(envfile.secureFilePath) $(Build.SourcesDirectory)/${FILENAME}
+          
+ 
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        command: build
+        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        tags: |
+          $(tag)
+          latest
+    
+
