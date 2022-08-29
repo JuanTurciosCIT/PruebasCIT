@@ -27,6 +27,11 @@
   "technologies": {
     "title": "Tecnologías"
   },
+  "case_studies": {
+    "title": "Casos de éxito",
+    "link": "Ver todos",
+    "card_link": "Leer más"
+  },
   "customerFeedback": {
     "title": "Que opinan nuestros clientes"
   },

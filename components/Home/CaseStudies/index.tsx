@@ -9,11 +9,11 @@ import arrowRight from '@/svg/arrow-right.svg';
 import SliderButtons from '@/shared/SliderButtons';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
-import bipbipLogo from '@/images/bipbipLogo.png';
 import styles from './casestudies.module.scss';
 import utils from '@/styles/utils.module.scss';
+import { CaseStudy } from 'utils/types/homeContent.interface';
 
-export default function CaseStudies() {
+export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const swiper = useSwiper();
@@ -45,10 +45,10 @@ export default function CaseStudies() {
 				<div className={styles.headerContainer}>
 					<div className={styles.headerContent}>
 						<h2 className={`${utils.headingMedium} ${styles.title}`}>
-							Case Studies
+							{t('case_studies.title')}
 						</h2>
 						<span className={`${utils.textSmall} ${styles.link}`}>
-							<Link href='/'>View All</Link>
+							<Link href='/'>{t('case_studies.link')}</Link>
 							<Image src={arrowRight} alt='Arrow right' />
 						</span>
 					</div>
@@ -63,87 +63,37 @@ export default function CaseStudies() {
 						swiperRef.current = swiper;
 					}}
 				>
-					<SwiperSlide>
-						{({ isActive }) => (
-							<div
-								className={`${styles.cardWrapper} ${isActive && styles.active}`}
-							>
-								<span className={styles.tag}>MOBILE APP</span>
-								<div className={styles.logo}>
-									<Image
-										src={bipbipLogo}
-										width={126}
-										height={92}
-										alt='Bip bip logo'
-									/>
+					{
+						content.map((item, index) => (
+							<SwiperSlide key={item.name}>
+							{({ isActive, isPrev }) => (
+								<div
+									className={`${styles.cardWrapper} ${isActive && styles.active} ${isPrev && styles.prev}`}
+								>
+									<span className={styles.tag}>{item.category.name}</span>
+									<div className={styles.logo}>
+										<Image
+											src={item.logo}
+											width={126}
+											height={92}
+											layout='fixed'
+											objectFit='contain'
+											alt={`${item.name} logo`}
+										/>
+									</div>
+									<p className={`${utils.textSmall} ${styles.desc}`}>
+										{item.shortDescriptionEN || item.shortDescriptionES}
+									</p>
+									<span className={`${utils.textSmall} ${styles.link}`}>
+										<Link href={'/'}>{t('case_studies.card_link')}</Link>
+										<Image src={arrowRight} alt='Arrow Right' />
+									</span>
+									{isActive && <div className={styles.triangle}></div>}
 								</div>
-								<p className={`${utils.textSmall} ${styles.desc}`}>
-									Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-									amet sint. Velit officia consequat duis enim velit mollit.
-									Exercitation veniam consequat sunt nostrud amet.
-								</p>
-								<span className={`${utils.textSmall} ${styles.link}`}>
-									<Link href={'/'}>Read more</Link>
-									<Image src={arrowRight} alt='Arrow Right' />
-								</span>
-								{isActive && <div className={styles.triangle}></div>}
-							</div>
-						)}
-					</SwiperSlide>
-					<SwiperSlide>
-						{({ isActive }) => (
-							<div
-								className={`${styles.cardWrapper} ${isActive && styles.active}`}
-							>
-								<span className={styles.tag}>MOBILE APP</span>
-								<div className={styles.logo}>
-									<Image
-										src={bipbipLogo}
-										width={126}
-										height={92}
-										alt='Bip bip logo'
-									/>
-								</div>
-								<p className={`${utils.textSmall} ${styles.desc}`}>
-									Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-									amet sint. Velit officia consequat duis enim velit mollit.
-									Exercitation veniam consequat sunt nostrud amet.
-								</p>
-								<span className={`${utils.textSmall} ${styles.link}`}>
-									<Link href={'/'}>Read more</Link>
-									<Image src={arrowRight} alt='Arrow Right' />
-								</span>
-								{isActive && <div className={styles.triangle}></div>}
-							</div>
-						)}
-					</SwiperSlide>
-					<SwiperSlide>
-						{({ isActive }) => (
-							<div
-								className={`${styles.cardWrapper} ${isActive && styles.active}`}
-							>
-								<span className={styles.tag}>MOBILE APP</span>
-								<div className={styles.logo}>
-									<Image
-										src={bipbipLogo}
-										width={126}
-										height={92}
-										alt='Bip bip logo'
-									/>
-								</div>
-								<p className={`${utils.textSmall} ${styles.desc}`}>
-									Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-									amet sint. Velit officia consequat duis enim velit mollit.
-									Exercitation veniam consequat sunt nostrud amet.
-								</p>
-								<span className={`${utils.textSmall} ${styles.link}`}>
-									<Link href={'/'}>Read more</Link>
-									<Image src={arrowRight} alt='Arrow Right' />
-								</span>
-								{isActive && <div className={styles.triangle}></div>}
-							</div>
-						)}
-					</SwiperSlide>
+							)}
+						</SwiperSlide>
+						))
+					}
 				</Swiper>
 			</div>
 		</section>

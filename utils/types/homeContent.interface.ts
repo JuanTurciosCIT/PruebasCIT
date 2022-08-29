@@ -4,6 +4,7 @@ export interface HomeContent {
   about: AboutSection;
   services: ServicesSection[];
   technologies: TechnologiesSection[];
+  caseStudies: CaseStudy[];
   customerFeedback: CustomerFeedbackSection[];
   portfolio: PortfolioSection[];
   gallery: GallerySection;
@@ -55,6 +56,17 @@ export interface TechnologiesSection {
   descriptionEN?: string;
   ringLevel: number;
   logo: string;
+}
+
+export interface CaseStudy {
+  name: string;
+  category: { name: string };
+  shortDescriptionEN: string;
+  shortDescriptionES: string;
+  fullDescriptionEN: string;
+  fullDescriptionES: string;
+  logo: string;
+  backgroundImage: string;
 }
 
 export interface CustomerFeedbackSection {
