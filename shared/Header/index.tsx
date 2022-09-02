@@ -54,6 +54,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
 							src={CreativeLogo}
 							alt='Creative Logo'
 							loading='eager'
+							placeholder='blur'
+							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 						/>
 					</div>
 
@@ -62,6 +64,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
 						<Image
 							src={mobileMenu ? closeIcon : burgerIcon}
 							alt='burger menu'
+							placeholder='blur'
+							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 						/>
 					</button>
 
@@ -81,6 +85,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
 						height={33}
 						src={CreativeLogo}
 						alt='Creative Logo'
+						placeholder='blur'
+						blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 					/>
 				</div>
 

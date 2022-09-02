@@ -75,6 +75,8 @@ export default function Portfolio({
 										layout='fill'
 										objectFit='cover'
 										alt={project.card_title}
+										placeholder='blur'
+										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
 								<div className={styles.description}>
@@ -85,6 +87,8 @@ export default function Portfolio({
 											width={45}
 											height={45}
 											alt={project.card_title}
+											placeholder='blur'
+											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 										/>
 									</div>
 									<span className={`${utils.headingSmall} ${styles.title}`}>
@@ -121,6 +125,8 @@ export default function Portfolio({
 								width={14}
 								height={14}
 								alt='Arrow right'
+								placeholder='blur'
+								blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 							/>
 						</span>
 					</div>

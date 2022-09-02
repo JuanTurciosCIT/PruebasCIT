@@ -27,7 +27,10 @@ export const TechnologiesAtom = ({
 			dragConstraints={{ top: -10, left: -10, bottom: 10, right: 10 }}
 		>
 			<div className={styles.logo}>
-				<Image src={citLogo} alt='CIT Logo' />
+				<Image src={citLogo} alt='CIT Logo' 
+					placeholder='blur'
+					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+				/>
 			</div>
 
 			{/* Inner ring */}
@@ -45,6 +48,8 @@ export const TechnologiesAtom = ({
 							alt={tech.name}
 							layout='fill'
 							objectFit='contain'
+							placeholder='blur'
+							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 						/>
 					</button>
 				))}
@@ -65,6 +70,8 @@ export const TechnologiesAtom = ({
 							alt={tech.name}
 							layout='fill'
 							objectFit='contain'
+							placeholder='blur'
+							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 						/>
 					</button>
 				))}
@@ -92,6 +99,8 @@ export const TechnologiesAtom = ({
 							alt={tech.name}
 							layout='fill'
 							objectFit='contain'
+							placeholder='blur'
+							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 						/>
 					</button>
 				))}

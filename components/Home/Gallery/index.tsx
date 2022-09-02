@@ -48,6 +48,8 @@ export default function Gallery({ gallery }: { gallery: GallerySection }) {
 								layout='fill'
 								loading='eager'
 								priority
+								placeholder='blur'
+								blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 							/>
 						</div>
 					))}

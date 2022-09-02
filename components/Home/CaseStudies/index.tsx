@@ -49,7 +49,10 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 						</h2>
 						<span className={`${utils.textSmall} ${styles.link}`}>
 							<Link href='/'>{t('case_studies.link')}</Link>
-							<Image src={arrowRight} alt='Arrow right' />
+							<Image
+								src={arrowRight}
+								alt='Arrow right'
+							/>
 						</span>
 					</div>
 					{!isMobile && (
@@ -63,12 +66,13 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 						swiperRef.current = swiper;
 					}}
 				>
-					{
-						content.map((item, index) => (
-							<SwiperSlide key={item.name}>
+					{content.map((item, index) => (
+						<SwiperSlide key={item.name}>
 							{({ isActive, isPrev }) => (
 								<div
-									className={`${styles.cardWrapper} ${isActive && styles.active} ${isPrev && styles.prev}`}
+									className={`${styles.cardWrapper} ${
+										isActive && styles.active
+									} ${isPrev && styles.prev}`}
 								>
 									<span className={styles.tag}>{item.category.name}</span>
 									<div className={styles.logo}>
@@ -79,6 +83,8 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 											layout='fixed'
 											objectFit='contain'
 											alt={`${item.name} logo`}
+											placeholder='blur'
+											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 										/>
 									</div>
 									<p className={`${utils.textSmall} ${styles.desc}`}>
@@ -86,14 +92,18 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 									</p>
 									<span className={`${utils.textSmall} ${styles.link}`}>
 										<Link href={'/'}>{t('case_studies.card_link')}</Link>
-										<Image src={arrowRight} alt='Arrow Right' />
+										<Image
+											src={arrowRight}
+											alt='Arrow Right'
+											placeholder='blur'
+											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+										/>
 									</span>
 									{isActive && <div className={styles.triangle}></div>}
 								</div>
 							)}
 						</SwiperSlide>
-						))
-					}
+					))}
 				</Swiper>
 			</div>
 		</section>

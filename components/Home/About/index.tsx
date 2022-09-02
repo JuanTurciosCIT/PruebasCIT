@@ -29,7 +29,7 @@ export default function About({
 			<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
 				{t('about.title')}
 			</h2>
-      <div className={styles.videoContainer}>
+			<div className={styles.videoContainer}>
 				{/* The styles for the preview image and play icon can be overridden by targeting the CSS classes react-player__preview, react-player__shadow and react-player__play-icon. */}
 				<ReactPlayer
 					className={styles.reactPlayer}
@@ -41,7 +41,10 @@ export default function About({
 				<div className={`${showPlaceholder && styles.mirror}`}></div>
 				{showPlaceholder && (
 					<GradientButton onClick={playVideo}>
-						<Image src={playIcon} alt='Play video' />
+						<Image
+							src={playIcon}
+							alt='Play video'
+						/>
 						<span>{t('about.btn_text')}</span>
 					</GradientButton>
 				)}
