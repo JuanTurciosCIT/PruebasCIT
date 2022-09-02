@@ -36,6 +36,8 @@ export default function OurServices({
 										src={service.logo}
 										alt={service.nameEN || service.nameES}
 										layout='fill'
+										placeholder='blur'
+										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
 								<div className={styles.info}>
@@ -47,7 +49,8 @@ export default function OurServices({
 									</p>
 									<span className={`${utils.textTiny} ${styles.link}`}>
 										<Link href='/'>{t('services.btn_text')}</Link>
-										<Image src={arrowRight} alt='Arrow right' />
+										<Image src={arrowRight} alt='Arrow right'
+										/>
 									</span>
 								</div>
 							</div>

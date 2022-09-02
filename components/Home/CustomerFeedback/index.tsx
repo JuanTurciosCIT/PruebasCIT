@@ -15,7 +15,11 @@ import { CustomerFeedbackSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { ScrollReveal } from 'Animations/ScrollReveal';
 
-export default function CustomerFeedback({ feedback }: { feedback: CustomerFeedbackSection[] }) {
+export default function CustomerFeedback({
+	feedback,
+}: {
+	feedback: CustomerFeedbackSection[];
+}) {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.HOME);
@@ -42,62 +46,70 @@ export default function CustomerFeedback({ feedback }: { feedback: CustomerFeedb
 				{t('customerFeedback.title')}
 			</h2>
 			<ScrollReveal isVisible={inView}>
-			<Swiper
-				{...swiperOptions}
-				onSwiper={(swiper) => { swiperRef.current = swiper; }}
-			>
-				{
-					feedback.map(item => (
+				<Swiper
+					{...swiperOptions}
+					onSwiper={(swiper) => {
+						swiperRef.current = swiper;
+					}}
+				>
+					{feedback.map((item) => (
 						<SwiperSlide key={item.picture}>
-						<div className={styles.feedbackCard}>
-							<div className={styles.customerPic}>
-								<Image src={item.picture} alt='Customer' width={80} height={80} objectFit='cover' />
-							</div>
-							<div className={styles.info}>
-								<div className={styles.stars}>
+							<div className={styles.feedbackCard}>
+								<div className={styles.customerPic}>
 									<Image
-										src={starIcon}
-										alt='Feedback star'
-										width={14}
-										height={14}
-									/>
-									<Image
-										src={starIcon}
-										alt='Feedback star'
-										width={14}
-										height={14}
-									/>
-									<Image
-										src={starIcon}
-										alt='Feedback star'
-										width={14}
-										height={14}
-									/>
-									<Image
-										src={starIcon}
-										alt='Feedback star'
-										width={14}
-										height={14}
-									/>
-									<Image
-										src={starIcon}
-										alt='Feedback star'
-										width={14}
-										height={14}
+										src={item.picture}
+										alt='Customer'
+										width={80}
+										height={80}
+										objectFit='cover'
+										placeholder='blur'
+										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
-								<h3 className={`${utils.headingMedium} ${styles.name}`}>
-									{item.name}
-								</h3>
-								<p className={styles.comment}>
-									{item.commentEN || item.commentES}
-								</p>
+								<div className={styles.info}>
+									<div className={styles.stars}>
+										<Image
+											src={starIcon}
+											alt='Feedback star'
+											width={14}
+											height={14}
+										/>
+										<Image
+											src={starIcon}
+											alt='Feedback star'
+											width={14}
+											height={14}
+										/>
+										<Image
+											src={starIcon}
+											alt='Feedback star'
+											width={14}
+											height={14}
+										/>
+										<Image
+											src={starIcon}
+											alt='Feedback star'
+											width={14}
+											height={14}
+										/>
+										<Image
+											src={starIcon}
+											alt='Feedback star'
+											width={14}
+											height={14}
+										/>
+									</div>
+									<h3 className={`${utils.headingMedium} ${styles.name}`}>
+										{item.name}
+									</h3>
+									<p className={styles.comment}>
+										{item.commentEN || item.commentES}
+									</p>
+								</div>
 							</div>
-						</div>
-					</SwiperSlide>
-					))
-				}
-			</Swiper>
+						</SwiperSlide>
+					))}
+				</Swiper>
 			</ScrollReveal>
 
 			<SliderButtons next={nextSlide} prev={prevSlide} />

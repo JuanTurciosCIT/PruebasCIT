@@ -56,12 +56,14 @@ export default function CompaniesSlider({
 										isActive && styles.logoActive
 									}`}
 								>
-									<Image
+										<Image
 										src={customer.imagePath}
 										alt={customer.clientName}
 										layout='fill'
 										objectFit='contain'
 										objectPosition='center'
+										placeholder='blur'
+										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
 							)}

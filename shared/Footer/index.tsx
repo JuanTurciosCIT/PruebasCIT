@@ -28,11 +28,11 @@ export default function Footer({ content }: { content: FooterSection }) {
 
 	const getFirstWord = (text: string) => {
 		return text.split(' ')[0];
-	}
+	};
 
 	const restOfText = (text: string) => {
 		return text.split(' ').slice(1).join(' ');
-	}
+	};
 
 	return (
 		<ScrollReveal isVisible={inView}>
@@ -40,20 +40,26 @@ export default function Footer({ content }: { content: FooterSection }) {
 				<div className={styles.container}>
 					<div className={styles.infoWrapper}>
 						<div className={styles.logo}>
-							<Image src={creativeLogo} alt='CIT Logo' />
+							<Image
+								src={creativeLogo}
+								alt='CIT Logo'
+								placeholder='blur'
+								blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+							/>
 						</div>
 						<h3 className={`${utils.headingSmall} ${styles.subtitle}`}>
 							{t('footer.title')}
 						</h3>
 						<div>
-							{
-								locations.map(({ address }) => (
-									<p className={`${utils.textSmall} ${styles.text}`} key={address}>
+							{locations.map(({ address }) => (
+								<p
+									className={`${utils.textSmall} ${styles.text}`}
+									key={address}
+								>
 									{getFirstWord(address)} <br />
 									{restOfText(address)}
 								</p>
-								))
-							}
+							))}
 						</div>
 					</div>
 					<div className={styles.socialMedia}>
@@ -61,42 +67,70 @@ export default function Footer({ content }: { content: FooterSection }) {
 							{t('footer.title2')}
 						</h3>
 						<div className={styles.mediaIcons}>
-								<a href={contact.instagram} target='_blank' rel="noopener noreferrer">
-							<div className={styles.iconContainer}>
+							<a
+								href={contact.instagram}
+								target='_blank'
+								rel='noopener noreferrer'
+							>
+								<div className={styles.iconContainer}>
 									<Image
 										src={instagramIcon}
 										alt='Instagram'
 										width={12}
 										height={12}
 									/>
-							</div>
-								</a>
-							<a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
-							<div className={styles.iconContainer}>
-								<Image
-									src={linkedinIcon}
-									alt='LinkedIn'
-									width={12}
-									height={12}
-								/>
-							</div>
+								</div>
 							</a>
-							<a href={contact.facebook} target="_blank" rel="noopener noreferrer">
-							<div className={styles.iconContainer}>
-								<Image
-									src={facebookIcon}
-									alt='Facebook'
-									width={12}
-									height={12}
-								/>
-							</div>
+							<a
+								href={contact.linkedin}
+								target='_blank'
+								rel='noopener noreferrer'
+							>
+								<div className={styles.iconContainer}>
+									<Image
+										src={linkedinIcon}
+										alt='LinkedIn'
+										width={12}
+										height={12}
+									/>
+								</div>
+							</a>
+							<a
+								href={contact.facebook}
+								target='_blank'
+								rel='noopener noreferrer'
+							>
+								<div className={styles.iconContainer}>
+									<Image
+										src={facebookIcon}
+										alt='Facebook'
+										width={12}
+										height={12}
+									/>
+								</div>
 							</a>
 						</div>
-						<a href={`mailto:${contact.email}`} className={`${utils.textSmall} ${styles.contact}`} rel="noopener noreferrer">
-							<Image src={mailIcon} alt='Mail icon'></Image> {contact.email}
+						<a
+							href={`mailto:${contact.email}`}
+							className={`${utils.textSmall} ${styles.contact}`}
+							rel='noopener noreferrer'
+						>
+							<Image
+								src={mailIcon}
+								alt='Mail icon'
+							></Image>{' '}
+							{contact.email}
 						</a>
-						<a href={`tel:${contact.phone}`} className={`${utils.textSmall} ${styles.contact}`} rel="noopener noreferrer">
-							<Image src={locationIcon} alt='Mail icon'></Image> {contact.phone}
+						<a
+							href={`tel:${contact.phone}`}
+							className={`${utils.textSmall} ${styles.contact}`}
+							rel='noopener noreferrer'
+						>
+							<Image
+								src={locationIcon}
+								alt='Location icon'
+							></Image>{' '}
+							{contact.phone}
 						</a>
 					</div>
 				</div>
