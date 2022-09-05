@@ -17,6 +17,7 @@ module.exports = nextTranslate({
   swcMinify: true,
   output: 'standalone',
   images: {
+    minimumCacheTTL: 31536000,
     domains: [`${process.env.NEXT_PUBLIC_PROJECT_ID}.supabase.co`]
   }
 });

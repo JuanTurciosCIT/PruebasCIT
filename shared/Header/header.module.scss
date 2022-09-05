@@ -1,5 +1,11 @@
 @use '../../styles/variables.scss' as *;
 
+.logo {
+  position: relative;
+  width: 16rem;
+  height: 3.2rem;
+}
+
 .header {
   padding: 1.4rem 4rem;
   display: flex;

@@ -17,6 +17,7 @@
 }
 
 .logo {
+  position: relative;
   width: 5.5rem;
   height: 5.6rem;
 }
@@ -27,11 +28,11 @@
   justify-content: center;
   align-items: center;
   margin: 4rem auto 8rem auto;
-  cursor: grab;
+  // cursor: grab;
 
-  &:active {
-    cursor: grabbing;
-  }
+  // &:active {
+  //   cursor: grabbing;
+  // }
 
   button[active-attr='true'] .logoFilter {
     filter: none;

@@ -24,7 +24,8 @@
 
   .logoContainer {
     position: relative;
-    height: 6rem;
+    width: 14.2rem;
+    height: auto;
     display: grid;
     place-items: center;
     margin-block: 3.6rem;
@@ -59,6 +60,7 @@
 
     .logoContainer {
       margin-block: 4.4rem;
+      width: 21.2rem;
       // padding: 4rem 3.2rem 4rem 0;
       padding: 4rem 0 4rem 0;
       // transform: scale(0.8);

@@ -69,6 +69,8 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
 						>
 							<span>{currentLocale} </span>
 							<Image
+								width={14}
+								height={14}
 								src={arrowDownIcon}
 								alt='Arrow down'
 							/>

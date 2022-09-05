@@ -57,6 +57,7 @@ export default function CustomerFeedback({
 							<div className={styles.feedbackCard}>
 								<div className={styles.customerPic}>
 									<Image
+										priority
 										src={item.picture}
 										alt='Customer'
 										width={80}

@@ -49,8 +49,11 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
 		return (
 			<>
 				<header className={styles.header}>
-					<div>
+					<div className={styles.logo}>
 						<Image
+							priority={isMobile}
+							layout='fill'
+							objectFit='contain'
 							src={CreativeLogo}
 							alt='Creative Logo'
 							loading='eager'
@@ -64,8 +67,8 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
 						<Image
 							src={mobileMenu ? closeIcon : burgerIcon}
 							alt='burger menu'
-							placeholder='blur'
-							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+							width={22}
+							height={22}
 						/>
 					</button>
 
@@ -77,64 +80,63 @@ export default function Header({ navLinks }: { navLinks: NavLink[] }) {
 	}
 
 	return (
-		<>
-			<header className={styles.header}>
-				<div className={styles.logo}>
-					<Image
-						width={161}
-						height={33}
-						src={CreativeLogo}
-						alt='Creative Logo'
-						placeholder='blur'
-						blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-					/>
-				</div>
+		<header className={styles.header}>
+			<div className={styles.logo}>
+				<Image
+					priority={!isMobile}
+					layout='fill'
+					objectFit='contain'
+					src={CreativeLogo}
+					alt='Creative Logo'
+					placeholder='blur'
+					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+				/>
+			</div>
 
-				<nav className={styles.navContainer}>
-					<ul className={styles.navMenu}>
-						{navLinks.map((link, index) => (
-							<li className={utils.textSmall} key={link.path + index}>
-								<Link href={link.path} scroll={false}>
-									{t('header.' + link.localeName)}
-								</Link>
-							</li>
-						))}
-						<li className={utils.textSmall}>
-							<CustomButton>{t('shared.btn_text')}</CustomButton>
+			<nav className={styles.navContainer}>
+				<ul className={styles.navMenu}>
+					{navLinks.map((link, index) => (
+						<li className={utils.textSmall} key={link.path + index}>
+							<Link href={link.path} scroll={false}>
+								{t('header.' + link.localeName)}
+							</Link>
 						</li>
-					</ul>
-					<div className={utils.textSmall} ref={ref}>
-						<button className={styles.dropDown} onClick={toggleDropdownMenu}>
-							<span>{currentLocale}</span>
-							<Image src={arrowDownIcon} alt='Arrow down' className={`${dropdownMenu ? styles.arrowIconActive : styles.arrowIcon}`} />
-						</button>
-					</div>
-				</nav>
+					))}
+					<li className={utils.textSmall}>
+						<CustomButton>{t('shared.btn_text')}</CustomButton>
+					</li>
+				</ul>
+				<div className={utils.textSmall} ref={ref}>
+					<button className={styles.dropDown} onClick={toggleDropdownMenu}>
+						<span>{currentLocale}</span>
+						<Image src={arrowDownIcon} alt='Arrow down' width={12} height={12} className={`${dropdownMenu ? styles.arrowIconActive : styles.arrowIcon}`} />
+					</button>
+				</div>
+			</nav>
 
-				{/* Dropdown Menu */}
-				{dropdownMenu && (
-					<div className={styles.localeDropDown}>
-						<AnimatedContainer
-							hidden={{ x: '80px', opacity: 0 }}
-							visible={{ x: 0, opacity: 1 }}
-							exit={{ x: '-80px', opacity: 0 }}
-						>
-							<div className={styles.dropDownMenu}>
-								<button onClick={() => setCurrentLocale('English')}>
-									<Link href={router.pathname} locale='en' scroll={false}>
-										English
-									</Link>
-								</button>
-								<button onClick={() => setCurrentLocale('Español')}>
-									<Link href={router.pathname} locale='es' scroll={false}>
-										Español
-									</Link>
-								</button>
-							</div>
-						</AnimatedContainer>
-					</div>
-				)}
-			</header>
-		</>
+			{/* Dropdown Menu */}
+			{dropdownMenu && (
+				<div className={styles.localeDropDown}>
+					<AnimatedContainer
+						hidden={{ x: '80px', opacity: 0 }}
+						visible={{ x: 0, opacity: 1 }}
+						exit={{ x: '-80px', opacity: 0 }}
+					>
+						<div className={styles.dropDownMenu}>
+							<button onClick={() => setCurrentLocale('English')}>
+								<Link href={router.pathname} locale='en' scroll={false}>
+									English
+								</Link>
+							</button>
+							<button onClick={() => setCurrentLocale('Español')}>
+								<Link href={router.pathname} locale='es' scroll={false}>
+									Español
+								</Link>
+							</button>
+						</div>
+					</AnimatedContainer>
+				</div>
+			)}
+		</header>
 	);
 }

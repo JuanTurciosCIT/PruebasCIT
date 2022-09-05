@@ -23,7 +23,6 @@ export default function About({
 	const { t } = useTranslation(localeNamespaces.HOME);
 
 	const playVideo = useCallback(() => setShowPlaceholder(false), []);
-
 	return (
 		<section className={styles.aboutSection} id={HomeSections.ABOUT}>
 			<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
@@ -31,17 +30,18 @@ export default function About({
 			</h2>
 			<div className={styles.videoContainer}>
 				{/* The styles for the preview image and play icon can be overridden by targeting the CSS classes react-player__preview, react-player__shadow and react-player__play-icon. */}
-				<ReactPlayer
-					className={styles.reactPlayer}
-					url={aboutContent.videoPath}
-					light={showPlaceholder && aboutContent.placeholderImage}
-					width='100%'
-					height='auto'
-				/>
-				<div className={`${showPlaceholder && styles.mirror}`}></div>
+					<ReactPlayer
+						className={styles.reactPlayer}
+						url={aboutContent.videoPath}
+						light={showPlaceholder && aboutContent.placeholderImage}
+						width='100%'
+						height='auto'
+					/>
 				{showPlaceholder && (
 					<GradientButton onClick={playVideo}>
 						<Image
+							width={17.32}
+							height={15}
 							src={playIcon}
 							alt='Play video'
 						/>
