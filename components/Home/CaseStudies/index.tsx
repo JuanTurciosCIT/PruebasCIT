@@ -49,10 +49,7 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 						</h2>
 						<span className={`${utils.textSmall} ${styles.link}`}>
 							<Link href='/'>{t('case_studies.link')}</Link>
-							<Image
-								src={arrowRight}
-								alt='Arrow right'
-							/>
+							<Image src={arrowRight} alt='Arrow right' />
 						</span>
 					</div>
 					{!isMobile && (
@@ -70,6 +67,13 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 						<SwiperSlide key={item.name}>
 							{({ isActive, isPrev }) => (
 								<div
+									style={{
+										backgroundImage: `linear-gradient(180deg,
+									rgba(39, 39, 39, 0.95) 0%,
+									rgba(39, 39, 39, 0.95) 39.56%,
+									rgba(39, 39, 39, 0.99) 69.49%,
+									#272727 100%), url(${item.background_image})`,
+									}}
 									className={`${styles.cardWrapper} ${
 										isActive && styles.active
 									} ${isPrev && styles.prev}`}
@@ -77,10 +81,10 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 									<span className={styles.tag}>{item.category.name}</span>
 									<div className={styles.logo}>
 										<Image
+											priority
 											src={item.logo}
 											width={126}
 											height={92}
-											layout='fixed'
 											objectFit='contain'
 											alt={`${item.name} logo`}
 											placeholder='blur'
@@ -95,8 +99,6 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 										<Image
 											src={arrowRight}
 											alt='Arrow Right'
-											placeholder='blur'
-											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 										/>
 									</span>
 									{isActive && <div className={styles.triangle}></div>}
