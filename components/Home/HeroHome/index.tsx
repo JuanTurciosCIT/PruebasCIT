@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Typewriter from 'typewriter-effect';
+import Typewriter, { Options } from 'typewriter-effect';
 
 import CustomButton from '@/shared/CustomButton';
 import styles from './herohome.module.scss';
@@ -13,9 +14,14 @@ export default function HeroHome({
 }: {
 	heroContent: HeroSection;
 }) {
+	const [startTyping, setStartTyping] = useState(false);
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const typeWriterText = (heroContent.subtitlePhrasesEN || heroContent.subtitlePhrasesES) as string[];
 	const isMobile = useMediaQuery('(max-width: 428px)');
+
+	setTimeout(() => {
+		setStartTyping(true);
+	}, 2650);
 
 	return (
 		<div className={styles.hero} style={{backgroundImage: `url(${heroContent.backgroundImage})`}}>
@@ -32,7 +38,7 @@ export default function HeroHome({
 							<Typewriter
 								options={{
 									strings: typeWriterText,
-									autoStart: true,
+									autoStart: startTyping ? true : false,
 									loop: true,
 								}}
 							/>
