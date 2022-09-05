@@ -7,6 +7,7 @@ import { useGlobalLoading } from '@/hooks/useGlobalLoading';
 // import { SkeletonLoader } from 'Animations/SkeletonLoader';
 // import { useMediaQuery } from '@/hooks/useMediaQuery';
 import GlobalLoader from '@/shared/GlobalLoader';
+import { AnimatedContainer } from 'Animations/AnimatedContainer';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	// const [loadingSkeleton, setLoadingSkeleton] = useState<boolean>(true);
@@ -28,10 +29,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 			{/* {(loadingSkeleton && !isMobile) && <SkeletonLoader />} */}
 			{isLoading && <GlobalLoader />}
-			{/* <AnimatedContainer hidden={{ y: '80px', opacity: 0 }} visible={{ y: 0, opacity: 1 }}>
+			<AnimatedContainer hidden={{ y: '-90px', opacity: 0 }} visible={{ y: 0, opacity: 1, transition: { delay: 0.8, duration: 1.2 } }}>
 				<Component {...pageProps} />
-			</AnimatedContainer> */}
-			<Component {...pageProps} />
+			</AnimatedContainer>
+			{/* <Component {...pageProps} /> */}
 		</>
 	);
 }
