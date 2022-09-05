@@ -45,7 +45,7 @@ export default function CustomerFeedback({
 			<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
 				{t('customerFeedback.title')}
 			</h2>
-			<ScrollReveal isVisible={inView}>
+			<ScrollReveal isVisible={inView} className={styles.container}>
 				<Swiper
 					{...swiperOptions}
 					onSwiper={(swiper) => {

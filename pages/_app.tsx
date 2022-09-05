@@ -1,12 +1,21 @@
+// import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import '@/styles/globals.scss';
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
-import { SkeletonLoader } from 'Animations/SkeletonLoader';
+// import { SkeletonLoader } from 'Animations/SkeletonLoader';
+// import { useMediaQuery } from '@/hooks/useMediaQuery';
+import GlobalLoader from '@/shared/GlobalLoader';
 
 function MyApp({ Component, pageProps }: AppProps) {
+	// const [loadingSkeleton, setLoadingSkeleton] = useState<boolean>(true);
 	const isLoading = useGlobalLoading();
+	// const isMobile = useMediaQuery('(max-width: 428px)');
+
+  // setTimeout(() => {
+  //   setLoadingSkeleton(false);
+  // }, 2500);
 	
 	return (
 		<>
@@ -17,7 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 					content='We are nearshore software development lab with a team of top-notch software developers and designers on the latin America region.'
 				/>
 			</Head>
-			{isLoading && <SkeletonLoader />}
+			{/* {(loadingSkeleton && !isMobile) && <SkeletonLoader />} */}
+			{isLoading && <GlobalLoader />}
 			{/* <AnimatedContainer hidden={{ y: '80px', opacity: 0 }} visible={{ y: 0, opacity: 1 }}>
 				<Component {...pageProps} />
 			</AnimatedContainer> */}
