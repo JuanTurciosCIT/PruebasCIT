@@ -24,7 +24,8 @@
 
   .logoContainer {
     position: relative;
-    width: 14.2rem;
+    aspect-ratio: 16 / 9;
+    width: 100%;
     height: auto;
     display: grid;
     place-items: center;

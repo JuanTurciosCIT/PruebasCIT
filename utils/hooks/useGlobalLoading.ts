@@ -7,11 +7,7 @@ import { useEffect, useState } from "react";
  * @returns A boolean value.
  */
 export function useGlobalLoading(): boolean {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  setTimeout(() => {
-    setLoading(false);
-  }, 2500);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const start = () => {
