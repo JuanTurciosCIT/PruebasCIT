@@ -54,5 +54,13 @@ stages:
         tags: |
           $(tag)
           latest
+        repository: 'cit-website' 
+        container: 'cit-website'
+    - task: ECRPushImage@1
+      inputs:
+        awsCredentials: 'aws-azure-devops'
+        regionName: 'us-east-1'
+        imageSource: 'imagename'
+        sourceImageName: 'cit-website'
+        repositoryName: 'cit-website2.0'
     
-
