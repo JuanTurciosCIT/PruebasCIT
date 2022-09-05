@@ -41,8 +41,11 @@ export default function Footer({ content }: { content: FooterSection }) {
 					<div className={styles.infoWrapper}>
 						<div className={styles.logo}>
 							<Image
+								priority
 								src={creativeLogo}
 								alt='CIT Logo'
+								// layout='fill'
+								// objectFit='contain'
 								placeholder='blur'
 								blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 							/>
@@ -74,6 +77,7 @@ export default function Footer({ content }: { content: FooterSection }) {
 							>
 								<div className={styles.iconContainer}>
 									<Image
+										priority
 										src={instagramIcon}
 										alt='Instagram'
 										width={12}
@@ -88,6 +92,7 @@ export default function Footer({ content }: { content: FooterSection }) {
 							>
 								<div className={styles.iconContainer}>
 									<Image
+										priority
 										src={linkedinIcon}
 										alt='LinkedIn'
 										width={12}
@@ -102,6 +107,7 @@ export default function Footer({ content }: { content: FooterSection }) {
 							>
 								<div className={styles.iconContainer}>
 									<Image
+										priority
 										src={facebookIcon}
 										alt='Facebook'
 										width={12}
@@ -116,8 +122,11 @@ export default function Footer({ content }: { content: FooterSection }) {
 							rel='noopener noreferrer'
 						>
 							<Image
+								priority
 								src={mailIcon}
 								alt='Mail icon'
+								width={12}
+								height={12}
 							></Image>{' '}
 							{contact.email}
 						</a>
@@ -127,8 +136,11 @@ export default function Footer({ content }: { content: FooterSection }) {
 							rel='noopener noreferrer'
 						>
 							<Image
+								priority
 								src={locationIcon}
 								alt='Location icon'
+								width={12}
+								height={12}
 							></Image>{' '}
 							{contact.phone}
 						</a>

@@ -69,19 +69,25 @@ export default function Portfolio({
 							key={project.picture + index}
 						>
 							<div className={styles.cardContainer}>
-								<div className={styles.cardHeader}>
-									<Image
+								<div
+									className={styles.cardHeader}
+									style={{
+										backgroundImage: `url(${project.background_image})`,
+									}}
+								>
+									{/* <Image
 										src={project.background_image}
 										layout='fill'
 										objectFit='cover'
 										alt={project.card_title}
 										placeholder='blur'
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
+									/> */}
 								</div>
 								<div className={styles.description}>
 									<div className={styles.pictureWrapper}>
 										<Image
+											priority
 											className={styles.picture}
 											src={project.picture}
 											width={45}
@@ -125,8 +131,6 @@ export default function Portfolio({
 								width={14}
 								height={14}
 								alt='Arrow right'
-								placeholder='blur'
-								blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 							/>
 						</span>
 					</div>

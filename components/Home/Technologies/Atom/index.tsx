@@ -23,13 +23,14 @@ export const TechnologiesAtom = ({
 	return (
 		<motion.div
 			className={styles.atomContainer}
-			drag
-			dragConstraints={{ top: -10, left: -10, bottom: 10, right: 10 }}
+			// drag
+			// dragConstraints={{ top: -10, left: -10, bottom: 10, right: 10 }}
 		>
 			<div className={styles.logo}>
-				<Image src={citLogo} alt='CIT Logo' 
+				<Image src={citLogo} alt='CIT Logo'
+					layout='fill'
 					placeholder='blur'
-					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+					// blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 				/>
 			</div>
 
@@ -43,6 +44,7 @@ export const TechnologiesAtom = ({
 						active-attr={(tech.name == currentTech.name).toString()}
 					>
 						<Image
+							priority
 							className={styles.logoFilter}
 							src={tech.logo}
 							alt={tech.name}
@@ -65,6 +67,7 @@ export const TechnologiesAtom = ({
 						active-attr={(tech.name == currentTech.name).toString()}
 					>
 						<Image
+							priority
 							className={styles.logoFilter}
 							src={tech.logo}
 							alt={tech.name}
@@ -94,6 +97,7 @@ export const TechnologiesAtom = ({
 						active-attr={(tech.name == currentTech.name).toString()}
 					>
 						<Image
+							priority
 							className={styles.logoFilter}
 							src={tech.logo}
 							alt={tech.name}

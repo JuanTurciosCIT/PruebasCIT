@@ -33,6 +33,7 @@ export default function OurServices({
 							>
 								<div className={styles.logo}>
 									<Image
+										priority
 										src={service.logo}
 										alt={service.nameEN || service.nameES}
 										layout='fill'

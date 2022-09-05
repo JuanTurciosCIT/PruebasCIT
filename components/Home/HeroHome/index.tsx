@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Typewriter, { Options } from 'typewriter-effect';
+import Typewriter from 'typewriter-effect';
 
 import CustomButton from '@/shared/CustomButton';
 import styles from './herohome.module.scss';
