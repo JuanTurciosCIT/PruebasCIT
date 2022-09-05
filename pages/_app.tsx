@@ -1,24 +1,12 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-// import { motion, AnimatePresence } from 'framer-motion';
 
-import GlobalLoader from '@/shared/GlobalLoader';
 import '@/styles/globals.scss';
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
-import { useRouter } from 'next/router';
-import { AnimatedContainer } from 'Animations/AnimatedContainer';
-import { useState, useEffect } from 'react';
 import { SkeletonLoader } from 'Animations/SkeletonLoader';
 
 function MyApp({ Component, pageProps }: AppProps) {
-	// const [skeletonLoader, setSkeletonLoader] = useState(true);
 	const isLoading = useGlobalLoading();
-
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		setSkeletonLoader(false);
-	// 	}, 4000);
-	// }, [])
 	
 	return (
 		<>
@@ -29,8 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 					content='We are nearshore software development lab with a team of top-notch software developers and designers on the latin America region.'
 				/>
 			</Head>
-			{isLoading && <GlobalLoader />}
-			{/* {skeletonLoader && <SkeletonLoader />} */}
+			{isLoading && <SkeletonLoader />}
 			{/* <AnimatedContainer hidden={{ y: '80px', opacity: 0 }} visible={{ y: 0, opacity: 1 }}>
 				<Component {...pageProps} />
 			</AnimatedContainer> */}
