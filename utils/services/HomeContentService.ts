@@ -16,6 +16,7 @@ import {
 } from 'utils/types/homeContent.interface';
 
 const HomeContentService = {
+
 	getHeroContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
@@ -39,7 +40,8 @@ const HomeContentService = {
 	getCustomerContent: async () => {
 		const { data, error } = await supabase
 			.from<CustomersSection>('Customer')
-			.select('imagePath');
+			.select('imagePath, isVisible')
+			.eq('isVisible', true);
 
 		if (error) {
 			console.log(
@@ -72,8 +74,9 @@ const HomeContentService = {
 		const { data, error } = await supabase
 			.from<ServicesSection>('Services')
 			.select(
-				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo`
-			);
+				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo, isVisible`
+			)
+			.eq('isVisible', true);
 
 		if (error) {
 			console.log(
@@ -92,8 +95,9 @@ const HomeContentService = {
 			.select(
 				`name, ${
 					isEnglish ? 'descriptionEN' : 'descriptionES'
-				}, logo, ringLevel`
-			);
+				}, logo, ringLevel, isVisible`
+			)
+			.eq('isVisible', true);
 
 		if (error) {
 			console.log(
@@ -110,12 +114,13 @@ const HomeContentService = {
 		const { data, error } = await supabase
 			.from<CaseStudy>('CaseStudy')
 			.select(
-				`name, ${
+				`isVisible, name, ${
 					isEnglish
 						? 'shortDescriptionEN, fullDescriptionEN'
 						: 'shortDescriptionES, fullDescriptionES'
 				}, logo, background_image, category:idCategory (name)`
-			);
+			)
+			.eq('isVisible', true);
 
 		if (error) {
 			console.log(
@@ -131,7 +136,8 @@ const HomeContentService = {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
 			.from<CustomerFeedbackSection>('CustomerFeedback')
-			.select(`name, rate, ${isEnglish ? 'commentEN' : 'commentES'}, picture`);
+			.select(`name, rate, ${isEnglish ? 'commentEN' : 'commentES'}, picture, isVisible`)
+			.eq('isVisible', true);
 
 		if (error) {
 			console.log(
@@ -150,8 +156,9 @@ const HomeContentService = {
 			.select(
 				`card_title, ${
 					isEnglish ? 'descriptionEN' : 'descriptionES'
-				}, background_image, picture`
-			);
+				}, background_image, picture, isVisible`
+			)
+			.eq('isVisible', true);
 
 		if (error) {
 			console.log(
@@ -206,7 +213,8 @@ const HomeContentService = {
 	getFooterContent: async () => {
 		const { data: locations, error: locationsError } = await supabase
 			.from<LocationInterface>('Location')
-			.select('address');
+			.select('address, isVisible')
+			.eq('isVisible', true);
 
 		const { data: contact, error: contactError } = await supabase
 			.from<Contact>('Contact')

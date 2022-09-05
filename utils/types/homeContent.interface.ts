@@ -29,6 +29,7 @@ export interface CustomersSection {
   title?: string;
   clientName: string;
   imagePath: string;
+  isVisible: boolean;
 }
 
 
@@ -47,6 +48,7 @@ export interface ServicesSection {
   descriptionES?: string;
   descriptionEN?: string;
   logo: string;
+  isVisible: boolean;
 }
 
 export interface TechnologiesSection {
@@ -56,6 +58,7 @@ export interface TechnologiesSection {
   descriptionEN?: string;
   ringLevel: number;
   logo: string;
+  isVisible: boolean;
 }
 
 export interface CaseStudy {
@@ -66,7 +69,8 @@ export interface CaseStudy {
   fullDescriptionEN: string;
   fullDescriptionES: string;
   logo: string;
-  backgroundImage: string;
+  background_image: string;
+  isVisible: boolean;
 }
 
 export interface CustomerFeedbackSection {
@@ -76,6 +80,7 @@ export interface CustomerFeedbackSection {
   commentEN?: string;
   picture: string;
   rate: number;
+  isVisible: boolean;
 }
 
 export interface PortfolioSection {
@@ -84,6 +89,7 @@ export interface PortfolioSection {
   descriptionES: string;
   background_image: string;
   picture: string;
+  isVisible: boolean;
 }
 
 export interface GallerySection {
@@ -104,6 +110,7 @@ export interface FooterHeroSection {
 
 export interface LocationInterface {
   address: string;
+  isVisible: boolean;
 }
 
 export interface Contact {
