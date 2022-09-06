@@ -192,7 +192,7 @@ const HomeContentService = {
 	getHeroFooterContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
-			.from<FooterHeroSection>('FooterHero')
+			.from<FooterHeroSection>('HomeFooterHero')
 			.select(
 				`${
 					isEnglish ? 'titleEN, captionEN' : 'titleES, captionES'

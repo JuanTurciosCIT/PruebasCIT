@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetSt
 		props: {
 			...homeContent,
 		},
-		revalidate: 60
+		revalidate: 10
 	};
 };
 

@@ -1,118 +1,121 @@
 @use '../../styles/variables.scss' as *;
 
 .logo {
-  position: relative;
-  width: 16rem;
-  height: 3.2rem;
+	position: relative;
+	width: 16rem;
+	height: 3.2rem;
 }
 
 .header {
-  padding: 1.4rem 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba($primaryBackgroundColor, 0.8);
-  color: $primaryTextColor;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+	padding: 1.4rem 4rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: rgba($primaryBackgroundColor, 0.8);
+	background: linear-gradient(180deg, #232323 0%, rgba(35, 35, 35, 0) 340.16%);
+	color: $primaryTextColor;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
 }
 
 .burgerBtn {
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-  font-size: 0;
-  color: transparent;
-  outline: none;
-  transition: all transform 0.3s ease-out;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	font-size: 0;
+	color: transparent;
+	outline: none;
+	transition: all transform 0.3s ease-out;
 
-  &:hover, &:active, &:focus {
-    transform: rotate(180deg);
-    transition: transform 0.3s ease-in;
-  }
+	&:hover,
+	&:active,
+	&:focus {
+		transform: rotate(180deg);
+		transition: transform 0.3s ease-in;
+	}
 }
 
 .navMenu {
-  display: flex;
-  gap: 8rem;
+	display: flex;
+	gap: 8rem;
 }
 
 @media screen and (min-width: 768px) {
-  .navMenu {
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  .logo {
-    margin-left: 16.4rem;
-  }
+	.navMenu {
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	.logo {
+		margin-left: 16.4rem;
+	}
 }
 
 .navContainer {
-  display: flex;
-  align-items: center;
-  gap: 5rem;
+	display: flex;
+	align-items: center;
+	gap: 5rem;
 }
 
 .dropDown {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 1rem;
-  border: transparent solid 2px;
-  border-radius: 0.4rem;
-  background-color: transparent;
-  color: $primaryTextColor;
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	padding: 1rem;
+	border: transparent solid 2px;
+	border-radius: 0.4rem;
+	background-color: transparent;
+	color: $primaryTextColor;
 
-  &:hover {
-    cursor: pointer;
-  }
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .localeDropDown {
-  position: absolute;
-  right: 4rem;
-  top: 8rem;
+	position: absolute;
+	right: 4rem;
+	top: 8rem;
 }
 
 .dropDownMenu {
-  display: flex;
-  gap: 0.8rem;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  background-color: #232323;
-  padding: 1.6rem;
-  border-radius: 0.5rem;
+	display: flex;
+	gap: 0.8rem;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	background-color: #232323;
+	padding: 1.6rem;
+	border-radius: 0.5rem;
 
-  button {
-    background-color: transparent;
-    border: none;
-    color: $primaryTextColor;
-    font-size: 1.6rem;
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
-    outline: none;
+	button {
+		background-color: transparent;
+		border: none;
+		color: $primaryTextColor;
+		font-size: 1.6rem;
+		font-weight: bold;
+		padding: 0;
+		margin: 0;
+		outline: none;
 
-    &:hover {
-      cursor: pointer;
-    }
-  }
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }
 
 .arrowIcon {
-  transform: rotate(0);
-  transition: all 0.2s ease-out;
+	transform: rotate(0);
+	transition: all 0.2s ease-out;
 }
 
 .arrowIconActive {
-  transform: rotate(180deg);
-  transition: all 0.2s ease-in;
+	transform: rotate(180deg);
+	transition: all 0.2s ease-in;
 }
