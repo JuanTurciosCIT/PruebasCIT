@@ -64,3 +64,15 @@ stages:
         sourceImageName: 'cit-website'
         repositoryName: 'cit-website2.0'
     
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: |
+          package.json
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - task: PublishBuildArtifacts@1
+      inputs: 
+        PathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
+        ArtifactName: 'release' # output artifact named www
