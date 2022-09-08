@@ -12,39 +12,44 @@ export const navLinks: NavLink[] = [
     path: '#services',
     visibleIn: Pages.HOME,
   },
-  {
-    localeName: 'career',
-    path: '#career',
-    visibleIn: Pages.HOME,
-  },
+  // {
+  //   localeName: 'career',
+  //   path: '#career',
+  //   visibleIn: Pages.HOME,
+  // },
   {
     localeName: 'about_us',
     path: '#about',
     visibleIn: Pages.HOME,
   },
   {
-    localeName: 'Careers Home',
+    localeName: 'careers',
     path: '/career',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
   },
   {
-    localeName: 'Job Openings',
+    localeName: 'jobs',
     path: '/jobs',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
   },
   {
-    localeName: 'Benefits',
+    localeName: 'benefits',
     path: '#benefits',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
   },
   {
-    localeName: 'Support',
+    localeName: 'support',
     path: '#support',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
   },
   {
-    localeName: 'Sign In',
+    localeName: 'sign_in',
     path: '/signin',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION],
-  }
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.CASE_STUDIES, Pages.SERVICES, Pages.ABOUT_US],
+  },
+  // {
+  //   localeName: 'create_account',
+  //   path: '/createAccount',
+  //   visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.CASE_STUDIES, Pages.SERVICES, Pages.ABOUT_US],
+  // }
 ];
