@@ -8,6 +8,7 @@ import useTranslation from 'next-translate/useTranslation';
 import CustomButton from '../../CustomButton';
 import styles from './mobileMenu.module.scss';
 import utils from '../../../styles/utils.module.scss';
+import arrowRightIcon from '/public/svg/arrow-right.svg';
 import arrowDownIcon from '../../../public/svg/arrow-down.svg';
 import { NavLink } from 'utils/types/navLink.interface';
 import { AnimatedContainer } from 'Animations/AnimatedContainer';
@@ -23,12 +24,13 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
 	useLockBodyScroll();
 
 	const router = useRouter();
+	const isAtHome = router.pathname === '/';
 	const ref = useRef(null);
 	const [dropdownMenu, setDropdownMenu] = useState(false);
 	const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>(
 		router.locale === 'en' ? 'English' : 'Español'
 	);
-	const { t } = useTranslation(localeNamespaces.HOME);
+	const { t } = useTranslation(localeNamespaces.common);
 
 	const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
 
@@ -59,7 +61,25 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
 							</li>
 						))}
 						<li className={utils.textSmall}>
+						{isAtHome ? (
 							<CustomButton>{t('shared.btn_text')}</CustomButton>
+						) : (
+							<CustomButton>{t('header.sign_up')}</CustomButton>
+						)}
+						{!isAtHome && (
+							<div className={`${utils.textSmall} ${styles.backToHome}`}>
+								<Image
+									className={styles.arrowLeft}
+									src={arrowRightIcon}
+									alt='Arrow left Icon'
+									width={24}
+									height={24}
+								/>
+								<Link href='/' className={styles.backToHome}>
+									Back To Home
+								</Link>
+							</div>
+						)}
 						</li>
 					</ul>
 					<div ref={ref}>
