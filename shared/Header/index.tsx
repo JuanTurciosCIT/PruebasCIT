@@ -59,7 +59,7 @@ export default function Header() {
 	if (isMobile) {
 		return (
 			<>
-				<header className={styles.header}>
+				<header className={styles.header} style={{background: `${!isAtHome && 'none'}`}}>
 					<div className={styles.logo}>
 						<Image
 							priority={isMobile}
