@@ -61,16 +61,16 @@ export default function Header() {
 			<>
 				<header className={styles.header} style={{background: `${!isAtHome && 'none'}`}}>
 					<div className={styles.logo}>
-						<Image
+						{/* <Image
 							priority={isMobile}
 							layout='fill'
-							objectFit='contain'
+							objectFit='cover'
 							src={CreativeLogo}
 							alt='Creative Logo'
 							loading='eager'
 							placeholder='blur'
 							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-						/>
+						/> */}
 					</div>
 
 					{/* onClick => openMobileMenu */}
@@ -93,15 +93,15 @@ export default function Header() {
 	return (
 		<header className={styles.header} style={{background: `${!isAtHome && 'none'}`}}>
 			<div className={styles.logo}>
-				<Image
+				{/* <Image
 					priority={!isMobile}
 					layout='fill'
-					objectFit='contain'
+					objectFit='cover'
 					src={CreativeLogo}
 					alt='Creative Logo'
 					placeholder='blur'
 					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-				/>
+				/> */}
 			</div>
 
 			<nav className={styles.navContainer}>
