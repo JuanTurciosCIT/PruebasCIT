@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ReactPaginate from 'react-paginate';
 
 import styles from './caseStudiesList.module.scss';
 import utils from '/styles/utils.module.scss';
@@ -6,7 +7,7 @@ import picture1 from '/public/images/business-chart-visual.jpg';
 import picture2 from '/public/images/mobile-phone-app-streaming.jpg';
 import picture3 from '/public/images/top-banking-apps-min 2.jpg';
 import picture4 from '/public/images/bipbipBackground.jpg';
-import { CaseStudiPreview } from './CaseStudyPreview';
+// import { CaseStudiPreview } from './CaseStudyPreview';
 import CustomButton from '@/shared/CustomButton';
 
 export const CaseStudiesList = () => {

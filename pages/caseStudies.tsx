@@ -5,9 +5,9 @@ import { ReactNode, Suspense } from 'react';
 import HomeContentService from 'utils/services/HomeContentService';
 import { HeroCaseStudiesInterface } from 'utils/types/caseStudies.interface';
 import HeroCaseStudies from 'components/CaseStudies/HeroCaseStudies';
-import { CaseStudiesCategory } from 'components/CaseStudies/CaseStudiesCategory';
+import { CaseStudiesCategory } from 'components/CaseStudies/CaseStudyCategories';
 import styles from 'styles/caseStudiesPage.module.scss';
-import { CaseStudiesList } from 'components/CaseStudies/CaseStudiesList';
+import { CaseStudiesList } from 'components/CaseStudies/PaginatedCaseStudies/CaseStudiesList';
 // import { SkeletonLoader } from 'Animations/SkeletonLoader';
 
 
