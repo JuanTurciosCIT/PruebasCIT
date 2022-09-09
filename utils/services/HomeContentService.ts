@@ -114,11 +114,11 @@ const HomeContentService = {
 		const { data, error } = await supabase
 			.from<CaseStudy>('CaseStudy')
 			.select(
-				`isVisible, name, ${
+				`isVisible, idCategories, ${
 					isEnglish
-						? 'shortDescriptionEN, fullDescriptionEN'
-						: 'shortDescriptionES, fullDescriptionES'
-				}, logo, background_image, category:idCategory (name)`
+						? 'descriptionEN, titleEN, tagEN'
+						: 'descriptionES, titleES, tagES'
+				}, logo, picture`
 			)
 			.eq('isVisible', true);
 

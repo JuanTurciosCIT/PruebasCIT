@@ -62,16 +62,19 @@ export interface TechnologiesSection {
 }
 
 export interface CaseStudy {
-  name: string;
-  category: { name: string };
-  // tag: string[];
-  shortDescriptionEN: string;
-  shortDescriptionES: string;
-  fullDescriptionEN: string;
-  fullDescriptionES: string;
-  logo: string;
-  background_image: string;
-  isVisible: boolean;
+  id:            number;
+  name?:          string;
+  created_at?:    string;
+  titleEN:       string;
+  titleES:       string;
+  tagES:         string;
+  tagEN:         string;
+  descriptionEN: string;
+  descriptionES: string;
+  idCategories:  number[] | string[];
+  logo:          string;
+  picture:       string;
+  isVisible:     boolean;
 }
 
 export interface CustomerFeedbackSection {
