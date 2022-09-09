@@ -2,5 +2,7 @@
 // Namespaces are the json files in the locales folder that contain the translations for each language.
 
 export enum localeNamespaces {
+  common = 'common',
   HOME = 'home',
+  CASE_STUDIES = 'caseStudies',
 }

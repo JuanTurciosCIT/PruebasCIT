@@ -22,7 +22,7 @@ import { FooterSection } from 'utils/types/homeContent.interface';
 
 export default function Footer({ content }: { content: FooterSection }) {
 	const { inView, ref } = useInView();
-	const { t } = useTranslation(localeNamespaces.HOME);
+	const { t } = useTranslation(localeNamespaces.common);
 
 	const { locations, contact } = content;
 

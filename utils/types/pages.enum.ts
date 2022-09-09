@@ -1,9 +1,11 @@
 export enum Pages {
   HOME = '/',
-  CAREER = 'career',
-  JOBS = 'jobs',
-  JOB_DESCRIPTION = 'job-description',
-  APPLICATIONS = 'applications',
-  CASE_STUDIES = 'case-studies',
-  CASE_STUDY = 'case-study',
+  CAREER = '/career',
+  JOBS = '/jobs',
+  SERVICES='/services',
+  ABOUT_US='/aboutUs',
+  JOB_DESCRIPTION = '/jobDescription',
+  APPLICATIONS = '/applications',
+  CASE_STUDIES = '/caseStudies',
+  CASE_STUDY = '/caseStudy',
 }

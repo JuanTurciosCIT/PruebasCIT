@@ -1,0 +1,22 @@
+{
+  "shared": {
+    "btn_text": "Contact us"
+  },
+  "header": {
+    "home": "Home",
+    "our_services": "Our Services",
+    "careers": "Careers",
+    "about_us": "About Us",
+    "jobs": "Job openings",
+    "benefits": "Benefits",
+    "support": "Support",
+    "sign_in": "Sign in",
+    "sign_up": "Create Account"
+  },
+  "footer": {
+    "title": "Locations",
+    "title2": "Follow us",
+    "copyright": "All rights reserved 2022 CIT",
+    "policy": "Privacy Policy"
+  }
+}

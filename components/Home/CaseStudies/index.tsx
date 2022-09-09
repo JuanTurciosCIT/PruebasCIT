@@ -48,7 +48,7 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 							{t('case_studies.title')}
 						</h2>
 						<span className={`${utils.textSmall} ${styles.link}`}>
-							<Link href='/'>{t('case_studies.link')}</Link>
+							<Link href='caseStudies'>{t('case_studies.link')}</Link>
 							<Image src={arrowRight} alt='Arrow right' />
 						</span>
 					</div>

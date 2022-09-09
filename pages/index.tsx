@@ -16,8 +16,6 @@ import HeroFooter from 'shared/HeroFooter';
 import { HomeContent } from 'utils/types/homeContent.interface';
 import { getHomePageContent } from 'utils/services';
 import { ReactNode, Suspense } from 'react';
-// import { SkeletonLoader } from 'Animations/SkeletonLoader';
-
 
 export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetStaticPropsContext) => {
 	const homeContent: HomeContent = await getHomePageContent(context.locale) as HomeContent;
@@ -63,7 +61,5 @@ const Home: NextPage<HomeContent> & { skeletonLoader?: ReactNode } = ({
 		</Layout>
 	);
 };
-
-// Home.skeletonLoader = <SkeletonLoader />;
 
 export default Home;

@@ -36,13 +36,8 @@
 
   background: #262626;
   border-radius: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6rem;
   color: $primaryTextColor;
+  overflow-y: scroll;
 
   .navMenu {
     display: flex;
@@ -61,6 +56,8 @@
   border-radius: 0.4rem;
   background-color: transparent;
   color: $primaryTextColor;
+  margin-top: 7rem;
+  margin-inline: auto;
 }
 
 .dropDownMenu {
@@ -91,4 +88,17 @@
       cursor: pointer;
     }
   }
+}
+
+.arrowLeft {
+	transform: rotate(180deg);
+	scale: 0.8;
+}
+
+.backToHome {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	position: relative;
+	top: 2rem;
 }
