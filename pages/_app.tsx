@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 					content='We are nearshore software development lab with a team of top-notch software developers and designers on the latin America region.'
 				/>
 			</Head>
-			{isLoading && <GlobalLoader />}
 			<AnimatedContainer
 				hidden={{ y: '-90px', opacity: 0 }}
 				visible={{
@@ -26,7 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 					opacity: 1,
 					transition: { delay: 0.8, duration: 1.2 },
 				}}
-			>
+				>
+				{isLoading && <GlobalLoader />}
 				<Component {...pageProps} />
 			</AnimatedContainer>
 		</>
