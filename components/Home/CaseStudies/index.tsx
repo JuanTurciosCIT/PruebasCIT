@@ -64,7 +64,7 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 					}}
 				>
 					{content.map((item, index) => (
-						<SwiperSlide key={item.name}>
+						<SwiperSlide key={item.id}>
 							{({ isActive, isPrev }) => (
 								<div
 									style={{
@@ -72,13 +72,13 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 									rgba(39, 39, 39, 0.95) 0%,
 									rgba(39, 39, 39, 0.95) 39.56%,
 									rgba(39, 39, 39, 0.99) 69.49%,
-									#272727 100%), url(${item.background_image})`,
+									#272727 100%), url(${item.picture})`,
 									}}
 									className={`${styles.cardWrapper} ${
 										isActive && styles.active
 									} ${isPrev && styles.prev}`}
 								>
-									<span className={styles.tag}>{item.category.name}</span>
+									<span className={styles.tag}>{item.tagEN || item.tagES}</span>
 									<div className={styles.logo}>
 										<Image
 											priority
@@ -86,13 +86,13 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 											width={126}
 											height={92}
 											objectFit='contain'
-											alt={`${item.name} logo`}
+											alt={`${item.titleEN || item.titleES} logo`}
 											placeholder='blur'
 											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 										/>
 									</div>
 									<p className={`${utils.textSmall} ${styles.desc}`}>
-										{item.shortDescriptionEN || item.shortDescriptionES}
+										{item.descriptionEN || item.descriptionES}
 									</p>
 									<span className={`${utils.textSmall} ${styles.link}`}>
 										<Link href={'/'}>{t('case_studies.card_link')}</Link>
