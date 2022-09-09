@@ -1,0 +1,64 @@
+@use '/styles/variables.scss' as *;
+
+.container {
+  background: $primaryBackgroundColor;
+  border-radius: 10px;
+  padding: 3.2rem 1.5rem;
+  max-width: 88.6rem;
+  
+  li {
+    border-bottom: 2px solid $thirdBackgroundColor;
+  }
+}
+
+.pictureWrapper {
+  margin-block: 3rem;
+}
+
+.picture {
+  border-radius: 10px;
+}
+
+.CStitle {
+  color: $primaryTextColor;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.descriptionText {
+  color: $secondaryTextColor;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.button {
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .CScontainer {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 6rem;
+    padding: 4.2rem 4.8rem;
+  }
+  .pictureWrapper {
+    max-width: 36.1rem;
+    height: auto;
+  }
+  .CStitle {
+    text-align: start;
+  }
+  .descriptionContainer {
+    max-width: 32rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .descriptionText {
+    text-align: start;
+  }
+  .button {
+    display: inline;
+    width: fit-content;
+  }
+}
