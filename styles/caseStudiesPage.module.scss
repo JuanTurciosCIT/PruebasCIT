@@ -1,0 +1,19 @@
+@use '/styles/variables.scss' as *;
+
+.section {
+  background-color: $secondBackgroundColor;
+  padding-block: 4.8rem;
+  padding-inline: 3.7rem;
+
+  .wrapper {
+    max-width: 114.4rem;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .wrapper {
+    display: flex;
+    gap: 2.8rem;
+  }
+}

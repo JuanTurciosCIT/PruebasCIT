@@ -64,6 +64,7 @@ export interface TechnologiesSection {
 export interface CaseStudy {
   name: string;
   category: { name: string };
+  // tag: string[];
   shortDescriptionEN: string;
   shortDescriptionES: string;
   fullDescriptionEN: string;

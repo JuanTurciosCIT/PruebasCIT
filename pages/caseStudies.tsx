@@ -1,11 +1,13 @@
 import type { GetStaticProps, NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 
 import Layout from 'shared/Layout';
-import { HomeContent } from 'utils/types/homeContent.interface';
 import { ReactNode, Suspense } from 'react';
 import HomeContentService from 'utils/services/HomeContentService';
-import { CaseStudies, HeroCaseStudiesInterface } from 'utils/types/caseStudies.interface';
+import { HeroCaseStudiesInterface } from 'utils/types/caseStudies.interface';
 import HeroCaseStudies from 'components/CaseStudies/HeroCaseStudies';
+import { CaseStudiesCategory } from 'components/CaseStudies/CaseStudiesCategory';
+import styles from 'styles/caseStudiesPage.module.scss';
+import { CaseStudiesList } from 'components/CaseStudies/CaseStudiesList';
 // import { SkeletonLoader } from 'Animations/SkeletonLoader';
 
 
@@ -25,7 +27,15 @@ const CaseStudiesPage: NextPage<any> & { skeletonLoader?: ReactNode } = ({ foote
   const data: HeroCaseStudiesInterface = {backgroundImage: '', descriptionEN: '', titleEN: ''};
 	return (
 		<Layout footerContent={footerContent}>
-      <HeroCaseStudies heroContent={data} />
+      <main>
+				<HeroCaseStudies heroContent={data} />
+			</main>
+			<section className={styles.section}>
+				<div className={styles.wrapper}>
+					<CaseStudiesCategory />
+					<CaseStudiesList />
+				</div>
+			</section>
 		</Layout>
 	);
 };
