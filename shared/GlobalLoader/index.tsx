@@ -13,7 +13,6 @@ export default function GlobalLoader() {
 			<AnimatedContainer
 				hidden={{ y: '-100vh', opacity: 0 }}
 				visible={{ y: 0, opacity: 1 }}
-				exit={{ y: '100vh', opacity: 0 }}
 			>
 				<Lottie
 					loop
