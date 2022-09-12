@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				visible={{
 					y: 0,
 					opacity: 1,
-					transition: { delay: 0.8, duration: 1.2 },
+					transition: { delay: 0.3, duration: 1 },
 				}}
 				>
 				{isLoading && <GlobalLoader />}

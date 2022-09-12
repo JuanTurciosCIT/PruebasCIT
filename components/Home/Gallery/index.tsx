@@ -42,12 +42,13 @@ export default function Gallery({ gallery }: { gallery: GallerySection }) {
 					{gallery.images.map((image, index) => (
 						<div className={styles[`${'picture'}${index + 1}`]} key={image}>
 							<Image
+								priority
+								quality={70}
 								src={image}
 								alt='gallery'
 								className={styles.picture}
 								layout='fill'
-								loading='eager'
-								priority
+								// loading='eager'
 								placeholder='blur'
 								blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 							/>

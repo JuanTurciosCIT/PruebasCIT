@@ -6,7 +6,7 @@ import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import styles from './herofooter.module.scss';
 
 export default function HeroFooter({ content }: { content: FooterHeroSection }) {
-	const { t } = useTranslation(localeNamespaces.HOME);
+	const { t } = useTranslation(localeNamespaces.common);
 
 	return (
 		<section className={styles.heroFooter} style={{backgroundImage: `url(${content.backgroundImg})`}}>

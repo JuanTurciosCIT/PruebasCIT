@@ -37,10 +37,5 @@
   "gallery": {
     "title": "Come work with us",
     "btn_text": "Learn more"
-  },
-  "heroFooter": {
-    "title": "Ready to get started?",
-    "caption": "{external_data}",
-    "btn_text": "Contact us"
   }
 }

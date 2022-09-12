@@ -21,6 +21,8 @@ export default function SliderButtons({
 		<div className={chosenTheme.container}>
 			<button className={chosenTheme.left} onClick={prev}>
 				<Image
+					lazyBoundary='600px'
+					quality={70}
 					src={arrowIcon}
 					alt='Arrow left'
 					width={12.5}
@@ -29,6 +31,8 @@ export default function SliderButtons({
 			</button>
 			<button className={chosenTheme.right} onClick={next}>
 				<Image
+					lazyBoundary='600px'
+					quality={70}
 					src={arrowIcon}
 					alt='Arrow right'
 					width={12.5}

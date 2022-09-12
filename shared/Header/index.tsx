@@ -1,10 +1,11 @@
-import Image from 'next/image';
+// import Image from 'next/image';
+import Image from 'next/future/image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 import { NextRouter, useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
-import CreativeLogo from '/public/svg/creative-logo.svg';
+import CreativeLogo from '/public/images/creative-logo.png';
 import burgerIcon from '/public/svg/burger-menu.svg';
 import closeIcon from '/public/svg/close-icon.svg';
 import arrowDownIcon from '/public/svg/arrow-down.svg';
@@ -15,10 +16,10 @@ import CustomButton from '../CustomButton';
 import MobileMenu from './MobileMenu';
 import { navLinks } from 'utils/constants/navLink.constant';
 import { useMediaQuery } from '../../utils/hooks/useMediaQuery';
-import { NavLink } from 'utils/types/navLink.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { AnimatedContainer } from '../../Animations/AnimatedContainer';
+import { useHeaderBgOnScroll } from '@/hooks/useHeaderBgOnScroll';
 import { Pages } from 'utils/types/pages.enum';
 
 export default function Header() {
@@ -35,8 +36,7 @@ export default function Header() {
 	// before 428px viewport width is mobile
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const ref = useRef(null);
-
-	const headerBackground = isAtHome ? styles.headerBackground : styles.headerBackgroundNone;
+	const bgColor = useHeaderBgOnScroll();
 
 	const headerLinks = navLinks.filter((link) => {
 		const pathname: Pages = router.pathname as Pages;
@@ -51,7 +51,7 @@ export default function Header() {
 
 		setTimeout(() => {
 			toggleDropdownMenu();
-		}, 500);
+		}, 300); // RAIL model
 	};
 
 	useOnClickOutside(ref, handleClickOutside);
@@ -59,18 +59,20 @@ export default function Header() {
 	if (isMobile) {
 		return (
 			<>
-				<header className={styles.header} style={{background: `${!isAtHome && 'none'}`}}>
+				<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : ''}`}}>
 					<div className={styles.logo}>
-						{/* <Image
+						<Image
+							quality={100}
 							priority={isMobile}
-							layout='fill'
-							objectFit='cover'
+							width={148}
+							// layout='fill'
+							// objectFit='cover'
 							src={CreativeLogo}
 							alt='Creative Logo'
-							loading='eager'
+							// loading='eager'
 							placeholder='blur'
 							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-						/> */}
+						/>
 					</div>
 
 					{/* onClick => openMobileMenu */}
@@ -91,17 +93,20 @@ export default function Header() {
 	}
 
 	return (
-		<header className={styles.header} style={{background: `${!isAtHome && 'none'}`}}>
+		<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : ''}`}}>
 			<div className={styles.logo}>
-				{/* <Image
+				<Image
+					quality={100}
 					priority={!isMobile}
-					layout='fill'
-					objectFit='cover'
+					// layout='fill'
+					// objectFit='cover'
+					width={161}
+					// loading='eager'
 					src={CreativeLogo}
 					alt='Creative Logo'
 					placeholder='blur'
 					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-				/> */}
+				/>
 			</div>
 
 			<nav className={styles.navContainer}>
@@ -122,6 +127,7 @@ export default function Header() {
 						{!isAtHome && (
 							<div className={`${utils.textSmall} ${styles.backToHome}`}>
 								<Image
+									quality={70}
 									className={styles.arrowLeft}
 									src={arrowRightIcon}
 									alt='Arrow left Icon'
@@ -139,6 +145,7 @@ export default function Header() {
 					<button className={styles.dropDown} onClick={toggleDropdownMenu}>
 						<span>{currentLocale}</span>
 						<Image
+							quality={70}
 							src={arrowDownIcon}
 							alt='Arrow down'
 							width={12}

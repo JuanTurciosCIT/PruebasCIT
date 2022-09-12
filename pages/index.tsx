@@ -15,7 +15,7 @@ import Gallery from 'components/Home/Gallery';
 import HeroFooter from 'shared/HeroFooter';
 import { HomeContent } from 'utils/types/homeContent.interface';
 import { getHomePageContent } from 'utils/services';
-import { ReactNode, Suspense } from 'react';
+import { ReactNode } from 'react';
 
 export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetStaticPropsContext) => {
 	const homeContent: HomeContent = await getHomePageContent(context.locale) as HomeContent;

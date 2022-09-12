@@ -58,6 +58,7 @@ export default function CustomerFeedback({
 								<div className={styles.customerPic}>
 									<Image
 										priority
+										quality={100}
 										src={item.picture}
 										alt='Customer'
 										width={80}
@@ -70,30 +71,35 @@ export default function CustomerFeedback({
 								<div className={styles.info}>
 									<div className={styles.stars}>
 										<Image
+											lazyBoundary='600px'
 											src={starIcon}
 											alt='Feedback star'
 											width={14}
 											height={14}
 										/>
 										<Image
+											lazyBoundary='600px'
 											src={starIcon}
 											alt='Feedback star'
 											width={14}
 											height={14}
 										/>
 										<Image
+											lazyBoundary='600px'
 											src={starIcon}
 											alt='Feedback star'
 											width={14}
 											height={14}
 										/>
 										<Image
+											lazyBoundary='600px'
 											src={starIcon}
 											alt='Feedback star'
 											width={14}
 											height={14}
 										/>
 										<Image
+											lazyBoundary='600px'
 											src={starIcon}
 											alt='Feedback star'
 											width={14}

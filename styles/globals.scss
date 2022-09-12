@@ -20,21 +20,14 @@ body {
 
 html,
 body {
-  font-family: $mainFont, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, $mainFont;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a {
   padding-bottom: 0.6rem;
   background:
     linear-gradient(
