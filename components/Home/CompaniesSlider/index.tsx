@@ -58,6 +58,7 @@ export default function CompaniesSlider({
 								>
 										<Image
 										priority
+										quality={70}
 										src={customer.imagePath}
 										alt={customer.clientName}
 										layout='fill'

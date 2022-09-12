@@ -77,7 +77,9 @@ export default function Footer({ content }: { content: FooterSection }) {
 							>
 								<div className={styles.iconContainer}>
 									<Image
-										priority
+										// priority
+										quality={70}
+										lazyBoundary='650px'
 										src={instagramIcon}
 										alt='Instagram'
 										width={12}
@@ -92,7 +94,9 @@ export default function Footer({ content }: { content: FooterSection }) {
 							>
 								<div className={styles.iconContainer}>
 									<Image
-										priority
+										// priority
+										quality={70}
+										lazyBoundary='650px'
 										src={linkedinIcon}
 										alt='LinkedIn'
 										width={12}
@@ -107,7 +111,9 @@ export default function Footer({ content }: { content: FooterSection }) {
 							>
 								<div className={styles.iconContainer}>
 									<Image
-										priority
+										quality={70}
+										// priority
+										lazyBoundary='650px'
 										src={facebookIcon}
 										alt='Facebook'
 										width={12}
@@ -122,7 +128,9 @@ export default function Footer({ content }: { content: FooterSection }) {
 							rel='noopener noreferrer'
 						>
 							<Image
-								priority
+								// priority
+								quality={70}
+								lazyBoundary='650px'
 								src={mailIcon}
 								alt='Mail icon'
 								width={12}
@@ -136,7 +144,9 @@ export default function Footer({ content }: { content: FooterSection }) {
 							rel='noopener noreferrer'
 						>
 							<Image
-								priority
+								// priority
+								quality={70}
+								lazyBoundary='650px'
 								src={locationIcon}
 								alt='Location icon'
 								width={12}

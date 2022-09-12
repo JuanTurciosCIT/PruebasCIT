@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
+// import Image from 'next/image';
+import Image from 'next/future/image';
 import { useCallback, useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 
@@ -40,8 +41,10 @@ export default function About({
 				{showPlaceholder && (
 					<GradientButton onClick={playVideo}>
 						<Image
+							quality={70}
 							width={17.32}
-							height={15}
+							style={{ height: 'auto' }}
+							// height={'auto'}
 							src={playIcon}
 							alt='Play video'
 						/>

@@ -49,7 +49,7 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 						</h2>
 						<span className={`${utils.textSmall} ${styles.link}`}>
 							<Link href='caseStudies'>{t('case_studies.link')}</Link>
-							<Image src={arrowRight} alt='Arrow right' />
+							<Image src={arrowRight} alt='Arrow right' quality={70} lazyBoundary='600px' />
 						</span>
 					</div>
 					{!isMobile && (
@@ -81,7 +81,9 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 									<span className={styles.tag}>{item.tagEN || item.tagES}</span>
 									<div className={styles.logo}>
 										<Image
-											priority
+											// priority
+											lazyBoundary='600px'
+											quality={70}
 											src={item.logo}
 											width={126}
 											height={92}
@@ -97,6 +99,9 @@ export default function CaseStudies({ content }: { content: CaseStudy[] }) {
 									<span className={`${utils.textSmall} ${styles.link}`}>
 										<Link href={'/'}>{t('case_studies.card_link')}</Link>
 										<Image
+											quality={70}
+											lazyBoundary='600px'
+											width={12}
 											src={arrowRight}
 											alt='Arrow Right'
 										/>

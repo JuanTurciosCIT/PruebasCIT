@@ -30,6 +30,7 @@ export const TechnologiesAtom = ({
 				<Image src={citLogo} alt='CIT Logo'
 					layout='fill'
 					placeholder='blur'
+					quality={70}
 					// blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 				/>
 			</div>
@@ -45,6 +46,8 @@ export const TechnologiesAtom = ({
 					>
 						<Image
 							priority
+							// lazyBoundary='600px'
+							quality={70}
 							className={styles.logoFilter}
 							src={tech.logo}
 							alt={tech.name}
@@ -68,6 +71,8 @@ export const TechnologiesAtom = ({
 					>
 						<Image
 							priority
+							// lazyBoundary='600px'
+							quality={70}
 							className={styles.logoFilter}
 							src={tech.logo}
 							alt={tech.name}
@@ -98,6 +103,8 @@ export const TechnologiesAtom = ({
 					>
 						<Image
 							priority
+							// lazyBoundary='600px'
+							quality={70}
 							className={styles.logoFilter}
 							src={tech.logo}
 							alt={tech.name}

@@ -1,12 +1,13 @@
 @use '../../styles/variables.scss' as *;
 
 .logo {
-	position: relative;
-	width: 14.8rem;
-	height: 3rem;
-	background-image: url('../../public/svg/creative-logo.svg');
-	background-repeat: no-repeat;
-	background-size: cover;
+	// position: relative;
+	// width: 14.8rem;
+	// height: 3rem;
+
+	img {
+		height: auto;
+	}
 }
 
 .header {
@@ -15,13 +16,15 @@
 	justify-content: space-between;
 	align-items: center;
 	// background: rgba($primaryBackgroundColor, 0.8);
-	background: linear-gradient(180deg, #232323 0%, rgba(35, 35, 35, 0) 340.16%);
+	// background: linear-gradient(180deg, #232323 0%, rgba(35, 35, 35, 0) 340.16%);
+	background: $primaryBackgroundColor;
 	color: $primaryTextColor;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 1000;
+	transition: all 0.4s ease-in-out;
 }
 
 .burgerBtn {
@@ -134,9 +137,15 @@
 	gap: 0.5rem;
 	position: absolute;
 	top: 10rem;
+	text-shadow: $primaryBackgroundColor 0px 0px 10px;
 }
 
 @media screen and (min-width: $breakpoint) {
+	// .header {
+			// background: linear-gradient(180deg, #232323 0%, rgba(35, 35, 35, 0) 340.16%);
+			// background-color: $primaryBackgroundColor;
+			// transition: all 0.4s ease-in-out;
+	// }
 	.logo {
 		width: 16rem;
 		height: 3.2rem;

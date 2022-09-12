@@ -87,7 +87,9 @@ export default function Portfolio({
 								<div className={styles.description}>
 									<div className={styles.pictureWrapper}>
 										<Image
-											priority
+											// priority
+											quality={90}
+											lazyBoundary='600px'
 											className={styles.picture}
 											src={project.picture}
 											width={45}
@@ -100,6 +102,8 @@ export default function Portfolio({
 									<span className={`${utils.headingSmall} ${styles.title}`}>
 										<h3>{project.card_title}</h3>
 										<Image
+											quality={70}
+											lazyBoundary='600px'
 											src={arrowRightUpIcon}
 											width={14}
 											height={14}
@@ -127,6 +131,8 @@ export default function Portfolio({
 						<span className={`${utils.textSmall} ${styles.footerLink}`}>
 							<Link href={'/'}>{t('portfolio.moreProjects_link')}</Link>
 							<Image
+								quality={70}
+								lazyBoundary='600px'
 								src={arrowRightIcon}
 								width={14}
 								height={14}

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+// import Image from 'next/future/image';
 import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { useInView } from 'react-intersection-observer';
@@ -34,9 +35,11 @@ export default function OurServices({
 								<div className={styles.logo}>
 									<Image
 										priority
+										quality={90}
 										src={service.logo}
 										alt={service.nameEN || service.nameES}
 										layout='fill'
+										lazyBoundary='600px'
 										placeholder='blur'
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
@@ -50,8 +53,7 @@ export default function OurServices({
 									</p>
 									<span className={`${utils.textTiny} ${styles.link}`}>
 										<Link href='/'>{t('services.btn_text')}</Link>
-										<Image src={arrowRight} alt='Arrow right'
-										/>
+										<Image width={12} height={12} src={arrowRight} alt='Arrow right' quality={70} lazyBoundary='600px' />
 									</span>
 								</div>
 							</div>

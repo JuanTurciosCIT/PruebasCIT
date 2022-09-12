@@ -16,7 +16,7 @@ export const ScrollReveal = ({ children, isVisible, className } : ScrollRevealPr
 			opacity: 1,
 			transition: {
 				delay: 0.3,
-				duration: 0.6
+				duration: 0.5
 			}
 		})
 	}
