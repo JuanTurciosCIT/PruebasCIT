@@ -13,6 +13,11 @@
     "sign_in": "Iniciar sesión",
     "sign_up": "Crea una cuenta"
   },
+  "heroFooter": {
+    "title": "Listo para empezar?",
+    "caption": "{external_data}",
+    "btn_text": "Contáctenos"
+  },
   "footer": {
     "title": "Ubicaciones",
     "title2": "Síguenos",

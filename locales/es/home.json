@@ -37,10 +37,5 @@
   "gallery": {
     "title": "Trabaja con nosotros",
     "btn_text": "Ver más"
-  },
-  "heroFooter": {
-    "title": "Listo para empezar?",
-    "caption": "{external_data}",
-    "btn_text": "Contáctenos"
   }
 }
