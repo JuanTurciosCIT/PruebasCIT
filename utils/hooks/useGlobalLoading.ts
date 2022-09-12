@@ -17,7 +17,7 @@ export function useGlobalLoading(): boolean {
     const end = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 500);
     }
 
     Router.events.on('routeChangeStart', start);
