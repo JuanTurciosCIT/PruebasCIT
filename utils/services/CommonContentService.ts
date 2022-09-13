@@ -1,5 +1,6 @@
 import { supabase } from 'libs/supabaseClient';
-import { Contact, FooterHeroSection, FooterSection, LocationInterface } from 'utils/types/homeContent.interface';
+import { Contact, FooterHeroSection, FooterSection, LocationInterface } from 'utils/types/commonContent.interface';
+import { HeroSection } from 'utils/types/homeContent.interface';
 
 export const CommonContentService = {
 

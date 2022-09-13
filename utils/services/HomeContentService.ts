@@ -1,16 +1,12 @@
 import { supabase } from 'libs/supabaseClient';
 import {
 	AboutSection,
-	Contact,
 	CustomerFeedbackSection,
 	CustomersSection,
-	FooterHeroSection,
 	GallerySection,
 	HeroSection,
 	ServicesSection,
 	TechnologiesSection,
-	LocationInterface,
-	FooterSection,
 	PortfolioSection,
 	CaseStudy,
 } from 'utils/types/homeContent.interface';
@@ -20,14 +16,16 @@ export const HomeContentService = {
 	getHeroContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
-			.from<HeroSection>('HomeHero')
+			.from<HeroSection>('Hero')
 			.select(
 				`${
 					isEnglish
-						? 'backgroundImage, titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN'
-						: 'backgroundImage, titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES'
+						? 'backgroundImage, titleEN, subtitleStartEN, subtitleEndEN, subtitlePhrasesEN, captionEN, linkedPage'
+						: 'backgroundImage, titleES, subtitleStartES, subtitleEndES, subtitlePhrasesES, captionES, linkedPage'
 				}`
 			)
+			.eq('linkedPage', 'home')
+			.eq('isVisible', true)
 			.single();
 
 		if (error) {
