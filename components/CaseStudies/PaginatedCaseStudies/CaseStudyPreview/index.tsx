@@ -12,7 +12,7 @@ export const CaseStudyPreview = ({ caseStudy }: { caseStudy: CaseStudy }) => {
 	return (
 		<div className={styles.CScontainer}>
 			<div className={styles.pictureWrapper}>
-				<Image quality={100} className={styles.picture} src={caseStudy.picture} alt={caseStudy.titleEN || caseStudy.titleES} layout='fill' objectFit='contain' />
+				<Image quality={100} className={styles.picture} src={caseStudy.picture} alt={caseStudy.titleEN || caseStudy.titleES} layout='fill' objectFit='cover' />
 			</div>
 			<div className={styles.descriptionContainer}>
 				<h2 className={`${utils.headingMedium} ${styles.CStitle}`}>

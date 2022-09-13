@@ -1,10 +1,14 @@
 @use '/styles/variables.scss' as *;
 
 .pictureWrapper {
-  width: 36.1rem;
-  height: auto;
+  aspect-ratio: 361/250;
   position: relative;
+  width: 32.4rem;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
   margin-block: 3rem;
+  border-radius: 10px;
 }
 
 .picture {
@@ -36,7 +40,7 @@
   }
   .pictureWrapper {
     max-width: 36.1rem;
-    height: auto;
+    max-height: 25rem;
   }
   .CStitle {
     text-align: start;
