@@ -17,18 +17,16 @@ export default function HeroHome({
 	const isMobile = useMediaQuery('(max-width: 428px)');
 
 	return (
-		<div className={styles.hero}>
+		<div className={styles.hero} style={{backgroundImage: `url(${heroContent.backgroundImage})`}}>
 			<div className={styles.wrapper}>
 				<div className={`${utils.headingLarge} ${styles.heroTitle}`}>
 					<h1>
 						{heroContent.titleEN || heroContent.titleES}
-            Case Study
 					</h1>
 				</div>
 				<div className={`${utils.textSmall} ${styles.heroDescription}`}>
 					<p>
-            {heroContent.descriptionEN || heroContent.descriptionES}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus sapien, id bibendum velit, tellus diam ut.
+            {heroContent.captionEN || heroContent.captionES}
           </p>
 				</div>
 			</div>
