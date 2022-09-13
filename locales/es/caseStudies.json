@@ -1,0 +1,10 @@
+{
+  "category": {
+    "title": "Categoría",
+    "all": "Todas"
+  },
+  "caseStudies": {
+    "btn_text": "Ver Caso",
+    "empty": "No hay casos de estudio disponibles para esta categoría"
+  }
+}
