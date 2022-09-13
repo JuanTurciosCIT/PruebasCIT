@@ -1,0 +1,13 @@
+@use '/styles/variables.scss' as *;
+
+.wrapper {
+  max-width: 114.4rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .wrapper {
+    display: flex;
+    gap: 2.8rem;
+  }
+}
