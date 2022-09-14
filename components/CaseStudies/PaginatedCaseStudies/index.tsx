@@ -1,4 +1,6 @@
-import { useState, useId } from 'react';
+import { useEffect, useState } from 'react';
+import ReactPaginate, { ReactPaginateProps } from 'react-paginate';
+
 import {
 	CaseStudy,
 	CaseStudyCategory,
@@ -17,8 +19,18 @@ export const PaginatedCaseStudies = ({
 	caseStudies,
 	caseStudiesCategories,
 }: PaginatedCaseStudiesProps) => {
-  const id = useId();
+	const [currentItems, setCurrentItems] = useState<CaseStudy[]>(caseStudies);
 	const [filteredCaseStudies, setFilteredCaseStudies] = useState(caseStudies);
+	const [pageCount, setPageCount] = useState(0);
+	const [itemOffset, setItemOffset] = useState(0);
+
+	const itemsPerPage = 4;
+	useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(filteredCaseStudies.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(filteredCaseStudies.length / itemsPerPage));
+  }, [itemOffset, filteredCaseStudies]);
 
 	const filterCaseStudies = (category: CaseStudyCategory) => {
 		const filteredCaseStudies = caseStudies.filter((caseStudy) => {
@@ -31,6 +43,14 @@ export const PaginatedCaseStudies = ({
 		setFilteredCaseStudies(caseStudies);
 	};
 
+	const handlePageClick = (event: any) => {
+    const newOffset = (event.selected * itemsPerPage) % filteredCaseStudies.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+
 	return (
 		<div className={styles.wrapper}>
 			<CaseStudiesCategory
@@ -38,7 +58,21 @@ export const PaginatedCaseStudies = ({
 				onFilter={filterCaseStudies}
 				onReset={resetCaseStudies}
 			/>
-      <CaseStudiesList caseStudies={filteredCaseStudies} />
-		</div>
+      <div className={styles.paginationContainer}>
+				<CaseStudiesList caseStudies={currentItems} />
+				<ReactPaginate
+					breakLabel={'...'}
+					nextLabel='>'
+					onPageChange={handlePageClick}
+					pageCount={pageCount}
+					pageRangeDisplayed={5}
+					previousLabel='<'
+					containerClassName={styles.pagination}
+					pageClassName={styles.pageItem}
+					nextClassName={styles.arrowControls}
+					previousClassName={styles.arrowControls}
+				/>
+			</div>
+			</div>
 	);
 };
