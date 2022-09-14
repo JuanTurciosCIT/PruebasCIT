@@ -2,6 +2,8 @@ import { CommonContentService } from './CommonContentService';
 import { HomeContentService } from './HomeContentService';
 
 import { HomeContent } from 'utils/types/homeContent.interface';
+import { CaseStudiesContent } from 'utils/types/caseStudies.interface';
+import { CaseStudiesContentService } from './CaseStudiesContentService';
 
 export async function getHomePageContent(locale: string = 'en'): Promise<HomeContent | undefined> {
 	const hero = await HomeContentService.getHeroContent(locale);
@@ -31,13 +33,18 @@ export async function getHomePageContent(locale: string = 'en'): Promise<HomeCon
 	}
 }
 
-// apply a return type to the function later - reminder (type: CaseStudyContent)
-export async function getCaseStudiesContent(locale: string = 'en'): Promise<any | undefined> {
+export async function getCaseStudiesContent(locale: string = 'en'): Promise<CaseStudiesContent | undefined> {
+	const hero = await CaseStudiesContentService.getHeroContent(locale);
+	const categories = await CaseStudiesContentService.getCaseStudiesCategory(locale);
+	const caseStudies = await CaseStudiesContentService.getCaseStudies(locale);
 	const footerHero = await CommonContentService.getHeroFooterContent(locale);
 	const footer = await CommonContentService.getFooterContent();
 
 	return {
 		// ... rest of case study content
+		hero,
+		caseStudiesCategories: categories,
+		caseStudies,
 		footerHero,
 		footer
 	}

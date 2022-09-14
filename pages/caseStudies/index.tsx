@@ -1,43 +1,54 @@
-import type { GetStaticProps, NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next';
+import type {
+	GetStaticProps,
+	NextPage,
+	InferGetStaticPropsType,
+	GetStaticPropsContext,
+} from 'next';
 import { ReactNode } from 'react';
 
 import Layout from 'shared/Layout';
 import HeroFooter from '@/shared/HeroFooter';
-import { HomeContentService } from 'utils/services/HomeContentService';
-import { HeroCaseStudiesInterface } from 'utils/types/caseStudies.interface';
 import HeroCaseStudies from 'components/CaseStudies/HeroCaseStudies';
 import { CaseStudiesCategory } from 'components/CaseStudies/CaseStudyCategories';
 import styles from 'styles/caseStudiesPage.module.scss';
 import { CaseStudiesList } from 'components/CaseStudies/PaginatedCaseStudies/CaseStudiesList';
-import { FooterHeroSection } from 'utils/types/homeContent.interface';
 import { getCaseStudiesContent } from 'utils/services';
+import { CaseStudiesContent } from 'utils/types/caseStudies.interface';
+import { PaginatedCaseStudies } from 'components/CaseStudies/PaginatedCaseStudies';
 // import { SkeletonLoader } from 'Animations/SkeletonLoader';
 
-
-export const getStaticProps: GetStaticProps<any> = async (context: GetStaticPropsContext) => {
-	const caseStudiesContent = await getCaseStudiesContent(context.locale);
+export const getStaticProps: GetStaticProps<CaseStudiesContent> = async (
+	context: GetStaticPropsContext
+) => {
+	const caseStudiesContent = (await getCaseStudiesContent(
+		context.locale
+	)) as CaseStudiesContent;
 
 	return {
 		props: {
-      // ...case studies here
-			...caseStudiesContent
+			// ...case studies here
+			...caseStudiesContent,
 		},
-		revalidate: 10
+		revalidate: 10,
 	};
 };
 
-const CaseStudiesPage: NextPage<any> & { skeletonLoader?: ReactNode } = ({ footerHero, footer }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const data: HeroCaseStudiesInterface = {backgroundImage: '', descriptionEN: '', titleEN: ''};
+const CaseStudiesPage: NextPage<CaseStudiesContent> & {
+	skeletonLoader?: ReactNode;
+} = ({
+	hero,
+	caseStudiesCategories,
+	caseStudies,
+	footerHero,
+	footer,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<Layout footerContent={footer}>
-      <main>
-				<HeroCaseStudies heroContent={data} />
+			<main>
+				<HeroCaseStudies heroContent={hero} />
 			</main>
 			<section className={styles.section}>
-				<div className={styles.wrapper}>
-					<CaseStudiesCategory />
-					<CaseStudiesList />
-				</div>
+				<PaginatedCaseStudies caseStudies={caseStudies} caseStudiesCategories={caseStudiesCategories} />
 			</section>
 			<HeroFooter content={footerHero} />
 		</Layout>

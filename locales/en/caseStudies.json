@@ -1,0 +1,10 @@
+{
+  "category": {
+    "title": "Category",
+    "all": "All"
+  },
+  "caseStudies": {
+    "btn_text": "See Case",
+    "empty": "We have no case study for this category"
+  }
+}

@@ -1,0 +1,61 @@
+@use '/styles/variables.scss' as *;
+
+.wrapper {
+  max-width: 114.4rem;
+  margin: 0 auto;
+}
+
+.paginationContainer {
+  background: $primaryBackgroundColor;
+  border-radius: 10px;
+  padding: 3.2rem 1.5rem;
+  max-width: 88.6rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 4.8rem;
+  color: $primaryTextColor;
+  font-weight: bolder;
+  gap: 5px;
+
+  a:hover {
+    background-size: 0;
+  }
+}
+
+.pageItem {
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+
+  background: #2A2A2A;
+  border-radius: 5px;
+}
+
+.arrowControls {
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 1.8rem;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .wrapper {
+    display: flex;
+    gap: 2.8rem;
+  }
+
+  .paginationContainer {
+    padding-inline: 4.2rem;
+  }
+
+  .pagination {
+    justify-content: flex-end;
+  }
+}

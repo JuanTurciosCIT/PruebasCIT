@@ -1,0 +1,60 @@
+@use '/styles/variables.scss' as *;
+
+.pictureWrapper {
+  aspect-ratio: 361/250;
+  position: relative;
+  width: 32.4rem;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  margin-block: 3rem;
+  border-radius: 10px;
+}
+
+.picture {
+  border-radius: 10px;
+}
+
+.CStitle {
+  color: $primaryTextColor;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.descriptionText {
+  color: $secondaryTextColor;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.button {
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .CScontainer {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 6rem;
+    padding-block: 2.8rem;
+  }
+  .pictureWrapper {
+    max-width: 36.1rem;
+    max-height: 25rem;
+  }
+  .CStitle {
+    text-align: start;
+  }
+  .descriptionContainer {
+    max-width: 32rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .descriptionText {
+    text-align: start;
+  }
+  .button {
+    display: inline;
+    width: fit-content;
+  }
+}

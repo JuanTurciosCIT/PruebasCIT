@@ -1,37 +1,32 @@
+import useTranslation from 'next-translate/useTranslation';
 import styles from './caseStudiesCategory.module.scss';
 import utils from '/styles/utils.module.scss';
 
-export const CaseStudiesCategory = () => {
+import { CaseStudyCategory } from 'utils/types/caseStudies.interface';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+
+interface CaseStudiesCategoryProps {
+  categories: CaseStudyCategory[];
+  onReset?: () => void;
+  onFilter: (category: CaseStudyCategory) => void;
+}
+
+export const CaseStudiesCategory = ({ categories, onReset, onFilter }: CaseStudiesCategoryProps) => {
+  const { t } = useTranslation(localeNamespaces.CASE_STUDIES);
+
   return <div className={styles.container}>
-    <h2 className={`${utils.headingMedium} ${styles.title}`}>Category</h2>
+    <h2 className={`${utils.headingMedium} ${styles.title}`}>{t('category.title')}</h2>
     <ul className={styles.listCategories}>
-      <li>
-        <button>All</button>
+      <li className={styles.item}>
+        <button className={styles.btn} onClick={onReset}>{t('category.all')}</button>
       </li>
-      <li>
-        <button>Agtech</button>
-      </li>
-      <li>
-        <button>Healthcare</button>
-      </li>
-      <li>
-        <button>B2B-SaaS</button>
-      </li>
-      <li>
-        <button>B2C</button>
-      </li>
-      <li>
-        <button>Retail</button>
-      </li>
-      <li>
-        <button>Government</button>
-      </li>
-      <li>
-        <button>Fintech</button>
-      </li>
-      <li>
-        <button>Energy</button>
-      </li>
+      {
+        categories.map((category: CaseStudyCategory) => (
+          <li className={styles.item} key={category.id}>
+            <button className={styles.btn} onClick={() => onFilter(category)}>{category.nameEN || category.nameES}</button>
+          </li>
+        ))
+      }
     </ul>
     <div className={styles.divider}></div>
   </div>
