@@ -1,5 +1,5 @@
 import { Action, configureStore, createSlice, PayloadAction, ThunkAction } from "@reduxjs/toolkit";
-import { FooterSection } from "utils/types/homeContent.interface";
+import { FooterSection } from "utils/types/commonContent.interface";
 
 // slices
 export const footerContentSlice = createSlice({
