@@ -33,6 +33,7 @@ export const PaginatedCaseStudies = ({
   }, [itemOffset, filteredCaseStudies]);
 
 	const filterCaseStudies = (category: CaseStudyCategory) => {
+		window.scrollTo(0, 450);
 		const filteredCaseStudies = caseStudies.filter((caseStudy) => {
 			return caseStudy.idCategories.includes(category.id as string);
 		});
@@ -44,6 +45,7 @@ export const PaginatedCaseStudies = ({
 	};
 
 	const handlePageClick = (event: any) => {
+		window.scrollTo(0, 450);
     const newOffset = (event.selected * itemsPerPage) % filteredCaseStudies.length;
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
@@ -60,18 +62,23 @@ export const PaginatedCaseStudies = ({
 			/>
       <div className={styles.paginationContainer}>
 				<CaseStudiesList caseStudies={currentItems} />
-				<ReactPaginate
-					breakLabel={'...'}
-					nextLabel='>'
-					onPageChange={handlePageClick}
-					pageCount={pageCount}
-					pageRangeDisplayed={5}
-					previousLabel='<'
-					containerClassName={styles.pagination}
-					pageClassName={styles.pageItem}
-					nextClassName={styles.arrowControls}
-					previousClassName={styles.arrowControls}
-				/>
+				{
+					currentItems.length > 0 && (
+						<ReactPaginate
+							breakLabel='...'
+							nextLabel='>'
+							onPageChange={handlePageClick}
+							pageCount={pageCount}
+							pageRangeDisplayed={4}
+							previousLabel='<'
+							containerClassName={styles.pagination}
+							activeClassName={styles.activeItem}
+							pageClassName={styles.pageItem}
+							nextClassName={styles.arrowControls}
+							previousClassName={styles.arrowControls}
+						/>
+					)
+				}
 			</div>
 			</div>
 	);
