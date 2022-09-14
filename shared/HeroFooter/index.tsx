@@ -1,7 +1,7 @@
 import useTranslation from 'next-translate/useTranslation';
 
 import utils from 'styles/utils.module.scss';
-import { FooterHeroSection } from 'utils/types/homeContent.interface';
+import { FooterHeroSection } from 'utils/types/commonContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import styles from './herofooter.module.scss';
 

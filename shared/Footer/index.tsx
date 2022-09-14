@@ -12,7 +12,7 @@ import mailIcon from '../../public/svg/mail_icon.svg';
 import locationIcon from '../../public/svg/location_icon.svg';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { ScrollReveal } from 'Animations/ScrollReveal';
-import { FooterSection } from 'utils/types/homeContent.interface';
+import { FooterSection } from 'utils/types/commonContent.interface';
 
 // Change all the default export (components) to a named export
 // This is to avoid the error:
