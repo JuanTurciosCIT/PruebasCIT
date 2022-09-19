@@ -19,18 +19,18 @@ export const PaginatedCaseStudies = ({
 	caseStudies,
 	caseStudiesCategories,
 }: PaginatedCaseStudiesProps) => {
-	const [currentItems, setCurrentItems] = useState<CaseStudy[]>(caseStudies);
+	const [currentItems, setCurrentItems] = useState<CaseStudy[]>(caseStudies); // Current items to show
 	const [filteredCaseStudies, setFilteredCaseStudies] = useState(caseStudies);
-	const [pageCount, setPageCount] = useState(0);
-	const [itemOffset, setItemOffset] = useState(0);
+	const [pageCount, setPageCount] = useState(0); // number of pages
+	const [itemOffset, setItemOffset] = useState(0); // current page
 
 	const itemsPerPage = 4;
 	useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    setCurrentItems(filteredCaseStudies.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(filteredCaseStudies.length / itemsPerPage));
-  }, [itemOffset, filteredCaseStudies]);
+		const endOffset = itemOffset + itemsPerPage;
+		console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+		setCurrentItems(filteredCaseStudies.slice(itemOffset, endOffset));
+		setPageCount(Math.ceil(filteredCaseStudies.length / itemsPerPage));
+	}, [itemOffset, filteredCaseStudies]);
 
 	const filterCaseStudies = (category: CaseStudyCategory) => {
 		window.scrollTo(0, 450);
@@ -38,20 +38,23 @@ export const PaginatedCaseStudies = ({
 			return caseStudy.idCategories.includes(category.id as string);
 		});
 		setFilteredCaseStudies(filteredCaseStudies);
+		setItemOffset(0);
 	};
 
 	const resetCaseStudies = () => {
 		setFilteredCaseStudies(caseStudies);
+		setItemOffset(0);
 	};
 
 	const handlePageClick = (event: any) => {
 		window.scrollTo(0, 450);
-    const newOffset = (event.selected * itemsPerPage) % filteredCaseStudies.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
-  };
+		const newOffset =
+			(event.selected * itemsPerPage) % filteredCaseStudies.length;
+		console.log(
+			`User requested page number ${event.selected}, which is offset ${newOffset}`
+		);
+		setItemOffset(newOffset);
+	};
 
 	return (
 		<div className={styles.wrapper}>
@@ -60,26 +63,24 @@ export const PaginatedCaseStudies = ({
 				onFilter={filterCaseStudies}
 				onReset={resetCaseStudies}
 			/>
-      <div className={styles.paginationContainer}>
+			<div className={styles.paginationContainer}>
 				<CaseStudiesList caseStudies={currentItems} />
-				{
-					currentItems.length > 0 && (
-						<ReactPaginate
-							breakLabel='...'
-							nextLabel='>'
-							onPageChange={handlePageClick}
-							pageCount={pageCount}
-							pageRangeDisplayed={4}
-							previousLabel='<'
-							containerClassName={styles.pagination}
-							activeClassName={styles.activeItem}
-							pageClassName={styles.pageItem}
-							nextClassName={styles.arrowControls}
-							previousClassName={styles.arrowControls}
-						/>
-					)
-				}
+				{currentItems.length > 0 && (
+					<ReactPaginate
+						breakLabel='...'
+						nextLabel='>'
+						onPageChange={handlePageClick}
+						pageCount={pageCount}
+						pageRangeDisplayed={4}
+						previousLabel='<'
+						containerClassName={styles.pagination}
+						activeClassName={styles.activeItem}
+						pageClassName={styles.pageItem}
+						nextClassName={styles.arrowControls}
+						previousClassName={styles.arrowControls}
+					/>
+				)}
 			</div>
-			</div>
+		</div>
 	);
 };
