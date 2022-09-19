@@ -49,3 +49,14 @@ export async function getCaseStudiesContent(locale: string = 'en'): Promise<Case
 		footer
 	}
 }
+
+export async function getCaseStudyContent(locale: string = 'en'): Promise<any | undefined> {
+	const footerHero = await CommonContentService.getHeroFooterContent(locale);
+	const footer = await CommonContentService.getFooterContent();
+
+	return {
+		// ... rest of case study detail content
+		footerHero,
+		footer
+	}
+}
