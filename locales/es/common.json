@@ -7,11 +7,12 @@
     "our_services": "Nuestros servicios",
     "careers": "Carrera",
     "about_us": "Acerca de nosotros",
-    "jobs": "Job openings",
-    "benefits": "Benefits",
-    "support": "Support",
+    "jobs": "Ofertas de empleo",
+    "benefits": "Beneficios",
+    "support": "Soporte",
     "sign_in": "Iniciar sesión",
-    "sign_up": "Crea una cuenta"
+    "sign_up": "Crea una cuenta",
+    "back_to_home": "Volver al inicio"
   },
   "heroFooter": {
     "title": "Listo para empezar?",

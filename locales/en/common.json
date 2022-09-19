@@ -11,7 +11,8 @@
     "benefits": "Benefits",
     "support": "Support",
     "sign_in": "Sign in",
-    "sign_up": "Create Account"
+    "sign_up": "Create Account",
+    "back_to_home": "Back to home"
   },
   "heroFooter": {
     "title": "Ready to get started?",

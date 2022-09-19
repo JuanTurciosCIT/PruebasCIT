@@ -135,7 +135,7 @@ export default function Header() {
 									height={24}
 								/>
 								<Link href='/' className={styles.backToHome}>
-									Back To Home
+									{t('header.back_to_home')}
 								</Link>
 							</div>
 						)}
@@ -166,7 +166,7 @@ export default function Header() {
 						visible={{ x: 0, opacity: 1 }}
 						exit={{ x: '-80px', opacity: 0 }}
 					>
-						<div className={styles.dropDownMenu}>
+						<div className={`${styles.dropDownMenu} ${utils.textSmall}`}>
 							<button onClick={() => setCurrentLocale('English')}>
 								<Link href={router.pathname} locale='en' scroll={false}>
 									English

@@ -21,10 +21,10 @@ export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetSt
 	const homeContent: HomeContent = await getHomePageContent(context.locale) as HomeContent;
 
 	return {
+		revalidate: 10,
 		props: {
 			...homeContent,
-		},
-		revalidate: 10
+		}
 	};
 };
 
