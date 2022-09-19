@@ -27,7 +27,6 @@ export const PaginatedCaseStudies = ({
 	const itemsPerPage = 4;
 	useEffect(() => {
 		const endOffset = itemOffset + itemsPerPage;
-		console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 		setCurrentItems(filteredCaseStudies.slice(itemOffset, endOffset));
 		setPageCount(Math.ceil(filteredCaseStudies.length / itemsPerPage));
 	}, [itemOffset, filteredCaseStudies]);
@@ -50,9 +49,6 @@ export const PaginatedCaseStudies = ({
 		window.scrollTo(0, 450);
 		const newOffset =
 			(event.selected * itemsPerPage) % filteredCaseStudies.length;
-		console.log(
-			`User requested page number ${event.selected}, which is offset ${newOffset}`
-		);
 		setItemOffset(newOffset);
 	};
 

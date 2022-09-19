@@ -40,7 +40,7 @@ export default function Header() {
 
 	const headerLinks = navLinks.filter((link) => {
 		const pathname: Pages = router.pathname as Pages;
-		return link.visibleIn.includes(pathname);
+		return link.visibleIn.includes('/' + pathname.split('/')[1] as Pages);
 	});
 
 	const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
