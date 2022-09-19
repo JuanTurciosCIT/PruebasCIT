@@ -76,7 +76,7 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
 									height={24}
 								/>
 								<Link href='/' className={styles.backToHome}>
-									Back To Home
+									{t('header.back_to_home')}
 								</Link>
 							</div>
 						)}
@@ -89,10 +89,14 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
 						>
 							<span>{currentLocale} </span>
 							<Image
-								width={14}
-								height={14}
+								quality={70}
+								width={12.4}
+								height={12.4}
 								src={arrowDownIcon}
 								alt='Arrow down'
+								className={`${
+									dropdownMenu ? styles.arrowIconActive : styles.arrowIcon
+								}`}
 							/>
 						</button>
 					</div>
@@ -100,9 +104,9 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
 					{/* Dropdown Menu */}
 					{dropdownMenu && (
 						<motion.div
-							className={styles.dropDownMenu}
-							initial={{ y: '100%', opacity: 0, scale: 0 }}
-							animate={{ y: 0, opacity: 1, scale: 1 }}
+							className={`${styles.dropDownMenu} ${utils.textSmall}`}
+							initial={{ x: '196%', y: '100%', opacity: 0, scale: 0 }}
+							animate={{ y: -12, opacity: 1, scale: 1 }}
 						>
 							<button onClick={() => setCurrentLocale('English')}>
 								<Link href={router.pathname} locale='en' scroll={false}>

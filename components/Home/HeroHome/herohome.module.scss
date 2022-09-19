@@ -30,7 +30,7 @@
   .heroTitle {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .heroDescription {
@@ -54,12 +54,13 @@
   background: -moz-linear-gradient(to right, #F58523 0%, #BD4444 50%, #2ABCDA 100%);
   background: linear-gradient(to right, #F58523 0%, #BD4444 50%, #2ABCDA 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: brightness(1.2) contrast(1.2);
 }
 
 /* min-width = since that width */
-@media screen and (min-width: 428px) {
+@media screen and (min-width: $breakpoint) {
   .hero {
     height: 84vh;
     max-height: 75.1rem;
@@ -81,7 +82,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 14rem;
-    gap: 2rem;
+    gap: 1rem;
   }
   .heroDescription {
     word-wrap: break-word;
