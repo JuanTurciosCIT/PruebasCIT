@@ -14,6 +14,7 @@ import { CaseStudiesContentService } from 'utils/services/CaseStudiesContentServ
 import { CaseStudyMetrics } from 'components/CaseStudiesPageDetail/Metrics';
 import { GeneralInfo } from 'components/CaseStudiesPageDetail/GeneralInfo';
 import { Achievements } from 'components/CaseStudiesPageDetail/Achievements';
+import { AppStack } from 'components/CaseStudiesPageDetail/AppStack';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const caseStudies = await CaseStudiesContentService.getCaseStudies('en');
@@ -73,6 +74,7 @@ const CaseStudyPageDetail: NextPage<any> = ({ footerHero, footer }) => {
 				<GeneralInfo />
 				<Achievements />
 			</section>
+			<AppStack />
 			<HeroFooter content={footerHero} />
 		</Layout>
 	);
