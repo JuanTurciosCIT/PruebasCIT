@@ -18,7 +18,7 @@ export default function OurServices({
 	services: ServicesSection[];
 }) {
 	const { inView, entry, ref } = useInView();
-	const { t } = useTranslation(localeNamespaces.HOME);
+	const { t } = useTranslation(localeNamespaces.common);
 
 	return (
 		<section className={styles.servicesSection} id={HomeSections.SERVICES} ref={ref}>

@@ -6,7 +6,7 @@ import CompaniesSlider from 'components/Home/CompaniesSlider';
 import Layout from 'shared/Layout';
 import styles from 'styles/home.module.scss';
 import About from 'components/Home/About';
-import OurServices from 'components/Home/OurServices';
+import OurServices from '@/shared/OurServices';
 import Technologies from 'components/Home/Technologies';
 import CaseStudies from 'components/Home/CaseStudies';
 import Portfolio from 'components/Home/Portfolio';

@@ -2,6 +2,10 @@
   "shared": {
     "btn_text": "Contáctenos"
   },
+  "services": {
+    "title": "Nuestros servicios",
+    "btn_text": "Ver más"
+  },
   "header": {
     "home": "Inicio",
     "our_services": "Nuestros servicios",

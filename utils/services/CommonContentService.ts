@@ -1,8 +1,27 @@
 import { supabase } from 'libs/supabaseClient';
 import { Contact, FooterHeroSection, FooterSection, LocationInterface } from 'utils/types/commonContent.interface';
-import { HeroSection } from 'utils/types/homeContent.interface';
+import { HeroSection, ServicesSection } from 'utils/types/homeContent.interface';
 
 export const CommonContentService = {
+
+	getServicesContent: async (locale: string) => {
+		const isEnglish = locale === 'en';
+		const { data, error } = await supabase
+			.from<ServicesSection>('Services')
+			.select(
+				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo, isVisible`
+			)
+			.eq('isVisible', true);
+
+		if (error) {
+			console.log(
+				'An error occurred while fetching the services content: ',
+				error
+			);
+		}
+
+		return data as ServicesSection[];
+	},	
 
   getHeroFooterContent: async (locale: string) => {
 		const isEnglish = locale === 'en';

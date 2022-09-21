@@ -49,6 +49,8 @@ export const AppStack = () => {
           <span className={utils.textMedium}>API / Adicional Services </span>
         </li>
       </ul>
+    </div>
+    <div className={styles.imageWrapper}>
       <div className={styles.image}>
         {/* <Image /> */}
       </div>

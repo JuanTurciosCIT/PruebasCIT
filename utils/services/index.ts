@@ -7,7 +7,7 @@ import { CaseStudiesContentService } from './CaseStudiesContentService';
 
 export async function getHomePageContent(locale: string = 'en'): Promise<HomeContent | undefined> {
 	const hero = await HomeContentService.getHeroContent(locale);
-	const services = await HomeContentService.getServicesContent(locale);
+	const services = await CommonContentService.getServicesContent(locale);
 	const technologies = await HomeContentService.getTechnologiesContent(locale);
 	const caseStudies = await HomeContentService.getCaseStudiesContent(locale);
 	const customers = await HomeContentService.getCustomerContent();
@@ -51,11 +51,13 @@ export async function getCaseStudiesContent(locale: string = 'en'): Promise<Case
 }
 
 export async function getCaseStudyContent(locale: string = 'en'): Promise<any | undefined> {
+	const services = await CommonContentService.getServicesContent(locale);
 	const footerHero = await CommonContentService.getHeroFooterContent(locale);
 	const footer = await CommonContentService.getFooterContent();
 
 	return {
 		// ... rest of case study detail content
+		services,
 		footerHero,
 		footer
 	}

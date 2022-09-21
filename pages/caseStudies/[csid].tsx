@@ -15,6 +15,7 @@ import { CaseStudyMetrics } from 'components/CaseStudiesPageDetail/Metrics';
 import { GeneralInfo } from 'components/CaseStudiesPageDetail/GeneralInfo';
 import { Achievements } from 'components/CaseStudiesPageDetail/Achievements';
 import { AppStack } from 'components/CaseStudiesPageDetail/AppStack';
+import OurServices from '@/shared/OurServices';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const caseStudies = await CaseStudiesContentService.getCaseStudies('en');
@@ -45,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (
 	};
 };
 
-const CaseStudyPageDetail: NextPage<any> = ({ footerHero, footer }) => {
+const CaseStudyPageDetail: NextPage<any> = ({ services, footerHero, footer }) => {
 	const router = useRouter();
 	const { csid } = router.query; // csid is the case study id
 
@@ -75,6 +76,7 @@ const CaseStudyPageDetail: NextPage<any> = ({ footerHero, footer }) => {
 				<Achievements />
 			</section>
 			<AppStack />
+			<OurServices services={services} />
 			<HeroFooter content={footerHero} />
 		</Layout>
 	);

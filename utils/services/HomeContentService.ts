@@ -67,25 +67,6 @@ export const HomeContentService = {
 		return data as AboutSection;
 	},
 
-	getServicesContent: async (locale: string) => {
-		const isEnglish = locale === 'en';
-		const { data, error } = await supabase
-			.from<ServicesSection>('Services')
-			.select(
-				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo, isVisible`
-			)
-			.eq('isVisible', true);
-
-		if (error) {
-			console.log(
-				'An error occurred while fetching the services content: ',
-				error
-			);
-		}
-
-		return data as ServicesSection[];
-	},
-
 	getTechnologiesContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
