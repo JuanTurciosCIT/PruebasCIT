@@ -1,6 +1,5 @@
 import {
 	GetStaticPaths,
-	GetStaticPathsContext,
 	GetStaticProps,
 	GetStaticPropsContext,
 	NextPage,
@@ -12,6 +11,9 @@ import HeroFooter from '@/shared/HeroFooter';
 import { getCaseStudyContent } from 'utils/services';
 import { CaseStudyHero } from 'components/CaseStudiesPageDetail/CaseStudyHero';
 import { CaseStudiesContentService } from 'utils/services/CaseStudiesContentService';
+import { CaseStudyMetrics } from 'components/CaseStudiesPageDetail/Metrics';
+import { GeneralInfo } from 'components/CaseStudiesPageDetail/GeneralInfo';
+import { Achievements } from 'components/CaseStudiesPageDetail/Achievements';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const caseStudies = await CaseStudiesContentService.getCaseStudies('en');
@@ -66,6 +68,11 @@ const CaseStudyPageDetail: NextPage<any> = ({ footerHero, footer }) => {
 	return (
 		<Layout footerContent={footer}>
 			<CaseStudyHero />
+      <CaseStudyMetrics />
+			<section style={{backgroundColor: '#232323', paddingTop: '36px'}}>
+				<GeneralInfo />
+				<Achievements />
+			</section>
 			<HeroFooter content={footerHero} />
 		</Layout>
 	);
