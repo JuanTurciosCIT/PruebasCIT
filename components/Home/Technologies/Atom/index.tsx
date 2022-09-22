@@ -40,7 +40,7 @@ export const TechnologiesAtom = ({
 				{innerRingTechnologies.map((tech, index) => (
 					<button
 						className={styles[`innerTech${index + 1}`]}
-						key={tech.name}
+						key={tech.id}
 						onClick={() => handleTechClick(tech)}
 						active-attr={(tech.name == currentTech.name).toString()}
 					>
@@ -65,7 +65,7 @@ export const TechnologiesAtom = ({
 				{middleRingTechnologies.map((tech, index) => (
 					<button
 						className={styles[`middleTech${index + 1}`]}
-						key={tech.name}
+						key={tech.id}
 						onClick={() => handleTechClick(tech)}
 						active-attr={(tech.name == currentTech.name).toString()}
 					>
@@ -97,7 +97,7 @@ export const TechnologiesAtom = ({
 				{outerRingTechnologies.map((tech, index) => (
 					<button
 						className={styles[`largeTech${index + 1}`]}
-						key={tech.name}
+						key={tech.id}
 						onClick={() => handleTechClick(tech)}
 						active-attr={(tech.name == currentTech.name).toString()}
 					>

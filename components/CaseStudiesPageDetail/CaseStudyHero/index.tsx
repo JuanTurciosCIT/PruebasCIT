@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 
-import CustomButton from '@/shared/CustomButton';
+import { CustomButton } from '@/shared/CustomButton';
 import styles from './CaseStudyHero.module.scss';
 import utils from 'styles/utils.module.scss';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';

@@ -5,26 +5,33 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
-import CustomButton from '../../CustomButton';
+// styles
 import styles from './mobileMenu.module.scss';
 import utils from '../../../styles/utils.module.scss';
+
+// hooks
+import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
+import { useOnClickOutside } from '@/hooks/useOnClickOutside';
+
+// images - icons - svgs
 import arrowRightIcon from '/public/svg/arrow-right.svg';
 import arrowDownIcon from '../../../public/svg/arrow-down.svg';
-import { NavLink } from 'utils/types/navLink.interface';
+
+// components
+import { CustomButton } from '../../CustomButton';
 import { AnimatedContainer } from 'Animations/AnimatedContainer';
+
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
-import useOnClickOutside from '@/hooks/useOnClickOutside';
-import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
+import { NavLink } from 'utils/types/navLink.interface';
 
 interface MobileMenuProps {
 	navLinks: NavLink[];
 }
 
-export default function MobileMenu({ navLinks }: MobileMenuProps) {
+export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 	useLockBodyScroll();
 
 	const router = useRouter();
-	const isAtHome = router.pathname === '/';
 	const ref = useRef(null);
 	const [dropdownMenu, setDropdownMenu] = useState(false);
 	const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>(
@@ -42,6 +49,8 @@ export default function MobileMenu({ navLinks }: MobileMenuProps) {
 		}, 500);
 	};
 
+	const isAtHome = router.pathname === '/';
+	
 	useOnClickOutside(ref, handleClickOutside);
 
 	return (

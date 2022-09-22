@@ -12,11 +12,11 @@ import { ServicesSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { ScrollReveal } from 'Animations/ScrollReveal';
 
-export default function OurServices({
+export const OurServices = ({
 	services,
 }: {
 	services: ServicesSection[];
-}) {
+}) => {
 	const { inView, entry, ref } = useInView();
 	const { t } = useTranslation(localeNamespaces.common);
 
@@ -30,7 +30,7 @@ export default function OurServices({
 						{services.map((service) => (
 							<div
 								className={styles.serviceCard}
-								key={service.nameEN || service.nameES}
+								key={service.id}
 							>
 								<div className={styles.logo}>
 									<Image

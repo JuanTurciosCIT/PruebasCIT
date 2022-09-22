@@ -6,16 +6,20 @@ import {
 } from 'next';
 import { useRouter } from 'next/router';
 
-import Layout from '@/shared/Layout';
-import HeroFooter from '@/shared/HeroFooter';
-import { getCaseStudyContent } from 'utils/services';
+// Components
+import { Layout } from '@/shared/Layout';
 import { CaseStudyHero } from 'components/CaseStudiesPageDetail/CaseStudyHero';
-import { CaseStudiesContentService } from 'utils/services/CaseStudiesContentService';
 import { CaseStudyMetrics } from 'components/CaseStudiesPageDetail/Metrics';
 import { GeneralInfo } from 'components/CaseStudiesPageDetail/GeneralInfo';
 import { Achievements } from 'components/CaseStudiesPageDetail/Achievements';
 import { AppStack } from 'components/CaseStudiesPageDetail/AppStack';
-import OurServices from '@/shared/OurServices';
+// import { OurServices } from 'components/Home/OurServices';
+import { HeroFooter } from '@/shared/HeroFooter';
+
+// Services
+import { CaseStudiesContentService } from 'utils/services/CaseStudiesContentService';
+import { getCaseStudyContent } from 'utils/services';
+import { OurProcess } from 'components/CaseStudiesPageDetail/OurProcess';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const caseStudies = await CaseStudiesContentService.getCaseStudies('en');
@@ -76,7 +80,10 @@ const CaseStudyPageDetail: NextPage<any> = ({ services, footerHero, footer }) =>
 				<Achievements />
 			</section>
 			<AppStack />
-			<OurServices services={services} />
+			<div style={{paddingInline: '34px'}}>
+				{/* <OurServices services={services} /> */}
+			</div>
+			<OurProcess />
 			<HeroFooter content={footerHero} />
 		</Layout>
 	);

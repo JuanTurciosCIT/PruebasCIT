@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import utils from '/styles/utils.module.scss';
 import useTranslation from 'next-translate/useTranslation';
-import CustomButton from '@/shared/CustomButton';
+import { CustomButton } from '@/shared/CustomButton';
 
 import styles from './caseStudyPreview.module.scss';
 import { CaseStudy } from 'utils/types/caseStudies.interface';

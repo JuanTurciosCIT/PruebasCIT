@@ -5,10 +5,9 @@ import {
 	CustomersSection,
 	GallerySection,
 	HeroSection,
-	ServicesSection,
 	TechnologiesSection,
 	PortfolioSection,
-	CaseStudy,
+	CaseStudyCard,
 } from 'utils/types/homeContent.interface';
 
 export const HomeContentService = {
@@ -38,7 +37,7 @@ export const HomeContentService = {
 	getCustomerContent: async () => {
 		const { data, error } = await supabase
 			.from<CustomersSection>('Customer')
-			.select('imagePath, isVisible')
+			.select('imagePath, isVisible, id')
 			.eq('isVisible', true);
 
 		if (error) {
@@ -72,7 +71,7 @@ export const HomeContentService = {
 		const { data, error } = await supabase
 			.from<TechnologiesSection>('Technology')
 			.select(
-				`name, ${
+				`id, name, ${
 					isEnglish ? 'descriptionEN' : 'descriptionES'
 				}, logo, ringLevel, isVisible`
 			)
@@ -91,7 +90,7 @@ export const HomeContentService = {
 	getCaseStudiesContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
-			.from<CaseStudy>('CaseStudy')
+			.from<CaseStudyCard>('CaseStudy')
 			.select(
 				`id, isVisible, idCategories, ${
 					isEnglish
@@ -108,14 +107,14 @@ export const HomeContentService = {
 			);
 		}
 
-		return data as CaseStudy[];
+		return data as CaseStudyCard[];
 	},
 
 	getCustomerFeedbackContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
 			.from<CustomerFeedbackSection>('CustomerFeedback')
-			.select(`name, rate, ${isEnglish ? 'commentEN' : 'commentES'}, picture, isVisible`)
+			.select(`id, name, rate, ${isEnglish ? 'commentEN' : 'commentES'}, picture, isVisible`)
 			.eq('isVisible', true);
 
 		if (error) {

@@ -15,11 +15,11 @@ import { AboutSection } from 'utils/types/homeContent.interface';
 /* A way to import a component that is not SSR compatible. */
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
-export default function About({
+export const About = ({
 	aboutContent,
 }: {
 	aboutContent: AboutSection;
-}) {
+}) => {
 	const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
 	const { t } = useTranslation(localeNamespaces.HOME);
 

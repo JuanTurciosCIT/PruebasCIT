@@ -12,11 +12,11 @@ import utils from 'styles/utils.module.scss';
 import { CustomersSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 
-export default function CompaniesSlider({
+export const CompaniesSlider = ({
 	customers,
 }: {
 	customers: CustomersSection[];
-}): JSX.Element {
+}): JSX.Element => {
 	const isMobile = useMediaQuery('(max-width: 428px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 
@@ -49,7 +49,7 @@ export default function CompaniesSlider({
 			<div className={styles.sliderContainer}>
 				<Swiper {...sliderOptions} className='mySwiper'>
 					{customers.map((customer) => (
-						<SwiperSlide key={customer.imagePath}>
+						<SwiperSlide key={customer.id}>
 							{({ isActive }) => (
 								<div
 									className={`${styles.logoContainer} ${

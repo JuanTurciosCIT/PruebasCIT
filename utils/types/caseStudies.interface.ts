@@ -19,7 +19,7 @@ export interface HeroCaseStudiesInterface {
 }
 
 export interface CaseStudy {
-  id: string | number;
+  id: number;
   titleEN?: string;
   titleES?: string;
   descriptionEN?: string;

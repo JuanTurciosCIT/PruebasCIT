@@ -11,11 +11,11 @@ import { TechnologiesSection } from 'utils/types/homeContent.interface';
 import { ScrollReveal } from 'Animations/ScrollReveal';
 import { TechnologiesAtom } from './Atom';
 
-export default function Technologies({
+export const Technologies = ({
 	technologies,
 }: {
 	technologies: TechnologiesSection[];
-}): JSX.Element {
+}): JSX.Element => {
 	const router = useRouter();
 	const [currentTech, setCurrentTech] = useState<TechnologiesSection>(
 		technologies[0]

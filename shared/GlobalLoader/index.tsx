@@ -6,7 +6,7 @@ import styles from './globalLoader.module.scss';
 import lottieJson from '../../public/lotties/cit_dots.json';
 import { AnimatedContainer } from '../../Animations/AnimatedContainer';
 
-export default function GlobalLoader() {
+export const GlobalLoader = () => {
 
 	return (
 		<div className={styles.loaderWrapper}>

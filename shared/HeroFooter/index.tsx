@@ -5,7 +5,7 @@ import { FooterHeroSection } from 'utils/types/commonContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import styles from './herofooter.module.scss';
 
-export default function HeroFooter({ content }: { content: FooterHeroSection }) {
+export const HeroFooter = ({ content }: { content: FooterHeroSection }) => {
 	const { t } = useTranslation(localeNamespaces.common);
 
 	return (

@@ -16,7 +16,7 @@ const Masonry = dynamic(() => import('react-smart-masonry'), {
 	loading: () => <h2>Loading...</h2>,
 });
 
-export default function Gallery({ gallery }: { gallery: GallerySection }) {
+export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const { inView, ref } = useInView();

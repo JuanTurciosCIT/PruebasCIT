@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ReactPaginate, { ReactPaginateProps } from 'react-paginate';
+import ReactPaginate from 'react-paginate';
 
 import {
 	CaseStudy,

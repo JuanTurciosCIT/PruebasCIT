@@ -9,7 +9,7 @@ export const CommonContentService = {
 		const { data, error } = await supabase
 			.from<ServicesSection>('Services')
 			.select(
-				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo, isVisible`
+				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo, isVisible, id`
 			)
 			.eq('isVisible', true);
 
