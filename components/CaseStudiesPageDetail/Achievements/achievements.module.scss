@@ -24,11 +24,20 @@
   margin: 0 auto;
 
   .image {
+    position: relative;
     aspect-ratio: 467 / 427;
     width: min(35rem, 100%);
-    background: #FCD804;
+    height: auto;
     border-radius: 2rem;
+    // background: #FCD804;
     margin: 0 auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 2rem;
+    }
   }
 }
 
