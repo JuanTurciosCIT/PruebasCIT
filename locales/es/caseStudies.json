@@ -9,5 +9,12 @@
   },
   "ourProcess": {
     "title": "Nuestro Proceso"
+  },
+  "atGlance": {
+    "title": "A simple vista",
+    "industry": "Industria",
+    "companySize:": "Tamaño de la empresa",
+    "goal": "Objetivo",
+    "technologies": "Tecnologías utilizadas"
   }
 }
