@@ -46,7 +46,23 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;  
+    justify-content: center;
+  }
+
+  .tech {
+    width: 3.2rem;
+    height: 3.2rem;
+    position: relative;
+    border: $thirdBackgroundColor 1px solid;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+    img {
+      object-fit: contain;
+      padding: 0.55rem;
+      height: auto;
+    }
   }
 }
 

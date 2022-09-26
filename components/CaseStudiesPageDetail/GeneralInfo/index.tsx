@@ -1,33 +1,48 @@
+import useTranslation from 'next-translate/useTranslation';
+import Image from 'next/future/image';
+
+import { CaseStudyCategory } from 'utils/types/caseStudies.interface';
+import { TechnologiesSection } from 'utils/types/commonContent.interface';
+
+
 import styles from './generalInfo.module.scss';
 import utils from '/styles/utils.module.scss';
 
-export const GeneralInfo = () => {
+interface GeneralInfoProps {
+  industry: CaseStudyCategory[];
+  companySize: string;
+  goal: string;
+  technologies: TechnologiesSection[],
+}
+
+export const GeneralInfo = ({ content }: { content: GeneralInfoProps }) => {
+  const { t } = useTranslation('caseStudies');
+
   return <div className={styles.container}>
     <div className={styles.titleWrapper}>
-      <h2 className={utils.headingMedium}>At Glance</h2>
+      <h2 className={utils.headingMedium}>{t('atGlance.title')}</h2>
     </div>
     <div className={styles.infoWrapper}>
       <div>
-        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>Industry:</h3>
-        <p className={`${utils.textSmall} ${styles.desc}`}>Food and Beverage, Food Delivery, E-commerce Platform</p>
+        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>{t('atGlance.industry')}:</h3>
+        <p className={`${utils.textSmall} ${styles.desc}`}>{content.industry.map(cat => <span key={cat.id}>{cat.nameEN || cat.nameES}</span>)}</p>
       </div>
       <div>
-        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>Company Size:</h3>
-        <p className={`${utils.textSmall} ${styles.desc}`}>Multinacional Enterprise </p>
+        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>{t('atGlance.companySize')}:</h3>
+        <p className={`${utils.textSmall} ${styles.desc}`}>{content.companySize}</p>
       </div>
       <div>
-        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>Goal:</h3>
-        <p className={`${utils.textSmall} ${styles.desc}`}>Create and Build a Food Delivery Platform</p>
+        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>{t('atGlance.goal')}:</h3>
+        <p className={`${utils.textSmall} ${styles.desc}`}>{content.goal}</p>
       </div>
       <div>
-        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>Technologies Used: </h3>
+        <h3 className={`${utils.textSmall} ${styles.subtitle}`}>{t('atGlance.technologies')}: </h3>
         <ul className={`${utils.textSmall} ${styles.techs}`}>
-          <li>AWS</li>
-          <li>IO</li>
-          <li>ANG</li>
-          <li>.NET</li>
-          <li>MB</li>
-          <li>FB</li>
+          {
+            content.technologies.map((tech) => (<li key={tech.id} className={styles.tech}>
+              <Image src={tech.logo} alt={tech.name} sizes='100vw' quality={100} fill />
+            </li>))
+          }
         </ul>
       </div>
     </div>
