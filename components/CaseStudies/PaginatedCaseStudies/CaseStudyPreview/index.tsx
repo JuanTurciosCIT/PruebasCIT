@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
 import utils from '/styles/utils.module.scss';
 import useTranslation from 'next-translate/useTranslation';
 import { CustomButton } from '@/shared/CustomButton';
@@ -7,6 +9,7 @@ import styles from './caseStudyPreview.module.scss';
 import { CaseStudy } from 'utils/types/caseStudies.interface';
 
 export const CaseStudyPreview = ({ caseStudy }: { caseStudy: CaseStudy }) => {
+	const router = useRouter();
 	const { t } = useTranslation('caseStudies');
 
 	return (
@@ -22,7 +25,7 @@ export const CaseStudyPreview = ({ caseStudy }: { caseStudy: CaseStudy }) => {
 					{caseStudy.descriptionEN || caseStudy.descriptionES}
 				</p>
 				<div className={styles.button}>
-					<CustomButton>{t('caseStudies.btn_text')}</CustomButton>
+					<CustomButton path={`/caseStudies/[csid]`} as={`/caseStudies/${caseStudy.id}`}>{t('caseStudies.btn_text')}</CustomButton>
 				</div>
 			</div>
 		</div>
