@@ -50,8 +50,8 @@ export const CaseStudiesContentService = {
 			.select(
 				`${
 					isEnglish
-						? 'id, titleEN, descriptionEN, idCategories, picture'
-						: 'id, titleES, descriptionES, idCategories, picture'
+						? 'id, name, titleEN, descriptionEN, idCategories, picture'
+						: 'id, name, titleES, descriptionES, idCategories, picture'
 				}, picture`
 			)
 			.eq('isVisible', true);

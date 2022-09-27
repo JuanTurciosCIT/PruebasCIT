@@ -4,7 +4,7 @@ import {
 	CaseStudyCategory,
 } from 'utils/types/caseStudies.interface';
 import { HeroCaseStudiesInterface } from 'utils/types/caseStudies.interface';
-import { CaseStudyAchievement, CaseStudyDetailInterface, CaseStudyInfoInterface, CaseStudyMetricsInterface } from 'utils/types/caseStudy.interface';
+import { CaseStudyAchievement, CaseStudyAppStack, CaseStudyAppStackImage, CaseStudyDetailInterface, CaseStudyGalleryInterface, CaseStudyInfoInterface, CaseStudyMetricsInterface, CaseStudyOurProcessInterface } from 'utils/types/caseStudy.interface';
 import { TechnologiesSection } from 'utils/types/commonContent.interface';
 
 export const CaseStudyDetailService = {
@@ -150,6 +150,80 @@ export const CaseStudyDetailService = {
 
 		if (error) {
 			console.log('An error occurred while fetching the achievements: ', error);
+		}
+
+		return data;
+	},
+
+	getAppStack: async ({
+		locale,
+		csid,
+	}: {
+		locale: string;
+		csid: number;
+	}) => {
+		const isEnglish = locale === 'en';
+		const { data: appStack, error } = await supabase
+			.from<CaseStudyAppStack>('CaseStudyApp')
+			.select(
+				`id, idCase, isVisible, order, ${
+					isEnglish
+						? 'titleEN'
+						: 'titleES'
+				}`
+			)
+			.match({ idCase: csid, isVisible: true });
+
+			const { data: image, error: error2 } = await supabase
+			.from<CaseStudyAppStackImage>('CaseStudyInfrastructure')
+			.select('idCase, isVisible, picture')
+			.match({ idCase: csid, isVisible: true })
+			.single();
+
+
+		if (error || error2) {
+			console.log('An error occurred while fetching the app stack: ', error);
+		}
+
+		return {appStack, image};
+	},
+
+	getOurProcess: async ({
+		locale,
+		csid
+	}: {
+		locale: string;
+		csid: number;
+	}) => {
+		const isEnglish = locale === 'en';
+		const { data, error } = await supabase
+			.from<CaseStudyOurProcessInterface>('CaseStudyProcess')
+			.select(
+				`id, idCase, isVisible, order, picture, ${
+					isEnglish
+						? 'titleEN, descriptionEN'
+						: 'titleES, descriptionES'
+				}`
+			)
+			.match({ idCase: csid, isVisible: true });
+
+		if (error) {
+			console.log('An error occurred while fetching the our process: ', error);
+		}
+
+		return data;
+	},
+
+	getGallery: async ({ csid }: { csid: number }) => {
+		const { data, error } = await supabase
+			.from<CaseStudyGalleryInterface>('CaseStudyGallery')
+			.select(
+				'id, idCase, isVisible, isVisible, pathImage'
+			)
+			.match({ idCase: csid, isVisible: true });
+
+		if (error) {
+			console.log('An error occurred while fetching the gallery: ', error);
 		}
 
 		return data;

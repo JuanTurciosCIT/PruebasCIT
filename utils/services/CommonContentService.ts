@@ -21,7 +21,7 @@ export const CommonContentService = {
 		}
 
 		return data as ServicesSection[];
-	},	
+	},
 
   getHeroFooterContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
