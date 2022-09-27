@@ -5,10 +5,10 @@ import {
 	CustomersSection,
 	GallerySection,
 	HeroSection,
-	TechnologiesSection,
 	PortfolioSection,
 	CaseStudyCard,
 } from 'utils/types/homeContent.interface';
+import { TechnologiesSection } from 'utils/types/commonContent.interface';
 
 export const HomeContentService = {
 
