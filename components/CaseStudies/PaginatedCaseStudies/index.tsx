@@ -34,7 +34,7 @@ export const PaginatedCaseStudies = ({
 	const filterCaseStudies = (category: CaseStudyCategory) => {
 		window.scrollTo(0, 450);
 		const filteredCaseStudies = caseStudies.filter((caseStudy) => {
-			return caseStudy.idCategories.includes(category.id as string);
+			return caseStudy.idCategories.includes(category.id);
 		});
 		setFilteredCaseStudies(filteredCaseStudies);
 		setItemOffset(0);
