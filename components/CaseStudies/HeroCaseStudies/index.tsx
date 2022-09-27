@@ -8,11 +8,11 @@ import officeBackground from '/public/images/computer-screens.jpg';
 import { HeroCaseStudiesInterface } from 'utils/types/caseStudies.interface';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-export default function HeroHome({
+export const HeroHome = ({
 	heroContent,
 }: {
 	heroContent: HeroCaseStudiesInterface;
-}) {
+}) => {
 	// const { t } = useTranslation(localeNamespaces.CASE_STUDIES);
 	const isMobile = useMediaQuery('(max-width: 428px)');
 

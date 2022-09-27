@@ -15,11 +15,11 @@ import Link from 'next/link';
 import { PortfolioSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 
-export default function Portfolio({
+export const Portfolio = ({
 	content,
 }: {
 	content: PortfolioSection[];
-}) {
+}) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 

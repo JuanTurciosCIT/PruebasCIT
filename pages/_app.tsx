@@ -2,8 +2,10 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import '@/styles/globals.scss';
+
+// Components
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
-import GlobalLoader from '@/shared/GlobalLoader';
+import { GlobalLoader } from '@/shared/GlobalLoader';
 import { AnimatedContainer } from 'Animations/AnimatedContainer';
 
 function MyApp({ Component, pageProps }: AppProps) {

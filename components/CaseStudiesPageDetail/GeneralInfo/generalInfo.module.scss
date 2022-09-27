@@ -1,0 +1,92 @@
+@use '/styles/variables.scss' as *;
+
+.container {
+  width: min(85%, 1440px);
+  background: linear-gradient(180.02deg, #1F1F1F 38.98%, rgba(31, 31, 31, 0) 75.52%);
+  border-radius: 10px;
+  padding: 3.2rem 2.5rem;
+  max-width: 1110px;
+  margin: 0 auto;
+  text-align: center;
+
+  .titleWrapper {
+    width: min(36.1rem, 100%);
+    color: $primaryTextColor;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid $thirdBackgroundColor;
+    margin: 0 auto;
+  }
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  // align-items: center;
+  text-align: center;
+  
+  border-bottom: 2px solid $thirdBackgroundColor;
+  padding-block: 2rem 3rem;
+
+  .subtitle {
+    color: $primaryTextColor;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.011em;
+    margin-bottom: 1.2rem;
+  }
+
+  .desc {
+    color: $secondaryTextColor;
+    font-size: 1.4rem;
+    padding-inline: 4rem;
+  }
+
+  .techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .tech {
+    width: 3.2rem;
+    height: 3.2rem;
+    position: relative;
+    border: $thirdBackgroundColor 1px solid;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+    img {
+      object-fit: contain;
+      padding: 0.55rem;
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: $breakpoint) {
+  .container {
+    padding: 5.5rem 2.8rem;
+    gap: 3rem;
+    text-align: start;
+    .titleWrapper {
+      padding-bottom: 3rem;
+      margin: 0;
+    }
+  }
+  .infoWrapper {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 9.2rem;
+    text-align: start;
+
+    .desc {
+      padding-inline: 0;
+    }
+    .techs {
+      justify-content: flex-start;
+    }
+  }
+}

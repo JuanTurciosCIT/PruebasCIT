@@ -6,5 +6,24 @@
   "caseStudies": {
     "btn_text": "See Case",
     "empty": "We have no case study for this category"
+  },
+  "ourProcess": {
+    "title": "Our Process"
+  },
+  "atGlance": {
+    "title": "At Glance",
+    "industry": "Industry",
+    "companySize:": "Company Size",
+    "goal": "Goal",
+    "technologies": "Technologies Used"
+  },
+  "appStack": {
+    "title": "App Stack"
+  },
+  "deliveredServices": {
+    "title": "Delivered Services"
+  },
+  "gallery": {
+    "title": "Gallery"
   }
 }

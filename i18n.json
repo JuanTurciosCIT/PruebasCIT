@@ -4,6 +4,7 @@
   "pages": {
     "*": ["common"],
     "/": ["home"],
-    "/caseStudies": ["caseStudies"]
+    "/caseStudies": ["caseStudies"],
+    "/caseStudies/[csid]": ["caseStudies"]
   }
 }

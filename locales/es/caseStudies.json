@@ -6,5 +6,24 @@
   "caseStudies": {
     "btn_text": "Ver Caso",
     "empty": "No hay casos de estudio disponibles para esta categoría"
+  },
+  "ourProcess": {
+    "title": "Nuestro Proceso"
+  },
+  "atGlance": {
+    "title": "A simple vista",
+    "industry": "Industria",
+    "companySize:": "Tamaño de la empresa",
+    "goal": "Objetivo",
+    "technologies": "Tecnologías utilizadas"
+  },
+  "appStack": {
+    "title": "Como lo hicimos"
+  },
+  "deliveredServices": {
+    "title": "Servicios entregados"
+  },
+  "gallery": {
+    "title": "Galería"
   }
 }

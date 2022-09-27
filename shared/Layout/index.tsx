@@ -1,7 +1,7 @@
 import Footer from '../Footer';
 import { ReactNode } from 'react';
 
-import Header from '../Header';
+import { Header } from '../Header';
 import { FooterSection } from 'utils/types/commonContent.interface';
 
 interface LayoutProps {
@@ -9,7 +9,7 @@ interface LayoutProps {
 	footerContent: FooterSection;
 }
 
-export default function Layout({ children, footerContent }: LayoutProps) {
+export const Layout = ({ children, footerContent }: LayoutProps) => {
 	return (
 		<>
 			<Header />

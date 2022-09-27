@@ -1,11 +1,11 @@
 @use '../../styles/variables.scss' as *;
 
 .logo {
-	// position: relative;
+	position: relative;
 	// width: 14.8rem;
 	// height: 3rem;
-
 	img {
+		// width: auto;
 		height: auto;
 	}
 }

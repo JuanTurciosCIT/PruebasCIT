@@ -11,9 +11,9 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import styles from './casestudies.module.scss';
 import utils from '@/styles/utils.module.scss';
-import { CaseStudy } from 'utils/types/homeContent.interface';
+import { CaseStudyCard } from 'utils/types/homeContent.interface';
 
-export default function CaseStudies({ content }: { content: CaseStudy[] }) {
+export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const swiper = useSwiper();

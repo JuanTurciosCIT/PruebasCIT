@@ -1,4 +1,4 @@
-import { FooterHeroSection, FooterSection } from "./commonContent.interface";
+import { FooterHeroSection, FooterSection, TechnologiesSection } from "./commonContent.interface";
 
 export interface HomeContent {
   hero: HeroSection;
@@ -6,7 +6,7 @@ export interface HomeContent {
   about: AboutSection;
   services: ServicesSection[];
   technologies: TechnologiesSection[];
-  caseStudies: CaseStudy[];
+  caseStudies: CaseStudyCard[];
   customerFeedback: CustomerFeedbackSection[];
   portfolio: PortfolioSection[];
   gallery: GallerySection;
@@ -30,6 +30,7 @@ export interface HeroSection {
   isVisible: boolean;
 }
 export interface CustomersSection {
+  id: number;
   title?: string;
   clientName: string;
   imagePath: string;
@@ -44,6 +45,7 @@ export interface AboutSection {
 }
 
 export interface ServicesSection {
+  id: number;
   title?: string;
   nameES: string;
   nameEN: string;
@@ -55,17 +57,7 @@ export interface ServicesSection {
   isVisible: boolean;
 }
 
-export interface TechnologiesSection {
-  title?: string;
-  name: string;
-  descriptionES?: string;
-  descriptionEN?: string;
-  ringLevel: number;
-  logo: string;
-  isVisible: boolean;
-}
-
-export interface CaseStudy {
+export interface CaseStudyCard {
   id:            number;
   name?:          string;
   created_at?:    string;
@@ -82,6 +74,7 @@ export interface CaseStudy {
 }
 
 export interface CustomerFeedbackSection {
+  id: number;
   title?: string;
   name: string;
   commentES?: string;

@@ -15,11 +15,11 @@ import { CustomerFeedbackSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { ScrollReveal } from 'Animations/ScrollReveal';
 
-export default function CustomerFeedback({
+export const CustomerFeedback = ({
 	feedback,
 }: {
 	feedback: CustomerFeedbackSection[];
-}) {
+}) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.HOME);
@@ -53,7 +53,7 @@ export default function CustomerFeedback({
 					}}
 				>
 					{feedback.map((item) => (
-						<SwiperSlide key={item.picture}>
+						<SwiperSlide key={item.id}>
 							<div className={styles.feedbackCard}>
 								<div className={styles.customerPic}>
 									<Image

@@ -5,24 +5,32 @@ import { useRef, useState } from 'react';
 import { NextRouter, useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
+// styles
+import styles from './header.module.scss';
+import utils from '/styles/utils.module.scss';
+
+// images - icons - svgs
 import CreativeLogo from '/public/images/creative-logo.png';
 import burgerIcon from '/public/svg/burger-menu.svg';
 import closeIcon from '/public/svg/close-icon.svg';
 import arrowDownIcon from '/public/svg/arrow-down.svg';
 import arrowRightIcon from '/public/svg/arrow-right.svg';
-import styles from './header.module.scss';
-import utils from '/styles/utils.module.scss';
-import CustomButton from '../CustomButton';
-import MobileMenu from './MobileMenu';
-import { navLinks } from 'utils/constants/navLink.constant';
-import { useMediaQuery } from '../../utils/hooks/useMediaQuery';
-import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
-import useOnClickOutside from '@/hooks/useOnClickOutside';
-import { AnimatedContainer } from '../../Animations/AnimatedContainer';
+
+// hooks
+import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { useHeaderBgOnScroll } from '@/hooks/useHeaderBgOnScroll';
+import { useMediaQuery } from '../../utils/hooks/useMediaQuery';
+
+import { navLinks } from 'utils/constants/navLink.constant';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { Pages } from 'utils/types/pages.enum';
 
-export default function Header() {
+// Components
+import { CustomButton } from '../CustomButton';
+import { MobileMenu } from './MobileMenu';
+import { AnimatedContainer } from '../../Animations/AnimatedContainer';
+
+export const Header = () => {
 	const router: NextRouter = useRouter();
 	const isAtHome = router.pathname === '/';
 
@@ -40,7 +48,7 @@ export default function Header() {
 
 	const headerLinks = navLinks.filter((link) => {
 		const pathname: Pages = router.pathname as Pages;
-		return link.visibleIn.includes(pathname);
+		return link.visibleIn.includes('/' + pathname.split('/')[1] as Pages);
 	});
 
 	const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
@@ -168,12 +176,12 @@ export default function Header() {
 					>
 						<div className={`${styles.dropDownMenu} ${utils.textSmall}`}>
 							<button onClick={() => setCurrentLocale('English')}>
-								<Link href={router.pathname} locale='en' scroll={false}>
+								<Link href={{pathname: router.pathname, query: router.query}} locale='en' scroll={false}>
 									English
 								</Link>
 							</button>
 							<button onClick={() => setCurrentLocale('Español')}>
-								<Link href={router.pathname} locale='es' scroll={false}>
+								<Link href={{pathname: router.pathname, query: router.query}} locale='es' scroll={false}>
 									Español
 								</Link>
 							</button>

@@ -1,0 +1,79 @@
+@use '/styles/variables.scss' as *;
+
+.listWrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+// .achievementWrapper {
+//   width: 100%;
+//   display: grid;
+//   place-content: center;
+// }
+// .achievementWrapper:nth-child(even) {
+//   background-color: $primaryBackgroundColor;
+// }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem 3.9rem;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  .image {
+    position: relative;
+    aspect-ratio: 467 / 427;
+    width: min(35rem, 100%);
+    height: auto;
+    border-radius: 2rem;
+    // background: #FCD804;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 2rem;
+    }
+  }
+}
+
+.container:nth-child(even) {
+  background-color: $primaryBackgroundColor;
+}
+
+.text {
+  text-align: center;
+  h2 {
+    color: $primaryTextColor;
+    padding-bottom: 2rem;
+  }
+  p {
+    color: $secondaryTextColor;
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .container {
+    flex-direction: row;
+    gap: 7.4rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9rem 16.5rem;
+
+    .image {
+      width: 46.7rem;
+      height: 42.7rem;
+    }
+  }
+  .container:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .text {
+    text-align: start;
+    max-width: 59.5rem;
+  }
+}

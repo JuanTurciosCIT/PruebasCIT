@@ -1,19 +1,21 @@
-import { useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
 import Typewriter from 'typewriter-effect';
+import useTranslation from 'next-translate/useTranslation';
+import { useState } from 'react';
 
-import CustomButton from '@/shared/CustomButton';
+// styles
 import styles from './herohome.module.scss';
 import utils from 'styles/utils.module.scss';
-import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
-import { HeroSection } from 'utils/types/homeContent.interface';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-export default function HeroHome({
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { CustomButton } from '@/shared/CustomButton';
+import { HeroSection } from 'utils/types/homeContent.interface';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+
+export const HeroHome = ({
 	heroContent,
 }: {
 	heroContent: HeroSection;
-}) {
+}) => {
 	const [startTyping, setStartTyping] = useState(false);
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const typeWriterText = (heroContent.subtitlePhrasesEN || heroContent.subtitlePhrasesES) as string[];

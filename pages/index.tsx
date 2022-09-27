@@ -1,21 +1,24 @@
 import type { GetStaticProps, NextPage, InferGetStaticPropsType, GetStaticPropsContext } from 'next';
+import { ReactNode } from 'react';
 
-import HeroHome from 'components/Home/HeroHome';
-import CompaniesSlider from 'components/Home/CompaniesSlider';
-
-import Layout from 'shared/Layout';
 import styles from 'styles/home.module.scss';
-import About from 'components/Home/About';
-import OurServices from 'components/Home/OurServices';
-import Technologies from 'components/Home/Technologies';
-import CaseStudies from 'components/Home/CaseStudies';
-import Portfolio from 'components/Home/Portfolio';
-import CustomerFeedback from 'components/Home/CustomerFeedback';
-import Gallery from 'components/Home/Gallery';
-import HeroFooter from 'shared/HeroFooter';
+
+// Components
+import { Layout } from 'shared/Layout';
+import { HeroHome } from 'components/Home/HeroHome';
+import { CompaniesSlider } from 'components/Home/CompaniesSlider';
+import { About } from 'components/Home/About';
+import { OurServices } from 'components/Home/OurServices';
+import { Technologies } from 'components/Home/Technologies';
+import { CaseStudyCards } from 'components/Home/CaseStudyCards';
+import { CustomerFeedback } from 'components/Home/CustomerFeedback';
+import { Portfolio } from 'components/Home/Portfolio';
+import { Gallery } from 'components/Home/Gallery';
+import { HeroFooter } from 'shared/HeroFooter';
+
+// Services
 import { HomeContent } from 'utils/types/homeContent.interface';
 import { getHomePageContent } from 'utils/services';
-import { ReactNode } from 'react';
 
 export const getStaticProps: GetStaticProps<HomeContent> = async (context: GetStaticPropsContext) => {
 	const homeContent: HomeContent = await getHomePageContent(context.locale) as HomeContent;
@@ -53,7 +56,7 @@ const Home: NextPage<HomeContent> & { skeletonLoader?: ReactNode } = ({
 				<div className={styles.diamond}></div>
 			</div>
 			<Technologies technologies={technologies} />
-			<CaseStudies content={caseStudies} />
+			<CaseStudyCards content={caseStudies} />
 			<CustomerFeedback feedback={customerFeedback} />
 			<Portfolio content={portfolio} />
 			<Gallery gallery={gallery}/>

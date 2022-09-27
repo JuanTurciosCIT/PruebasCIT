@@ -6,16 +6,17 @@ import type {
 } from 'next';
 import { ReactNode } from 'react';
 
-import Layout from 'shared/Layout';
-import HeroFooter from '@/shared/HeroFooter';
-import HeroCaseStudies from 'components/CaseStudies/HeroCaseStudies';
-import { CaseStudiesCategory } from 'components/CaseStudies/CaseStudyCategories';
 import styles from 'styles/caseStudiesPage.module.scss';
-import { CaseStudiesList } from 'components/CaseStudies/PaginatedCaseStudies/CaseStudiesList';
-import { getCaseStudiesContent } from 'utils/services';
+
+// Components
+import { Layout } from 'shared/Layout';
+import { HeroHome } from 'components/CaseStudies/HeroCaseStudies';
+import { HeroFooter } from '@/shared/HeroFooter';
 import { CaseStudiesContent } from 'utils/types/caseStudies.interface';
 import { PaginatedCaseStudies } from 'components/CaseStudies/PaginatedCaseStudies';
-// import { SkeletonLoader } from 'Animations/SkeletonLoader';
+
+// Services
+import { getCaseStudiesContent } from 'utils/services';
 
 export const getStaticProps: GetStaticProps<CaseStudiesContent> = async (
 	context: GetStaticPropsContext
@@ -45,7 +46,7 @@ const CaseStudiesPage: NextPage<CaseStudiesContent> & {
 	return (
 		<Layout footerContent={footer}>
 			<main>
-				<HeroCaseStudies heroContent={hero} />
+				<HeroHome heroContent={hero} />
 			</main>
 			<section className={styles.section}>
 				<PaginatedCaseStudies caseStudies={caseStudies} caseStudiesCategories={caseStudiesCategories} />
@@ -54,7 +55,5 @@ const CaseStudiesPage: NextPage<CaseStudiesContent> & {
 		</Layout>
 	);
 };
-
-// Home.skeletonLoader = <SkeletonLoader />;
 
 export default CaseStudiesPage;

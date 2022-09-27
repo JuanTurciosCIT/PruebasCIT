@@ -11,6 +11,17 @@ export interface LocationInterface {
   isVisible: boolean;
 }
 
+export interface TechnologiesSection {
+  id: number;
+  title?: string;
+  name: string;
+  descriptionES?: string;
+  descriptionEN?: string;
+  ringLevel: number;
+  logo: string;
+  isVisible: boolean;
+}
+
 export interface Contact {
   facebook: string;
   instagram: string;
