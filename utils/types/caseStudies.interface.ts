@@ -20,17 +20,18 @@ export interface HeroCaseStudiesInterface {
 
 export interface CaseStudy {
   id: number;
+  name: string;
   titleEN?: string;
   titleES?: string;
   descriptionEN?: string;
   descriptionES?: string;
   picture: string;
-  idCategories: string[];
+  idCategories: number[];
   isVisible: boolean;
 }
 
 export interface CaseStudyCategory {
-  id: number | string;
+  id: number;
   nameES: string;
   nameEN: string;
   isVisible: boolean;

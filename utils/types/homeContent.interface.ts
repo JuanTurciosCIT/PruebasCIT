@@ -1,4 +1,4 @@
-import { FooterHeroSection, FooterSection } from "./commonContent.interface";
+import { FooterHeroSection, FooterSection, TechnologiesSection } from "./commonContent.interface";
 
 export interface HomeContent {
   hero: HeroSection;
@@ -53,17 +53,6 @@ export interface ServicesSection {
   shortDescriptionEN: string;
   descriptionES?: string;
   descriptionEN?: string;
-  logo: string;
-  isVisible: boolean;
-}
-
-export interface TechnologiesSection {
-  id: number;
-  title?: string;
-  name: string;
-  descriptionES?: string;
-  descriptionEN?: string;
-  ringLevel: number;
   logo: string;
   isVisible: boolean;
 }

@@ -8,8 +8,11 @@ export interface DetailCaseStudyPage {
   categories: CaseStudyCategory[];
   technologies: TechnologiesSection[];
   achievements: CaseStudyAchievement[];
+  howItWorks: HowItWorksInterface;
   metrics: CaseStudyMetricsInterface[];
   services: ServicesSection[];
+  ourProcess: CaseStudyOurProcessInterface[];
+  gallery: CaseStudyGalleryInterface[];
   footerHero: FooterHeroSection;
   footer: FooterSection;
 }
@@ -56,4 +59,43 @@ export interface CaseStudyAchievement {
   descriptionEN?: string;
   descriptionES?: string;
   picture: string;
+}
+
+export interface CaseStudyAppStack {
+  id: number;
+  idCase: number;
+  isVisible: boolean;
+  titleEN?: string;
+  titleES?: string;
+  order: number;
+}
+
+export interface CaseStudyAppStackImage {
+  picture: string;
+  isVisible: boolean;
+  idCase: number;
+}
+
+export interface HowItWorksInterface {
+  appStack: CaseStudyAppStack[];
+  image: CaseStudyAppStackImage;
+}
+
+export interface CaseStudyOurProcessInterface {
+  id: number;
+  titleEN?: string;
+  titleES?: string;
+  descriptionEN?: string;
+  descriptionES?: string;
+  picture: string;
+  order: number;
+  idCase: number;
+  isVisible: boolean;
+}
+
+export interface CaseStudyGalleryInterface {
+  id: number;
+  idCase: number;
+  isVisible: boolean;
+  pathImage: string;
 }
