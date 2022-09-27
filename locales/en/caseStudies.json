@@ -16,5 +16,14 @@
     "companySize:": "Company Size",
     "goal": "Goal",
     "technologies": "Technologies Used"
+  },
+  "appStack": {
+    "title": "App Stack"
+  },
+  "deliveredServices": {
+    "title": "Delivered Services"
+  },
+  "gallery": {
+    "title": "Gallery"
   }
 }

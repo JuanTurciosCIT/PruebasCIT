@@ -16,5 +16,14 @@
     "companySize:": "Tamaño de la empresa",
     "goal": "Objetivo",
     "technologies": "Tecnologías utilizadas"
+  },
+  "appStack": {
+    "title": "Como lo hicimos"
+  },
+  "deliveredServices": {
+    "title": "Servicios entregados"
+  },
+  "gallery": {
+    "title": "Galería"
   }
 }
