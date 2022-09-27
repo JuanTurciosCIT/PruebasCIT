@@ -7,7 +7,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import utils from '@/styles/utils.module.scss';
 import styles from './technologies.module.scss';
-import { TechnologiesSection } from 'utils/types/homeContent.interface';
+import { TechnologiesSection } from 'utils/types/commonContent.interface';
 import { ScrollReveal } from 'Animations/ScrollReveal';
 import { TechnologiesAtom } from './Atom';
 

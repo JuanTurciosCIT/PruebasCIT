@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import citLogo from '@/images/cit_logo.png';
 import styles from './atom.module.scss';
-import { TechnologiesSection } from 'utils/types/homeContent.interface';
+import { TechnologiesSection } from 'utils/types/commonContent.interface';
 
 interface AtomProps {
 	innerRingTechnologies: Required<TechnologiesSection[]>;
