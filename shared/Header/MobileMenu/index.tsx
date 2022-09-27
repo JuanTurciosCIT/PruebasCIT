@@ -50,26 +50,26 @@ export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 	};
 
 	const isAtHome = router.pathname === '/';
-	
+
 	useOnClickOutside(ref, handleClickOutside);
 
 	return (
-		<div className={styles.modal}>
-			<AnimatedContainer
-				hidden={{ y: '100vh', opacity: 0 }}
-				visible={{ y: 0, opacity: 1 }}
-				exit={{ y: '100vh', opacity: 0 }}
-			>
-				<nav className={styles.navContainer}>
-					<ul className={styles.navMenu}>
-						{navLinks.map((link, index) => (
-							<li className={utils.textSmall} key={link.path + index}>
-								<Link href={link.path} scroll={false}>
-									{t('header.' + link.localeName)}
-								</Link>
-							</li>
-						))}
-						<li className={utils.textSmall}>
+		<motion.div
+			className={styles.modal}
+			layoutScroll
+			initial={{ x: '100vw' }}
+			animate={{ x: 0, transition: { delay: 0.1, duration: 0.6 } }}
+		>
+			<nav className={styles.navContainer}>
+				<ul className={styles.navMenu}>
+					{navLinks.map((link, index) => (
+						<li className={utils.textSmall} key={link.path + index}>
+							<Link href={link.path} scroll={false}>
+								{t('header.' + link.localeName)}
+							</Link>
+						</li>
+					))}
+					<li className={utils.textSmall}>
 						{isAtHome ? (
 							<CustomButton>{t('shared.btn_text')}</CustomButton>
 						) : (
@@ -89,48 +89,47 @@ export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 								</Link>
 							</div>
 						)}
-						</li>
-					</ul>
-					<div ref={ref}>
-						<button
-							className={`${utils.textSmall} ${styles.dropDown}`}
-							onClick={toggleDropdownMenu}
-						>
-							<span>{currentLocale} </span>
-							<Image
-								quality={70}
-								width={12.4}
-								height={12.4}
-								src={arrowDownIcon}
-								alt='Arrow down'
-								className={`${
-									dropdownMenu ? styles.arrowIconActive : styles.arrowIcon
-								}`}
-							/>
-						</button>
-					</div>
+					</li>
+				</ul>
+				<div ref={ref}>
+					<button
+						className={`${utils.textSmall} ${styles.dropDown}`}
+						onClick={toggleDropdownMenu}
+					>
+						<span>{currentLocale} </span>
+						<Image
+							quality={70}
+							width={12.4}
+							height={12.4}
+							src={arrowDownIcon}
+							alt='Arrow down'
+							className={`${
+								dropdownMenu ? styles.arrowIconActive : styles.arrowIcon
+							}`}
+						/>
+					</button>
+				</div>
 
-					{/* Dropdown Menu */}
-					{dropdownMenu && (
-						<motion.div
-							className={`${styles.dropDownMenu} ${utils.textSmall}`}
-							initial={{ x: '196%', y: '100%', opacity: 0, scale: 0 }}
-							animate={{ y: -12, opacity: 1, scale: 1 }}
-						>
-							<button onClick={() => setCurrentLocale('English')}>
-								<Link href={router.pathname} locale='en' scroll={false}>
-									English
-								</Link>
-							</button>
-							<button onClick={() => setCurrentLocale('Español')}>
-								<Link href={router.pathname} locale='es' scroll={false}>
-									Español
-								</Link>
-							</button>
-						</motion.div>
-					)}
-				</nav>
-			</AnimatedContainer>
-		</div>
+				{/* Dropdown Menu */}
+				{dropdownMenu && (
+					<motion.div
+						className={`${styles.dropDownMenu} ${utils.textSmall}`}
+						initial={{ x: '196%', y: '100%', opacity: 0, scale: 0 }}
+						animate={{ y: -12, opacity: 1, scale: 1 }}
+					>
+						<button onClick={() => setCurrentLocale('English')}>
+							<Link href={router.pathname} locale='en' scroll={false}>
+								English
+							</Link>
+						</button>
+						<button onClick={() => setCurrentLocale('Español')}>
+							<Link href={router.pathname} locale='es' scroll={false}>
+								Español
+							</Link>
+						</button>
+					</motion.div>
+				)}
+			</nav>
+		</motion.div>
 	);
-}
+};
