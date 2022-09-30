@@ -4,6 +4,7 @@ export interface FooterHeroSection {
   captionES?: string;
   captionEN?: string;
   backgroundImg?: string;
+  page?: string;
 }
 
 export interface LocationInterface {
