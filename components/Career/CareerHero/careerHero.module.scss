@@ -1,0 +1,155 @@
+@use '/styles/variables.scss' as *;
+
+
+.container {
+    background-color: $secondBackgroundColor;
+    padding-inline: 3.7rem;
+    padding-top: 8rem;
+    padding-bottom:7.9rem;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    text-align: center;
+    // max-width: 1110px;
+    margin: 0 auto;
+}
+
+.itemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.title {
+    font-size: 3.6rem;
+    margin-top: 8rem;
+    color: $primaryTextColor;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.descriptionParagraph {
+    color: $secondaryTextColor;
+    max-width: 40.4rem;
+}
+
+.button {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.galleryWrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 61.6rem;
+    max-height: 48rem;
+    overflow: hidden;
+    // overflow-x: scroll;
+    border-radius: 0.6rem;
+    transform: scaleX(-1);
+}
+
+.picture {
+    border-radius: 0.6rem;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    // margin-bottom: 1.8rem;
+}
+
+.picture1 {
+    @extend .picture;
+    width: min(18.88rem, 110%);
+    aspect-ratio: 303.83 / 202.28;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 0.5rem
+}
+
+.picture2 {
+    @extend .picture;
+    width: min(15.31rem, 88%);
+    aspect-ratio: 243.4 / 161.99;
+    height: auto;
+    transform: translateX(1.2rem);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.picture3 {
+    @extend .picture;
+    aspect-ratio: 333.21 / 223.26;
+    width: min(20.713rem, 120%);
+    height: auto;
+    transform: translate(-0.6rem, -1.2rem);
+    overflow: hidden;
+}
+
+.picture4 {
+    @extend .picture;
+    aspect-ratio: 211.51 / 262.71;
+    width: min(13.148rem, 80%);
+    height: auto;
+    transform: translate(2rem, -1.5rem);
+    overflow: hidden;
+}
+
+@media  screen and (min-width: $breakpoint) {
+    .container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 7rem;
+        text-align: left;
+        padding-inline: 16.5rem;
+        padding-top: 14.6rem;
+    }
+    .title {
+        font-size: 5rem;
+        line-height: 120%;
+    }
+    .description {
+        width: min(46.9rem, 40%);
+        gap: 3rem;
+        display: grid;
+        // place-items: start;
+    }
+    .descriptionParagraph {
+        margin-bottom: 1rem;
+    }
+    .galleryWrapper {
+        width: max(56.9rem, 44.5%);
+        overflow-x: hidden;
+    }
+    .picture1 {
+        width: 32.89rem;
+        height: 21.896rem;
+    }
+    
+    .picture2 {
+        width: 26.348rem;
+        height: 17.535rem;
+        transform: translateX(-3.5rem);
+    }
+    
+    .picture3 {
+        width: 36.07rem;
+        height: 24.168rem;
+        transform: translateY(-0.5rem);
+    }
+    
+    .picture4 {
+        width: 22.896rem;
+        height: 28.438rem;
+        transform: translate(-0.6rem, -0.8rem);
+    }
+    .button {
+       margin-left: 0;
+    }
+}
