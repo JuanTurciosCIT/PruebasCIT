@@ -1,0 +1,91 @@
+@use '/styles/variables.scss' as *;
+
+.section {
+  background: $primaryBackgroundColor;
+  padding-inline: 3.7rem;
+  padding-block: 7rem;
+}
+
+.title {
+  color: $primaryTextColor;
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.desc {
+  color: $secondaryTextColor;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.slider {
+  padding-block: 5rem;
+  display: grid;
+  place-items: center;
+}
+
+.partnerCard {
+  background: $secondBackgroundColor;
+  position: relative;
+  width: 25.5rem;
+  height: 12.4rem;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 1rem;
+  padding-bottom: 1.8rem;
+}
+
+.partnerPic {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.name {
+  color: $primaryTextColor;
+  font-family: 'Nexa', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.role {
+  color: $secondaryTextColor;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 100%;
+  /* or 14px */
+
+  letter-spacing: -0.019em;
+}
+
+
+
+@media screen and (min-width: $breakpoint) {
+  .desc {
+    max-width: 89.2rem;
+    margin: 0 auto 9rem;
+  }
+  .partnerCard {
+    margin-bottom: 4rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 25.5rem);
+    grid-gap: 3rem;
+    justify-items: center;
+    margin-top: 5rem;
+    margin-inline: auto;
+    max-width: 1110px;
+  }
+}
