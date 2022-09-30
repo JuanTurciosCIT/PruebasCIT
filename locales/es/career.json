@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "btn_text": "Aplica ahora"
+  },
+  "acronym": {
+    "creativity": "Creatividad",
+    "reliability": "Responsabilidad",
+    "efficiency": "Eficiencia",
+    "agility": "Agilidad",
+    "talent": "Talento",
+    "innovation": "Innovación",
+    "values": "Valores",
+    "excellence": "Excelencia"
+  },
+  "benefits": {
+    "title": "Ofrecemos"
+  },
+  "gallery": {
+    "title": "Nuestras Oficinas"
+  },
+  "team": {
+    "title": "Conoce a nuestro equipo"
+  }
+}
