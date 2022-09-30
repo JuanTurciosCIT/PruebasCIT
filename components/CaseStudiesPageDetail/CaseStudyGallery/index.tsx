@@ -15,7 +15,7 @@ import { ScrollReveal } from 'Animations/ScrollReveal';
 import { CaseStudyGalleryInterface } from 'utils/types/caseStudy.interface';
 
 export const CaseStudyGallery = ({ content }: { content: CaseStudyGalleryInterface[] }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.CASE_STUDIES);
 

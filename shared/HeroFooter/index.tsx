@@ -17,7 +17,7 @@ export const HeroFooter = ({ content }: { content: FooterHeroSection }) => {
 				<p className={styles.description}>
 					{content.captionEN || content.captionES}
 				</p>
-				<button className={styles.button}>{t('heroFooter.btn_text')}</button>
+				<button className={styles.button}><a style={{backgroundSize: 0}} href="http://jobs.cit.hn/" target="_blank" rel="noopener noreferrer">{t('heroFooter.btn_text')}</a></button>
 			</div>
 		</section>
 	);

@@ -19,7 +19,7 @@ export const TeamFeedback = ({
 }: {
 	feedback: CustomerFeedbackSection[];
 }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.HOME);
 

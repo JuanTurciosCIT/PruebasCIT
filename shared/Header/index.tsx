@@ -42,7 +42,7 @@ export const Header = () => {
 	const { t } = useTranslation(localeNamespaces.common);
 
 	// before 428px viewport width is mobile
-	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const ref = useRef(null);
 	const bgColor = useHeaderBgOnScroll();
 
@@ -68,7 +68,7 @@ export const Header = () => {
 		return (
 			<>
 				<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : ''}`}}>
-					<div className={styles.logo}>
+					<Link className={styles.logo} href='/'>
 						<Image
 							quality={100}
 							priority={isMobile}
@@ -81,7 +81,7 @@ export const Header = () => {
 							placeholder='blur'
 							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 						/>
-					</div>
+					</Link>
 
 					{/* onClick => openMobileMenu */}
 					<button className={styles.burgerBtn} onClick={toggleMobileMenu}>

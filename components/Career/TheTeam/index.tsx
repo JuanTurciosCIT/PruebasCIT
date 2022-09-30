@@ -14,7 +14,7 @@ import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 
 
 export const TheTeam = () => {
-	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
   const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
   const { t } = useTranslation(localeNamespaces.CAREER);

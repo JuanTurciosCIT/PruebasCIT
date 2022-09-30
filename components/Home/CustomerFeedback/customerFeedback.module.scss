@@ -33,6 +33,10 @@
   position: absolute;
   top: 0;
   transform: translateY(-50%);
+
+  img {
+    border-radius: 50%;
+  }
 }
 
 .name {

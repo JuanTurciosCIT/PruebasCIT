@@ -15,7 +15,7 @@ import { ScrollReveal } from 'Animations/ScrollReveal';
 import { CareerOfficesInterface } from 'utils/types/careerContent.interface';
 
 export const CareerGallery = ({ content }: { content: CareerOfficesInterface[] }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.CAREER);
 
