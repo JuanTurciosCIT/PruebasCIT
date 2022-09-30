@@ -5,6 +5,7 @@
     "*": ["common"],
     "/": ["home"],
     "/caseStudies": ["caseStudies"],
-    "/caseStudies/[csid]": ["caseStudies"]
+    "/caseStudies/[csid]": ["caseStudies"],
+    "/career": ["career"]
   }
 }
