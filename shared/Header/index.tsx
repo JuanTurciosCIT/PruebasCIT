@@ -83,7 +83,7 @@ export const Header = () => {
 						/>
 					</Link>
 
-					{/* onClick => openMobileMenu */}
+					{/* onClick => openMobileMenu  */}
 					<button className={styles.burgerBtn} onClick={toggleMobileMenu}>
 						<Image
 							src={mobileMenu ? closeIcon : burgerIcon}
