@@ -6,21 +6,22 @@ import { SwiperOptions } from 'swiper';
 import { useInView } from 'react-intersection-observer';
 import 'swiper/css';
 
-import styles from './ourProcess.module.scss';
 import utils from '@/styles/utils.module.scss';
-import analysisLogo from '/public/svg/process_analysis.svg';
-import designLogo from '/public/svg/process_design.svg';
-import developmentLogo from '/public/svg/process_dev.svg';
+import styles from './teamFeedback.module.scss';
 import SliderButtons from '@/shared/SliderButtons';
 import { useMediaQuery } from 'utils/hooks/useMediaQuery';
+import { CustomerFeedbackSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { ScrollReveal } from 'Animations/ScrollReveal';
-import { CaseStudyOurProcessInterface } from 'utils/types/caseStudy.interface';
 
-export const OurProcess = ({ content }: { content: CaseStudyOurProcessInterface[] }) => {
+export const TeamFeedback = ({
+	feedback,
+}: {
+	feedback: CustomerFeedbackSection[];
+}) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const { ref, inView } = useInView();
-	const { t } = useTranslation(localeNamespaces.CASE_STUDIES);
+	const { t } = useTranslation(localeNamespaces.HOME);
 
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
@@ -34,22 +35,16 @@ export const OurProcess = ({ content }: { content: CaseStudyOurProcessInterface[
 		centeredSlides: true,
 	};
 
-	const sortedProcess = content.sort((a, b) => a.order - b.order);
-
 	/* A React hook that is used to memoize a function. */
 	const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
 	const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
 
 	return (
 		<section className={styles.section} ref={ref}>
-			<div className={styles.sectionHeader}>
-				<h2 className={`${utils.headingMedium} ${styles.sectionTitle}`}>
-					{t('ourProcess.title')}
-				</h2>
-				<div className={styles.sliderButtons}>
-					<SliderButtons next={nextSlide} prev={prevSlide} />
-				</div>
-			</div>
+			<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
+				{t('customerFeedback.title')}
+        What is like being part of creative
+			</h2>
 			<ScrollReveal isVisible={inView} className={styles.container}>
 				<Swiper
 					{...swiperOptions}
@@ -57,21 +52,38 @@ export const OurProcess = ({ content }: { content: CaseStudyOurProcessInterface[
 						swiperRef.current = swiper;
 					}}
 				>
-					{
-						sortedProcess.map((process) => (
-							<SwiperSlide key={process.id}>
-						<div className={styles.card}>
-							<div className={styles.imageWrapper}>
-								<Image src={process.picture} alt='Process Analysis' width={46} height={46} />
+					{feedback.map((item) => (
+						<SwiperSlide key={item.id}>
+							<div className={styles.feedbackCard}>
+								<div className={styles.customerPic}>
+									<Image
+										priority
+										quality={100}
+										src={item.picture}
+										alt='Customer'
+										width={80}
+										height={80}
+										objectFit='cover'
+										placeholder='blur'
+										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+									/>
+								</div>
+								<div className={styles.info}>
+									<h3 className={`${utils.headingMedium} ${styles.name}`}>
+										{item.name}
+									</h3>
+                  <p className={`${styles.role} ${styles.comment}`}>Web Developer</p>
+									<p className={styles.comment}>
+										{item.commentEN || item.commentES}
+									</p>
+								</div>
 							</div>
-							<h3 className={`${utils.headingMedium} ${styles.title}`}>{process.titleEN || process.titleES}</h3>
-							<p className={`${utils.textMedium} ${styles.desc}`}>{process.descriptionEN || process.descriptionES}</p>
-						</div>
-					</SwiperSlide>
-						))
-					}
+						</SwiperSlide>
+					))}
 				</Swiper>
 			</ScrollReveal>
+
+			<SliderButtons next={nextSlide} prev={prevSlide} />
 		</section>
 	);
-};
+}

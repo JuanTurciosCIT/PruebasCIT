@@ -20,7 +20,7 @@ export const Portfolio = ({
 }: {
 	content: PortfolioSection[];
 }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 
 	const swiper = useSwiper();

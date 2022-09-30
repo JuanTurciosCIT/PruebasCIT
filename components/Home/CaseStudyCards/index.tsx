@@ -14,7 +14,7 @@ import utils from '@/styles/utils.module.scss';
 import { CaseStudyCard } from 'utils/types/homeContent.interface';
 
 export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 428px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
@@ -97,7 +97,7 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 										{item.descriptionEN || item.descriptionES}
 									</p>
 									<span className={`${utils.textSmall} ${styles.link}`}>
-										<Link href={'/'}>{t('case_studies.card_link')}</Link>
+										<Link href={`/caseStudies/${item.id}`}>{t('case_studies.card_link')}</Link>
 										<Image
 											quality={70}
 											lazyBoundary='600px'

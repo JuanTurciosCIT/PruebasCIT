@@ -19,7 +19,7 @@ export const HeroHome = ({
 	const [startTyping, setStartTyping] = useState(false);
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const typeWriterText = (heroContent.subtitlePhrasesEN || heroContent.subtitlePhrasesES) as string[];
-	const isMobile = useMediaQuery('(max-width: 428px)');
+	const isMobile = useMediaQuery('(max-width: 432px)');
 
 	setTimeout(() => {
 		setStartTyping(true);

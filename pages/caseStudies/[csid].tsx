@@ -29,25 +29,25 @@ import { CaseStudyGallery } from 'components/CaseStudiesPageDetail/CaseStudyGall
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 	const caseStudies = await CaseStudiesContentService.getCaseStudies('en');
 
-	// const paths: any = [];
-	const paths: any = [
-		{
-			params: { csid: String(caseStudies[0].id) },
-			locale: locales?.[0],
-		},
-		{
-			params: { csid: String(caseStudies[0].id) },
-			locale: locales?.[1],
-		},
-	];
-	// caseStudies.map((caseStudy) => {
-	// 	paths.push({
-	// 		params: { csid: String(caseStudy.id) }, locale: locales?.[0]
-	// 	});
-	// 	paths.push({
-	// 		params: { csid: String(caseStudy.id) }, locale: locales?.[1]
-	// 	});
-	// });
+	const paths: any = [];
+	// const paths: any = [
+	// 	{
+	// 		params: { csid: String(caseStudies[0].id) },
+	// 		locale: locales?.[0],
+	// 	},
+	// 	{
+	// 		params: { csid: String(caseStudies[0].id) },
+	// 		locale: locales?.[1],
+	// 	},
+	// ];
+	caseStudies.map((caseStudy) => {
+		paths.push({
+			params: { csid: String(caseStudy.id) }, locale: locales?.[0]
+		});
+		paths.push({
+			params: { csid: String(caseStudy.id) }, locale: locales?.[1]
+		});
+	});
 
 	return {
 		paths,

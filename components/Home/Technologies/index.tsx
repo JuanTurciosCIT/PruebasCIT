@@ -40,7 +40,11 @@ export const Technologies = ({
 		const current = technologies.filter(
 			(tech) => tech.name === currentTech.name
 		);
-		handleTechClick(current[0] ?? technologies[0]);
+		
+		// handleTechClick(current[0] ?? technologies[0]);
+		if (current[0] === null || current[0] === undefined) {
+			handleTechClick(technologies[0]);
+		}
 	}, [router.locale]);
 
 	return (

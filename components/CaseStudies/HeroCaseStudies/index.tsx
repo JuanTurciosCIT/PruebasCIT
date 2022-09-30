@@ -14,7 +14,7 @@ export const HeroHome = ({
 	heroContent: HeroCaseStudiesInterface;
 }) => {
 	// const { t } = useTranslation(localeNamespaces.CASE_STUDIES);
-	const isMobile = useMediaQuery('(max-width: 428px)');
+	const isMobile = useMediaQuery('(max-width: 432px)');
 
 	return (
 		<div className={styles.hero} style={{backgroundImage: `url(${heroContent.backgroundImage})`}}>

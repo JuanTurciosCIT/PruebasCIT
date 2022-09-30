@@ -17,7 +17,7 @@ export const CompaniesSlider = ({
 }: {
 	customers: CustomersSection[];
 }): JSX.Element => {
-	const isMobile = useMediaQuery('(max-width: 428px)');
+	const isMobile = useMediaQuery('(max-width: 432px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 
 	const sliderOptions: SwiperProps = {

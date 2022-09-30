@@ -1,0 +1,78 @@
+@use '/styles/variables.scss' as *;
+
+.section {
+  display: grid;
+  place-content: center;
+  background-color: $primaryBackgroundColor;
+  padding: 4.1rem;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  height: 100%;
+  padding-inline: 16.5rem;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    // flex-wrap: wrap;
+     
+    &>div {
+      display: flex;
+      align-items: flex-end;
+      // justify-content: center;
+      gap: 1rem;
+    }
+  }
+
+  // .word::first-letter {
+  //   font-family: 'Nexa', sans-serif;
+  //   font-style: normal;
+  //   font-weight: 700;
+  //   font-size: 4.6rem;
+  //   line-height: 100%;
+  //   // max-width: 3rem;
+  //   /* or 46px */
+
+  //   letter-spacing: 0.5em;
+  //   text-transform: capitalize;
+  //   color: $primaryColor;
+  // }
+
+  .firstLetter {
+    font-family: 'Nexa', sans-serif;
+    font-weight: 700;
+    font-size: 4.6rem;
+    max-width: 3rem;
+    height: 5.5rem;
+
+    letter-spacing: 0.5em;
+    text-transform: capitalize;
+    color: $primaryColor;
+  }
+
+ .nth6 {
+    transform: translateX(0.8rem);
+  }
+
+  .word {
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 1.8rem;
+
+    text-transform: capitalize;
+
+    color: $secondaryTextColor;
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .section {
+    height: 35rem;
+    .wrapper {
+      flex-direction: row;
+      // justify-content: space-between;
+      // align-items: center;
+    }
+  }
+}

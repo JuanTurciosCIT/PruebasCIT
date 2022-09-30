@@ -27,7 +27,6 @@ export const CaseStudyMetrics = ({
 								end={metric.metricValue}
 								duration={1}
 								enableScrollSpy
-								scrollSpyOnce
 								decimals={1}
 								decimal="."
 								separator=","

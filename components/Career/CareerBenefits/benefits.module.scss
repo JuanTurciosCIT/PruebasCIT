@@ -1,0 +1,80 @@
+@use '/styles/variables.scss' as *;
+
+.section {
+  position: relative;
+  background: $secondBackgroundColor;
+  background-image: url('../../../public/images/cit-dots.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 3.6rem;
+  // background-position: center 15%;
+  // background-size: 90%;
+  padding-block: 8rem;
+  padding-inline: 3.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($primaryBackgroundColor, 0.75);
+    z-index: 2;
+  }
+}
+
+.wrapper {
+  position: relative;
+  z-index: 3;
+  color: $primaryTextColor;
+  display: grid;
+  place-content: center;
+
+  .title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-size: 2.4rem;
+  }
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.9rem;
+}
+
+.card {
+  background: #1F1F1F;
+  box-shadow: 0px 15px 30px rgba(43, 47, 66, 0.1);
+  border-radius: 1rem;
+  padding: 3.7rem 2.8rem;
+  width: fit-content;
+  width: 100%;
+  font-family: 'Nexa', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 180%;
+
+  li::before {
+    content: '\2022';
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .wrapper {
+    .title {
+      font-size: 3.6rem;
+    }
+  }
+  .card {
+    width: fit-content;
+    font-size: 2.8rem;
+    padding: 4.7rem 2.7rem;
+  }
+  .cardsContainer {
+    gap: 3.2rem;
+  }
+}

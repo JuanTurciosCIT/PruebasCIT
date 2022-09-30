@@ -32,6 +32,8 @@ import {
 	FooterHeroSection,
 	FooterSection,
 } from 'utils/types/commonContent.interface';
+import { CareerContentService } from './CareerContentService';
+import { CareerContentInterface } from 'utils/types/careerContent.interface';
 
 export async function getHomePageContent(
 	locale: string = 'en'
@@ -113,6 +115,22 @@ export async function getCaseStudyDetailContent(locale: string = 'en', csid: num
 		services,
 		ourProcess,
 		gallery,
+		footerHero,
+		footer,
+	};
+}
+
+export async function getCareerPageContent(locale: string = 'en'): Promise<CareerContentInterface> {
+	const hero = await CareerContentService.getHeroContent(locale);
+	const benefits = await CareerContentService.getBenefits(locale);
+	const officesPictures = await CareerContentService.getOfficesPictures(locale);
+	const footerHero = await CommonContentService.getHeroFooterContent(locale);
+	const footer = await CommonContentService.getFooterContent();
+
+	return {
+		hero,
+		benefits,
+		officesPictures,
 		footerHero,
 		footer,
 	};

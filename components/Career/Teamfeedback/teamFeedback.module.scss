@@ -42,19 +42,12 @@
 .name {
   color: $primaryTextColor;
   font-size: 1.9rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.4rem;
 }
 
 .comment {
   color: $secondaryTextColor;
-  margin-bottom: 1rem;
-}
-
-.stars {
-  margin-bottom: 1.8rem;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .info {
