@@ -102,7 +102,7 @@ export const Header = () => {
 
 	return (
 		<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : ''}`}}>
-			<div className={styles.logo}>
+			<Link className={styles.logo} href='/'>
 				<Image
 					quality={100}
 					priority={!isMobile}
@@ -115,7 +115,7 @@ export const Header = () => {
 					placeholder='blur'
 					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 				/>
-			</div>
+			</Link>
 
 			<nav className={styles.navContainer}>
 				<ul className={styles.navMenu}>
