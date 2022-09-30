@@ -36,7 +36,7 @@
   height: 38rem;
 }
 
-@media screen and (min-width: 428px) {
+@media screen and (min-width: $breakpoint) {
   .title {
     margin-bottom: 5rem;
   }

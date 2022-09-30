@@ -41,7 +41,7 @@ export const Header = () => {
 	);
 	const { t } = useTranslation(localeNamespaces.common);
 
-	// before 428px viewport width is mobile
+	// before 432px viewport width is mobile
 	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const ref = useRef(null);
 	const bgColor = useHeaderBgOnScroll();

@@ -92,7 +92,7 @@
   }
 }
 
-@media screen and (min-width: 428px) {
+@media screen and (min-width: $breakpoint) {
   .servicesSection {
     .serviceCard {
       height: 20rem;
