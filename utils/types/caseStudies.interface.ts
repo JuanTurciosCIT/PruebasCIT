@@ -36,3 +36,5 @@ export interface CaseStudyCategory {
   nameEN: string;
   isVisible: boolean;
 }
+
+// export interface 
