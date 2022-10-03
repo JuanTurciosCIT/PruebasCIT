@@ -10,18 +10,18 @@ import utils from '@/styles/utils.module.scss';
 import styles from './teamFeedback.module.scss';
 import SliderButtons from '@/shared/SliderButtons';
 import { useMediaQuery } from 'utils/hooks/useMediaQuery';
-import { CustomerFeedbackSection } from 'utils/types/homeContent.interface';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { ScrollReveal } from 'Animations/ScrollReveal';
+import { CareerEmployeeFeedbackInterface } from 'utils/types/careerContent.interface';
 
 export const TeamFeedback = ({
 	feedback,
 }: {
-	feedback: CustomerFeedbackSection[];
+	feedback: CareerEmployeeFeedbackInterface[];
 }) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
 	const { ref, inView } = useInView();
-	const { t } = useTranslation(localeNamespaces.HOME);
+	const { t } = useTranslation(localeNamespaces.CAREER);
 
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
@@ -42,8 +42,7 @@ export const TeamFeedback = ({
 	return (
 		<section className={styles.section} ref={ref}>
 			<h2 className={`${utils.headingMedium} ${styles.subtitle}`}>
-				{t('customerFeedback.title')}
-        What is like being part of creative
+				{t('teamFeedback.title')}
 			</h2>
 			<ScrollReveal isVisible={inView} className={styles.container}>
 				<Swiper
@@ -59,20 +58,21 @@ export const TeamFeedback = ({
 									<Image
 										priority
 										quality={100}
-										src={item.picture}
+										src={item.Employee.imagePath}
 										alt='Customer'
 										width={80}
 										height={80}
 										objectFit='cover'
+										objectPosition='top'
 										placeholder='blur'
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
 								<div className={styles.info}>
 									<h3 className={`${utils.headingMedium} ${styles.name}`}>
-										{item.name}
+										{item.Employee.fullName}
 									</h3>
-                  <p className={`${styles.role} ${styles.comment}`}>Web Developer</p>
+                  <p className={`${styles.role} ${styles.comment}`}>{item.Employee.jobPositionEN || item.Employee.jobPositionES}</p>
 									<p className={styles.comment}>
 										{item.commentEN || item.commentES}
 									</p>
