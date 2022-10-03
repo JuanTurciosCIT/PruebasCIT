@@ -26,12 +26,13 @@ export const CommonContentService = {
   getHeroFooterContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
-			.from<FooterHeroSection>('HomeFooterHero')
+			.from<FooterHeroSection>('HeroFooter')
 			.select(
 				`${
 					isEnglish ? 'titleEN, captionEN' : 'titleES, captionES'
 				}, backgroundImg`
 			)
+			.neq('page', 'career')
 			.single();
 
 		if (error) {
