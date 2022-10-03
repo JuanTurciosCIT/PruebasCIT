@@ -64,7 +64,7 @@ export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 				<ul className={styles.navMenu}>
 					{navLinks.map((link, index) => (
 						<li className={utils.textSmall} key={link.path + index}>
-							<Link href={link.path} scroll={false}>
+							<Link href={link.path}>
 								{t('header.' + link.localeName)}
 							</Link>
 						</li>
