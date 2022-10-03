@@ -25,7 +25,7 @@ export const CaseStudyPreview = ({ caseStudy }: { caseStudy: CaseStudy }) => {
 					{caseStudy.descriptionEN || caseStudy.descriptionES}
 				</p>
 				<div className={styles.button}>
-					<CustomButton path={`/caseStudies/[csid]`} as={`/caseStudies/${caseStudy.id}`}>{t('caseStudies.btn_text')}</CustomButton>
+					<CustomButton path={`/caseStudies/[csid]`}>{t('caseStudies.btn_text')}</CustomButton>
 				</div>
 			</div>
 		</div>

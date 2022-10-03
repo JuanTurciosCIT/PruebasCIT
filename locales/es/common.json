@@ -21,7 +21,8 @@
   "heroFooter": {
     "title": "Listo para empezar?",
     "caption": "{external_data}",
-    "btn_text": "Contáctenos"
+    "btn_text": "Contáctenos",
+    "applyNow": "Aplica ahora"
   },
   "footer": {
     "title": "Ubicaciones",

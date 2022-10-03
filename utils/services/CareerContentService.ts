@@ -1,5 +1,6 @@
 import { supabase } from 'libs/supabaseClient';
-import { CareerBenefitsInterface, CareerHeroInterface, CareerOfficesInterface } from 'utils/types/careerContent.interface';
+import { CareerBenefitsInterface, CareerEmployeeFeedbackInterface, CareerEmployeeInterface, CareerHeroInterface, CareerOfficesInterface } from 'utils/types/careerContent.interface';
+import { FooterHeroSection } from 'utils/types/commonContent.interface';
 
 export const CareerContentService = {
   getHeroContent: async (locale: string) => {
@@ -51,5 +52,62 @@ export const CareerContentService = {
     }
 
     return data as CareerOfficesInterface[];
-  }
+  },
+
+  getEmployeesFeedback: async (locale: string) => {
+    const isEnglish = locale === 'en';
+    const { data, error } = await supabase
+      .from<CareerEmployeeFeedbackInterface>('EmployeesFeedback')
+      .select(`id, isVisible, employeeId, ${isEnglish ? 'commentEN' : 'commentES'}, Employee (*)`)
+      .eq('isVisible', true);
+
+    if (error) {
+      console.log(
+        'An error occurred while fetching the career employees feedback: ',
+        error
+      );
+    }
+
+    return data as CareerEmployeeFeedbackInterface[];
+  },
+
+  getEmployees: async (locale: string) => {
+    const isEnglish = locale === 'en';
+    const { data, error } = await supabase
+      .from<CareerEmployeeInterface>('Employee')
+      .select(`id, isVisible, imagePath, fullName, order, ${isEnglish ? 'jobPositionEN' : 'jobPositionES'}, id, imagePath, isVisible`)
+      .eq('isVisible', true)
+      .order('order', { ascending: true });
+
+    if (error) {
+      console.log(
+        'An error occurred while fetching the employees: ',
+        error
+      );
+    }
+
+    return data as CareerEmployeeInterface[];
+  },
+
+  getHeroFooterContent: async (locale: string) => {
+		const isEnglish = locale === 'en';
+		const { data, error } = await supabase
+			.from<FooterHeroSection>('HeroFooter')
+			.select(
+				`${
+					isEnglish ? 'titleEN, captionEN' : 'titleES, captionES'
+				}, backgroundImg`
+			)
+			.eq('page', 'career')
+			.single();
+
+		if (error) {
+			console.log(
+				'An error occurred while fetching the footer hero content: ',
+				error
+			);
+		}
+
+		return data as FooterHeroSection;
+	},
 }

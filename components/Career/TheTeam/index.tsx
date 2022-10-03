@@ -11,9 +11,10 @@ import styles from './team.module.scss';
 import utils from '@/styles/utils.module.scss';
 import SliderButtons from '@/shared/SliderButtons';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+import { CareerEmployeeInterface } from 'utils/types/careerContent.interface';
 
 
-export const TheTeam = () => {
+export const TheTeam = ({ employees }: { employees: CareerEmployeeInterface[] }) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
   const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
@@ -45,41 +46,49 @@ export const TheTeam = () => {
 						swiperRef.current = swiper;
 					}}
 				>
-						<SwiperSlide className={styles.slider}>
+						{
+							employees.map((employee) => (
+								<SwiperSlide className={styles.slider} key={employee.id}>
 							<div className={styles.partnerCard}>
 								<div className={styles.partnerPic}>
 									<Image
 										priority
 										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
+										src={employee.imagePath}
+										alt={employee.fullName}
 										width={80}
 										height={80}
 										objectFit='cover'
+										objectPosition='top'
 										placeholder='blur'
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
 								<div>
 									<h3 className={styles.name}>
-                  Darlene Robertson
+                  {employee.fullName}
 									</h3>
-                  <p className={styles.role}>Web Developer</p>
+                  <p className={styles.role}>{employee.jobPositionEN || employee.jobPositionES}</p>
 								</div>
 							</div>
 						</SwiperSlide>
+							))
+						}
 				</Swiper>
         ) : (
           <div className={styles.grid}>
-            <div className={styles.partnerCard}>
+						{
+							employees.map((employee) => (
+								<div className={styles.partnerCard} key={employee.id}>
 								<div className={styles.partnerPic}>
 									<Image
 										priority
 										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
+										src={employee.imagePath}
+										alt={employee.fullName}
 										width={80}
 										height={80}
+										objectPosition='top'
 										objectFit='cover'
 										placeholder='blur'
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
@@ -87,242 +96,13 @@ export const TheTeam = () => {
 								</div>
 								<div>
 									<h3 className={styles.name}>
-                  Darlene Robertson
+                  {employee.fullName}
 									</h3>
-                  <p className={styles.role}>Web Developer</p>
+                  <p className={styles.role}>{employee.jobPositionEN || employee.jobPositionES}</p>
 								</div>
 							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
-            <div className={styles.partnerCard}>
-								<div className={styles.partnerPic}>
-									<Image
-										priority
-										quality={100}
-										src={partnerPic}
-										alt='Partner / coworker'
-										width={80}
-										height={80}
-										objectFit='cover'
-										placeholder='blur'
-										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-									/>
-								</div>
-								<div>
-									<h3 className={styles.name}>
-                  Darlene Robertson
-									</h3>
-                  <p className={styles.role}>Web Developer</p>
-								</div>
-							</div>
+							))
+						}
           </div>
         )
       }

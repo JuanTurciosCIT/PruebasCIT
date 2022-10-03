@@ -33,7 +33,7 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 					{content.captionEN || content.captionES}
 					</p>
 					<div className={styles.button}>
-						<CustomButton>{t('hero.btn_text')}</CustomButton>
+						<CustomButton path='http://jobs.cit.hn/' target='_blank'>{t('hero.btn_text')}</CustomButton>
 					</div>
 				</div>
 
@@ -45,7 +45,8 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 					{content.pathImages.map((image, index) => (
 						<div className={styles[`${'picture'}${index + 1}`]} key={image}>
 							<Image
-								priority
+								// priority
+								loading='eager'
 								quality={70}
 								src={image}
 								alt='gallery'

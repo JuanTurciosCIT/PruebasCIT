@@ -69,10 +69,10 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 								<div
 									style={{
 										backgroundImage: `linear-gradient(180deg,
-									rgba(39, 39, 39, 0.95) 0%,
-									rgba(39, 39, 39, 0.95) 39.56%,
-									rgba(39, 39, 39, 0.99) 69.49%,
-									#272727 100%), url(${item.picture})`,
+											rgba(39, 39, 39, 0.88) 0%,
+											rgba(39, 39, 39, 0.89) 39.56%,
+											rgba(39, 39, 39, 0.99) 69.49%,
+											#272727 100%), url(${item.picture})`,
 									}}
 									className={`${styles.cardWrapper} ${
 										isActive && styles.active
