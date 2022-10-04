@@ -67,8 +67,8 @@ export const Header = () => {
 	if (isMobile) {
 		return (
 			<>
-				<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : ''}`}}>
-					<Link className={styles.logo} href='/'>
+				<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : '#1F1F1F'}`}}>
+					<div className={styles.logo}>
 						<Image
 							quality={100}
 							priority={isMobile}
@@ -81,7 +81,7 @@ export const Header = () => {
 							placeholder='blur'
 							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 						/>
-					</Link>
+					</div>
 
 					{/* onClick => openMobileMenu  */}
 					<button className={styles.burgerBtn} onClick={toggleMobileMenu}>
@@ -101,8 +101,8 @@ export const Header = () => {
 	}
 
 	return (
-		<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : ''}`}}>
-			<Link className={styles.logo} href='/'>
+		<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : '#1F1F1F'}`}}>
+			<div className={styles.logo}>
 				<Image
 					quality={100}
 					priority={!isMobile}
@@ -115,7 +115,7 @@ export const Header = () => {
 					placeholder='blur'
 					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 				/>
-			</Link>
+			</div>
 
 			<nav className={styles.navContainer}>
 				<ul className={styles.navMenu}>
