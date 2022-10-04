@@ -5,12 +5,12 @@ export const navLinks: NavLink[] = [
   {
     localeName: 'home',
     path: '/',
-    visibleIn: Pages.HOME,
+    visibleIn: [Pages.HOME, Pages.ABOUT_US],
   },
   {
     localeName: 'our_services',
     path: '#services',
-    visibleIn: Pages.HOME,
+    visibleIn: [Pages.HOME, Pages.ABOUT_US],
   },
   // {
   //   localeName: 'career',
@@ -19,13 +19,13 @@ export const navLinks: NavLink[] = [
   // },
   {
     localeName: 'about_us',
-    path: '#about',
+    path: '/about-us',
     visibleIn: Pages.HOME,
   },
   {
     localeName: 'careers',
     path: '/career',
-    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
+    visibleIn: [Pages.HOME, Pages.ABOUT_US, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
   },
   {
     localeName: 'jobs',
@@ -45,7 +45,7 @@ export const navLinks: NavLink[] = [
   {
     localeName: 'sign_in',
     path: '/signin',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.CASE_STUDIES, Pages.SERVICES, Pages.ABOUT_US],
+    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.CASE_STUDIES, Pages.SERVICES],
   },
   // {
   //   localeName: 'create_account',

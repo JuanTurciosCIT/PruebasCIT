@@ -1,0 +1,28 @@
+.section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 16.5rem;
+    padding-block: 13.2rem;
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    background:  #272727;
+    border-radius: 10px;
+    padding-left: 5rem;
+    padding-block: 6rem;
+}
+
+.image{
+    width: 35.3rem;
+    height: 29.8px;
+}
+

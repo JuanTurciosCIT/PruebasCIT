@@ -1,0 +1,40 @@
+@use '/styles/variables.scss' as *;
+
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primaryTextColor;
+    height: 49rem;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2rem;
+ 
+
+    &::after {
+        content: '';
+        position: absolute;
+        background: linear-gradient(0deg, rgba(31, 31, 31, 0.8), rgba(31, 31, 31, 0.8));
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       z-index: 1;
+    }
+
+}
+.wrapper{
+    z-index: 2;
+    text-align: center;
+    width: min(100%, 54.5rem);
+
+    p {
+        color: $secondaryTextColor;
+    }
+}
+
+
