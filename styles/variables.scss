@@ -31,3 +31,17 @@ $headingSmallFont: 'Nasalization', sans-serif;
 
 // Breakpoints
 $breakpoint: '432px';
+
+// mixins
+// @mixin HeadingLarge($color, $fontSize) {
+//   font-family: $headingFont;
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: $fontSize;
+//   line-height: 200%;
+//   color: $color;
+
+//   @media screen and (min-width: $breakpoint) {
+//     color: blue;
+//   }
+// }
