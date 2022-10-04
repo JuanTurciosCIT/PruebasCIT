@@ -77,6 +77,7 @@
 
 }
 
+
 @media screen and (min-width: 376px) {
   .textTiny {
     font-size: 1.2rem;
@@ -106,5 +107,31 @@
   .textTiny {
     font-size: 1.4rem;
     line-height: 1.96rem;
+  }
+}
+
+// mixins
+@mixin HeadingLarge($color,  $fontSize) {
+  font-family: $headingFont;
+  font-style: normal;
+  font-weight: 700;
+  font-size:  $fontSize;
+  line-height: 200%;
+  color: $color;
+}
+
+@mixin TextSmall($color){
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.6rem;
+  /* or 14px */
+  letter-spacing: -0.011rem;
+  color: $color;
+  
+  @media screen and (min-width: $breakpoint) {
+    font-size: 1.6rem;
+    line-height: 1.7rem;
   }
 }

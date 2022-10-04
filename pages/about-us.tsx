@@ -5,11 +5,13 @@ import { CommonContentService } from "utils/services/CommonContentService";
 import { AboutContent } from "utils/types/AboutUs";
 import { AboutUsHero } from "components/AboutUs/AboutUsHero";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { AboutUsMetrics } from "components/AboutUs/Metrics";
 
 const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero }) => {
     console.log(aboutHero);
     return <Layout footerContent={ footerContent }>
         <AboutUsHero content={aboutHero} />
+        <AboutUsMetrics />
     </Layout>
 }
 
