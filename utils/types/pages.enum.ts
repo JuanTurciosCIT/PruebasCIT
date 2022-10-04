@@ -3,7 +3,7 @@ export enum Pages {
   CAREER = '/career',
   JOBS = '/jobs',
   SERVICES='/services',
-  ABOUT_US='/aboutUs',
+  ABOUT_US='/about-us',
   JOB_DESCRIPTION = '/jobDescription',
   APPLICATIONS = '/applications',
   CASE_STUDIES = '/caseStudies',
