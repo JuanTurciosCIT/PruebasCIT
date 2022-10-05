@@ -61,15 +61,14 @@ export const TheTeam = ({ employees, theme }: { employees: CareerEmployeeInterfa
 											quality={100}
 											src={employee.imagePath}
 											alt={employee.fullName}
-											width={80}
-											height={80}
+											layout="fill"
 											objectFit='cover'
-											objectPosition='top'
+											objectPosition={!router.pathname.includes('about-us') ? 'top' : '0 -52px'}
 											placeholder='blur'
 											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 										/>
 									</div>
-									<div>
+									<div className={chosenTheme.textWrapper}>
 										<h3 className={chosenTheme.name}>
 										{employee.fullName}
 										</h3>
@@ -91,15 +90,14 @@ export const TheTeam = ({ employees, theme }: { employees: CareerEmployeeInterfa
 										quality={100}
 										src={employee.imagePath}
 										alt={employee.fullName}
-										width={80}
-										height={80}
-										objectPosition='top'
+										layout="fill"
 										objectFit='cover'
+										objectPosition={!router.pathname.includes('about-us') ? 'top' : '0 -52px'}
 										placeholder='blur'
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
-								<div>
+								<div className={chosenTheme.textWrapper}>
 									<h3 className={chosenTheme.name}>
                   {employee.fullName}
 									</h3>
