@@ -16,8 +16,8 @@ const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero
         <AboutUsHero content={aboutHero} />
         <AboutUsMetrics />
         <MisionVisionComponent />
-        <HeroFooter content={footerHero} />
         <TheTeam employees={employees} theme='theme2' />
+        <HeroFooter content={footerHero} />
     </Layout>
 }
 
