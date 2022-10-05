@@ -1,4 +1,5 @@
 import { supabase } from 'libs/supabaseClient';
+import { CareerEmployeeInterface } from 'utils/types/careerContent.interface';
 import { Contact, FooterHeroSection, FooterSection, LocationInterface } from 'utils/types/commonContent.interface';
 import { HeroSection, ServicesSection } from 'utils/types/homeContent.interface';
 
@@ -22,6 +23,24 @@ export const CommonContentService = {
 
 		return data as ServicesSection[];
 	},
+
+	getEmployees: async (locale: string) => {
+    const isEnglish = locale === 'en';
+    const { data, error } = await supabase
+      .from<CareerEmployeeInterface>('Employee')
+      .select(`id, isVisible, imagePath, fullName, order, ${isEnglish ? 'jobPositionEN' : 'jobPositionES'}, id, imagePath, isVisible`)
+      .eq('isVisible', true)
+      .order('order', { ascending: true });
+
+    if (error) {
+      console.log(
+        'An error occurred while fetching the employees: ',
+        error
+      );
+    }
+
+    return data as CareerEmployeeInterface[];
+  },
 
   getHeroFooterContent: async (locale: string) => {
 		const isEnglish = locale === 'en';

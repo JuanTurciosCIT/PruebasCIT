@@ -71,24 +71,6 @@ export const CareerContentService = {
     return data as CareerEmployeeFeedbackInterface[];
   },
 
-  getEmployees: async (locale: string) => {
-    const isEnglish = locale === 'en';
-    const { data, error } = await supabase
-      .from<CareerEmployeeInterface>('Employee')
-      .select(`id, isVisible, imagePath, fullName, order, ${isEnglish ? 'jobPositionEN' : 'jobPositionES'}, id, imagePath, isVisible`)
-      .eq('isVisible', true)
-      .order('order', { ascending: true });
-
-    if (error) {
-      console.log(
-        'An error occurred while fetching the employees: ',
-        error
-      );
-    }
-
-    return data as CareerEmployeeInterface[];
-  },
-
   getHeroFooterContent: async (locale: string) => {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase

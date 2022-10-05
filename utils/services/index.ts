@@ -125,7 +125,7 @@ export async function getCareerPageContent(locale: string = 'en'): Promise<Caree
 	const benefits = await CareerContentService.getBenefits(locale);
 	const officesPictures = await CareerContentService.getOfficesPictures(locale);
 	const employeesFeedback = await CareerContentService.getEmployeesFeedback(locale);
-	const employees = await CareerContentService.getEmployees(locale);
+	const employees = await CommonContentService.getEmployees(locale);
 	const footerHero = await CareerContentService.getHeroFooterContent(locale);
 	const footer = await CommonContentService.getFooterContent();
 
