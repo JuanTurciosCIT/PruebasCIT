@@ -7,23 +7,26 @@ import { AboutUsHero } from "components/AboutUs/AboutUsHero";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { AboutUsMetrics } from "components/AboutUs/Metrics";
 import { MisionVisionComponent } from "components/AboutUs/MisionVision";
+import { TheTeam } from "@/shared/TheTeam";
+import { CareerContentService } from "utils/services/CareerContentService";
 
-const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero }) => {
-    console.log(aboutHero);
+const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero, employees }) => {
     return <Layout footerContent={ footerContent }>
         <AboutUsHero content={aboutHero} />
         <AboutUsMetrics />
         <MisionVisionComponent />
+        <TheTeam employees={employees} theme='theme2' />
     </Layout>
 }
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
     const aboutUsContent =  await getAboutUsContent(context.locale);
+    const employees = await CareerContentService.getEmployees(context.locale as string);
 
-    console.log(aboutUsContent);
     return {
         props: {
-            ...aboutUsContent
+            ...aboutUsContent,
+            employees
         }
     }
 }
