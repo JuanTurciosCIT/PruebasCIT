@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 // Components
 import { Layout } from 'shared/Layout';
 import { HeroFooter } from 'shared/HeroFooter';
-import { TheTeam } from 'components/Career/TheTeam';
+import { TheTeam } from '@/shared/TheTeam';
 import { CareerGallery } from 'components/Career/CareerGallery';
 import { CareerHero } from 'components/Career/CareerHero';
 import { Acronym } from 'components/Career/Acronym';
@@ -49,7 +49,7 @@ const Home: NextPage<CareerContentInterface> & { skeletonLoader?: ReactNode } = 
 			<CareerBenefits benefits={benefits} />
 			<CareerGallery content={officesPictures} />
 			<TeamFeedback feedback={employeesFeedback} />
-			<TheTeam employees={employees} />
+			<TheTeam employees={employees} theme='theme1' />
 			<HeroFooter content={footerHero} />
 		</Layout>
 	);
