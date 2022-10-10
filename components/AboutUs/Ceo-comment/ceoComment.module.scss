@@ -1,0 +1,74 @@
+@use "./styles/variables.scss" as *;
+
+.section {
+  padding-block: 5rem;
+  padding-inline: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $mainFont;
+  color: #ffffff;
+  background-color: #1f1f1f;
+  line-height: 4rem;
+}
+
+.imageContainer {
+  z-index: 0;
+  position: absolute;
+  width: 4.5rem;
+  height: 2.6rem;
+  top: 0;
+  left: 0;
+  transform: translate(-20%, -60%);
+ 
+}
+
+.image{
+    filter: sepia(-100%);
+    -webkit-filter: sepia(-100%);  
+  }
+
+.wrapper {
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-left: 1.8px solid #888888;
+  padding-left: 3rem;
+  line-height: 3.8rem;
+  line-height: 100%;
+}
+.paragraph{
+    z-index: 2;
+    line-height: 3rem;
+    font-size: 2rem;
+    font-weight: 3.8rem;
+}
+.name {
+  margin-top: 2.4rem;
+  font-family: "Lato";
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 17px;
+  line-height: 100%;
+  vertical-align: Top;
+  color: #888888;
+}
+
+.role {
+  color: #ffffff;
+  font-style: bold;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .section {
+    padding-block: 10.4rem;
+    padding-inline: 16.5rem;
+  }
+  .imageContainer {
+    width: 7rem;
+    height: 5rem;
+    top: 0;
+    left: 5;
+  }
+}

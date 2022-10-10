@@ -24,12 +24,12 @@ export const Team = ({
   const router = useRouter();
 
   const swiperOptions: SwiperOptions = {
-    // spaceBetween: 10,
-    // slidesPerView: isMobile ? 1 : 3,
-    // loop: false,
-    // touchMoveStopPropagation: isMobile,
-    // rewind: false,
-    // centeredSlides: false,
+    spaceBetween: 10,
+    slidesPerView: isMobile ? 1 : 3,
+    loop: true,
+    touchMoveStopPropagation: isMobile,
+    rewind: true,
+    centeredSlides: true,
   };
 
   /* A React hook that is used to memoize a function. */
@@ -45,36 +45,39 @@ export const Team = ({
         <div>
           {isMobile ? (
             <Swiper
+            className={style.swiper}
               {...swiperOptions}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
             >
-              {employees.map((employee) => (
-                <SwiperSlide className={style.slider} key={employee.id}>
-                  <div slot="container-start" className={style.partnerCard}>
-                    <div className={style.partnerPic}>
-                      <Image
-                        priority
-                        quality={100}
-                        src={employee.imagePath}
-                        alt={employee.fullName}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition={"0 -52px"}
-                        placeholder="blur"
-                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII="
-                      />
+              {
+                employees.map((employee) => (
+                  <SwiperSlide className={style.slider} key={employee.id}>
+                    <div slot="container-start" className={style.partnerCard}>
+                      <div className={style.partnerPic}>
+                        <Image
+                          priority
+                          quality={100}
+                          src={employee.imagePath}
+                          alt={employee.fullName}
+                          layout="fill"
+                          objectFit="cover"
+                          objectPosition={"0 -52px"}
+                          placeholder="blur"
+                          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII="
+                        />
+                      </div>
+                      <div className={style.textWrapper}>
+                        <h3 className={style.name}>{employee.fullName}</h3>
+                        <p className={style.role}>
+                          {employee.jobPositionEN || employee.jobPositionES}
+                        </p>
+                      </div>
                     </div>
-                    <div className={style.textWrapper}>
-                      <h3 className={style.name}>{employee.fullName}</h3>
-                      <p className={style.role}>
-                        {employee.jobPositionEN || employee.jobPositionES}
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
+                  </SwiperSlide>
+                ))
+              }
             </Swiper>
           ) : (
             <div className={style.grid}>
