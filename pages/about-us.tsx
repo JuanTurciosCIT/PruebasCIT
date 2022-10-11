@@ -12,6 +12,7 @@ import { CareerContentService } from "utils/services/CareerContentService";
 import { HeroFooter } from "@/shared/HeroFooter";
 import { Team } from "components/AboutUs/Team";
 import CeoComment from "components/AboutUs/Ceo-comment";
+import Customer from "components/AboutUs/Customers";
 
 const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero, employees }) => {
     return <Layout footerContent={ footerContent }>
@@ -20,6 +21,7 @@ const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero
         <MisionVisionComponent />
         <CeoComment />
         <TheTeam employees={employees} />
+        <Customer />
         <HeroFooter content={footerHero} />
     </Layout>
 }
