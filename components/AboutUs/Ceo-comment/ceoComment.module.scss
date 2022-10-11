@@ -24,9 +24,8 @@
 }
 
 .image{
-    filter: sepia(-100%);
-    -webkit-filter: sepia(-100%);  
-  }
+  filter: grayscale(100%) brightness(0.5) contrast(0.6);  
+}
 
 .wrapper {
 
@@ -58,6 +57,7 @@
 .role {
   color: #ffffff;
   font-style: bold;
+  padding-top: 0.5rem;
 }
 
 @media screen and (min-width: $breakpoint) {
