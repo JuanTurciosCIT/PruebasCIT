@@ -14,7 +14,7 @@ import { Team } from "components/AboutUs/Team";
 import CeoComment from "components/AboutUs/CeoComment";
 import Customer from "components/AboutUs/Customers";
 
-const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero, employees }) => {
+const  AboutUs: NextPage<AboutContent> = ({ aboutHero, metricContent, aboutMetrics, companyValue, coComment, employees, aboutCustomers, footerHero, footerContent }) => {
     return <Layout footerContent={ footerContent }>
         <AboutUsHero content={aboutHero} />
         <AboutUsMetrics />
