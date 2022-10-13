@@ -18,7 +18,7 @@ const  AboutUs: NextPage<AboutContent> = ({ aboutHero, metricContent, aboutMetri
     return <Layout footerContent={ footerContent }>
         <AboutUsHero content={aboutHero} />
         <AboutUsMetrics content={metricContent} metrics={aboutMetrics} />
-        <MisionVisionComponent />
+        <MisionVisionComponent content={companyValue}/>
         <CeoComment />
         <TheTeam employees={employees}/>
         <Customer />
