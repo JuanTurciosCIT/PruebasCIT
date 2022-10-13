@@ -20,7 +20,7 @@ export const TheTeam = ({ employees, theme }: { employees: CareerEmployeeInterfa
 	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
   const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
-  const { t } = useTranslation(localeNamespaces.CAREER);
+  const { t } = useTranslation(localeNamespaces.ABOUT_US);
 	const router = useRouter();
 
   const swiperOptions: SwiperOptions = {

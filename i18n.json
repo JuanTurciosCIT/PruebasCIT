@@ -6,6 +6,7 @@
     "/": ["home"],
     "/caseStudies": ["caseStudies"],
     "/caseStudies/[csid]": ["caseStudies"],
-    "/career": ["career"]
+    "/career": ["career"],
+    "/about-us" : ["about-us"]
   }
 }

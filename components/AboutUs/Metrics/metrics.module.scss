@@ -1,74 +1,81 @@
-@use '/styles/variables.scss' as *;
-@use '/styles/utils.module.scss' as *;
+@use "/styles/variables.scss" as *;
+@use "/styles/utils.module.scss" as *;
 
-.section{
-    padding-inline: 5rem;
-    padding-block: 5rem;
+.section {
+  padding-inline: 5rem;
+  padding-block: 5rem;
 }
 
-.wrapper{
-    display: flex; 
-    flex-direction: column;
-    gap: 3rem;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
-.descriptionContainer{
-    display: flex;
-    flex-direction: column; 
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
 
-    h1{
-        color: $primaryTextColor;
-        text-align: start;
-    }
-    p{
-        color: $secondaryTextColor;
-    }
+  .title {
+    color: $primaryTextColor;
+    text-align: start;
+    font-family: $headingFont;
+    font-size: 4.2rem;
+    line-height: 4.2rem;
+    font-weight: 700;
+  }
+  p {
+    color: $secondaryTextColor;
+    font-family: $mainFont;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
-.metricsContainer{
+.metricsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5rem;
-   
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;     
-        min-width: 10.5rem;
-    }
+    justify-content: center;
+    min-width: 10.5rem;
+  }
 
-    div:nth-last-child(1) {
-        border: none;    
-    }
+  div:nth-last-child(1) {
+    border: none;
+  }
 
-    h3{
-        @include HeadingLarge($primaryTextColor, 4.8rem);
-        line-height: 118%;
-    }
-    
-    p{
-        @include TextSmall($secondaryTextColor);
-        line-height: 1.2rem;
-        text-align: start;
-    }
-}  
+  h3 {
+    @include HeadingLarge($primaryTextColor, 4.8rem);
+    line-height: 118%;
+  }
 
-@media screen and (min-width: $breakpoint){
-    .section{
-        padding:  104px 165px 64px;
-        gap: 4.8rem
-    }
-    .wrapper{
-        flex-direction: row;
-    }
-    .metricsContainer{
-        flex-direction: row;
-        gap: 3rem;
-        div{
-            border-right: 1px solid $thirdBackgroundColor;
-            padding-inline: 3.2rem;
-        }
-
-    }
+  p {
+    @include TextSmall($secondaryTextColor);
+    line-height: 1.2rem;
+    text-align: start;
+  }
 }
 
+@media screen and (min-width: $breakpoint) {
+  .section {
+    padding-inline: 16.5rem;
+    padding-block: 10.4rem;
+    gap: 4.8rem;
+  }
+  .wrapper {
+    flex-direction: row;
+  }
+  .metricsContainer {
+    flex-direction: row;
+    gap: 3rem;
+    div {
+      border-right: 1px solid $thirdBackgroundColor;
+      padding-inline: 3.2rem;
+    }
+  }
+}

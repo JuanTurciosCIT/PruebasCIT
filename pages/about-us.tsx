@@ -10,13 +10,18 @@ import { MisionVisionComponent } from "components/AboutUs/MisionVision";
 import { TheTeam } from "@/shared/TheTeam";
 import { CareerContentService } from "utils/services/CareerContentService";
 import { HeroFooter } from "@/shared/HeroFooter";
+import { Team } from "components/AboutUs/Team";
+import CeoComment from "components/AboutUs/CeoComment";
+import Customer from "components/AboutUs/Customers";
 
-const  AboutUs: NextPage<AboutContent> = ({ aboutHero, footerContent, footerHero, employees }) => {
+const  AboutUs: NextPage<AboutContent> = ({ aboutHero, metricContent, aboutMetrics, companyValue, coComment, employees, aboutCustomers, footerHero, footerContent }) => {
     return <Layout footerContent={ footerContent }>
         <AboutUsHero content={aboutHero} />
-        <AboutUsMetrics />
+        <AboutUsMetrics content={metricContent} metrics={aboutMetrics} />
         <MisionVisionComponent />
-        <TheTeam employees={employees} theme='theme2' />
+        <CeoComment />
+        <TheTeam employees={employees}/>
+        <Customer />
         <HeroFooter content={footerHero} />
     </Layout>
 }
