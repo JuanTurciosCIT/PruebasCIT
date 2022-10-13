@@ -4,5 +4,9 @@
     },
     "team": {
         "title": "Meet Our team"
+    },
+    "companyValues": {
+        "mision": "Our Mision",
+        "vision": "Our Vision"
     }
 }
