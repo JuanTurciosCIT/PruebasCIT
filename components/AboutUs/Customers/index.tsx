@@ -64,7 +64,7 @@ function Customer({ content }: {content:AboutCustomers}) {
                     </Image>
                     </div>
                     <div className={styles.hexagon}>
-                    <Image className={styles.image} 
+                        <Image className={styles.image} 
                             src={content.customersImagePaths[4]} 
                             alt={'Customer image'}
                             width={70}
