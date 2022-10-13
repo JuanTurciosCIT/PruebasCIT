@@ -17,6 +17,12 @@
   margin-bottom: 4.7rem;
 }
 
+.captionName{
+  font-size: 12px;
+  color: $captionTextColor;
+  letter-spacing: 1px;
+}
+
 .feedbackCard {
   position: relative;
   padding: 1.2rem 2.1rem;
@@ -42,7 +48,7 @@
 .name {
   color: $primaryTextColor;
   font-size: 1.9rem;
-  margin-bottom: 2rem;
+  
 }
 
 .comment {
@@ -59,6 +65,9 @@
 
 .info {
   margin-top: 6rem;
+  .infoHeader{
+    margin-bottom: 1rem;
+  }
 }
 
 @media screen and (min-width: $breakpoint) {
