@@ -17,10 +17,10 @@ import Customer from "components/AboutUs/Customers";
 const  AboutUs: NextPage<AboutContent> = ({ aboutHero, metricContent, aboutMetrics, companyValue, coComment, employees, aboutCustomers, footerHero, footerContent }) => {
     return <Layout footerContent={ footerContent }>
         <AboutUsHero content={aboutHero} />
-        <AboutUsMetrics />
+        <AboutUsMetrics content={metricContent} metrics={aboutMetrics} />
         <MisionVisionComponent />
         <CeoComment />
-        <TheTeam employees={employees} />
+        <TheTeam employees={employees}/>
         <Customer />
         <HeroFooter content={footerHero} />
     </Layout>

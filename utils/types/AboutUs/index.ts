@@ -4,9 +4,9 @@ import { AboutHeroInterface, AboutMetric, AboutCompanyValue, AboutMetricContent,
 
 export interface AboutContent {
     aboutHero: AboutHeroInterface;
-    metricContent?: AboutMetricContent;
-    aboutMetrics?: AboutMetric[];
-    companyValue?: AboutCompanyValue;
+    metricContent: AboutMetricContent;
+    aboutMetrics: AboutMetric[];
+    companyValue: AboutCompanyValue;
     coComment? : AboutCoComment;
     employees: CareerEmployeeInterface[];
     aboutCustomers?: AboutCustomers;

@@ -6,12 +6,6 @@ export interface AboutHeroInterface {
     imagePath: string;
 }
 
-export interface AboutMetricsInterface{
-    prefix: string;
-    descriptionEN:string;
-    descriptionES:string;
-    value: number;
-}
 export interface AboutMetricContent {
     id:         number;
     created_at: string;

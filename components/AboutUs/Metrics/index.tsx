@@ -1,38 +1,39 @@
+import { AboutMetric, AboutMetricContent } from 'utils/types/AboutUs/aboutUsContent.interfaces'
 import styles from './metrics.module.scss'
+import { ScrollReveal } from 'Animations/ScrollReveal';
+import { useInView } from 'react-intersection-observer';
 
 
 
-export const AboutUsMetrics = () => {
+export const AboutUsMetrics = ({ content, metrics }: {content: AboutMetricContent, metrics:AboutMetric[] } ) => {
+    const { inView, entry, ref } = useInView();
+    return ( 
+        <section className={styles.section} ref={ref}>
+			<ScrollReveal isVisible={inView}> 
+                <div className={styles.wrapper}>
 
-    return (
-        <section className={styles.section}>
-            <div className={styles.wrapper}>
+                    <div className={styles.descriptionContainer}>
+                        <p className={styles.title}>{content.titleES || content.titleEN}</p>
+                        <p>{content.captionEN || content.captionES}</p>
+                    </div>
+                    {/*       Metrics     */}
+                    <div className={styles.metricsContainer}>  
 
-                <div className={styles.descriptionContainer}>
-                    <p className={styles.title}>Top Experters working with you</p>
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+                        {
+                            metrics.map((metric) => (
+                                <div>
+                                    <h3 className={styles.metricTitle}>{ metric.prefix === '+'? metric.prefix + metric.value : metric.value + metric.prefix}</h3>
+                                    <p>{metric.descriptionEN || metric.descriptionES}</p>
+                                </div>   
+                            ))
+                        }          
+                                            
+                    </div>
+
                 </div>
-                <div className={styles.metricsContainer}>
-                    <div>
-                        <h3 className={styles.metricTitle}>+102</h3>
-                        <p>Clients around the globe</p>
-                    </div>
-                    <div>
-                        <h3 className={styles.metricTitle}>+48</h3>
-                        <p>Seniors collaborators</p>
-                    </div>
-                    <div>
-                        <h3 className={styles.metricTitle}>15k</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <div>
-                        <h3 className={styles.metricTitle}>+5</h3>
-                        <p>Years of experience</p>
-                    </div>
-                    
-                </div>
+            
+            </ScrollReveal>
 
-            </div>
         </section>
     )
 }
