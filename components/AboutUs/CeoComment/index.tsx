@@ -9,7 +9,7 @@ function CeoComment() {
 
         <div className={styles.wrapper}>
             <div className={styles.imageContainer}>
-             <Image src={doubleQuotes} className={styles.image}/>
+             <Image src={doubleQuotes} alt='Team image' className={styles.image}/>
             </div>
             <p className={styles.paragraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus ex in lacus commodo, <strong>Non Rhoncus Lorem Egestas.</strong>  In posuere erat sit amet turpis <strong>Pulvinar Rhoncus</strong> pulvinar rhoncus. Aenean fringilla fermentum efficitur.

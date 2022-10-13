@@ -21,7 +21,7 @@ export const AboutUsMetrics = ({ content, metrics }: {content: AboutMetricConten
 
                         {
                             metrics.map((metric) => (
-                                <div>
+                                <div key={metric.id}>
                                     <h3 className={styles.metricTitle}>{ metric.prefix === '+'? metric.prefix + metric.value : metric.value + metric.prefix}</h3>
                                     <p>{metric.descriptionEN || metric.descriptionES}</p>
                                 </div>   
