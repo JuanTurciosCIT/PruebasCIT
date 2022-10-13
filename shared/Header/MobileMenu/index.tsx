@@ -70,25 +70,8 @@ export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 						</li>
 					))}
 					<li className={utils.textSmall}>
-						{isAtHome ? (
-							<CustomButton>{t('shared.btn_text')}</CustomButton>
-						) : (
-							<CustomButton>{t('header.sign_up')}</CustomButton>
-						)}
-						{!isAtHome && (
-							<div className={`${utils.textSmall} ${styles.backToHome}`}>
-								<Image
-									className={styles.arrowLeft}
-									src={arrowRightIcon}
-									alt='Arrow left Icon'
-									width={24}
-									height={24}
-								/>
-								<Link href='/' className={styles.backToHome}>
-									{t('header.back_to_home')}
-								</Link>
-							</div>
-						)}
+            <CustomButton>{t('shared.btn_text')}</CustomButton>
+						
 					</li>
 				</ul>
 				<div ref={ref}>

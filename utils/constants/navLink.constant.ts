@@ -5,12 +5,12 @@ export const navLinks: NavLink[] = [
   {
     localeName: 'home',
     path: '/',
-    visibleIn: [Pages.HOME, Pages.ABOUT_US],
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
     localeName: 'our_services',
-    path: '#services',
-    visibleIn: [Pages.HOME, Pages.ABOUT_US],
+    path: '/#services',
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   // {
   //   localeName: 'career',
@@ -20,36 +20,31 @@ export const navLinks: NavLink[] = [
   {
     localeName: 'about_us',
     path: '/about-us',
-    visibleIn: Pages.HOME,
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
     localeName: 'careers',
     path: '/career',
-    visibleIn: [Pages.HOME, Pages.ABOUT_US, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
+    localeName: 'contact_us',
+    path: '#ContactUs',
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
+  }
+/*   {
     localeName: 'jobs',
     path: '/jobs',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
     localeName: 'benefits',
     path: '#benefits',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
     localeName: 'support',
     path: '#support',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES],
-  },
-  {
-    localeName: 'sign_in',
-    path: '/signin',
-    visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.CASE_STUDIES, Pages.SERVICES],
-  },
-  // {
-  //   localeName: 'create_account',
-  //   path: '/createAccount',
-  //   visibleIn: [Pages.CAREER, Pages.JOBS, Pages.JOB_DESCRIPTION, Pages.CASE_STUDIES, Pages.SERVICES, Pages.ABOUT_US],
-  // }
+    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
+  } */
 ];

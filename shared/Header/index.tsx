@@ -47,9 +47,11 @@ export const Header = () => {
 	const bgColor = useHeaderBgOnScroll();
 
 	const headerLinks = navLinks.filter((link) => {
+    
 		const pathname: Pages = router.pathname as Pages;
 		return link.visibleIn.includes('/' + pathname.split('/')[1] as Pages);
 	});
+
 
 	const toggleDropdownMenu = () => setDropdownMenu(!dropdownMenu);
 	const toggleMobileMenu = () => setMobileMenu(!mobileMenu);
@@ -69,18 +71,20 @@ export const Header = () => {
 			<>
 				<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : '#1F1F1F'}`}}>
 					<div className={styles.logo}>
-						<Image
-							quality={100}
-							priority={isMobile}
-							width={148}
-							// layout='fill'
-							// objectFit='cover'
-							src={CreativeLogo}
-							alt='Creative Logo'
-							// loading='eager'
-							placeholder='blur'
-							blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-						/>
+            <Link href={'/'} >
+              <Image
+                quality={100}
+                priority={isMobile}
+                width={148}
+                // layout='fill'
+                // objectFit='cover'
+                src={CreativeLogo}
+                alt='Creative Logo'
+                // loading='eager'
+                placeholder='blur'
+                blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+              />
+            </Link>
 					</div>
 
 					{/* onClick => openMobileMenu  */}
@@ -102,19 +106,21 @@ export const Header = () => {
 
 	return (
 		<header className={styles.header} style={{background: `${(!isAtHome && !bgColor) ? 'none' : '#1F1F1F'}`}}>
-			<div className={styles.logo}>
-				<Image
-					quality={100}
-					priority={!isMobile}
-					// layout='fill'
-					// objectFit='cover'
-					width={161}
-					// loading='eager'
-					src={CreativeLogo}
-					alt='Creative Logo'
-					placeholder='blur'
-					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
-				/>
+			<div className={styles.logo + ' cursor-pointer'}>
+        <Link href={'/'} >
+          <Image
+            quality={100}
+            priority={!isMobile}
+            // layout='fill'
+            // objectFit='cover'
+            width={161}
+            // loading='eager'
+            src={CreativeLogo}
+            alt='Creative Logo'
+            placeholder='blur'
+            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+          />
+        </Link>
 			</div>
 
 			<nav className={styles.navContainer}>
@@ -122,32 +128,12 @@ export const Header = () => {
 					{headerLinks.map((link, index) => (
 						<li className={utils.textSmall} key={link.path + index}>
 							<Link href={link.path}>
+                
 								{t('header.' + link.localeName)}
 							</Link>
 						</li>
 					))}
-					<li className={utils.textSmall}>
-						{isAtHome ? (
-							<CustomButton>{t('shared.btn_text')}</CustomButton>
-						) : (
-							<CustomButton>{t('header.sign_up')}</CustomButton>
-						)}
-						{!isAtHome && (
-							<div className={`${utils.textSmall} ${styles.backToHome}`}>
-								<Image
-									quality={70}
-									className={styles.arrowLeft}
-									src={arrowRightIcon}
-									alt='Arrow left Icon'
-									width={24}
-									height={24}
-								/>
-								<Link href='/' className={styles.backToHome}>
-									{t('header.back_to_home')}
-								</Link>
-							</div>
-						)}
-					</li>
+					
 				</ul>
 				<div className={utils.textSmall} ref={ref}>
 					<button className={styles.dropDown} onClick={toggleDropdownMenu}>
