@@ -71,7 +71,7 @@ export const AboutUsService = {
         const {data, error} = await supabase
         .from('AboutCustomer')
         .select(
-             `customerIds, ${isEnglish? 'titleEN, captionEN' : 'titleES, captionES'}`
+             `customersImagePaths, ${isEnglish? 'titleEN, captionEN' : 'titleES, captionES'}`
             ).single();
             if (error){
                 console.log('An error has occurred while fetching about us customers data');

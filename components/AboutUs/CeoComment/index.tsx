@@ -14,8 +14,6 @@ function CeoComment({content}: {content: AboutCoComment}) {
             </div>
             <p className={styles.paragraph}>
               {content.captionEN || content.captionES}
-
-              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus ex in lacus commodo, <strong>Non Rhoncus Lorem Egestas.</strong>  In posuere erat sit amet turpis <strong>Pulvinar Rhoncus</strong> pulvinar rhoncus. Aenean fringilla fermentum efficitur. */}
             </p>
             <p className={styles.name}>
                {content.coName}

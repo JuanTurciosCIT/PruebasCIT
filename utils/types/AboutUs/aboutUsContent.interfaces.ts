@@ -55,5 +55,5 @@ export interface AboutCustomers {
     titleES:     string;
     captionES:   string;
     captionEN:   string;
-    customerIds: number[];
+    customersImagePaths: string[];
 }
