@@ -43,7 +43,7 @@
       z-index: 2;
       position: absolute;
       width: 70%;
-      height: 40%;
+      height: auto;
       filter: grayscale(100%) brightness(0.8) contrast(0.4);
     }
   }
@@ -132,15 +132,24 @@
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
   color: #ffff;
-  gap: 1rem;
+  gap: 2rem;
 
   .title {
     font-family: $headingFont;
     font-weight: 400;
+    font-size: 42px;
+    line-height: 42px;
+    text-transform: capitalize;
+  }
+
+  .titleSmall{
+    font-family: $mainFont;
+    font-weight: 250;
     font-size: 42px;
     line-height: 42px;
     text-transform: capitalize;
@@ -152,6 +161,11 @@
     font-size: 14px;
     line-height: 17px;
   }
+}
+.btn{
+  position: absolute;
+  bottom: -100px;
+  left: 0;
 }
 
 @media screen and (min-width: $breakpoint) {
