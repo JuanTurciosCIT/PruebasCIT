@@ -17,7 +17,7 @@ export const Team = ({
 }: {
   employees: CareerEmployeeInterface[];
 }) => {
-  const isMobile: boolean = useMediaQuery("(max-width: 432px)");
+  const isMobile: boolean = useMediaQuery("(max-width: 599px)");
   const swiper = useSwiper();
   const swiperRef = useRef(swiper);
   const { t } = useTranslation(localeNamespaces.CAREER);

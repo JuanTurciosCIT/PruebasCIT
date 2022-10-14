@@ -18,7 +18,7 @@ const Masonry = dynamic(() => import('react-smart-masonry'), {
 });
 
 export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { t } = useTranslation(localeNamespaces.CAREER);
 	const { inView, ref } = useInView();
 

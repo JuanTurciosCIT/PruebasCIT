@@ -1,5 +1,5 @@
 @use 'styles/variables.scss' as *;
-
+@import '../../../styles/breakpoints.scss';
 .techSectionWrapper {
   background-color: $secondBackgroundColor;
   padding-inline: 3.7rem;
@@ -16,7 +16,21 @@
 
   .info {
     max-width: 38rem;
+    @include media-breakpoint("xs"){
+      max-width: 100%;
+    }
   }
+}
+
+.containerAtomo{
+
+  
+  @include media-breakpoint("xs"){
+    min-width: 14rem;
+  }
+  flex: 1;
+  display: flex;
+
 }
 
 .title {
@@ -34,6 +48,8 @@
   flex-direction: column;
   gap: 2rem;
   height: 38rem;
+ 
+
 }
 
 @media screen and (min-width: $breakpoint) {

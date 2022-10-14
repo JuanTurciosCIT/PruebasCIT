@@ -74,13 +74,16 @@ export const Technologies = ({
 					</div>
 
 					{/* Atom of technologies */}
-					<TechnologiesAtom
-						innerRingTechnologies={innerRingTechnologies}
-						middleRingTechnologies={middleRingTechnologies}
-						outerRingTechnologies={outerRingTechnologies}
-						currentTech={currentTech}
-						handleTechClick={handleTechClick}
-					/>
+          <div className={styles.containerAtomo} >
+
+            <TechnologiesAtom
+              innerRingTechnologies={innerRingTechnologies}
+              middleRingTechnologies={middleRingTechnologies}
+              outerRingTechnologies={outerRingTechnologies}
+              currentTech={currentTech}
+              handleTechClick={handleTechClick}
+            />
+          </div>
 				</div>
 			</section>
 		</ScrollReveal>

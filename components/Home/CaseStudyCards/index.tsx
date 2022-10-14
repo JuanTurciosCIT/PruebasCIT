@@ -14,7 +14,7 @@ import utils from '@/styles/utils.module.scss';
 import { CaseStudyCard } from 'utils/types/homeContent.interface';
 
 export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
