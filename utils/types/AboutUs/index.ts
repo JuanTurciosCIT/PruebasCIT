@@ -7,9 +7,9 @@ export interface AboutContent {
     metricContent: AboutMetricContent;
     aboutMetrics: AboutMetric[];
     companyValue: AboutCompanyValue;
-    coComment? : AboutCoComment;
+    coComment : AboutCoComment;
     employees: CareerEmployeeInterface[];
-    aboutCustomers?: AboutCustomers;
+    aboutCustomers: AboutCustomers;
     footerHero: FooterHeroSection;
     footerContent: FooterSection;
 }

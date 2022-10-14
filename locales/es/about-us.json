@@ -4,6 +4,10 @@
     },
     "team": {
         "title": "Conozca a nuestro equipo"
+    },
+    "companyValues": {
+        "mision": "Misión",
+        "vision": "Vision"
     }
 
 }

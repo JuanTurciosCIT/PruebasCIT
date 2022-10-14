@@ -39,10 +39,13 @@
 }
 .paragraph{
     z-index: 2;
-    line-height: 3rem;
-    font-size: 2rem;
-    font-weight: 3.8rem;
+    line-height: 3.8rem;
+    font-size: 3.2rem;
+    font-weight: 3rem;
     color: #FFFFFF;
+    font-family: $mainFont;
+    font-style: normal;
+    text-transform: capitalize;
 }
 .name {
   margin-top: 2.4rem;
@@ -64,7 +67,7 @@
 @media screen and (min-width: $breakpoint) {
   .section {
     padding-block: 10.4rem;
-    padding-inline: 24rem;
+    padding-inline: 16.5rem;
   }
   .imageContainer {
     width: 7rem;
