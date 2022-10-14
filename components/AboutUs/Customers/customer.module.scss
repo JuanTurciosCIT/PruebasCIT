@@ -34,7 +34,7 @@
     justify-content: center;
     width: 10rem;
     height: 5.65rem;
-    background: #1f1f1f;
+    background: $secondBackgroundColor;
     position: relative;
     margin: 0.4rem;
     border-radius: 2px;
@@ -43,7 +43,7 @@
       z-index: 2;
       position: absolute;
       width: 70%;
-      height: 40%;
+      height: auto;
       filter: grayscale(100%) brightness(0.8) contrast(0.4);
     }
   }
@@ -53,7 +53,7 @@
     content: "";
     width: 100%;
     height: 100%;
-    background: #1f1f1f;
+    background: $secondBackgroundColor;
     position: absolute;
   }
 
@@ -70,8 +70,8 @@
   .hexagon:after {
     // background: transparent;
     // border: 1px solid #fff;
-    border-left: 1px solid rgb(97, 97, 97);
-    border-right: 1px solid rgb(97, 97, 97);
+    border-left: 1.5px solid rgb(97, 97, 97);
+    border-right: 1.5px solid rgb(97, 97, 97);
     border-radius: 2px;
   }
 
@@ -132,15 +132,24 @@
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
   color: #ffff;
-  gap: 1rem;
+  gap: 2rem;
 
   .title {
     font-family: $headingFont;
     font-weight: 400;
+    font-size: 42px;
+    line-height: 42px;
+    text-transform: capitalize;
+  }
+
+  .titleSmall{
+    font-family: $mainFont;
+    font-weight: 250;
     font-size: 42px;
     line-height: 42px;
     text-transform: capitalize;
@@ -153,14 +162,19 @@
     line-height: 17px;
   }
 }
+.btn{
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+}
 
 @media screen and (min-width: $breakpoint) {
   .wrapper {
     flex-direction: row;
   }
   .section {
-    padding-inline: 25rem;
-    padding-block: 20rem;
+    padding-inline: 10.4rem;
+    padding-block: 16.5rem;
   }
 
   .customers {

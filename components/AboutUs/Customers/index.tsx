@@ -3,16 +3,14 @@ import styles from './customer.module.scss';
 import { CustomButton } from '@/shared/CustomButton';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import useTranslation from 'next-translate/useTranslation';
-import kfc from 'public/images/kfc-logo.png';
-import pizza from  'public/images/pizzahut-logo.png'
-import pepsi from  'public/images/pepsi-logo.png'
-import dennys from  'public/images/dennys-logo.png'
-import gatorade from  'public/images/gaterode-logo.png'
+
 
 import Image from 'next/future/image';
+import { AboutCustomers } from 'utils/types/AboutUs/aboutUsContent.interfaces';
 
-function Customer() {
+function Customer({ content }: {content:AboutCustomers}) {
     const { t } = useTranslation(localeNamespaces.ABOUT_US);
+    const titleSplit = content.titleEN?.split(',') ||  content.titleES?.split(',');
   return (
     <section className={styles.section}>
        
@@ -24,31 +22,62 @@ function Customer() {
 
                 <div className={styles.hexagonC1}>
                     <div className={styles.hexagon}>
-                        <Image className={styles.image} src={kfc} alt={''}></Image>
+                        <Image className={styles.image} 
+                            src={content.customersImagePaths[0]} 
+                            alt={'Customer image'}
+                            width={70}
+                            height={80}>
+
+                        </Image>
+
                     </div>
                     <div className={styles.hexagon}>
-                        <Image className={styles.image} src={pizza} alt={''}></Image>
+                    <Image className={styles.image} 
+                            src={content.customersImagePaths[1]} 
+                            alt={'Customer image'}
+                            width={70}
+                            height={80}>
+
+                        </Image>
                     </div>
                     <div className={styles.hexagon}>
-                        <Image className={styles.image} src={gatorade} alt={''}></Image>
+                    <Image className={styles.image} 
+                            src={content.customersImagePaths[2]} 
+                            alt={'Customer image'}
+                            width={70}
+                            height={80}>
+
+                        </Image>
                     </div>
                 </div>          
                 <div className={styles.hexagonC1}>
                     <div className={styles.hexagon}>
-                        <Image className={styles.image} src={pepsi} alt={''}></Image>
+                    <Image className={styles.image} 
+                            src={content.customersImagePaths[3]} 
+                            alt={'Customer image'}
+                            width={70}
+                            height={80}>
+
+                    </Image>
                     </div>
                     <div className={styles.hexagon}>
-                        <Image className={styles.image} src={dennys} alt={''}></Image>
+                        <Image className={styles.image} 
+                            src={content.customersImagePaths[4]} 
+                            alt={'Customer image'}
+                            width={70}
+                            height={80}>
+
+                        </Image>
                     </div>
                 </div>          
             </div>
             <div className={styles.content}>
-                <p className={styles.title}>More than customers,You Will Be Our Partner</p>
-
-                <p className={styles.paragraph}>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
-                <CustomButton>{t('shared.btn_text')}</CustomButton>
+                <p className={styles.titleSmall}>{content.titleSmallEN || content.titleSmallES}</p>
+                <p className={styles.title}>{content.titleEN || content.titleES}</p>
+                <p className={styles.paragraph}>{content.captionEN || content.captionES}</p>
+                <div className={styles.btn}>
+                    <CustomButton>{t('shared.btn_text')}</CustomButton>
+                </div>
             </div>
         </div>
     </section>
