@@ -112,7 +112,7 @@ export const CustomerFeedback = ({
                     <h3 className={`${utils.headingMedium} ${styles.name}`}>
                       {item.name}
                     </h3>
-                    <p  className={styles.captionName}>Creative Information Technologies</p>
+                    <p  className={styles.captionName}>{item.companyName}</p>
                   </section>
 
 									<p className={styles.comment}>
