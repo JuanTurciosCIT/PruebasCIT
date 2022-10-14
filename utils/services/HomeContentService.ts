@@ -114,9 +114,10 @@ export const HomeContentService = {
 		const isEnglish = locale === 'en';
 		const { data, error } = await supabase
 			.from<CustomerFeedbackSection>('CustomerFeedback')
-			.select(`id, name, rate, ${isEnglish ? 'commentEN' : 'commentES'}, picture, isVisible`)
+			.select(`id, name, rate, ${isEnglish ? 'commentEN' : 'commentES'}, picture, isVisible, companyName`)
 			.eq('isVisible', true);
 
+      console.log(data)
 		if (error) {
 			console.log(
 				'An error occurred while fetching the customer feedback content: ',

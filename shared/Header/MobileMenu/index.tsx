@@ -36,6 +36,7 @@ export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 	const [dropdownMenu, setDropdownMenu] = useState(false);
 	const [currentLocale, setCurrentLocale] = useState<'English' | 'Español'>(
 		router.locale === 'en' ? 'English' : 'Español'
+
 	);
 	const { t } = useTranslation(localeNamespaces.common);
 
@@ -64,32 +65,17 @@ export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 				<ul className={styles.navMenu}>
 					{navLinks.map((link, index) => (
 						<li className={utils.textSmall} key={link.path + index}>
-							<Link href={link.path}>
-								{t('header.' + link.localeName)}
-							</Link>
+
+              {navLinks.length - 1 === index ?
+                <CustomButton>{t('shared.btn_text')}</CustomButton>
+                :
+                <Link href={link.path}>
+                  {t('header.' + link.localeName)}
+                </Link>
+              }
+							
 						</li>
 					))}
-					<li className={utils.textSmall}>
-						{isAtHome ? (
-							<CustomButton>{t('shared.btn_text')}</CustomButton>
-						) : (
-							<CustomButton>{t('header.sign_up')}</CustomButton>
-						)}
-						{!isAtHome && (
-							<div className={`${utils.textSmall} ${styles.backToHome}`}>
-								<Image
-									className={styles.arrowLeft}
-									src={arrowRightIcon}
-									alt='Arrow left Icon'
-									width={24}
-									height={24}
-								/>
-								<Link href='/' className={styles.backToHome}>
-									{t('header.back_to_home')}
-								</Link>
-							</div>
-						)}
-					</li>
 				</ul>
 				<div ref={ref}>
 					<button

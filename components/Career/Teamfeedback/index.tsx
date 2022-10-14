@@ -19,7 +19,7 @@ export const TeamFeedback = ({
 }: {
 	feedback: CareerEmployeeFeedbackInterface[];
 }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.CAREER);
 

@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 export const TheTeam = ({ employees, theme }: { employees: CareerEmployeeInterface[], theme?: 'theme1' | 'theme2' }) => {
 	const chosenTheme = theme === 'theme1' ? theme1 : theme2;
 
-	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
   const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
   const { t } = useTranslation(localeNamespaces.ABOUT_US);

@@ -14,7 +14,7 @@ interface CaseStudyHeroProps {
 }
 
 export const CaseStudyHero = ({ heroContent }: { heroContent: CaseStudyHeroProps }) => {
-	const isMobile = useMediaQuery('(max-width: 432px)');
+	const isMobile = useMediaQuery('(max-width: 599px)');
 
 	return (
 		<section className={styles.hero}>

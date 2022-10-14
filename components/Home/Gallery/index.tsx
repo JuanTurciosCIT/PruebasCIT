@@ -17,7 +17,7 @@ const Masonry = dynamic(() => import('react-smart-masonry'), {
 });
 
 export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { t } = useTranslation(localeNamespaces.HOME);
 	const { inView, ref } = useInView();
 

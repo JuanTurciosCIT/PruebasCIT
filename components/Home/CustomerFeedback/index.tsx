@@ -20,7 +20,7 @@ export const CustomerFeedback = ({
 }: {
 	feedback: CustomerFeedbackSection[];
 }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.HOME);
 
@@ -68,6 +68,7 @@ export const CustomerFeedback = ({
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 									/>
 								</div>
+                {/* Card info*/}
 								<div className={styles.info}>
 									<div className={styles.stars}>
 										<Image
@@ -106,9 +107,14 @@ export const CustomerFeedback = ({
 											height={14}
 										/>
 									</div>
-									<h3 className={`${utils.headingMedium} ${styles.name}`}>
-										{item.name}
-									</h3>
+
+                  <section className={styles.infoHeader} >
+                    <h3 className={`${utils.headingMedium} ${styles.name}`}>
+                      {item.name}
+                    </h3>
+                    <p  className={styles.captionName}>{item.companyName}</p>
+                  </section>
+
 									<p className={styles.comment}>
 										{item.commentEN || item.commentES}
 									</p>

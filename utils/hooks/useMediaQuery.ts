@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-type MediaQuery = '(max-width: 432px)';
+type MediaQuery = '(max-width: 599px)';
 
 /**
  * It returns a boolean value that indicates whether the media query matches the current viewport

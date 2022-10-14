@@ -7,4 +7,6 @@ export enum localeNamespaces {
   CAREER = 'career',
   CASE_STUDIES = 'caseStudies',
   ABOUT_US = 'about-us',
+  ContactUs = 'contact_us',
+
 }

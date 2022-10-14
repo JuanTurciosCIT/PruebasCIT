@@ -18,7 +18,7 @@ import { ScrollReveal } from 'Animations/ScrollReveal';
 import { CaseStudyOurProcessInterface } from 'utils/types/caseStudy.interface';
 
 export const OurProcess = ({ content }: { content: CaseStudyOurProcessInterface[] }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 432px)');
+	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.CASE_STUDIES);
 

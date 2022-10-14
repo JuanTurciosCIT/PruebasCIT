@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export const AboutUsHero = ({ content }: { content: AboutHeroInterface }) => {
-  const isMobile = useMediaQuery("(max-width: 432px)");
+  const isMobile = useMediaQuery("(max-width: 599px)");
 
   return (
     <section className={styles.container} style={{backgroundImage: `url(${content.imagePath})`}}>

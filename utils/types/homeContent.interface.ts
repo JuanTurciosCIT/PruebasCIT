@@ -82,6 +82,7 @@ export interface CustomerFeedbackSection {
   picture: string;
   rate: number;
   isVisible: boolean;
+  companyName:string;
 }
 
 export interface PortfolioSection {

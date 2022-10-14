@@ -44,9 +44,7 @@ export async function getHomePageContent(
 	const caseStudies = await HomeContentService.getCaseStudiesContent(locale);
 	const customers = await HomeContentService.getCustomerContent();
 	const about = await HomeContentService.getAboutContent();
-	const customerFeedback = await HomeContentService.getCustomerFeedbackContent(
-		locale
-	);
+	const customerFeedback = await HomeContentService.getCustomerFeedbackContent(locale);
 	const portfolio = await HomeContentService.getPortfolioContent(locale);
 	const gallery = await HomeContentService.getGalleryContent(locale);
 	const footerHero = await CommonContentService.getHeroFooterContent(locale);
