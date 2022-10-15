@@ -8,6 +8,7 @@ import 'swiper/css';
 
 import styles from './careerGallery.module.scss';
 import utils from '@/styles/utils.module.scss';
+import { useState, useEffect } from "react";
 import SliderButtons from '@/shared/SliderButtons';
 import { useMediaQuery } from 'utils/hooks/useMediaQuery';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
@@ -15,7 +16,12 @@ import { ScrollReveal } from 'Animations/ScrollReveal';
 import { CareerOfficesInterface } from 'utils/types/careerContent.interface';
 
 export const CareerGallery = ({ content }: { content: CareerOfficesInterface[] }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
+  
+  const [[page, direction], setPage] = useState([0, 0]);
+  const [imageToShow, setImageToShow] = useState([]);
+  let index = 0;
+  
+  const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { ref, inView } = useInView();
 	const { t } = useTranslation(localeNamespaces.CAREER);
 
@@ -31,11 +37,51 @@ export const CareerGallery = ({ content }: { content: CareerOfficesInterface[] }
 		centeredSlides: true,
 	};
 
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
+  };
+
+  let slicesImagtes =(images:string[])=>{
+
+    let slices = images.length / 3;
+    let newArray:any;
+
+    let chunckArrayInGroups = (arr:any[], size:number) => {
+      let chunk = [], i; // declara array vacio e indice de for
+      for (i = 0; i <= arr.length; i+= size) // loop que recorre el array 
+        chunk.push(arr.slice(i, i + size)); // push al array el tramo desde el indice del loop hasta el valor size + el indicador 
+      return chunk;
+    }
+
+    newArray = chunckArrayInGroups(images,slices);
+    return newArray;
+  }
+
 	// const sortedProcess = content.sort((a, b) => a.order - b.order);
 
 	/* A React hook that is used to memoize a function. */
 	const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
 	const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
+
+  useEffect(()=>{
+
+    /* let showImag = slicesImagtes(content)
+    setImageToShow(showImag[index])
+    
+      const interval = setInterval(()=>{
+        index++;
+      
+        if(index >= 3){
+          index = 0;
+        }
+        
+        setImageToShow(showImag[index])
+        paginate(1);
+      },5000)  */
+    console.log(content)
+      //return () => clearInterval(interval);
+  
+  },[])
 
 	return (
 		<section className={styles.section} ref={ref}>
