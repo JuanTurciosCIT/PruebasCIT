@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';
+import { useState, useEffect } from "react";
 
 import { useMediaQuery } from 'utils/hooks/useMediaQuery';
 import utils from '@/styles/utils.module.scss';
@@ -10,6 +11,7 @@ import { ScrollReveal } from 'Animations/ScrollReveal';
 import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 import { CustomButton } from '@/shared/CustomButton';
 import { CareerHeroInterface } from 'utils/types/careerContent.interface';
+import 'animate.css'
 
 /* A way to import a component that is not SSR compatible. */
 const Masonry = dynamic(() => import('react-smart-masonry'), {
@@ -18,9 +20,57 @@ const Masonry = dynamic(() => import('react-smart-masonry'), {
 });
 
 export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
-	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
+	const [[page, direction], setPage] = useState([0, 0]);
+  const [imageToShow, setImageToShow] = useState([]);
+  let index = 0;
+
+  
+  const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { t } = useTranslation(localeNamespaces.CAREER);
 	const { inView, ref } = useInView();
+
+
+
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
+  };
+
+
+  let slicesImagtes =(images:string[])=>{
+
+    let slices = images.length / 3;
+    let newArray:any;
+
+    let chunckArrayInGroups = (arr:any[], size:number) => {
+      let chunk = [], i; // declara array vacio e indice de for
+      for (i = 0; i <= arr.length; i+= size) // loop que recorre el array 
+        chunk.push(arr.slice(i, i + size)); // push al array el tramo desde el indice del loop hasta el valor size + el indicador 
+      return chunk;
+    }
+
+    newArray = chunckArrayInGroups(images,slices);
+    return newArray;
+  }
+
+  useEffect(()=>{
+
+    let showImag = slicesImagtes(content.pathImages)
+    setImageToShow(showImag[index])
+    
+      const interval = setInterval(()=>{
+        index++;
+      
+        if(index >= 3){
+          index = 0;
+        }
+        
+        setImageToShow(showImag[index])
+        paginate(1);
+      },5000) 
+    
+      return () => clearInterval(interval);
+  
+  },[])
 
 	return (
 		<ScrollReveal isVisible={inView}>
@@ -42,15 +92,14 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 					columns={2}
 					gap={isMobile ? 15 : 20}
 				>
-					{content.pathImages.map((image, index) => (
+					{imageToShow.map((image, index) => (
 						<div className={styles[`${'picture'}${index + 1}`]} key={image}>
 							<Image
 								// priority
 								loading='eager'
-								quality={70}
 								src={image}
 								alt='gallery'
-								className={styles.picture}
+								className={styles.picture + ' animate__animated animate__bounceIn'}
 								layout='fill'
 								// loading='eager'
 								placeholder='blur'

@@ -13,6 +13,12 @@
     gap: 4rem;
 }
 
+
+.imageMotion{
+  height: 100%;
+  object-fit: cover;
+}
+
 .itemsContainer {
     display: flex;
     flex-wrap: wrap;
@@ -22,6 +28,12 @@
 .title {
     color: $primaryTextColor;
     text-align: left;
+}
+
+.transitionImage{
+  width: 100%;
+  height: 100%;
+  background-color: $thirdBackgroundColor;
 }
 
 .description {
