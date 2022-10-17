@@ -101,7 +101,7 @@ export const CareerGallery = ({ content }: { content: CareerOfficesInterface[] }
 						content.map((img) => (
 							<SwiperSlide key={img.id}>
                 <div className={styles.image}>
-                  <Image src={img.imagePath} alt='Offices' sizes='100vw' fill quality={80} priority placeholder='blur'
+                  <Image src={img.imagePath} alt='Offices' sizes='100vw' fill placeholder='blur'
 										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII=' />
                 </div>
 					    </SwiperSlide>
