@@ -26,6 +26,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     const aboutUsContent =  await getAboutUsContent(context.locale);
 
     return {
+        revalidate: 10,
         props: {
             ...aboutUsContent,
         }

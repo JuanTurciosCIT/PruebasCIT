@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import citLogo from '@/images/cit_logo.png';
+import citLogo from '@/images/cit-logo.png';
 import styles from './atom.module.scss';
 import { TechnologiesSection } from 'utils/types/commonContent.interface';
 
