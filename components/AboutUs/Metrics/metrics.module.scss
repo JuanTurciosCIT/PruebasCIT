@@ -35,7 +35,7 @@
 .metricsContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 15px;
+  //grid-gap: 15px;
   grid-auto-rows: minmax(100px, auto);
   //gap: 3rem;
 
@@ -48,7 +48,8 @@
     min-width: 10.5rem;
     border-right: 2px solid $thirdBackgroundColor;
     width: auto;
-    height: auto;
+    height: 82px;
+    padding: 15px;
   }
 
   div:nth-last-child(1) {
@@ -89,7 +90,7 @@
     }
     div:nth-last-child(3) {
       min-width: 10.5rem;
-    border-right: 1px solid $thirdBackgroundColor;
+      border-right: 1px solid $thirdBackgroundColor;
     }
     
   }
