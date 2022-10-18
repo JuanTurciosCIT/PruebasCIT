@@ -6,6 +6,16 @@
   padding-block: 7rem;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  justify-items: center;
+  margin-top: 5rem;
+  margin-inline: auto;
+  max-width: 1110px;
+}
+
 .title {
   color: $primaryTextColor;
   margin-bottom: 3.5rem;
@@ -18,15 +28,9 @@
   text-align: center;
 }
 
-.slider {
-  padding-block: 5rem;
-  display: grid;
-  place-items: center;
-}
-
 .partnerCard {
   width: min(27.9rem, 100%);
-  height: 26.1rem;
+  height: 30rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   filter: drop-shadow(0px -2px 10px rgba(0, 0, 0, 0.05)) drop-shadow(0px 6px 20px rgba(0, 0, 0, 0.05));
   border-radius: 2rem;
@@ -36,12 +40,14 @@
 .partnerPic {
   // position: absolute;
   position: relative;
-  width: 100%;
-  height: 16.5rem;
+  width: 17.2rem;
+  height: 15rem;
 
   img {
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
+    object-position: 0 -10px !important;
+    object-fit: cover !important;
   }
 
 }
@@ -55,8 +61,8 @@
   font-family: 'Nexa', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 1.8rem;
-  line-height: 100%;
+  font-size: 20px;
+  line-height: 20px;
   margin-bottom: 1.6rem;
 }
 
@@ -75,13 +81,6 @@
 
 
 @media screen and (min-width: $breakpoint) {
-  // .desc {
-  //   max-width: 89.2rem;
-  //   margin: 0 auto 9rem;
-  // }
-  // .partnerCard {
-  //   margin-bottom: 1.2rem;
-  // }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, 25.5rem);
@@ -90,5 +89,19 @@
     margin-top: 5rem;
     margin-inline: auto;
     max-width: 1110px;
+  }
+  .partnerPic {
+    // position: absolute;
+    position: relative;
+    width: 100%;
+    height: 16.5rem;
+  
+    img {
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      object-position: 0 -50px !important;
+      object-fit: cover !important;
+    }
+  
   }
 }

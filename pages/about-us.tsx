@@ -9,6 +9,7 @@ import { TheTeam } from "@/shared/TheTeam";
 import { HeroFooter } from "@/shared/HeroFooter";
 import CeoComment from "components/AboutUs/CeoComment";
 import Customer from "components/AboutUs/Customers";
+import { Team } from "components/AboutUs/Team";
 
 const  AboutUs: NextPage<AboutContent> = ({ aboutHero, metricContent, aboutMetrics, companyValue, coComment, employees, aboutCustomers, footerHero, footerContent }) => {
     return <Layout footerContent={ footerContent }>
@@ -16,7 +17,7 @@ const  AboutUs: NextPage<AboutContent> = ({ aboutHero, metricContent, aboutMetri
         <AboutUsMetrics content={metricContent} metrics={aboutMetrics} />
         <MisionVisionComponent content={companyValue}/>
         <CeoComment content={coComment}/>
-        <TheTeam employees={employees} theme='theme2'/>
+        <Team employees={employees} />
         <Customer content={aboutCustomers} />
         <HeroFooter content={footerHero} />
     </Layout>

@@ -4,8 +4,8 @@
 .section{
     display: grid;
     place-items: center;
-    padding-block: 13.2rem;
-    padding-inline: 2rem;
+    padding-inline: 3.8rem;
+    padding-block: 3.2rem;
 }
 // .wrapper{
 //     display: flex;
@@ -24,8 +24,8 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    padding-inline: 2.5rem;
-    padding-block: 4rem;
+    padding-inline: 2.4rem;
+    padding-block: 4.8rem;
     height: 100%;
     max-width: 75.7rem;
 
@@ -65,25 +65,32 @@
     border-radius: 2px;
 
     img {
-        border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
     }
 }
 
 
 @media screen and (min-width: $breakpoint) {
     .section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         padding-inline: 16.5rem;
         padding-block: 3.2rem;
-        
+        width: 100%;
+        height: auto;
     }
     .flex {
-        flex-direction: row;
+        flex-direction: row-reverse;
         max-height: 29.8rem;
     }
     .content {
+        flex-direction: row;
         padding-inline: 5rem;
         padding-block: 6rem;
+        gap: 5rem;
     }
     .list {
         @include TextSmall($secondaryTextColor);
@@ -97,13 +104,14 @@
     .image {
         position: relative;
         right: 0;
-        width: 35.3rem;
+        width: 40.3rem;
         height: 29.8rem;
         border-radius: 2px;
     
         img {
-            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
             border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
         }
     }
 }
