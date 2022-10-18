@@ -76,7 +76,7 @@ function Customer({ content }: {content:AboutCustomers}) {
                 <p className={styles.title}>{content.titleEN || content.titleES}</p>
                 <p className={styles.paragraph}>{content.captionEN || content.captionES}</p>
                 <div className={styles.btn}>
-                    <CustomButton>{t('shared.btn_text')}</CustomButton>
+                    <CustomButton path='https://form.asana.com/?k=Wwfd1TCValAUbjrGDoIMqw&d=1201056732412837'>{t('shared.btn_text')}</CustomButton>
                 </div>
             </div>
         </div>
