@@ -58,7 +58,7 @@ const Home: NextPage<HomeContent> & { skeletonLoader?: ReactNode } = ({
 			<Technologies technologies={technologies} />
 			<CaseStudyCards content={caseStudies} />
 			<CustomerFeedback feedback={customerFeedback} />
-			<Portfolio content={portfolio} />
+			{/* <Portfolio content={portfolio} /> */}
 			<Gallery gallery={gallery}/>
 			<HeroFooter content={footerHero} />
 		</Layout>
