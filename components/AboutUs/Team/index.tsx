@@ -48,7 +48,6 @@ export const Team = ({
               <div className={style.partnerCard} key={employee.id}>
                 <div className={style.partnerPic}>
                   <Image
-                    priority
                     src={employee.imagePath}
                     alt={employee.fullName}
                     layout="fill"
