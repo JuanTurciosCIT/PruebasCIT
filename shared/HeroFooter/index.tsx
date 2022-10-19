@@ -25,7 +25,7 @@ export const HeroFooter = ({ content }: { content: FooterHeroSection }) => {
 				<button className={styles.button}>
 					<a
 						style={{ backgroundSize: 0 }}
-						href='http://jobs.cit.hn/'
+						href={ pathname.includes('career')? 'http://jobs.cit.hn/': 'https://form.asana.com/?k=Wwfd1TCValAUbjrGDoIMqw&d=1201056732412837'}
 						target='_blank'
 						rel='noopener noreferrer'
 					>
