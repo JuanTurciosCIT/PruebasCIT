@@ -48,13 +48,12 @@ export const Team = ({
               <div className={style.partnerCard} key={employee.id}>
                 <div className={style.partnerPic}>
                   <Image
+                    priority
                     src={employee.imagePath}
                     alt={employee.fullName}
                     layout="fill"
                     objectFit="cover"
                     objectPosition={"0 -52px"}
-                    placeholder="blur"
-                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII="
                   />
                 </div>
                 <div className={style.textWrapper}>

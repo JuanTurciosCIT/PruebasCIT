@@ -13,6 +13,7 @@ class MyDocument extends Document {
     return (
       <Html>
       <Head>
+        <link rel="shortcut icon" href="favicon-ligth.png" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />

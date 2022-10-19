@@ -52,7 +52,7 @@ export const HeroHome = ({
 					<p>{heroContent.captionES || heroContent.captionEN}</p>
 				</div>
 				<div>
-					<CustomButton path='https://form.asana.com/?k=Wwfd1TCValAUbjrGDoIMqw&d=1201056732412837'>{t('shared.btn_text')}</CustomButton>
+					<CustomButton path='https://form.asana.com/?k=Wwfd1TCValAUbjrGDoIMqw&d=1201056732412837' target='_blank'>{t('shared.btn_text')}</CustomButton>
 				</div>
 			</div>
 		</div>
