@@ -22,7 +22,6 @@ export const About = ({
 }) => {
 	const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
 	const { t } = useTranslation(localeNamespaces.HOME);
-
 	const playVideo = useCallback(() => setShowPlaceholder(false), []);
 	return (
 		<section className={styles.aboutSection} id={HomeSections.ABOUT}>
@@ -37,8 +36,9 @@ export const About = ({
 						light={showPlaceholder && aboutContent.placeholderImage}
 						width='100%'
 						height='auto'
+						playing
 					/>
-				{showPlaceholder && (
+				{/* {showPlaceholder && (
 					<GradientButton onClick={playVideo}>
 						<Image
 							quality={70}
@@ -50,8 +50,24 @@ export const About = ({
 						/>
 						<span>{t('about.btn_text')}</span>
 					</GradientButton>
-				)}
+				)} */}
+				{
+				showPlaceholder &&	aboutContent.videoPath != ' ' ?(
+						<GradientButton onClick={playVideo}>
+						<Image
+							quality={70}
+							width={17.32}
+							style={{ height: 'auto' }}
+							// height={'auto'}
+							src={playIcon}
+							alt='Play video'
+						/>
+						<span>{t('about.btn_text')}</span>
+					</GradientButton>
+					): null
+				}
 			</div>
 		</section>
 	);
 }
+
