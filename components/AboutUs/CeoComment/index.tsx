@@ -12,9 +12,10 @@ function CeoComment({content}: {content: AboutCoComment}) {
             <div className={styles.imageContainer}>
              <Image src={doubleQuotes} alt='Team image' className={styles.image}/>
             </div>
-            <p className={styles.paragraph}>
+            {/* <p className={styles.paragraph}>
               {content.captionEN || content.captionES}
-            </p>
+            </p> */}
+            <div className={styles.paragraph} dangerouslySetInnerHTML={{ __html: content.captionES || content.captionEN }} />
             <p className={styles.name}>
                {content.coName}
             </p>
@@ -26,5 +27,7 @@ function CeoComment({content}: {content: AboutCoComment}) {
     </section>
   )
 }
-
+function createMarkup() {
+  return {__html: 'First &middot; Second'};
+}
 export default CeoComment
