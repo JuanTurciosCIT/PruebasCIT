@@ -12,6 +12,8 @@ import { GallerySection } from 'utils/types/homeContent.interface';
 import { motion,AnimatePresence, useAnimation } from 'framer-motion';
 import 'animate.css'
 import { Console } from 'console';
+import Router from 'next/router';
+import Link from 'next/link';
 
 /* A way to import a component that is not SSR compatible. */
 const Masonry = dynamic(() => import('react-smart-masonry'), {
@@ -83,7 +85,13 @@ export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
 					<p className={`${utils.textSmall} ${styles.descriptionParagraph}`}>
 						{gallery.captionEN || gallery.captionES}
 					</p>
-					<button className={styles.button}>{t('gallery.btn_text')}</button>
+          <Link href='http://jobs.cit.hn/' target='_blank'>
+            <a className={styles.a} target={'_blank'}>
+              <button className={styles.button}>{t('gallery.btn_text')}
+            </button>
+
+            </a>
+          </Link>
 				</div>
 
 				<Masonry
@@ -110,4 +118,5 @@ export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
 			</section>
 		</ScrollReveal>
 	);
+
 }
