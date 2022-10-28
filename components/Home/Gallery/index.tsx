@@ -53,13 +53,58 @@ export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
 
   useEffect(()=>{
 
-    let showImag = slicesImagtes(gallery.images)
+    let allImages = gallery.images;
+
+    console.log(allImages)
+
+    let showImag:any[] = [
+      [
+        allImages[0],
+        allImages[1],
+        allImages[2],
+        allImages[3],
+      ],
+      [
+        allImages[4],
+        allImages[1],
+        allImages[2],
+        allImages[5],
+      ],
+      [
+        allImages[4],
+        allImages[6],
+        allImages[7],
+        allImages[5],
+      ],
+      [
+        allImages[8],
+        allImages[6],
+        allImages[7],
+        allImages[9],
+      ],
+      [
+        allImages[8],
+        allImages[10],
+        allImages[11],
+        allImages[9],
+      ],
+      ,
+      [
+        allImages[0],
+        allImages[10],
+        allImages[11],
+        allImages[3],
+      ],
+    ]
+    
+    console.log(showImag)
+    
     setImageToShow(showImag[index])
     
       const interval = setInterval(()=>{
         index++;
       
-        if(index >= 3){
+        if(index >= 5){
           index = 0;
         }
         
