@@ -40,14 +40,14 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 	// 		locale: locales?.[1],
 	// 	},
 	// ];
-	/* caseStudies.map((caseStudy) => {
+	caseStudies.map((caseStudy) => {
 		paths.push({
 			params: { csid: String(caseStudy.id) }, locale: locales?.[0]
 		});
 		paths.push({
 			params: { csid: String(caseStudy.id) }, locale: locales?.[1]
 		});
-	});  */
+	}); 
 
 	return {
 		fallback: false,
