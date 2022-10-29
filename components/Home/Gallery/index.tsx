@@ -55,8 +55,6 @@ export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
 
     let allImages = gallery.images;
 
-    console.log(allImages)
-
     let showImag:any[] = [
       [
         allImages[0],
@@ -88,7 +86,6 @@ export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
         allImages[11],
         allImages[9],
       ],
-      ,
       [
         allImages[0],
         allImages[10],
@@ -97,14 +94,12 @@ export const Gallery = ({ gallery }: { gallery: GallerySection }) => {
       ],
     ]
     
-    console.log(showImag)
-    
     setImageToShow(showImag[index])
     
       const interval = setInterval(()=>{
         index++;
       
-        if(index >= 5){
+        if(index >= 6){
           index = 0;
         }
         
