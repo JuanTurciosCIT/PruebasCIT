@@ -137,7 +137,7 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 						<div className={styles[`${'picture'}${index + 1}`]} key={image}>
 							<Image
 								// priority
-								loading='eager'
+								//loading='eager'
 								src={image}
 								alt='gallery'
 								className={styles.picture + ' animate__animated animate__bounceIn'}
