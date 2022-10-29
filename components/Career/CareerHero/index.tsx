@@ -54,13 +54,54 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 
   useEffect(()=>{
 
-    let showImag = slicesImagtes(content.pathImages)
+    let allImages = content.pathImages
+    //let showImag = slicesImagtes(content.pathImages)
+
+    let showImag:any[] = [
+      [
+        allImages[0],
+        allImages[1],
+        allImages[2],
+        allImages[3],
+      ],
+      [
+        allImages[4],
+        allImages[1],
+        allImages[2],
+        allImages[5],
+      ],
+      [
+        allImages[4],
+        allImages[6],
+        allImages[7],
+        allImages[5],
+      ],
+      [
+        allImages[8],
+        allImages[6],
+        allImages[7],
+        allImages[9],
+      ],
+      [
+        allImages[8],
+        allImages[10],
+        allImages[11],
+        allImages[9],
+      ],
+      [
+        allImages[0],
+        allImages[10],
+        allImages[11],
+        allImages[3],
+      ],
+    ]
+
     setImageToShow(showImag[index])
     
       const interval = setInterval(()=>{
         index++;
       
-        if(index >= 3){
+        if(index >= 6){
           index = 0;
         }
         

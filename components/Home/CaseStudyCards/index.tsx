@@ -19,10 +19,34 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
 
+
+  const calculateSlidesPerView = () =>{
+
+    if(isMobile){
+      if(content.length === 1){
+        return 0
+      }else if( content.length >= 2){
+        return 1.5;
+      }
+    }else{
+      
+      if(content.length === 1){
+        return 0
+      }else if(content.length === 2)
+      {
+        return 1.5
+      }else if( content.length >= 3){
+        return 3
+      }
+    }
+
+  }
+
+
 	const swiperOptions: SwiperOptions = {
 		modules: [Pagination],
 		spaceBetween: isMobile ? -55 : 0,
-		slidesPerView: isMobile ? 1.5 : 3,
+		slidesPerView: calculateSlidesPerView(),
 		loop: true,
 		touchMoveStopPropagation: isMobile ? true : false,
 		rewind: true,
@@ -62,7 +86,10 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 					onSwiper={(swiper) => {
 						swiperRef.current = swiper;
 					}}
+          style={{'margin':'0 auto'}}
 				>
+          <div   >
+            
 					{content.map((item, index) => (
 						<SwiperSlide key={item.id}>
 							{({ isActive, isPrev }) => (
@@ -111,6 +138,7 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 							)}
 						</SwiperSlide>
 					))}
+          </div>
 				</Swiper>
 			</div>
 		</section>
