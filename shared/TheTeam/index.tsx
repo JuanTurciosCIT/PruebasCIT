@@ -57,7 +57,8 @@ export const TheTeam = ({ employees, theme }: { employees: CareerEmployeeInterfa
 								<div className={chosenTheme.partnerCard}>
 									<div className={chosenTheme.partnerPic}>
 										<Image
-											priority
+											priority={true}
+                      quality={40}
 											src={employee.imagePath}
 											alt={employee.fullName}
 											layout="fill"
