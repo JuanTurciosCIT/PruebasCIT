@@ -136,7 +136,7 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 					{imageToShow.map((image, index) => (
 						<div   className={styles[`${'picture'}${index + 1}`]} key={image}>
 							<Image
-								// priority
+								priority={true}
 								//loading='eager'
 								src={image}
 								alt='gallery'

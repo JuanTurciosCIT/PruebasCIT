@@ -18,6 +18,12 @@
     position: relative;
   }
 
+  .sliderContainerFalse{
+    display: flex;
+    justify-content: center;
+    gap: 16rem;
+  }
+
   /* A global selector that is targeting the swiper-pagination-bullets class. */
   :global(.swiper-pagination-bullets) {
     transform: translate(-50%, 1rem) !important;

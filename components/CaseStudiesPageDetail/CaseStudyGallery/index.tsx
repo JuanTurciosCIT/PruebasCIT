@@ -58,7 +58,7 @@ export const CaseStudyGallery = ({ content }: { content: CaseStudyGalleryInterfa
 						content.map((img) => (
 							<SwiperSlide key={img.id}>
                 <div className={styles.image}>
-                  <Image src={img.pathImage} alt='' sizes='100vw' fill quality={100} />
+                  <Image src={img.pathImage} alt='case' sizes='100vw' fill quality={100} />
                 </div>
 					    </SwiperSlide>
 						))
