@@ -25,9 +25,9 @@ export interface CaseStudyInfoInterface {
 }
 
 export interface CaseStudyDetailInterface {
-  pdf: string;
-  idTechnologies: number[];
-  idsServices: number[],
+  pdf?: string;
+  idTechnologies?: number[];
+  idsServices?: number[],
   heroTitleEN?: string;
   heroDescriptionEN?: string;
   companySizeEN?: string;
@@ -36,7 +36,7 @@ export interface CaseStudyDetailInterface {
   heroDescriptionES?: string;
   companySizeES?: string;
   goalES?: string;
-  idCase: number;
+  idCase?: number;
 }
 
 export interface CaseStudyMetricsInterface {

@@ -60,6 +60,23 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 		slidesOffsetBefore: isMobile ? 55 : 0,
 	};
 
+  console.log(content)
+
+
+  let validateDescription = (description:string | undefined) => {
+
+    if(description){
+      if(description.length > 110){
+        return(description   + '...')
+      }else{
+        return description
+      }
+    }else{
+      return ''
+    }
+
+  }
+
 	const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
 	const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
 
@@ -91,9 +108,12 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
           <div   >
             
 					{content.map((item, index) => (
-						<SwiperSlide key={item.id}>
+
+            
+						 <SwiperSlide key={item.id}>
 							{({ isActive, isPrev }) => (
-								<div
+								<Link key={item.id} href={`/caseStudies/${item.id}`}  >
+                <div
 									style={{
 										backgroundImage: `linear-gradient(180deg,
 											rgba(39, 39, 39, 0.88) 0%,
@@ -112,31 +132,39 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 											lazyBoundary='600px'
 											quality={70}
 											src={item.logo}
-											width={126}
-											height={92}
+											width={120}
+											height={100}
 											objectFit='contain'
 											alt={`${item.titleEN || item.titleES} logo`}
 											placeholder='blur'
 											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 										/>
 									</div>
-									<p className={`${utils.textSmall} ${styles.desc}`}>
-										{item.descriptionEN || item.descriptionES}
-									</p>
-									<span className={`${utils.textSmall} ${styles.link}`}>
-										<Link href={`/caseStudies/${item.id}`}>{t('case_studies.card_link')}</Link>
-										<Image
-											quality={70}
-											lazyBoundary='600px'
-											width={12}
-											src={arrowRight}
-											alt='Arrow Right'
-										/>
-									</span>
+                  <div  className={styles.containerInfo} >
+                    <p className={`${utils.textSmall} ${styles.desc}`}>
+
+                      { item.CaseStudyDetail.length > 0 ? validateDescription(item.CaseStudyDetail[0].heroTitleEN)  || validateDescription(item.CaseStudyDetail[0].heroTitleES) : ''}
+                    </p>
+                    <span className={`${utils.textSmall} ${styles.link}`}>
+                      <Link href={`/caseStudies/${item.id}`}>{t('case_studies.card_link')}</Link>
+                      <Image
+                        quality={70}
+                        lazyBoundary='600px'
+                        
+                        src={arrowRight}
+                        alt='Arrow Right'
+                      />
+                    </span>
+                  </div>
 									{isActive && <div className={styles.triangle}></div>}
 								</div>
+                </Link>
+                
+
+
 							)}
 						</SwiperSlide>
+
 					))}
           </div>
 				</Swiper>

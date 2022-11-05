@@ -96,9 +96,12 @@ export const HomeContentService = {
 					isEnglish
 						? 'descriptionEN, titleEN, tagEN'
 						: 'descriptionES, titleES, tagES'
-				}, logo, picture`
+				}, logo, picture, CaseStudyDetail( ${ isEnglish ? 'heroTitleEN': 'heroTitleES' })`
 			)
 			.eq('isVisible', true);
+
+      console.log(data)
+
 
 		if (error) {
 			console.log(

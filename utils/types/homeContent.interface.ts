@@ -1,3 +1,4 @@
+import { CaseStudyDetailInterface } from 'utils/types/caseStudy.interface';
 import { FooterHeroSection, FooterSection, TechnologiesSection } from "./commonContent.interface";
 
 export interface HomeContent {
@@ -71,6 +72,7 @@ export interface CaseStudyCard {
   logo:          string;
   picture:       string;
   isVisible:     boolean;
+  CaseStudyDetail: CaseStudyDetailInterface[];
 }
 
 export interface CustomerFeedbackSection {
