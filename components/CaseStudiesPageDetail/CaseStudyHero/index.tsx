@@ -9,7 +9,7 @@ interface CaseStudyHeroProps {
   heroTitleES?: string;
   heroDescriptionEN?: string;
   heroDescriptionES?: string;
-  pdf: string;
+  pdf?: string;
   heroImage: string;
 }
 
