@@ -57,6 +57,7 @@
 }
 
 .picture {
+
     border-radius: 0.6rem;
     position: relative;
     object-fit: cover;
@@ -64,13 +65,22 @@
     // margin-bottom: 1.8rem;
 }
 
+.bg-third-color{
+
+  background-color: $thirdBackgroundColor;
+}
+
+
 .picture1 {
+  
     @extend .picture;
     width: min(18.88rem, 110%);
     aspect-ratio: 303.83 / 202.28;
     height: auto;
     overflow: hidden;
-    margin-bottom: 0.5rem
+    margin-bottom: 0.5rem;
+    background-color: $thirdBackgroundColor;
+
 }
 
 .picture2 {
@@ -90,6 +100,8 @@
     height: auto;
     transform: translate(-0.6rem, -1.2rem);
     overflow: hidden;
+    background-color: $thirdBackgroundColor;
+
 }
 
 .picture4 {
@@ -99,6 +111,8 @@
     height: auto;
     transform: translate(2rem, -1.5rem);
     overflow: hidden;
+    background-color: $thirdBackgroundColor;
+
 }
 
 @media  screen and (min-width: $breakpoint) {
@@ -130,24 +144,32 @@
     .picture1 {
         width: 32.89rem;
         height: 21.896rem;
+        background-color: $thirdBackgroundColor;
+        
     }
     
     .picture2 {
         width: 26.348rem;
         height: 17.535rem;
         transform: translateX(-3.5rem);
+        background-color: $thirdBackgroundColor;
+
     }
     
     .picture3 {
         width: 36.07rem;
         height: 24.168rem;
         transform: translateY(-0.5rem);
+        background-color: $thirdBackgroundColor;
+
     }
     
     .picture4 {
         width: 22.896rem;
         height: 28.438rem;
         transform: translate(-0.6rem, -0.8rem);
+      background-color: $thirdBackgroundColor;
+
     }
     .button {
        margin-left: 0;

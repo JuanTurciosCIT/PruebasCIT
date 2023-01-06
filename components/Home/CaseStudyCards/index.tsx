@@ -19,10 +19,34 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
 
+
+  const calculateSlidesPerView = () =>{
+
+    if(isMobile){
+      if(content.length === 1){
+        return 0
+      }else if( content.length >= 2){
+        return 1.5;
+      }
+    }else{
+      
+      if(content.length === 1){
+        return 0
+      }else if(content.length === 2)
+      {
+        return 1.5
+      }else if( content.length >= 3){
+        return 3
+      }
+    }
+
+  }
+
+
 	const swiperOptions: SwiperOptions = {
 		modules: [Pagination],
 		spaceBetween: isMobile ? -55 : 0,
-		slidesPerView: isMobile ? 1.5 : 3,
+		slidesPerView: calculateSlidesPerView(),
 		loop: true,
 		touchMoveStopPropagation: isMobile ? true : false,
 		rewind: true,
@@ -35,6 +59,23 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 		centeredSlidesBounds: isMobile ? false : true,
 		slidesOffsetBefore: isMobile ? 55 : 0,
 	};
+
+  console.log(content)
+
+
+  let validateDescription = (description:string | undefined) => {
+
+    if(description){
+      if(description.length > 110){
+        return(description   + '...')
+      }else{
+        return description
+      }
+    }else{
+      return ''
+    }
+
+  }
 
 	const nextSlide = useCallback(() => swiperRef.current.slideNext(), []);
 	const prevSlide = useCallback(() => swiperRef.current.slidePrev(), []);
@@ -56,17 +97,83 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 						<SliderButtons next={nextSlide} prev={prevSlide} theme='theme2' />
 					)}
 				</div>
-				<Swiper
+
+
+        {/** Cuando solo hay una o 2 no se activa el swiper*/}
+        {
+          content.length < 3 && isMobile === false ? 
+          <section  className={styles.sliderContainerFalse} >
+            {content.map((item, index) => (
+
+              <div key={item.id}  >
+                  <Link key={item.id} href={`/caseStudies/${item.id}`}  >
+                    <div
+                      style={{
+                        backgroundImage: `linear-gradient(180deg,
+                        rgba(39, 39, 39, 0.88) 0%,
+                        rgba(39, 39, 39, 0.89) 39.56%,
+                        rgba(39, 39, 39, 0.99) 69.49%,
+                        #272727 100%), url(${item.picture})`,
+                      }}
+                      className={`${styles.cardWrapper} ${styles.active} `}
+                    >
+                      <span className={styles.tag}>{item.tagEN || item.tagES}</span>
+                      <div className={styles.logo}>
+                        <Image
+                          // priority
+                          lazyBoundary='600px'
+                          quality={70}
+                          src={item.logo}
+                          width={120}
+                          height={100}
+                          objectFit='contain'
+                          alt={`${item.titleEN || item.titleES} logo`}
+                          placeholder='blur'
+                          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+                        />
+                      </div>
+                      <div className={styles.containerInfo} >
+                        <p className={`${utils.textSmall} ${styles.desc}`}>
+
+                          {item.CaseStudyDetail.length > 0 ? validateDescription(item.CaseStudyDetail[0].heroTitleEN) || validateDescription(item.CaseStudyDetail[0].heroTitleES) : ''}
+                        </p>
+                        <span className={`${utils.textSmall} ${styles.link}`}>
+                          <Link href={`/caseStudies/${item.id}`}>{t('case_studies.card_link')}</Link>
+                          <Image
+                            quality={70}
+                            lazyBoundary='600px'
+
+                            src={arrowRight}
+                            alt='Arrow Right'
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+              </div>
+
+            ))}
+          </section>
+          
+          /** Cuando son mayores a 3 si se activa el carrusel con el Swiper */
+          :
+          <Swiper
 					className={styles.sliderContainer}
 					{...swiperOptions}
 					onSwiper={(swiper) => {
 						swiperRef.current = swiper;
 					}}
+          style={{'margin':'0 auto'}}
 				>
+          <div   >
+            
 					{content.map((item, index) => (
-						<SwiperSlide key={item.id}>
+
+            
+						 <SwiperSlide key={item.id}>
 							{({ isActive, isPrev }) => (
-								<div
+								<Link key={item.id} href={`/caseStudies/${item.id}`}  >
+                <div
 									style={{
 										backgroundImage: `linear-gradient(180deg,
 											rgba(39, 39, 39, 0.88) 0%,
@@ -82,36 +189,51 @@ export const CaseStudyCards = ({ content }: { content: CaseStudyCard[] }) => {
 									<div className={styles.logo}>
 										<Image
 											// priority
+                      
 											lazyBoundary='600px'
 											quality={70}
 											src={item.logo}
-											width={126}
-											height={92}
+											width={120}
+											height={100}
 											objectFit='contain'
 											alt={`${item.titleEN || item.titleES} logo`}
 											placeholder='blur'
 											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
 										/>
 									</div>
-									<p className={`${utils.textSmall} ${styles.desc}`}>
-										{item.descriptionEN || item.descriptionES}
-									</p>
-									<span className={`${utils.textSmall} ${styles.link}`}>
-										<Link href={`/caseStudies/${item.id}`}>{t('case_studies.card_link')}</Link>
-										<Image
-											quality={70}
-											lazyBoundary='600px'
-											width={12}
-											src={arrowRight}
-											alt='Arrow Right'
-										/>
-									</span>
+                  <div  className={styles.containerInfo} >
+                    <p className={`${utils.textSmall} ${styles.desc}`}>
+
+                      { item.CaseStudyDetail.length > 0 ? validateDescription(item.CaseStudyDetail[0].heroTitleEN)  || validateDescription(item.CaseStudyDetail[0].heroTitleES) : ''}
+                    </p>
+                    <span className={`${utils.textSmall} ${styles.link}`}>
+                      <Link href={`/caseStudies/${item.id}`}>{t('case_studies.card_link')}</Link>
+                      <Image
+                        quality={70}
+                        lazyBoundary='600px'
+                        
+                        src={arrowRight}
+                        alt='Arrow Right'
+                      />
+                    </span>
+                  </div>
 									{isActive && <div className={styles.triangle}></div>}
 								</div>
+                </Link>
+                
+
+
 							)}
 						</SwiperSlide>
+
 					))}
-				</Swiper>
+          </div>
+				  </Swiper>
+        }
+        
+
+      
+				{/*  */}
 			</div>
 		</section>
 	);

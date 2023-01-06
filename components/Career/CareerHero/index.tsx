@@ -54,19 +54,60 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 
   useEffect(()=>{
 
-    let showImag = slicesImagtes(content.pathImages)
+    let allImages = content.pathImages
+    //let showImag = slicesImagtes(content.pathImages)
+
+    let showImag:any[] = [
+      [
+        allImages[0],
+        allImages[1],
+        allImages[2],
+        allImages[3],
+      ],
+      [
+        allImages[4],
+        allImages[1],
+        allImages[2],
+        allImages[5],
+      ],
+      [
+        allImages[4],
+        allImages[6],
+        allImages[7],
+        allImages[5],
+      ],
+      [
+        allImages[8],
+        allImages[6],
+        allImages[7],
+        allImages[9],
+      ],
+      [
+        allImages[8],
+        allImages[10],
+        allImages[11],
+        allImages[9],
+      ],
+      [
+        allImages[0],
+        allImages[10],
+        allImages[11],
+        allImages[3],
+      ],
+    ]
+
     setImageToShow(showImag[index])
     
       const interval = setInterval(()=>{
         index++;
       
-        if(index >= 3){
+        if(index >= 6){
           index = 0;
         }
         
         setImageToShow(showImag[index])
         paginate(1);
-      },5000) 
+      },3000) 
     
       return () => clearInterval(interval);
   
@@ -93,17 +134,17 @@ export const CareerHero = ({ content }: { content: CareerHeroInterface }) => {
 					gap={isMobile ? 15 : 20}
 				>
 					{imageToShow.map((image, index) => (
-						<div className={styles[`${'picture'}${index + 1}`]} key={image}>
+						<div   className={styles[`${'picture'}${index + 1}`]} key={image}>
 							<Image
-								// priority
-								loading='eager'
+								priority={true}
+								//loading='eager'
 								src={image}
 								alt='gallery'
 								className={styles.picture + ' animate__animated animate__bounceIn'}
 								layout='fill'
 								// loading='eager'
 								placeholder='blur'
-								blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAEUlEQVR42mNcPpEBBTAOjAAA3qIJybv4Wl8AAAAASUVORK5CYII='
+                blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAFA4PEg8NFBIQEhcVFBgeMiEeHBwePSwuJDJJQExLR0BGRVBac2JQVW1WRUZkiGVtd3uBgoFOYI2XjH2Wc36BfP/bAEMBFRcXHhoeOyEhO3xTRlN8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fP/AABEIAKgBEgMBIgACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAABv/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/Z'
 							/>
 						</div>
 					))}

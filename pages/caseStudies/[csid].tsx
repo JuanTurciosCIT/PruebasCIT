@@ -47,11 +47,11 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 		paths.push({
 			params: { csid: String(caseStudy.id) }, locale: locales?.[1]
 		});
-	});
+	}); 
 
 	return {
-		paths,
 		fallback: false,
+		paths,
 	};
 };
 

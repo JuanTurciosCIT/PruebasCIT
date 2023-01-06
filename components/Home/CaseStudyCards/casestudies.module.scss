@@ -1,4 +1,5 @@
 @use '/styles/variables.scss' as *;
+@use '/styles/breakpoints.scss' as *;
 
 .section {
   padding: 4.8rem 0;
@@ -15,6 +16,12 @@
   .sliderContainer {
     padding-bottom: 3.4rem;
     position: relative;
+  }
+
+  .sliderContainerFalse{
+    display: flex;
+    justify-content: center;
+    gap: 16rem;
   }
 
   /* A global selector that is targeting the swiper-pagination-bullets class. */
@@ -69,6 +76,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 150%;
+
   }
 
   .link {
@@ -76,6 +84,7 @@
     display: flex;
     gap: 1.4rem;
 
+    margin-top: 1rem;
     a {
       padding-bottom: 0;
     }
@@ -135,9 +144,15 @@
   .desc {
     color: $primaryTextColor;
     opacity: 0.6;
-    font-size: 1.6rem;
+    font-size: 26px;
     line-height: 100%;
     margin-bottom: 4.9rem;
+    height: 156px;
+
+    @include media-breakpoint('xs'){
+      height: 212px;
+    }
+
   }
 
   .triangle {
@@ -182,6 +197,7 @@
   }
 
     .cardWrapper {
+      cursor: pointer;
       width: 40rem;
       transform: perspective(500px) translateZ(-120px);
     }
@@ -199,4 +215,10 @@
       gap: 2.4rem;
     }
   }
+}
+
+
+.containerInfo{
+  display: flex;
+  flex-direction: column;
 }
