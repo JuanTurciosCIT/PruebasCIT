@@ -57,7 +57,12 @@
     color: $primaryTextColor;
     cursor: pointer;
 }
-
+.a{
+    background: none !important;
+    text-decoration: none;
+    width: 12.5rem;
+    height: 3.7rem;
+}
 .galleryWrapper {
     position: relative;
     width: 100%;

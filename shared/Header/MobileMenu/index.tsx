@@ -67,7 +67,7 @@ export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
 						<li className={utils.textSmall} key={link.path + index}>
 
               {navLinks.length - 1 === index ?
-                <CustomButton path='https://form.asana.com/?k=Wwfd1TCValAUbjrGDoIMqw&d=1201056732412837' target='_blank'>{t('shared.btn_text')}</CustomButton>
+                <CustomButton path='https://wkf.ms/3jKnYSm' target='_blank'>{t('shared.btn_text')}</CustomButton>
                 :
                 <Link href={link.path}>
                   {t('header.' + link.localeName)}
