@@ -134,7 +134,7 @@ export const Header = () => {
           {headerLinks.map((link, index) => (
             <li className={utils.textSmall} key={link.path + index}>
               <Link href={link.path}>
-				<a target={ link.path === 'https://form.asana.com/?k=Wwfd1TCValAUbjrGDoIMqw&d=1201056732412837' ?  '_blank' : ''}>{t("header." + link.localeName)}</a>
+				<a target={ link.path === 'https://wkf.ms/3jKnYSm' ?  '_blank' : ''}>{t("header." + link.localeName)}</a>
 			</Link>
             </li>
           ))}

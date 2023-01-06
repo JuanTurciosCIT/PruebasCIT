@@ -29,7 +29,7 @@ export const navLinks: NavLink[] = [
   },
   {
     localeName: 'contact_us',
-    path: 'https://form.asana.com/?k=Wwfd1TCValAUbjrGDoIMqw&d=1201056732412837',
+    path: 'https://wkf.ms/3jKnYSm',
     visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   }
 /*   {
