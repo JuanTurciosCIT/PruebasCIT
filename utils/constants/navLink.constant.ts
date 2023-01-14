@@ -5,12 +5,12 @@ export const navLinks: NavLink[] = [
   {
     localeName: 'home',
     path: '/',
-    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
+    visibleIn: [Pages.SERVICE_DETAILS, Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
     localeName: 'our_services',
     path: '/#services',
-    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
+    visibleIn: [ Pages.SERVICE_DETAILS , Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   // {
   //   localeName: 'career',
@@ -20,18 +20,20 @@ export const navLinks: NavLink[] = [
   {
     localeName: 'about_us',
     path: '/about-us',
-    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
+    visibleIn: [ Pages.SERVICE_DETAILS, Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
     localeName: 'careers',
     path: '/career',
-    visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
+    visibleIn: [Pages.SERVICE_DETAILS , Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   },
   {
     localeName: 'contact_us',
     path: 'https://wkf.ms/3jKnYSm',
     visibleIn: [Pages.HOME, Pages.CAREER, Pages.JOBS, Pages.SERVICES, Pages.ABOUT_US, Pages.JOB_DESCRIPTION, Pages.APPLICATIONS, Pages.CASE_STUDIES, Pages.CASE_STUDY]
   }
+  //serviceDetails
+
 /*   {
     localeName: 'jobs',
     path: '/jobs',

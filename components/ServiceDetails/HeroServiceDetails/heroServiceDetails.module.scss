@@ -1,0 +1,108 @@
+@import '../../../styles/variables.scss';
+
+
+.hero{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 62rem;
+    background-color: #272727;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    max-width: 1200px;
+    width: 1200px;
+    padding: 16px;
+   
+}
+
+.heroContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    flex: 1;
+}
+
+.details{
+    width: 52rem;
+    @media screen and (max-width: 599px) {
+        width: auto;    
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.pill{
+    font-family: Lato;
+
+    width: auto;
+    font-weight: 700;
+    color: $primaryTextColor;
+
+    border-radius: 5px;
+    padding: 8px 16px 8px 16px;
+    background-color: $primaryBackgroundColor;
+    margin-bottom: 12px;
+}
+
+.title{
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: 0em;
+    text-align: left;
+    font-family: $headingFont;
+    color: $primaryTextColor;
+}
+
+.caption{
+    margin-top: 16px;
+    font-size: 18px;
+    color: $secondaryTextColor;
+}
+
+.containerButton{
+    margin-top: 48px;
+
+   
+}
+
+
+.detailsCaption{
+    font-family: $headingFontLight;
+    color: $primaryTextColor;
+    font-weight: 400;
+}
+
+.detailsFooter{
+    margin-top: 10rem;
+    @media screen and (max-width: 599px) {
+        margin-top: 6rem;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.containerImage{
+
+    height: 8rem;
+    width: 10rem;
+    position: relative;
+
+    display: flex;
+    filter: grayscale(100%) contrast(0.5);
+    
+}
+
+.rowImages{
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-flow: column;
+    gap: 1rem;
+}
