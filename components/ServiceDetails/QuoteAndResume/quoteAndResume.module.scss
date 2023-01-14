@@ -1,0 +1,90 @@
+
+@import '../../../styles/variables.scss';
+
+.QuoteAndResume{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    background-color: $primaryBackgroundColor;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+
+    @media screen and (max-width:599px) {
+        flex-direction: column;
+    }
+
+    gap: 8rem;
+}
+
+
+.quoteContainer{
+    width: 38rem;
+    @media screen and (max-width:599px) {
+        width: auto;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.reviewContainer{
+    width: 50rem;
+    @media screen and (max-width:599px) {
+        width: auto;
+    }
+}
+
+
+.quote{
+    position: relative;
+    font-size: 38px;
+    color: $primaryTextColor;
+    margin-bottom: 24px;
+}
+
+.doubleQuotes{
+    top: -60px;
+    left: -40px;
+    position: absolute;
+    width: 12rem;
+    height: 10rem;
+    background-image: url('./assets/Double_Quotes_L.png');
+    background-repeat: no-repeat;
+}
+
+.quoteFooter{
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: $secondaryTextColor;
+}
+
+.name{
+    font-size: 14px;
+}
+
+.jobTittle{
+    font-weight: 500;
+    font-size: 18px;
+    color: $primaryTextColor;
+}
+
+
+/*Review*/
+
+.TitleReview{
+    font-family: $headingFont;
+    color: $primaryTextColor;
+    margin-bottom: 16px;
+    font-size: 36px;
+}
+
+.content{
+    color: $secondaryTextColor;
+    font-size: 14px;
+}

@@ -6,6 +6,7 @@ import {
 } from 'next';
 import { HeroHome } from 'components/CaseStudies/HeroCaseStudies';
 import HeroServiceDetail from 'components/ServiceDetails/HeroServiceDetails';
+import QuoteAndResume from 'components/ServiceDetails/QuoteAndResume';
 
 const ServiceDetailPage: NextPage<DetailCaseStudyPage> = ({
   footer
@@ -39,6 +40,7 @@ const ServiceDetailPage: NextPage<DetailCaseStudyPage> = ({
       <div>
 
       <HeroServiceDetail></HeroServiceDetail>
+      <QuoteAndResume></QuoteAndResume>
       </div>
     </Layout>
 
