@@ -8,4 +8,6 @@ export enum Pages {
   APPLICATIONS = '/applications',
   CASE_STUDIES = '/caseStudies',
   CASE_STUDY = '/caseStudy',
+  SERVICE_DETAILS = '/serviceDetails',
+
 }

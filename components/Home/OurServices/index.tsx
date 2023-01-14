@@ -52,7 +52,7 @@ export const OurServices = ({
 										{service.descriptionEN || service.descriptionES}
 									</p>
 									<span className={`${utils.textTiny} ${styles.link}`}>
-										<Link href='/'>{t('services.btn_text')}</Link>
+										<Link href='/serviceDetails/1'>{t('services.btn_text')}</Link>
 										<Image width={12} height={12} src={arrowRight} alt='Arrow right' quality={70} lazyBoundary='600px' />
 									</span>
 								</div>

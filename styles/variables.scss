@@ -6,6 +6,11 @@
 }
 
 @font-face {
+  font-family: 'Nexa Light';
+  src: url('../public/fonts/Nexa/Commercial/Nexa_V1_2012/Nexa\ Light.otf');
+}
+
+@font-face {
   font-family: 'Nasalization';
   src: url('../public/fonts/nasalization-rg.otf');
   font-weight: 400;
@@ -28,6 +33,7 @@ $thirdColor: #2ABCDA;
 // CIT typography
 $mainFont: 'Lato', sans-serif;
 $headingFont: 'Nexa', sans-serif;
+$headingFontLight: 'Nexa Light', sans-serif;
 $headingSmallFont: 'Nasalization', sans-serif;
 
 // Breakpoints
