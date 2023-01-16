@@ -7,7 +7,7 @@ export const AboutUsService = {
         const { data, error } = await supabase
         .from<AboutHeroInterface>('AboutUsHero')
         .select(
-            `imagePath, ${isEnglish? 'titleEN, captionEN' : 'titleES, captionEN'}`)
+            `imagePath, ${isEnglish? 'titleEN, captionEN' : 'titleES, captionES'}`)
         .single();
 
         if(error){
