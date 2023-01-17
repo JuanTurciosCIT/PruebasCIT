@@ -2,12 +2,13 @@
 import { CustomButton } from '@/shared/CustomButton';
 import styles from './heroServiceDetails.module.scss';
 import Image from 'next/image';
+import { AboutHeroInterface } from 'utils/types/serviceDetails.interface';
 
-const HeroServiceDetail =  () =>{
+const HeroServiceDetail =  ({ hero }: { hero: AboutHeroInterface }) =>{
 
     return(
         <>
-        <div style={{backgroundImage: `url(${'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/Services/portada-design.svg'})`}}  className={styles.hero}  >
+        <div style={{backgroundImage: `url(${hero.pathImage})`}}  className={styles.hero}  >
 
             <section className={styles.container}  >
                 {/** Informacion */}
@@ -15,12 +16,11 @@ const HeroServiceDetail =  () =>{
 
                     <section className={styles.details}  >
 
-                        <div  className={styles.pill} >DESIGN LAB</div>
+                        <div  className={styles.pill} >{hero.nameEn ?? hero.nameEs}</div>
 
-                        <div  className={styles.title} >Big ideas need amazing solutions.</div>
+                        <div  className={styles.title} >{hero.tittleEn??hero.tittleEs}</div>
                         <div  className={styles.caption} >
-                            Don’t waste money implementing ideas without a plan.
-                            Apply UX methodologies to create UI that works instead.
+                            {hero.captionEn??hero.captionEs}
                         </div>
                             
                         <div className={styles.containerButton} >
