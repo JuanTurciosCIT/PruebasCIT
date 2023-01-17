@@ -88,3 +88,33 @@
     color: $secondaryTextColor;
     font-size: 14px;
 }
+
+.unorderedList{
+    margin-top: 40px;
+    color: $primaryTextColor;
+    font-size: 18px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+    @media screen and (max-width:599px){
+        grid-template-columns: repeat(2,1fr);    
+    }
+    gap: 1rem;
+}
+
+.listItem{
+    white-space: nowrap;
+}
+.listItem::before{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    margin-right: 12px;
+    transform: translatey(-2px);
+    height: 8px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8DF8FF 11.52%, #468EF9 91.55%);;
+}
+

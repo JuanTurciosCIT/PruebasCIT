@@ -37,8 +37,8 @@ const HeroServiceDetail =  () =>{
 
                         <div className={styles.containerImage} >
                             <Image
-                                layout='fill'
                                 src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/clients/0.13199450480578245.png'}
+                                layout='fill'
 
                                 objectFit='contain'
                                 objectPosition='center'

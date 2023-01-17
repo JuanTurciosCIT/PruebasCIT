@@ -35,7 +35,17 @@ const QuoteAndResume = () => {
                     </div>
 
                     <div>
-
+                        <ul className={styles.unorderedList}   >
+                            <li className={styles.listItem}   >UX Research</li>
+                            <li className={styles.listItem}   >Benchmarking</li>
+                            <li className={styles.listItem}   >Design Sprint</li>
+                            <li className={styles.listItem}   >User Personas </li>
+                            <li className={styles.listItem}   >User Journey Maps</li>
+                            <li className={styles.listItem}   >Affinity Diagram</li>
+                            <li className={styles.listItem}   >User flows</li>
+                            <li className={styles.listItem}   >Navigation Tree</li>
+                            <li className={styles.listItem}   >Prototype</li>
+                        </ul>
                     </div>
                 </section>
 
