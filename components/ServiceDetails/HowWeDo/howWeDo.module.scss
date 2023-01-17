@@ -1,0 +1,158 @@
+@import '../../../styles/variables.scss';
+
+.howWeDo{
+    
+    background-color: $secondBackgroundColor;
+    background-image: URL('./assets/HOW-WE-DO-FRASE.svg');
+    background-repeat: no-repeat;
+    background-position: -32px;
+
+    @media screen and (max-width: 599px) {
+    background-position: -32px 86px ;
+
+    }
+
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 24rem 1fr;
+
+    @media screen and (max-width: 599px)  {
+        grid-template-columns:  1fr;
+        
+    }
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+    @media screen and (max-width: 599px)  {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.containerButton{
+    margin-top: 84px;
+
+    @media screen and (max-width: 599px) {
+        display: none;
+    }
+}
+
+.unorderedList{
+    @media screen and (max-width: 599px) {
+        padding: 1rem;
+    }
+}
+
+.unorderedList, .ulReview {
+    color: $primaryTextColor;
+    font-size: 18px;
+}
+
+.listItem{
+    white-space: nowrap;
+}
+
+.listItem::before{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    margin-right: 12px;
+    transform: translatey(-2px);
+    height: 8px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: $primaryTextColor;
+}
+
+.content{
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (max-width:599px) {
+    grid-template-columns: repeat(1, 1fr);
+        
+    }
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+//Image
+.containerImage{
+    position: relative;
+    min-height: 510px;
+   
+    height: 100%;
+}
+
+//Review
+
+.reviewContainer{
+    margin: 1rem;
+    max-width: 510px;
+    min-height: 510px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.TitleReview{
+    font-family: $headingFont;
+    color: $primaryTextColor;
+    margin-bottom: 16px;
+    font-size: 36px;
+}
+
+.contentReview{
+    color: $secondaryTextColor;
+    font-size: 14px;
+}
+
+.ulReview{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.liReview{
+    white-space: nowrap;
+}
+
+.liReview::before{
+    content: '';
+    display: inline-block;
+    width: 8px;
+    margin-right: 12px;
+    transform: translatey(-2px);
+    height: 8px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8DF8FF 11.52%, #468EF9 91.55%);;
+}
+
+.buttonXS{
+    display: none;
+    @media screen and (max-width: 599px) {
+        display: block;
+        padding: 1rem;
+    }
+}
+.customBt{
+    width: 100% !important;
+}

@@ -1,0 +1,69 @@
+@import '../../../styles/variables.scss';
+
+
+.listService{
+    background-color: $primaryBackgroundColor;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-items:flex-start;
+    max-width: 1200px;
+}
+
+.title{
+    text-align: left;
+    font-family: $headingFont;
+    font-size: 36px;
+    color: $primaryTextColor;
+}
+
+.gridCards{
+    margin-top: 48px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    @media screen and (max-width: 599px) {
+        grid-template-columns: 1fr ;  
+    }
+}
+
+.card{
+    padding: 4rem;
+    background: linear-gradient(332.04deg, #2B2B2B -9.13%, rgba(43, 43, 43, 0.38) 93.1%);
+    border-radius: 10px
+}
+
+.cardImage{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+
+}
+
+.cardTitle{
+    color: $primaryTextColor;
+    font-family: $headingFont;
+    font-size: 18px;
+}
+
+.cardCaption{
+    font-size: 14px;
+    color: $secondaryTextColor;
+    min-height: 42px;
+}
+
+.link{
+    margin-top: 16px;
+    color: $primaryTextColor;
+    display: flex;
+    gap: 14px;
+}
