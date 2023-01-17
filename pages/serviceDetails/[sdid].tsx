@@ -8,6 +8,9 @@ import { HeroHome } from 'components/CaseStudies/HeroCaseStudies';
 import HeroServiceDetail from 'components/ServiceDetails/HeroServiceDetails';
 import QuoteAndResume from 'components/ServiceDetails/QuoteAndResume';
 import HowWeDo from 'components/ServiceDetails/HowWeDo';
+import { HeroFooter } from '@/shared/HeroFooter';
+import { CustomerFeedback } from 'components/Home/CustomerFeedback';
+import ListService from 'components/ServiceDetails/ListServices';
 
 const ServiceDetailPage: NextPage<DetailCaseStudyPage> = ({
   footer
@@ -35,14 +38,44 @@ const ServiceDetailPage: NextPage<DetailCaseStudyPage> = ({
         "phone": "2544-0080 ",
         "email": "info@cit.hn"
     }
+  }
+
+  const theFeedback = [
+    {
+        "id": 1,
+        "name": "Lore Ipsum",
+        "rate": 5,
+        "commentES": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nemo alias, possimus rem, consequatur voluptatum obcaecati repudiandae totam, est voluptates ab molestiae vitae. Quam explicabo eligendi iste maiores autem debitis.",
+        "picture": "https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/feedback/0.2808105197804527.png",
+        "isVisible": true,
+        "companyName": "Bip Bip"
+    },
+    {
+        "id": 3,
+        "name": "Lore Ipsum",
+        "rate": 5,
+        "commentES": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nemo alias, possimus rem, consequatur voluptatum obcaecati repudiandae totam, est voluptates ab molestiae vitae. Quam explicabo eligendi iste maiores autem debitis.",
+        "picture": "https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/feedback/0.5286248936582059.png",
+        "isVisible": true,
+        "companyName": "Patmed"
+    }
+]
+
+const theStar = {
+  "titleES": "Listo para comenzar?",
+  "captionES": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus eu sit suspendisse aliquet arcu bibendum. Turpis commodo libero vulputate sed. Sagittis et, euismod sagittis, leo commodo, a amet. Metus felis ipsum feugiat.",
+  "backgroundImg": "https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/Common/heroFooter/0.49751295307263255.jpg"
 }
   return (
     <Layout footerContent={theFooter} >
       <div>
 
-      <HeroServiceDetail></HeroServiceDetail>
-      <QuoteAndResume></QuoteAndResume>
-      <HowWeDo></HowWeDo>
+        <HeroServiceDetail></HeroServiceDetail>
+        <QuoteAndResume></QuoteAndResume>
+        <HowWeDo></HowWeDo>
+        <HeroFooter content={theStar} ></HeroFooter>
+        <CustomerFeedback feedback={theFeedback} ></CustomerFeedback>
+        <ListService></ListService>
       </div>
     </Layout>
 
