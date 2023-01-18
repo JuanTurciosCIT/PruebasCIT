@@ -1,0 +1,7 @@
+.marginTop8{
+    padding-top: 80px;
+
+    @media screen and (max-width: 599px) {
+        padding-top: 60px;
+    }
+}

@@ -11,7 +11,7 @@ const HeroServiceDetail =  ({ hero, customerList }: { hero: AboutHeroInterface, 
     const { t } = useTranslation(localeNamespaces.common);
 
     return(
-        <>
+        <div  >
         <div style={{backgroundImage: `url(${hero.pathImage})`}}  className={styles.hero}  >
 
             <section className={styles.container}  >
@@ -67,7 +67,7 @@ const HeroServiceDetail =  ({ hero, customerList }: { hero: AboutHeroInterface, 
         <div style={{backgroundImage: `url(${'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/Services/portada-design.svg'})`}} className={styles.bgXS}  >
 
         </div>
-        </>
+        </div>
     )
 
 }
