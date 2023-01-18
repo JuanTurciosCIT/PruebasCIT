@@ -1,6 +1,7 @@
 import { CustomerFeedbackSection, ServicesSection } from './../../types/homeContent.interface';
 import { LocationInterface, Contact, FooterSection, FooterHeroSection } from './../../types/commonContent.interface';
 import { supabase } from 'libs/supabaseClient';
+import { SummaryContent } from 'utils/types/serviceDetails.interface';
 
 export const ServiceDetailsService =  {
 
@@ -15,7 +16,6 @@ export const ServiceDetailsService =  {
             `pathImage, ${isEnglish ? 'tittleEn, nameEn, captionEn' : 'tittleEs, nameEs, captionEs'}`
         ).single();
 
-        console.log(data)
         if(error){
             console.log(error)
             console.log('A ocurrio un error al obtener el hero del servicio.')
@@ -31,7 +31,6 @@ export const ServiceDetailsService =  {
 			.select(`id, name, rate, ${isEnglish ? 'commentEN' : 'commentES'}, picture, isVisible, companyName`)
 			.eq('isVisible', true);
 
-      console.log(data)
 		if (error) {
 			console.log(
 				'An error occurred while fetching the customer feedback content: ',
@@ -97,7 +96,7 @@ export const ServiceDetailsService =  {
 			)
 			.neq('id', idServices)
 			.eq('isVisible', true);
-			console.log(data)
+		
 
 		if (error) {
 			console.log(
@@ -107,5 +106,26 @@ export const ServiceDetailsService =  {
 		}
 
 		return data as ServicesSection[];
+	},
+	getSummaryContent: async (locale: string, id_service:number) => {
+		const isEnglish = locale === 'en';
+		const { data, error } = await supabase
+		.rpc('get_service_summary', {
+            id_service
+        })
+        .select(
+           `id, idService ,${isEnglish ? 'tittleEn, captionEn, featuresEn, customerFeedbackEn' : 'tittleEs, captionEs, featuresEs, customerFeedbackEs'}`
+        ).single()
+
+
+		if (error) {
+			console.log(
+				'An error occurred while fetching the customer feedback content: ',
+				error
+			);
+		}
+
+		return data as SummaryContent;
 	}
+
 }

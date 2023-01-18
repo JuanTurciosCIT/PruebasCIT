@@ -7,13 +7,15 @@ export async function getDetailsServiceBy(locale: string = 'en', idService:numbe
     const footer = await ServiceDetailsService.getFooterContent();
     const customerFeedback = await ServiceDetailsService.getCustomerFeedbackContent(locale);
     const footerHero = await ServiceDetailsService.getHeroFooterContent(locale);
-    const services = await ServiceDetailsService.getServicesContent(locale, idService)
+    const services = await ServiceDetailsService.getServicesContent(locale, idService);
+    const summaryContent  = await ServiceDetailsService.getSummaryContent(locale, idService);
 
     return {
         aboutHero,
         footer,
         customerFeedback,
         footerHero,
-        services
+        services,
+        summaryContent
     }
 }

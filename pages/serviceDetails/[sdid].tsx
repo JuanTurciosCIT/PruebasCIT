@@ -66,16 +66,17 @@ const ServiceDetailPage: NextPage<ServiceDetailPage> = ({
   footer,
   customerFeedback,
   footerHero,
-  services
+  services,
+  summaryContent
 }) => {
 
-  console.log(footerHero)
+  console.log(summaryContent)
   return (
     <Layout footerContent={footer} >
       <div>
 
         <HeroServiceDetail hero={aboutHero} ></HeroServiceDetail>
-        <QuoteAndResume></QuoteAndResume>
+        <QuoteAndResume  summaryContent={summaryContent} ></QuoteAndResume>
         <HowWeDo></HowWeDo>
         <HeroFooter content={footerHero} ></HeroFooter>
         <CustomerFeedback feedback={customerFeedback} ></CustomerFeedback>
