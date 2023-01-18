@@ -3,8 +3,9 @@ import { CustomButton } from '@/shared/CustomButton';
 import styles from './heroServiceDetails.module.scss';
 import Image from 'next/image';
 import { AboutHeroInterface } from 'utils/types/serviceDetails.interface';
+import { CustomersSection } from 'utils/types/homeContent.interface';
 
-const HeroServiceDetail =  ({ hero }: { hero: AboutHeroInterface }) =>{
+const HeroServiceDetail =  ({ hero, customerList }: { hero: AboutHeroInterface, customerList:CustomersSection[] }) =>{
 
     return(
         <>
@@ -36,38 +37,21 @@ const HeroServiceDetail =  ({ hero }: { hero: AboutHeroInterface }) =>{
                         </div>
                         <section className={styles.rowImages}  >
 
-                            <div className={styles.containerImage} >
-                                <Image
-                                    layout='fill'
-                                    src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/clients/0.13199450480578245.png'}
 
-                                    objectFit='contain'
-                                    objectPosition='center'
-                                    alt='the-image'
-                                ></Image>
-                            </div>
+                            {
+                                customerList.map((image)=>(
+                                    <div key={image.id} className={styles.containerImage} >
+                                        <Image
+                                            layout='fill'
+                                            src={image.imagePath}
 
-                            <div className={styles.containerImage} >
-                                <Image
-                                    layout='fill'
-                                    src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/clients/0.10776630128715015.png'}
-
-                                    objectFit='contain'
-                                    objectPosition='center'
-                                    alt=''
-                                ></Image>
-                            </div>
-
-                            <div className={styles.containerImage} >
-                                <Image
-                                    layout='fill'
-                                    src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/clients/0.28318966915386756.png'}
-
-                                    objectFit='contain'
-                                    objectPosition='center'
-                                    alt=''
-                                ></Image>
-                            </div>
+                                            objectFit='contain'
+                                            objectPosition='center'
+                                            alt='the-image'
+                                        ></Image>
+                                    </div>
+                                ))
+                            }
                         </section>
                         
 

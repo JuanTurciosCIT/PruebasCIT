@@ -68,15 +68,15 @@ const ServiceDetailPage: NextPage<ServiceDetailPage> = ({
   footerHero,
   services,
   summaryContent,
-  servicesProcess
+  servicesProcess,
+  customers
 }) => {
-
-  console.log(servicesProcess)
+  
   return (
     <Layout footerContent={footer} >
       <div>
 
-        <HeroServiceDetail hero={aboutHero} ></HeroServiceDetail>
+        <HeroServiceDetail hero={aboutHero} customerList={customers} ></HeroServiceDetail>
         <QuoteAndResume  summaryContent={summaryContent} ></QuoteAndResume>
         <HowWeDo contentServicesProcess={servicesProcess}  ></HowWeDo>
         <HeroFooter content={footerHero} ></HeroFooter>

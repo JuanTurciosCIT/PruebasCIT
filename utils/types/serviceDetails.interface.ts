@@ -1,5 +1,5 @@
 import { FooterSection, FooterHeroSection } from './commonContent.interface';
-import { CustomerFeedbackSection, ServicesSection } from './homeContent.interface';
+import { CustomerFeedbackSection, ServicesSection, CustomersSection } from './homeContent.interface';
 export interface ServiceDetailPage{
     aboutHero: AboutHeroInterface;
     footer: FooterSection;
@@ -8,6 +8,7 @@ export interface ServiceDetailPage{
     services: ServicesSection[];
     summaryContent: SummaryContent;
     servicesProcess: ServicesProcess[];
+    customers: CustomersSection[]
 }
 
 export interface AboutHeroInterface{

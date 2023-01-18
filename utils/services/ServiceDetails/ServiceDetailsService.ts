@@ -1,4 +1,4 @@
-import { CustomerFeedbackSection, ServicesSection } from './../../types/homeContent.interface';
+import { CustomerFeedbackSection, ServicesSection, CustomersSection } from './../../types/homeContent.interface';
 import { LocationInterface, Contact, FooterSection, FooterHeroSection } from './../../types/commonContent.interface';
 import { supabase } from 'libs/supabaseClient';
 import { ServicesProcess, SummaryContent } from 'utils/types/serviceDetails.interface';
@@ -146,7 +146,28 @@ export const ServiceDetailsService =  {
 		}
 
 		return data as ServicesProcess[];
+	
+	
 	},
+	getCustomerList: async () => {
+
+		const { data, error } = await supabase
+		.from('Customer')
+  		.select('imagePath, id')
+		.range(0, 2)
+		.eq('isVisible', true);
+
+		console.log(data)
+
+		if (error) {
+			console.log(
+				'An error occurred while fetching the customer content: ',
+				error
+			);
+		}
+
+		return data as CustomersSection[];
+	}
 
 
 }

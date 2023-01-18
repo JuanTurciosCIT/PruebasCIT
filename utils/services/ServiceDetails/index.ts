@@ -10,6 +10,8 @@ export async function getDetailsServiceBy(locale: string = 'en', idService:numbe
     const services = await ServiceDetailsService.getServicesContent(locale, idService);
     const summaryContent  = await ServiceDetailsService.getSummaryContent(locale, idService);
     const servicesProcess = await ServiceDetailsService.getServicesProcess(locale, idService);
+    const customers = await ServiceDetailsService.getCustomerList();
+    
 
     return {
         aboutHero,
@@ -18,6 +20,7 @@ export async function getDetailsServiceBy(locale: string = 'en', idService:numbe
         footerHero,
         services,
         summaryContent,
-        servicesProcess
+        servicesProcess,
+        customers
     }
 }
