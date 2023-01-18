@@ -103,14 +103,15 @@
 }
 
 .listItem{
-    white-space: nowrap;
+    display: grid;
+    grid-template-columns: 18px 1fr ;
 }
 .listItem::before{
     content: '';
     display: inline-block;
     width: 8px;
     margin-right: 12px;
-    transform: translatey(-2px);
+    transform: translatey(9px);
     height: 8px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

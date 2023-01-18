@@ -60,7 +60,7 @@
 }
 
 .listItem{
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .listItem::before{
@@ -130,7 +130,9 @@
 
 
 .liReview{
-    white-space: nowrap;
+    display: grid;
+    grid-template-columns: 18px 1fr ;
+    
 }
 
 .liReview::before{
@@ -138,7 +140,7 @@
     display: inline-block;
     width: 8px;
     margin-right: 12px;
-    transform: translatey(-2px);
+    transform: translatey(9px);
     height: 8px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

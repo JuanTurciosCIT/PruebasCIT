@@ -59,12 +59,16 @@ const HowWeDo = ({contentServicesProcess}:{contentServicesProcess:ServicesProces
 
                                         {
                                             process.featuresEn?.map((item, i)=>(
-                                                <li className={style.liReview} key={i}   >{item}</li>
+                                                <li className={style.liReview} key={i}   >
+                                                    <div >{item}</div>
+                                                </li>
                                             ))
                                         }
                                         {
                                             process.featuresEs?.map((item, i)=>(
-                                                <li className={style.liReview} key={i}   >{item}</li>
+                                                <li className={style.liReview} key={i}   >
+                                                    <div>{item}</div>
+                                                </li>
                                             ))
                                         }
                                         
