@@ -2,8 +2,12 @@ import style from "./listService.module.scss";
 import Link from 'next/link';
 import Image from 'next/image';
 import arrowRight from '@/svg/arrow-right.svg';
+import { ServicesSection } from "utils/types/homeContent.interface";
+import useTranslation from 'next-translate/useTranslation';
+import { localeNamespaces } from "utils/types/localeNamespaces.enum";
 
-const ListService = () =>{
+const ListService = ( {listServices} :{listServices: ServicesSection[]}) =>{
+    const { t } = useTranslation(localeNamespaces.common);
 
     return(
         <div className={style.listService}  >
@@ -15,62 +19,33 @@ const ListService = () =>{
                 </div>
 
                 <div  className={style.gridCards} >
-                    <div  className={style.card} >
-                        <div  className={style.cardImage} >
-                            <Image
-                                layout='fill'
-                                src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/services/0.18985537190238388.png'}
-                                objectFit='contain'
-                                objectPosition='center'
-                                alt='the-design'
-                            ></Image>
-                        </div>
-                        <div  className={style.cardTitle} >Design Lab</div>
-                        <div  className={style.cardCaption} > UX/UI Design, Design System & Style Guides</div>
-                        
-                        <div className={style.link} >
-                            <Link href='/serviceDetails/1'>Ver mas</Link> 
-							<Image width={12} height={12} src={arrowRight} alt='Arrow right' quality={70} lazyBoundary='600px' />
-                        </div>
-                    </div>
 
-                    <div  className={style.card} >
-                        <div  className={style.cardImage} >
-                            <Image
-                                layout='fill'
-                                src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/services/0.18443319147604398.png'}
-                                objectFit='contain'
-                                objectPosition='center'
-                                alt='the-design'
-                            ></Image>
-                        </div>
-                        <div  className={style.cardTitle} >IT Outsourcing</div>
-                        <div  className={style.cardCaption} >24/7 IT Technical Support ( Tiers I & II) 24/7 Customer Technical Support</div>
-                        
-                        <div className={style.link} >
-                            <Link href='/serviceDetails/1'>Ver mas</Link> 
-							<Image width={12} height={12} src={arrowRight} alt='Arrow right' quality={70} lazyBoundary='600px' />
-                        </div>
-                    </div>
+                    {
+                        listServices.map((card)=>(
+                            
+                            <div key={card.id} className={style.card} >
+                                <div className={style.cardImage} >
+                                    <Image
+                                        layout='fill'
+                                        src={card.logo}
+                                        objectFit='contain'
+                                        objectPosition='center'
+                                        alt='the-design'
+                                    ></Image>
+                                </div>
+                                <div className={style.cardTitle} >{card.nameEN?? card.nameES}</div>
+                                <div className={style.cardCaption} > {card.descriptionEN  ?? card.descriptionES}</div>
 
-                    <div  className={style.card} >
-                        <div  className={style.cardImage} >
-                            <Image
-                                layout='fill'
-                                src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/services/0.2541479312977126.png'}
-                                objectFit='contain'
-                                objectPosition='center'
-                                alt='the-design'
-                            ></Image>
-                        </div>
-                        <div  className={style.cardTitle} >Micro Sevices</div>
-                        <div  className={style.cardCaption} >Branding, WIX & Shopify one stop setup, Advanced Websites</div>
-                        
-                        <div className={style.link} >
-                            <Link href='/serviceDetails/1'>Ver mas</Link> 
-							<Image width={12} height={12} src={arrowRight} alt='Arrow right' quality={70} lazyBoundary='600px' />
-                        </div>
-                    </div>
+                                <div className={style.link} >
+                                    <Link href={`/serviceDetails/${card.id}`}>{t('services.btn_text')}</Link>
+                                    <Image width={12} height={12} src={arrowRight} alt='Arrow right' quality={70} lazyBoundary='600px' />
+                                </div>
+                            </div>
+                        ))
+                    }
+
+
+                 
                     
                 </div>
 

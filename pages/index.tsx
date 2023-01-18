@@ -44,6 +44,7 @@ const Home: NextPage<HomeContent> & { skeletonLoader?: ReactNode } = ({
 	footerHero,
 	footer
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+	console.log(footerHero, 'index')
 	return (
 		<Layout footerContent={footer}>
 			<main>

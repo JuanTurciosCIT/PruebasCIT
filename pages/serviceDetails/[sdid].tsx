@@ -62,71 +62,24 @@ export const getStaticProps: GetStaticProps = async (
 
 
 const ServiceDetailPage: NextPage<ServiceDetailPage> = ({
-  aboutHero
+  aboutHero,
+  footer,
+  customerFeedback,
+  footerHero,
+  services
 }) => {
 
-  
-  const router = useRouter();
-  const theFooter = {
-    "locations": [
-        {
-            "address": "Delaware: \nCity Mall, San Pedro Sula, Cortés, Honduras",
-            "isVisible": true
-        },
-        {
-            "address": "Honduras Seguros del Pais  7th floor, aside City Mall, San Pedro Sula, Cortés, Honduras",
-            "isVisible": true
-        },
-        {
-            "address": "Estonia: Sepapaja 6 Tallin 1555",
-            "isVisible": true
-        }
-    ],
-    "contact": {
-        "facebook": "https://www.facebook.com/cithnd/",
-        "instagram": "https://www.instagram.com/cit.hn/",
-        "linkedin": "https://www.linkedin.com/company/cithn/",
-        "phone": "2544-0080 ",
-        "email": "info@cit.hn"
-    }
-  }
-
-  const theFeedback = [
-    {
-        "id": 1,
-        "name": "Lore Ipsum",
-        "rate": 5,
-        "commentES": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nemo alias, possimus rem, consequatur voluptatum obcaecati repudiandae totam, est voluptates ab molestiae vitae. Quam explicabo eligendi iste maiores autem debitis.",
-        "picture": "https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/feedback/0.2808105197804527.png",
-        "isVisible": true,
-        "companyName": "Bip Bip"
-    },
-    {
-        "id": 3,
-        "name": "Lore Ipsum",
-        "rate": 5,
-        "commentES": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nemo alias, possimus rem, consequatur voluptatum obcaecati repudiandae totam, est voluptates ab molestiae vitae. Quam explicabo eligendi iste maiores autem debitis.",
-        "picture": "https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/feedback/0.5286248936582059.png",
-        "isVisible": true,
-        "companyName": "Patmed"
-    }
-]
-
-const theStar = {
-  "titleES": "Listo para comenzar?",
-  "captionES": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus eu sit suspendisse aliquet arcu bibendum. Turpis commodo libero vulputate sed. Sagittis et, euismod sagittis, leo commodo, a amet. Metus felis ipsum feugiat.",
-  "backgroundImg": "https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/Common/heroFooter/0.49751295307263255.jpg"
-}
+  console.log(footerHero)
   return (
-    <Layout footerContent={theFooter} >
+    <Layout footerContent={footer} >
       <div>
 
         <HeroServiceDetail hero={aboutHero} ></HeroServiceDetail>
         <QuoteAndResume></QuoteAndResume>
         <HowWeDo></HowWeDo>
-        <HeroFooter content={theStar} ></HeroFooter>
-        <CustomerFeedback feedback={theFeedback} ></CustomerFeedback>
-        <ListService></ListService>
+        <HeroFooter content={footerHero} ></HeroFooter>
+        <CustomerFeedback feedback={customerFeedback} ></CustomerFeedback>
+        <ListService  listServices={services} ></ListService>
       </div>
     </Layout>
 
