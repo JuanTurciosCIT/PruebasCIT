@@ -2,12 +2,17 @@
 import { CustomButton } from '@/shared/CustomButton';
 import styles from './heroServiceDetails.module.scss';
 import Image from 'next/image';
+import { AboutHeroInterface } from 'utils/types/serviceDetails.interface';
+import { CustomersSection } from 'utils/types/homeContent.interface';
+import useTranslation from 'next-translate/useTranslation';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 
-const HeroServiceDetail =  () =>{
+const HeroServiceDetail =  ({ hero, customerList }: { hero: AboutHeroInterface, customerList:CustomersSection[] }) =>{
+    const { t } = useTranslation(localeNamespaces.common);
 
     return(
         <>
-        <div style={{backgroundImage: `url(${'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/Services/portada-design.svg'})`}}  className={styles.hero}  >
+        <div style={{backgroundImage: `url(${hero.pathImage})`}}  className={styles.hero}  >
 
             <section className={styles.container}  >
                 {/** Informacion */}
@@ -15,16 +20,15 @@ const HeroServiceDetail =  () =>{
 
                     <section className={styles.details}  >
 
-                        <div  className={styles.pill} >DESIGN LAB</div>
+                        <div  className={styles.pill} >{hero.nameEn ?? hero.nameEs}</div>
 
-                        <div  className={styles.title} >Big ideas need amazing solutions.</div>
+                        <div  className={styles.title} >{hero.tittleEn??hero.tittleEs}</div>
                         <div  className={styles.caption} >
-                            Don’t waste money implementing ideas without a plan.
-                            Apply UX methodologies to create UI that works instead.
+                            {hero.captionEn??hero.captionEs}
                         </div>
                             
                         <div className={styles.containerButton} >
-                            <CustomButton  path='' target='_blank'>Get Started!</CustomButton>
+                            <CustomButton  path='https://forms.monday.com/forms/c1b7794e1f9ef4b6851826edb9a11515' target='_blank'>{t('serviceBtnHero.value')}</CustomButton>
                         </div>
                     </section>
 
@@ -32,42 +36,25 @@ const HeroServiceDetail =  () =>{
 
                     <section className={styles.detailsFooter}  >
                         <div  className={styles.detailsCaption} >
-                            Companies that trust on us
+                            {t('serviceCompanies.value')}
                         </div>
                         <section className={styles.rowImages}  >
 
-                            <div className={styles.containerImage} >
-                                <Image
-                                    layout='fill'
-                                    src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/clients/0.13199450480578245.png'}
 
-                                    objectFit='contain'
-                                    objectPosition='center'
-                                    alt='the-image'
-                                ></Image>
-                            </div>
+                            {
+                                customerList.map((image)=>(
+                                    <div key={image.id} className={styles.containerImage} >
+                                        <Image
+                                            layout='fill'
+                                            src={image.imagePath}
 
-                            <div className={styles.containerImage} >
-                                <Image
-                                    layout='fill'
-                                    src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/clients/0.10776630128715015.png'}
-
-                                    objectFit='contain'
-                                    objectPosition='center'
-                                    alt=''
-                                ></Image>
-                            </div>
-
-                            <div className={styles.containerImage} >
-                                <Image
-                                    layout='fill'
-                                    src={'https://suthiuipgrzglbzvsbjv.supabase.co/storage/v1/object/public/cit-landing-page/HomePage/clients/0.28318966915386756.png'}
-
-                                    objectFit='contain'
-                                    objectPosition='center'
-                                    alt=''
-                                ></Image>
-                            </div>
+                                            objectFit='contain'
+                                            objectPosition='center'
+                                            alt='the-image'
+                                        ></Image>
+                                    </div>
+                                ))
+                            }
                         </section>
                         
 

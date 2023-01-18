@@ -30,5 +30,21 @@
     "title2": "Follow us",
     "copyright": "All rights reserved 2022 CIT",
     "policy": "Privacy Policy"
+  },
+  "customerFeedback": {
+    "title": "What they say about us"
+  },
+  "servicesList":{
+    "title": "Are you looking for a different service?"
+  },
+  "serviceBtnHero":{
+    "value": "Get Started! "
+  },
+  "serviceHWD_btn":{
+    "value": "Start Today"
+  },
+  "serviceCompanies":{
+    "value": "Companies that trust on us"
   }
+  
 }

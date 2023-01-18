@@ -22,7 +22,7 @@ export const CustomerFeedback = ({
 }) => {
 	const isMobile: boolean = useMediaQuery('(max-width: 599px)');
 	const { ref, inView } = useInView();
-	const { t } = useTranslation(localeNamespaces.HOME);
+	const { t } = useTranslation(localeNamespaces.common);
 
 	const swiper = useSwiper();
 	const swiperRef = useRef(swiper);
