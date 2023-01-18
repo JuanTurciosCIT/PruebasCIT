@@ -1,13 +1,11 @@
 import { Layout } from '@/shared/Layout';
-import { useRouter } from 'next/router'
-import { DetailCaseStudyPage } from 'utils/types/caseStudy.interface';
 import {
 	NextPage,
   GetStaticPaths,
   GetStaticProps,
   GetStaticPropsContext
 } from 'next';
-
+import style   from "./sdid.module.scss";
 import HeroServiceDetail from 'components/ServiceDetails/HeroServiceDetails';
 import QuoteAndResume from 'components/ServiceDetails/QuoteAndResume';
 import HowWeDo from 'components/ServiceDetails/HowWeDo';
@@ -74,7 +72,7 @@ const ServiceDetailPage: NextPage<ServiceDetailPage> = ({
   
   return (
     <Layout footerContent={footer} >
-      <div>
+      <div  className={style.marginTop8} >
 
         <HeroServiceDetail hero={aboutHero} customerList={customers} ></HeroServiceDetail>
         <QuoteAndResume  summaryContent={summaryContent} ></QuoteAndResume>
