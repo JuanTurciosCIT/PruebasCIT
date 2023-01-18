@@ -15,7 +15,7 @@ const ListService = ( {listServices} :{listServices: ServicesSection[]}) =>{
             <div className={style.container} >
 
                 <div className={style.title} >
-                    Are you looking for a different service?
+                    {t('servicesList.title')}
                 </div>
 
                 <div  className={style.gridCards} >

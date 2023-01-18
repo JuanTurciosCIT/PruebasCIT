@@ -15,7 +15,7 @@ const QuoteAndResume = ({summaryContent}:{summaryContent:SummaryContent}) => {
                     <div  className={styles.quote}  >
                    
 
-                        {summaryContent.customerFeedbackEs.title ?? summaryContent.customerFeedbackEs.title}
+                        {summaryContent.customerFeedbackEs?.title ?? summaryContent.customerFeedbackEn?.title }
                    
 
                         <div className={styles.doubleQuotes}></div>
@@ -23,11 +23,11 @@ const QuoteAndResume = ({summaryContent}:{summaryContent:SummaryContent}) => {
 
                     <div  className={styles.quoteFooter} >
                         <section  className={styles.name} >
-                        {summaryContent.customerFeedbackEs.author ?? summaryContent.customerFeedbackEs.author}
+                        {summaryContent.customerFeedbackEn?.author || summaryContent.customerFeedbackEs?.author}
 
                         </section>
                         <section  className={styles.jobTittle}  >
-                            {summaryContent.customerFeedbackEs.authorPosition ?? summaryContent.customerFeedbackEs.authorPosition}
+                            {summaryContent.customerFeedbackEn?.authorPosition ?? summaryContent.customerFeedbackEs?.authorPosition}
                         </section>
                     </div>
                 </section>

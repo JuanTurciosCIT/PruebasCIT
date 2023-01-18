@@ -4,8 +4,11 @@ import styles from './heroServiceDetails.module.scss';
 import Image from 'next/image';
 import { AboutHeroInterface } from 'utils/types/serviceDetails.interface';
 import { CustomersSection } from 'utils/types/homeContent.interface';
+import useTranslation from 'next-translate/useTranslation';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
 
 const HeroServiceDetail =  ({ hero, customerList }: { hero: AboutHeroInterface, customerList:CustomersSection[] }) =>{
+    const { t } = useTranslation(localeNamespaces.common);
 
     return(
         <>
@@ -25,7 +28,7 @@ const HeroServiceDetail =  ({ hero, customerList }: { hero: AboutHeroInterface, 
                         </div>
                             
                         <div className={styles.containerButton} >
-                            <CustomButton  path='' target='_blank'>Get Started!</CustomButton>
+                            <CustomButton  path='https://forms.monday.com/forms/c1b7794e1f9ef4b6851826edb9a11515' target='_blank'>{t('serviceBtnHero.value')}</CustomButton>
                         </div>
                     </section>
 
@@ -33,7 +36,7 @@ const HeroServiceDetail =  ({ hero, customerList }: { hero: AboutHeroInterface, 
 
                     <section className={styles.detailsFooter}  >
                         <div  className={styles.detailsCaption} >
-                            Companies that trust on us
+                            {t('serviceCompanies.value')}
                         </div>
                         <section className={styles.rowImages}  >
 

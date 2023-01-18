@@ -2,8 +2,12 @@ import { CustomButton } from '@/shared/CustomButton';
 import style from './howWeDo.module.scss';
 import Image from 'next/image';
 import { ServicesProcess } from 'utils/types/serviceDetails.interface';
+import { localeNamespaces } from 'utils/types/localeNamespaces.enum';
+import useTranslation from 'next-translate/useTranslation';
 
 const HowWeDo = ({contentServicesProcess}:{contentServicesProcess:ServicesProcess[]}) =>{
+
+    const { t } = useTranslation(localeNamespaces.common);
 
     return (
 
@@ -24,7 +28,7 @@ const HowWeDo = ({contentServicesProcess}:{contentServicesProcess:ServicesProces
                                 </ul>
 
                                 <div className={style.containerButton} >
-                                    <CustomButton path='' target='_blank' >Start Today</CustomButton>
+                                    <CustomButton path='https://forms.monday.com/forms/c1b7794e1f9ef4b6851826edb9a11515' target='_blank' >{t('serviceHWD_btn.value')}</CustomButton>
                                 </div>
                             </div>
 
@@ -54,13 +58,13 @@ const HowWeDo = ({contentServicesProcess}:{contentServicesProcess:ServicesProces
                                     <ul className={style.ulReview}   >
 
                                         {
-                                            process.featuresEn?.map((item)=>(
-                                                <li className={style.liReview} key={item}   >{item}</li>
+                                            process.featuresEn?.map((item, i)=>(
+                                                <li className={style.liReview} key={i}   >{item}</li>
                                             ))
                                         }
                                         {
-                                            process.featuresEs?.map((item)=>(
-                                                <li className={style.liReview} key={item}   >{item}</li>
+                                            process.featuresEs?.map((item, i)=>(
+                                                <li className={style.liReview} key={i}   >{item}</li>
                                             ))
                                         }
                                         
@@ -70,7 +74,7 @@ const HowWeDo = ({contentServicesProcess}:{contentServicesProcess:ServicesProces
 
                                 {/** Boton pero solo para movil (xs) */}
                                 <div className={style.buttonXS} >
-                                    <CustomButton isWidth100={true} path='' target='_blank' >Start Today</CustomButton>
+                                    <CustomButton isWidth100={true} path='https://forms.monday.com/forms/c1b7794e1f9ef4b6851826edb9a11515' target='_blank' >{t('serviceHWD_btn.value')}</CustomButton>
                                 </div>
                             </div>
 
