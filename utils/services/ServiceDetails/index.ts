@@ -9,6 +9,7 @@ export async function getDetailsServiceBy(locale: string = 'en', idService:numbe
     const footerHero = await ServiceDetailsService.getHeroFooterContent(locale);
     const services = await ServiceDetailsService.getServicesContent(locale, idService);
     const summaryContent  = await ServiceDetailsService.getSummaryContent(locale, idService);
+    const servicesProcess = await ServiceDetailsService.getServicesProcess(locale, idService);
 
     return {
         aboutHero,
@@ -16,6 +17,7 @@ export async function getDetailsServiceBy(locale: string = 'en', idService:numbe
         customerFeedback,
         footerHero,
         services,
-        summaryContent
+        summaryContent,
+        servicesProcess
     }
 }

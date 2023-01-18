@@ -1,7 +1,7 @@
 import { CustomerFeedbackSection, ServicesSection } from './../../types/homeContent.interface';
 import { LocationInterface, Contact, FooterSection, FooterHeroSection } from './../../types/commonContent.interface';
 import { supabase } from 'libs/supabaseClient';
-import { SummaryContent } from 'utils/types/serviceDetails.interface';
+import { ServicesProcess, SummaryContent } from 'utils/types/serviceDetails.interface';
 
 export const ServiceDetailsService =  {
 
@@ -126,6 +126,27 @@ export const ServiceDetailsService =  {
 		}
 
 		return data as SummaryContent;
-	}
+	},
+	getServicesProcess: async (locale: string, id_service:number) => {
+		const isEnglish = locale === 'en';
+		const { data, error } = await supabase
+		.rpc('get_service_process', {
+            id_service
+        })
+        .select(
+           `id, idService, pathImage ,${isEnglish ? 'nameEn, tittleEn, captionEn, featuresEn' : 'nameEs, tittleEs, captionEs, featuresEs'}`
+        )
+
+
+		if (error) {
+			console.log(
+				'An error occurred while fetching the services process content: ',
+				error
+			);
+		}
+
+		return data as ServicesProcess[];
+	},
+
 
 }

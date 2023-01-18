@@ -7,6 +7,7 @@ export interface ServiceDetailPage{
     footerHero: FooterHeroSection;
     services: ServicesSection[];
     summaryContent: SummaryContent;
+    servicesProcess: ServicesProcess[];
 }
 
 export interface AboutHeroInterface{
@@ -40,4 +41,20 @@ export interface CustomerFeedbackE {
     title:          string;
     author:         string;
     authorPosition: string;
+}
+
+export interface ServicesProcess {
+    id:         number;
+    nameEn:     string;
+    nameEs:     string;
+    tittleEn:   string;
+    tittleEs:   string;
+    captionEn:  string;
+    captionEs:  string;
+    pathImage:  string;
+    featuresEn: string[];
+    featuresEs: string[];
+    idService:  number;
+    isVisible:  boolean;
+    created_at: Date;
 }
