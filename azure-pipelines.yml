@@ -44,6 +44,7 @@ stages:
         script: |
           FILENAME= 'basename $(envfile,secureFilePath)'
           cp $(envfile.secureFilePath) $(Build.SourcesDirectory)/.env.local
+          ls
           
  
     - task: Docker@2
