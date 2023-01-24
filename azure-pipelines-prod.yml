@@ -3,7 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- develop
+- master
 
 resources:
 - repo: self
@@ -27,7 +27,7 @@ stages:
     - task: DownloadSecureFile@1
       name: envfile
       inputs:
-        secureFile: '.env.local.dev'
+        secureFile: '.env.local.prod'
 
 
 
@@ -62,7 +62,7 @@ stages:
         regionName: 'us-east-1'
         imageSource: 'imagename'
         sourceImageName: 'cit-website'
-        repositoryName: 'cit-website2.0-dev'
+        repositoryName: 'cit-website2.0'
     
     - task: CopyFiles@2
       displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
