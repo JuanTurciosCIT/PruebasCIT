@@ -27,7 +27,7 @@ stages:
     - task: DownloadSecureFile@1
       name: envfile
       inputs:
-        secureFile: '.env.local.dev'
+        secureFile: '.env.local'
 
 
 
