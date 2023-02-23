@@ -1,4 +1,5 @@
 import { FooterHeroSection, FooterSection } from "./commonContent.interface";
+import { EmployeesContent } from "./employeesContent";
 
 export interface CareerContentInterface {
   hero: CareerHeroInterface;
@@ -8,6 +9,7 @@ export interface CareerContentInterface {
   employees: CareerEmployeeInterface[];
   footerHero: FooterHeroSection;
   footer: FooterSection;
+  employeeContent: EmployeesContent
 }
 
 export interface CareerHeroInterface {

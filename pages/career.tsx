@@ -32,12 +32,13 @@ export const getStaticProps: GetStaticProps<CareerContentInterface> = async (con
 
 const Home: NextPage<CareerContentInterface> & { skeletonLoader?: ReactNode } = ({
 	hero,
-  officesPictures,
+  	officesPictures,
 	benefits,
 	employeesFeedback,
 	employees,
 	footerHero,
-	footer
+	footer,
+	employeeContent
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 	return (
@@ -49,7 +50,7 @@ const Home: NextPage<CareerContentInterface> & { skeletonLoader?: ReactNode } = 
 			<CareerBenefits benefits={benefits} />
 			<CareerGallery content={officesPictures} />
 			<TeamFeedback feedback={employeesFeedback} />
-			<TheTeam employees={employees} theme='theme1' />
+			<TheTeam employees={employees} theme='theme1' employeeContent={employeeContent}/>
 			<HeroFooter content={footerHero} />
 		</Layout>
 	);

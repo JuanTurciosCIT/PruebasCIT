@@ -11,12 +11,9 @@ import SliderButtons from "@/shared/SliderButtons";
 import { localeNamespaces } from "utils/types/localeNamespaces.enum";
 import { CareerEmployeeInterface } from "utils/types/careerContent.interface";
 import { useRouter } from "next/router";
+import { EmployeesContent } from "utils/types/employeesContent";
 
-export const Team = ({
-  employees,
-}: {
-  employees: CareerEmployeeInterface[];
-}) => {
+export const Team = ({employees, employeesContent}: {employees: CareerEmployeeInterface[], employeesContent: EmployeesContent}) => {
   const isMobile: boolean = useMediaQuery("(max-width: 599px)");
   const swiper = useSwiper();
   const swiperRef = useRef(swiper);
@@ -40,7 +37,7 @@ export const Team = ({
     <section className={style.section}>
       <div>
         <h2 className={`${utils.headingMedium} ${style.title}`}>
-          {t('team.title')}
+          {employeesContent.tittleEn || employeesContent.tittleEs}
         </h2>
         <div>
           <div className={style.grid}>
