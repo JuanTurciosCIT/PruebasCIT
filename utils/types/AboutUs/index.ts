@@ -1,5 +1,6 @@
 import { CareerEmployeeInterface } from "../careerContent.interface";
 import { FooterHeroSection, FooterSection } from "../commonContent.interface";
+import { EmployeesContent } from "../employeesContent";
 import { AboutHeroInterface, AboutMetric, AboutCompanyValue, AboutMetricContent, AboutCoComment, AboutCustomers } from "./aboutUsContent.interfaces";
 
 export interface AboutContent {
@@ -12,4 +13,5 @@ export interface AboutContent {
     aboutCustomers: AboutCustomers;
     footerHero: FooterHeroSection;
     footerContent: FooterSection;
+    employeesContent: EmployeesContent
 }

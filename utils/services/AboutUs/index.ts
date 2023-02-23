@@ -1,4 +1,5 @@
 import { AboutContent } from "utils/types/AboutUs";
+import { CareerContentService } from "../CareerContentService";
 import { CommonContentService } from "../CommonContentService";
 import { AboutUsService } from "./AboutUsServiceContent";
 
@@ -13,6 +14,7 @@ export async function getAboutUsContent(locale: string = 'en'): Promise<AboutCon
     const employees = await CommonContentService.getEmployees(locale);
     const aboutCustomers = await AboutUsService.getCustomers(locale);
     const footerContent = await CommonContentService.getFooterContent();
+    const employeesContent = await CareerContentService.getEmployeesContent(locale);
     return {
         aboutHero,
         metricContent,
@@ -22,6 +24,7 @@ export async function getAboutUsContent(locale: string = 'en'): Promise<AboutCon
         employees,
         aboutCustomers,
         footerHero,
-        footerContent
+        footerContent,
+        employeesContent
     }
 }

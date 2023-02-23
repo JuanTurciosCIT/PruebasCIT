@@ -1,6 +1,7 @@
 import { supabase } from 'libs/supabaseClient';
 import { CareerBenefitsInterface, CareerEmployeeFeedbackInterface, CareerEmployeeInterface, CareerHeroInterface, CareerOfficesInterface } from 'utils/types/careerContent.interface';
 import { FooterHeroSection } from 'utils/types/commonContent.interface';
+import { EmployeesContent } from 'utils/types/employeesContent';
 
 export const CareerContentService = {
   getHeroContent: async (locale: string) => {
@@ -92,4 +93,17 @@ export const CareerContentService = {
 
 		return data as FooterHeroSection;
 	},
+
+  getEmployeesContent: async (locale: string) => {
+    const isEnglish = locale === 'en';
+    const { data, error } = await supabase.from('EmployeesContent')
+    .select(`${isEnglish? 'tittleEn, captionEn': 'tittleEs, captionEs'}`)
+    .range(0,0)
+    .single();
+
+    if(error){
+      console.log('An error occurred while fetching data employees content', error)
+    }
+    return data as EmployeesContent
+  }
 }
