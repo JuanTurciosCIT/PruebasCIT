@@ -59,7 +59,7 @@ export default function Footer({ content }: { content: FooterSection }) {
 									className={`${utils.textSmall} ${styles.text}`}
 									key={address}
 								>
-									{getFirstWord(address)} <br />
+									{getFirstWord(address)} 
 									{restOfText(address)}
 								</p>
 							))}
