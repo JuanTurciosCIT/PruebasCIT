@@ -44,8 +44,8 @@
     background-color:  $thirdColor;
     color: $primaryTextColor;
     border-radius: 0.5rem;
-    width: 12.5rem;
-    height: 4.3rem;
+    padding: 14px 28px 14px 28px;
+    
     border: none;
 
     &:hover {
@@ -65,8 +65,5 @@
         padding-bottom: 4rem;
         padding-inline: 33rem;
     }
-    .button {
-        width: 14.1rem;
-        height: 5.1rem;
-    }
+    
 }
