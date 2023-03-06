@@ -10,8 +10,9 @@ export const CommonContentService = {
 		const { data, error } = await supabase
 			.from<ServicesSection>('Services')
 			.select(
-				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo, isVisible, id`
+				`${isEnglish ? 'nameEN, descriptionEN' : 'nameES, descriptionES'}, logo, isVisible ,id`
 			)
+			.order('order', {ascending: true})
 			.eq('isVisible', true);
 
 		if (error) {

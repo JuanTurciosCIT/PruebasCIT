@@ -55,6 +55,7 @@ export interface ServicesSection {
   descriptionES?: string;
   descriptionEN?: string;
   logo: string;
+  order: number;
   isVisible: boolean;
 }
 
