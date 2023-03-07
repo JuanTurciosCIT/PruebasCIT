@@ -43,7 +43,7 @@ stages:
         targetType: 'inline'
         script: |
           FILENAME= 'basename $(envfile,secureFilePath)'
-          cp $(envfile.secureFilePath) $(Build.SourcesDirectory)/${FILENAME}
+          cp $(envfile.secureFilePath) $(Build.SourcesDirectory)/.env.local
           ls
  
     - task: Docker@2
