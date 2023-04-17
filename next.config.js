@@ -13,6 +13,9 @@ const nextTranslate = require('next-translate');
 // module.export = nextConfig;
 
 module.exports = nextTranslate({
+  defaultLocale: 'es',
+  locales: ['es', 'en'],
+  localeDetection: false,
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
@@ -22,5 +25,13 @@ module.exports = nextTranslate({
   },
   experimental: {
     esmExternals: false,
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/es',
+      },
+    ]
+  },
 });
