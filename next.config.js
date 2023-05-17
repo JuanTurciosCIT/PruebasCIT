@@ -7,7 +7,7 @@ module.exports = nextTranslate({
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
-  distDir: `build/${locale}`,
+  distDir: `build/${locale === "es" ? "es" : "en"}`,
   images: {
     minimumCacheTTL: 31536000,
     domains: [`${process.env.NEXT_PUBLIC_PROJECT_ID}.supabase.co`]
