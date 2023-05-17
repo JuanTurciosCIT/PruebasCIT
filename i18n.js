@@ -1,6 +1,8 @@
-{
+const locale = process.env.NEXT_LOCALE;
+
+module.exports = {
   "locales": ["es", "en"],
-  "defaultLocale": "es",
+  "defaultLocale": locale === "es" ? "es" : "en",
   "localeDetection": false,
   "pages": {
     "*": ["common"],
