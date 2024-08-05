@@ -51,7 +51,7 @@ stages:
       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        arguments: '--build-arg NEXT_PUBLIC_SUPABASE_URL=$(NEXT_PUBLIC_SUPABASE_URL) --build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY=$(NEXT_PUBLIC_SUPABASE_ANON_KEY) --build-arg NEXT_PUBLIC_PROJECT_ID=$(NEXT_PUBLIC_PROJECT_ID) --tag $(image):latest'
+        arguments: '--build-arg NEXT_PUBLIC_SUPABASE_URL=$(NEXT_PUBLIC_SUPABASE_URL) --build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY=$(NEXT_PUBLIC_SUPABASE_ANON_KEY) --build-arg NEXT_PUBLIC_PROJECT_ID=$(NEXT_PUBLIC_PROJECT_ID)'
         tags: |
           $(tag)
           latest
