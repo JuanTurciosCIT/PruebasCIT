@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import useTranslation from 'next-translate/useTranslation';

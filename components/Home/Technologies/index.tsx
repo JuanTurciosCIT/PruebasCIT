@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useInView } from 'react-intersection-observer';

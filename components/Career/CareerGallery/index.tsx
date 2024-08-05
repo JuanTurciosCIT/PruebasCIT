@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
 import Image from 'next/future/image';
 import { useRef, useCallback } from 'react';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
