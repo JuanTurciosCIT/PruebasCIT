@@ -2,8 +2,8 @@ const nextTranslate = require('next-translate');
 const locale = process.env.NEXT_LOCALE;
 
 module.exports = nextTranslate({
-  defaultLocale: locale,
-  localeDetection: false,
+  // defaultLocale: locale,
+  // localeDetection: false,
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
