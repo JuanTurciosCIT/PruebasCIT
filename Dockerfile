@@ -12,6 +12,16 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
+# Define ARGs for build arguments
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ARG NEXT_PUBLIC_PROJECT_ID
+
+# Set environment variables
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
+ENV NEXT_PUBLIC_PROJECT_ID=$NEXT_PUBLIC_PROJECT_ID
+
 # Rebuild the source code only when needed
 FROM node:18-alpine AS builder
 WORKDIR /app
