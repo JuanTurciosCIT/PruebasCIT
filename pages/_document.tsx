@@ -21,7 +21,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <Script id="intercom-settings">
+          <Script id="intercom-settings" strategy="beforeInteractive">
             {`
               window.intercomSettings = {
                 api_base: "https://api-iam.intercom.io",
@@ -29,7 +29,7 @@ class MyDocument extends Document {
               };
             `}
           </Script>
-          <Script id="intercom-widget">
+          <Script id="intercom-widget" strategy="beforeInteractive">
             {`
               (function(){
                 var w=window;
