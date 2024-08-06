@@ -43,9 +43,13 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
 # Automatically leverage output traces to reduce image size
-COPY --from=builder --chown=1001:1001 /app/build/en/standalone ./
-COPY --from=builder --chown=1001:1001 /app/build/en/static ./.next/static
+# Sin distDir personalizado, los archivos se generan en .next
+COPY --from=builder --chown=1001:1001 /app/.next/standalone ./
+COPY --from=builder --chown=1001:1001 /app/.next/static ./.next/static
 
+#Docker Con Dir Personalizado.
+# COPY --from=builder --chown=1001:1001 /app/build/en/standalone ./
+# COPY --from=builder --chown=1001:1001 /app/build/en/static ./.next/static
 USER nextjs
 
 EXPOSE 3000
