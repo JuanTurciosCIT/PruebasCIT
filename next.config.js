@@ -7,7 +7,7 @@ module.exports = nextTranslate({
   output: 'export',
   images: {
     minimumCacheTTL: 31536000,
-    domains: [new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname,]
+    domains: supabaseUrl ? [new URL(supabaseUrl).hostname] : []
   },
   experimental: {
     esmExternals: false,
