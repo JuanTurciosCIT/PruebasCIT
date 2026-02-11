@@ -4,8 +4,12 @@ const locale = process.env.NEXT_LOCALE;
 module.exports = nextTranslate({
   reactStrictMode: true,
   swcMinify: true,
+  output: 'export',
   images: {
     minimumCacheTTL: 31536000,
     domains: [new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname,]
+  },
+  experimental: {
+    esmExternals: false,
   }
 });
